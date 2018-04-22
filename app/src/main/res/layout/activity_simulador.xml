@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.eurezzolve.eucorretor.activities.primarias.SimuladorActivity"
+    tools:layout_editor_absoluteY="81dp">
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="60dp"
+        android:fontFamily="@font/roboto"
+        android:text="O Simulador Habitacional serve como uma base para auxiliar o corretor no quesito financiamento, visto que muitos ainda possui uma certa dificuldade.\n Com isso nos da EuCorretor adicionamos uma função pensando em vocês!\n Agora ficou muito mais fácil, tudo na palma da mão.\n Escolha o banco que trabalha!"
+        android:textAlignment="center"
+        android:textColor="@color/colorTextBlack"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonBB"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:fontFamily="@font/roboto"
+        android:text="Trabalha com algum outro Banco? Mande um email para nós! =D"
+        android:textAlignment="center"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/buttonBB"
+        style="@style/RaisedButtons"
+        android:layout_width="336dp"
+        android:layout_height="45dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        android:backgroundTint="@color/colorBB"
+        android:drawableLeft="@drawable/ic_config_banco"
+        android:fontFamily="@font/roboto"
+        android:onClick="btBBEntrar"
+        android:text="Banco do Brasil"
+        android:textAlignment="viewStart"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/buttonCaixa"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView10" />
+
+    <Button
+        android:id="@+id/buttonCaixa"
+        android:layout_width="336dp"
+        android:layout_height="45dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="@color/colorCaixa"
+        android:drawableLeft="@drawable/ic_config_banco"
+        android:fontFamily="@font/roboto"
+        android:onClick="btCaixaEntrar"
+        android:text="CAIXA"
+        android:textAlignment="viewStart"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonBB" />
+
+</android.support.constraint.ConstraintLayout>

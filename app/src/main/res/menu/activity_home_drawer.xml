@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_principal"
+            android:icon="@drawable/ic_menu_principal"
+            android:title="Página Principal" />
+        <item
+            android:id="@+id/nav_tabelas"
+            android:icon="@drawable/ic_menu_tables"
+            android:title="Tabelas" />
+        <item
+            android:id="@+id/nav_simulador"
+            android:icon="@drawable/ic_menu_simulador"
+            android:title="Simulador" />
+        <item
+            android:id="@+id/nav_duvidas"
+            android:icon="@drawable/ic_menu_help"
+            android:title="Dúvidas" />
+        <item
+            android:id="@+id/nav_configuracoes"
+            android:icon="@drawable/ic_menu_settings"
+            android:title="Configurações" />
+    </group>
+
+</menu>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#00BCD4</color>
+    <color name="colorPrimaryDark">#0097A7</color>
+    <color name="colorAccent">#69f0ae</color>
+
+    <!--Cores Utilizadas -->
+    <color name="colorTextBlack">#000000</color>
+
+    <!-- Cores Secundaria da Configuracao -->
+    <color name="configuracoesDois">#f2f2f2</color>
+
+    <!-- Cores dos Bancos -->
+    <color name="colorCaixa">#4286AB</color>
+    <color name="colorBB">#FEF200</color>
+
+    <color name="background_material_dark">#dedbdb</color>
+
+    <!-- Cor da Toolbar Home -->
+    <color name="toolbarHomeColor">#00BCD4</color>
+</resources>

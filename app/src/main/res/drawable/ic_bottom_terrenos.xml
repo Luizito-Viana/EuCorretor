@@ -1,0 +1,12 @@
+<vector android:height="24dp" android:viewportHeight="496.0"
+    android:viewportWidth="496.0" android:width="24dp" xmlns:android="http://schemas.android.com/apk/res/android">
+    <path android:fillColor="#FF000000" android:pathData="M232,384H8c-4.4,0 -8,3.6 -8,8v96c0,4.4 3.6,8 8,8h224c4.4,0 8,-3.6 8,-8v-96C240,387.6 236.4,384 232,384zM224,480H16v-48h208V480zM224,416H16v-16h208V416z"/>
+    <path android:fillColor="#FF000000" android:pathData="M488,384H264c-4.4,0 -8,3.6 -8,8v96c0,4.4 3.6,8 8,8h224c4.4,0 8,-3.6 8,-8v-96C496,387.6 492.4,384 488,384zM480,480H272v-48h208V480zM480,416H272v-16h208V416z"/>
+    <path android:fillColor="#FF000000" android:pathData="M128,264v96c0,4.4 3.6,8 8,8h224c4.4,0 8,-3.6 8,-8v-96c0,-4.4 -3.6,-8 -8,-8H136C131.6,256 128,259.6 128,264zM144,272h208v16H144V272zM144,304h208v48H144V304z"/>
+    <path android:fillColor="#FF000000" android:pathData="M488,256h-96c-4.4,0 -8,3.6 -8,8v96c0,4.4 3.6,8 8,8h96c4.4,0 8,-3.6 8,-8v-96C496,259.6 492.4,256 488,256zM480,352h-80v-48h80V352zM480,288h-80v-16h80V288z"/>
+    <path android:fillColor="#FF000000" android:pathData="M8,368h96c4.4,0 8,-3.6 8,-8v-96c0,-4.4 -3.6,-8 -8,-8H8c-4.4,0 -8,3.6 -8,8v96C0,364.4 3.6,368 8,368zM16,272h80v16H16V272zM16,304h80v48H16V304z"/>
+    <path android:fillColor="#FF000000" android:pathData="M8,240h224c4.4,0 8,-3.6 8,-8v-96c0,-4.4 -3.6,-8 -8,-8H8c-4.4,0 -8,3.6 -8,8v96C0,236.4 3.6,240 8,240zM16,144h208v16H16V144zM16,176h208v48H16V176z"/>
+    <path android:fillColor="#FF000000" android:pathData="M488,128H264c-4.4,0 -8,3.6 -8,8v96c0,4.4 3.6,8 8,8h224c4.4,0 8,-3.6 8,-8v-96C496,131.6 492.4,128 488,128zM480,224H272v-48h208V224zM480,160H272v-16h208V160z"/>
+    <path android:fillColor="#FF000000" android:pathData="M136,112h224c4.4,0 8,-3.6 8,-8V8c0,-4.4 -3.6,-8 -8,-8H136c-4.4,0 -8,3.6 -8,8v96C128,108.4 131.6,112 136,112zM144,16h208v16H144V16zM144,48h208v48H144V48z"/>
+    <path android:fillColor="#FF000000" android:pathData="M8,112h96c4.4,0 8,-3.6 8,-8V8c0,-4.4 -3.6,-8 -8,-8H8C3.6,0 0,3.6 0,8v96C0,108.4 3.6,112 8,112zM16,16h80v16H16V16zM16,48h80v48H16V48z"/>
+</vector>

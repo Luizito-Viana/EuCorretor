@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1048461687196",
+    "firebase_url": "https://eurezzolve-ec.firebaseio.com",
+    "project_id": "eurezzolve-ec",
+    "storage_bucket": "eurezzolve-ec.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1048461687196:android:4ccde6c21bf47287",
+        "android_client_info": {
+          "package_name": "com.eurezzolve.eucorretor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1048461687196-sul065cqgke4tr3r1e7gemalil2ov7j0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.eurezzolve.eucorretor",
+            "certificate_hash": "633b7a24f0d49614168d83a54e48c698c61f6d54"
+          }
+        },
+        {
+          "client_id": "1048461687196-rau6m4rud7pjvv5b89tnmjpboaulukse.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDoPx7LynWbPAuPjhz-Z-u_W1biI2u9K-s"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1048461687196-rau6m4rud7pjvv5b89tnmjpboaulukse.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.eurezzolve.eucorretor">
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@drawable/ic_notification_alert" />
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_color"
+            android:resource="@color/colorPrimary" />
+
+        <!-- Aqui temos a Intro Activity que é a SplashScreen -->
+        <activity
+            android:name=".activities.introducao.SplashScreen"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppCompat.TelaCheia">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <!-- Aqui temos a HomeActivity -->
+        <activity
+            android:name=".activities.primarias.HomeActivity"
+            android:label="@string/title_activity_home"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+        <!-- Activitys Padrões -->
+        <activity android:name=".activities.introducao.CadastroActivity" />
+        <activity android:name=".activities.introducao.LoginActivity" />
+        <activity android:name=".activities.primarias.ConfiguracoesActivity" />
+        <activity android:name=".activities.primarias.DuvidasActivity" />
+        <activity android:name=".activities.secundarias.DuvidasFinanciamentoActivity" />
+        <activity android:name=".activities.secundarias.DuvidasSimulacaoActivity" />
+        <activity android:name=".activities.secundarias.DuvidasDocumentacaoActivity" />
+        <activity android:name=".activities.primarias.SimuladorActivity" />
+        <activity android:name=".activities.secundarias.LegendaActivity" />
+        <activity android:name=".activities.secundarias.SobreActivity" />
+        <activity android:name=".activities.secundarias.PerfilActivity" />
+
+        <!-- Activity Tabela -->
+        <activity
+            android:name=".activities.primarias.TabelasActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <!--
+             The API key for Google Maps-based APIs is defined as a string resource.
+             (See the file "res/values/google_maps_api.xml").
+             Note that the API key is linked to the encryption key used to sign the APK.
+             You need a different API key for each encryption key, including the release key that is used to
+             sign the APK for publishing.
+             You can define the keys for the debug and release targets in src/debug/ and src/release/. 
+        -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyBgk8RutXjUkDPtQ5kq3bioeDC4E06JnTQ" />
+
+        <activity
+            android:name=".fragments.MapsActivity"
+            android:label="@string/title_activity_maps" />
+        <activity android:name=".activities.secundarias.NotificacaoActivity" />
+
+        <service android:name=".notification.MyFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+        <service android:name=".notification.MyFirebaseInstanceIDService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
+
+        <activity android:name=".activities.terciarias.AtualizarLoginActivity" />
+        <activity
+            android:name=".activities.introducao.MainActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".activities.introducao.ResetActivity"></activity>
+    </application>
+
+</manifest>
