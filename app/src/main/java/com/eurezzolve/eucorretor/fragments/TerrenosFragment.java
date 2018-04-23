@@ -5,24 +5,20 @@ import android.location.Criteria;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
-import android.widget.LinearLayout;
 
-import com.eurezzolve.eucorretor.activities.primarias.HomeActivity;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 /**
- * Created by viana_2 on 20/04/2018.
+ * Created by viana_2 on 22/04/2018.
  */
 
-public class TerceirosFragment extends SupportMapFragment
+public class TerrenosFragment extends SupportMapFragment
         implements OnMapReadyCallback, GoogleMap.OnMapClickListener {
 
     //Definação das Variaveis
@@ -67,14 +63,15 @@ public class TerceirosFragment extends SupportMapFragment
         LatLng barao177 = new LatLng(-18.923511,-48.277237);
         LatLng evidenceResidencial = new LatLng(-18.923221,-48.275812);
         LatLng lidicePremium = new LatLng(-18.926833,-48.278707);
-        criarMarcadoresTerceiros(barao177, "Terreno Teste 1", "Venda: R$150.000,00");
-        criarMarcadoresTerceiros(evidenceResidencial, "Terreno Teste 2", "Venda: R$160.000,00");
-        criarMarcadoresTerceiros(lidicePremium, "Terreno Teste 3", "Venda: R$170.000,00");
+        criarMarcadoresTerrenos(barao177, "Terreno Teste 1", "Venda: R$150.000,00");
+        criarMarcadoresTerrenos(evidenceResidencial, "Terreno Teste 2", "Venda: R$160.000,00");
+        criarMarcadoresTerrenos(lidicePremium, "Terreno Teste 3", "Venda: R$170.000,00");
+
     }
 
-    public void criarMarcadoresTerceiros(LatLng position, String tittle, String snippet){
+    public void criarMarcadoresTerrenos(LatLng position, String tittle, String snippet){
         mMap.addMarker(new MarkerOptions().position(position)
-                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED))
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW))
                 .title(tittle).snippet(snippet));
     }
 
@@ -82,5 +79,4 @@ public class TerceirosFragment extends SupportMapFragment
     public void onMapClick(LatLng latLng) {
 
     }
-
 }

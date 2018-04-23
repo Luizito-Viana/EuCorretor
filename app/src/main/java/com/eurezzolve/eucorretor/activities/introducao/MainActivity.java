@@ -81,4 +81,10 @@ public class MainActivity extends IntroActivity {
     public void abrirHomeActivity(){
         startActivity(new Intent(this, HomeActivity.class));
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finishAffinity();
+    }
 }

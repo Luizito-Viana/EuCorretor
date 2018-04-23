@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.eurezzolve.eucorretor.R;
 import com.eurezzolve.eucorretor.activities.introducao.MainActivity;
+import com.eurezzolve.eucorretor.activities.secundarias.CadastroImoveisActivity;
 import com.eurezzolve.eucorretor.activities.secundarias.LegendaActivity;
 import com.eurezzolve.eucorretor.activities.secundarias.NotificacaoActivity;
 import com.eurezzolve.eucorretor.activities.secundarias.PerfilActivity;
@@ -96,6 +97,9 @@ public class ConfiguracoesActivity extends AppCompatActivity {
         config = new Config("Notificações", R.drawable.ic_config_alertas,4);
         listaConfig.add(config);
 
+        config = new Config("Cadastro de imóveis", R.drawable.ic_config_cadastroimoveis, 6);
+        listaConfig.add(config);
+
         config = new Config("Indique", R.drawable.ic_config_indique, 5);
         listaConfig.add(config);
 
@@ -131,6 +135,11 @@ public class ConfiguracoesActivity extends AppCompatActivity {
             case 5: //Chama a funcao para enviar a um novo usuario
                 //inviteCall();
                 Toast.makeText(ConfiguracoesActivity.this,"Ainda não aprimorado",Toast.LENGTH_SHORT).show();
+                break;
+            case 6:
+                startActivity(new Intent(ConfiguracoesActivity.this, CadastroImoveisActivity.class));
+                break;
+            default:
                 break;
         }
     }

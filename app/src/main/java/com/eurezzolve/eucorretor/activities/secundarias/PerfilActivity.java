@@ -226,6 +226,7 @@ public class PerfilActivity extends AppCompatActivity {
                 }
 
                 if (imagem != null){
+                    progressBarPerfil.setVisibility(View.VISIBLE);
                     imageViewPerfil.setImageBitmap(imagem);
 
                     FirebaseAuth usuario = ConfiguracaoFirebase.getFirebaseAutenticacao();
@@ -256,6 +257,7 @@ public class PerfilActivity extends AppCompatActivity {
                             Toast.makeText(PerfilActivity.this,"Sucesso ao fazer o upload da imagem", Toast.LENGTH_SHORT).show();
                             Uri url = taskSnapshot.getDownloadUrl();
                             atualizaFotoUsuario(url);
+                            progressBarPerfil.setVisibility(View.GONE);
                         }
                     });
                 }

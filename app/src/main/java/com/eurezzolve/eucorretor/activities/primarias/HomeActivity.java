@@ -29,6 +29,7 @@ import com.eurezzolve.eucorretor.config.ConfiguracaoFirebase;
 import com.eurezzolve.eucorretor.config.UsuarioFirebase;
 import com.eurezzolve.eucorretor.fragments.MapsActivity;
 import com.eurezzolve.eucorretor.fragments.TerceirosFragment;
+import com.eurezzolve.eucorretor.fragments.TerrenosFragment;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.miguelcatalan.materialsearchview.MaterialSearchView;
@@ -42,19 +43,17 @@ public class HomeActivity extends AppCompatActivity
 {
 
     private static final String primeiraEx = "firstRun";
-
-    private FirebaseAuth autenticacao;
     private FragmentManager fragmentManager;
     private CircleImageView circleImageView;
     private TextView textNomeNav;
     private SharedPreferences preferences;
-    //private MaterialSearchView searchView;
+    private MaterialSearchView searchView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar2);
         toolbar.setTitle("");
         setSupportActionBar(toolbar);
 
@@ -65,19 +64,19 @@ public class HomeActivity extends AppCompatActivity
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
+
         /*Navigation View*/
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         View headerLayout = navigationView.getHeaderView(0);
         circleImageView = headerLayout.findViewById(R.id.circleImage);
         textNomeNav = headerLayout.findViewById(R.id.textNomeNav);
-        recuperarDadosNav();
 
         /*Bottom Navigation*/
         BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottom_nav_view);
         bottomNavigationView.setOnNavigationItemSelectedListener(this);
 
-        //searchView = findViewById(R.id.search_view);
+        searchView = findViewById(R.id.search_view);
 
         fragmentManager = getSupportFragmentManager();
         FragmentTransaction transaction = fragmentManager.beginTransaction(); //Responsavel por iniciar
@@ -86,6 +85,12 @@ public class HomeActivity extends AppCompatActivity
 
         preferences = getSharedPreferences(primeiraEx, MODE_PRIVATE);
 
+    }
+
+    @Override
+    protected void onResume () {
+        super.onResume();
+        recuperarDadosNav();
     }
 
     @Override
@@ -104,8 +109,8 @@ public class HomeActivity extends AppCompatActivity
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.home, menu);
 
-        //MenuItem item = menu.findItem(R.id.searchHome);
-        //searchView.setMenuItem(item);
+        MenuItem item = menu.findItem(R.id.searchHome);
+        searchView.setMenuItem(item);
 
         return true;
     }
@@ -131,6 +136,7 @@ public class HomeActivity extends AppCompatActivity
                     .into(circleImageView);
         } else {
             circleImageView.setImageResource(R.drawable.circulo_avatar);
+            textNomeNav.setText("Usúario");
         }
 
         textNomeNav.setText(usuarioFirebase.getDisplayName());
@@ -174,6 +180,10 @@ public class HomeActivity extends AppCompatActivity
                 break;
             case R.id.bottom_terrenos:
                 //Toast.makeText(HomeActivity.this, "Bottom Terrenos Clidado", Toast.LENGTH_SHORT).show();
+                fragmentManager = getSupportFragmentManager();
+                FragmentTransaction transactionTerrenos = fragmentManager.beginTransaction();
+                transactionTerrenos.replace(R.id.containerPrincipal, new TerrenosFragment());
+                transactionTerrenos.commit();
                 break;
         }
 
@@ -198,6 +208,5 @@ public class HomeActivity extends AppCompatActivity
     public void onNavigationItemReselected(@NonNull MenuItem item) {
 
     }
-
 
 }

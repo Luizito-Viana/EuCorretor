@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.eurezzolve.eucorretor.activities.introducao.CadastroActivity"
-    tools:layout_editor_absoluteY="81dp">
+    tools:layout_editor_absoluteY="25dp">
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline3"
@@ -26,18 +26,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
         android:fontFamily="@font/roboto"
         android:text="Crie sua conta"
         android:textColor="@color/colorTextBlack"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/editNome"
-        app:layout_constraintEnd_toStartOf="@+id/guideline4"
-        app:layout_constraintStart_toStartOf="@+id/guideline3"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="packed" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        tools:layout_editor_absoluteX="137dp"
+        app:layout_constraintLeft_toLeftOf="@id/guideline3"
+        app:layout_constraintRight_toRightOf="@id/guideline4"/>
 
     <EditText
         android:id="@+id/editNome"
@@ -51,9 +49,10 @@
         android:inputType="textPersonName"
         android:textColor="@color/common_google_signin_btn_text_dark_focused"
         app:layout_constraintBottom_toTopOf="@+id/editEmailLogin"
-        app:layout_constraintEnd_toStartOf="@+id/guideline4"
-        app:layout_constraintStart_toStartOf="@+id/guideline3"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        tools:layout_editor_absoluteX="57dp"
+        app:layout_constraintLeft_toLeftOf="@id/guideline3"
+        app:layout_constraintRight_toRightOf="@id/guideline4"/>
 
     <EditText
         android:id="@+id/editEmailLogin"
@@ -68,9 +67,9 @@
         android:textColor="@color/common_google_signin_btn_text_dark_focused"
         app:layout_constraintBottom_toTopOf="@+id/editSenhaLogin"
         app:layout_constraintTop_toBottomOf="@+id/editNome"
-        app:layout_constraintEnd_toStartOf="@+id/guideline4"
-        app:layout_constraintStart_toStartOf="@+id/guideline3"
-        tools:layout_editor_absoluteX="58dp" />
+        tools:layout_editor_absoluteX="57dp"
+        app:layout_constraintLeft_toLeftOf="@id/guideline3"
+        app:layout_constraintRight_toRightOf="@id/guideline4"/>
 
     <EditText
         android:id="@+id/editSenhaLogin"
@@ -85,9 +84,9 @@
         android:textColor="@color/common_google_signin_btn_text_dark_focused"
         app:layout_constraintBottom_toTopOf="@+id/checkTermos"
         app:layout_constraintTop_toBottomOf="@+id/editEmailLogin"
-        app:layout_constraintEnd_toStartOf="@+id/guideline4"
-        app:layout_constraintStart_toStartOf="@+id/guideline3"
-        tools:layout_editor_absoluteX="58dp" />
+        tools:layout_editor_absoluteX="57dp"
+        app:layout_constraintLeft_toLeftOf="@id/guideline3"
+        app:layout_constraintRight_toRightOf="@id/guideline4"/>
 
     <CheckBox
         android:id="@+id/checkTermos"
@@ -101,9 +100,9 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/progressBarCadastro"
         app:layout_constraintTop_toBottomOf="@+id/editSenhaLogin"
-        app:layout_constraintEnd_toStartOf="@+id/guideline4"
-        app:layout_constraintStart_toStartOf="@+id/guideline3"
-        tools:layout_editor_absoluteX="58dp" />
+        tools:layout_editor_absoluteX="57dp"
+        app:layout_constraintLeft_toLeftOf="@id/guideline3"
+        app:layout_constraintRight_toRightOf="@id/guideline4"/>
 
     <Button
         android:id="@+id/btAceitarCadastro"
@@ -114,22 +113,22 @@
         android:text="cadastrar"
         app:layout_constraintBottom_toTopOf="@+id/textView5"
         app:layout_constraintTop_toBottomOf="@+id/progressBarCadastro"
-        app:layout_constraintEnd_toStartOf="@+id/guideline4"
-        app:layout_constraintStart_toStartOf="@+id/guideline3"
-        tools:layout_editor_absoluteX="67dp" />
+        tools:layout_editor_absoluteX="67dp"
+        app:layout_constraintLeft_toLeftOf="@id/guideline3"
+        app:layout_constraintRight_toRightOf="@id/guideline4"/>
 
     <TextView
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:fontFamily="@font/roboto"
         android:text="Termos de uso"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btAceitarCadastro"
-        app:layout_constraintEnd_toStartOf="@+id/guideline4"
-        app:layout_constraintStart_toStartOf="@+id/guideline3"
-        tools:layout_editor_absoluteX="146dp" />
+        tools:layout_editor_absoluteX="145dp"
+        app:layout_constraintLeft_toLeftOf="@id/guideline3"
+        app:layout_constraintRight_toRightOf="@id/guideline4"/>
 
     <ProgressBar
         android:id="@+id/progressBarCadastro"
@@ -139,7 +138,22 @@
         android:layout_marginTop="8dp"
         app:layout_constraintBottom_toTopOf="@+id/btAceitarCadastro"
         app:layout_constraintTop_toBottomOf="@+id/checkTermos"
-        app:layout_constraintEnd_toStartOf="@+id/guideline4"
-        app:layout_constraintStart_toStartOf="@+id/guideline3"
-        tools:layout_editor_absoluteX="167dp" />
+        tools:layout_editor_absoluteX="168dp"
+        app:layout_constraintLeft_toLeftOf="@id/guideline3"
+        app:layout_constraintRight_toRightOf="@id/guideline4"/>
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:srcCompat="@drawable/ic_logotipo_"
+        tools:ignore="VectorDrawableCompat" />
 </android.support.constraint.ConstraintLayout>
