@@ -1,7 +1,11 @@
 package com.eurezzolve.eucorretor.activities.introducao;
 
+import android.Manifest;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -16,6 +20,7 @@ import com.eurezzolve.eucorretor.activities.primarias.HomeActivity;
 import com.eurezzolve.eucorretor.config.ConfiguracaoFirebase;
 import com.eurezzolve.eucorretor.config.UsuarioFirebase;
 import com.eurezzolve.eucorretor.helper.Base64Custom;
+import com.eurezzolve.eucorretor.helper.Permissao;
 import com.eurezzolve.eucorretor.model.DadosUsuario;
 import com.eurezzolve.eucorretor.model.Usuario;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -27,6 +32,13 @@ import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
 
 public class CadastroActivity extends AppCompatActivity {
+
+    private String[] permissionLocalizacao = new String[]{
+            Manifest.permission.ACCESS_FINE_LOCATION
+    };
+
+    public static final String TAG = "LOG";
+    public static final int REQUEST_PERMISSIONS_CODE = 128;
 
     private EditText campoNome, campoEmail, campoSenha;
     private Button buttonCadastar;
@@ -49,6 +61,8 @@ public class CadastroActivity extends AppCompatActivity {
         checkBox = findViewById(R.id.checkTermos);
         progressBarCadastro = findViewById(R.id.progressBarCadastro);
         progressBarCadastro.setVisibility(View.GONE);
+
+        Permissao.validarPermissoes(permissionLocalizacao, this, 1);
 
         //Efetuando uma ação ao clicar no Botão Cadastrar
         buttonCadastar.setOnClickListener(new View.OnClickListener() {
@@ -125,5 +139,32 @@ public class CadastroActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        for (int permissaoResultado : grantResults){
+            if(permissaoResultado == PackageManager.PERMISSION_DENIED){
+                alertaValidacaoPermissao();
+            }
+        }
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+    }
+
+    //Cria o AlertDialog
+    private void alertaValidacaoPermissao(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Permissões Negadas");
+        builder.setMessage("Para utilizar o aplicativo, é necessário aceitar as permissões");
+        builder.setCancelable(false);
+        builder.setPositiveButton("Confirmar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                finish();
+            }
+        });
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
 }

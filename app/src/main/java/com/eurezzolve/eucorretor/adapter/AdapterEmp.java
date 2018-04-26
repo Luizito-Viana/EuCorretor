@@ -12,9 +12,6 @@ import com.eurezzolve.eucorretor.model.Empreendimentos;
 
 import java.util.List;
 
-/**
- * Created by viana_2 on 17/04/2018.
- */
 
 public class AdapterEmp extends RecyclerView.Adapter<AdapterEmp.MyViewHoler> {
 
@@ -22,9 +19,17 @@ public class AdapterEmp extends RecyclerView.Adapter<AdapterEmp.MyViewHoler> {
     private static final int MODELO_DOIS = 1;
 
     private List<Empreendimentos> listaEmpreendimentos;
+    private TabelasOnClickListener onClickListener;
+    private int flagLista;
 
-    public AdapterEmp(List<Empreendimentos> empreendimentosLista){
+    public interface TabelasOnClickListener {
+        public void onClickTabelas(MyViewHoler holder, int idx, int flagLista);
+    }
+
+    public AdapterEmp(List<Empreendimentos> empreendimentosLista, TabelasOnClickListener onClickListener, int flagLista){
         this.listaEmpreendimentos = empreendimentosLista;
+        this.onClickListener = onClickListener;
+        this.flagLista = flagLista;
     }
 
     @Override
@@ -41,15 +46,21 @@ public class AdapterEmp extends RecyclerView.Adapter<AdapterEmp.MyViewHoler> {
     }
 
     @Override
-    public void onBindViewHolder(MyViewHoler holder, int position) {
+    public void onBindViewHolder(final MyViewHoler holder, final int position) {
         Empreendimentos empreendimentos = listaEmpreendimentos.get(position);
-        if(empreendimentos.getModelo() == 0){
-            holder.nome.setText(empreendimentos.getNome());
-        } else {
-            holder.nome.setText(empreendimentos.getNome());
-            holder.venda.setText(empreendimentos.getVenda());
-            holder.simulacao.setText(empreendimentos.getSimulacao());
-            holder.imagem.setImageResource(empreendimentos.getImagem());
+
+        holder.nome.setText(empreendimentos.getNome());
+        holder.venda.setText(empreendimentos.getVenda());
+        holder.simulacao.setText(empreendimentos.getSimulacao());
+        holder.imagem.setImageResource(empreendimentos.getImagem());
+
+        if(onClickListener != null) {
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    onClickListener.onClickTabelas(holder, position, flagLista);
+                }
+            });
         }
 
     }

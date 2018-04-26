@@ -14,6 +14,7 @@ public class Empreendimentos {
     private int act_flag;
     private String telefone;
     private int modelo;
+    private String codigoConst;
 
 
     public Empreendimentos() {
@@ -25,9 +26,9 @@ public class Empreendimentos {
         this.act_flag = act_flag;
     }
 
-    public Empreendimentos(String nome, String construtora, String venda, String simulacao, int imagem, String codigo, int act_flag, String telefone, int modelo){
+    public Empreendimentos(String nome, String codigoConst, String venda, String simulacao, int imagem, String codigo, int act_flag, String telefone, int modelo, String construtora){
         this.nome = nome;
-        this.construtora = construtora;
+        this.codigoConst = codigoConst;
         this.venda = venda;
         this.simulacao = simulacao;
         this.imagem = imagem;
@@ -35,17 +36,19 @@ public class Empreendimentos {
         this.act_flag = act_flag;
         this.telefone = telefone;
         this.modelo = modelo;
+        this.construtora = construtora;
     }
 
-    public Empreendimentos(String nome, String construtora, String venda, String simulacao, int imagem, String codigo, int act_flag, int modelo) {
+    public Empreendimentos(String nome, String codigoConst, String venda, String simulacao, int imagem, String codigo, int act_flag, int modelo, String construtora) {
         this.nome = nome;
-        this.construtora = construtora;
+        this.codigoConst = codigoConst;
         this.venda = venda;
         this.simulacao = simulacao;
         this.imagem = imagem;
         this.codigo = codigo;
         this.act_flag = act_flag;
         this.modelo = modelo;
+        this.construtora = construtora;
     }
 
     public int getImagem() {

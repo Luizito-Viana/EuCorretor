@@ -151,8 +151,13 @@ public class HomeActivity extends AppCompatActivity
         switch (id){
             case R.id.nav_principal:
                 break;
-            case R.id.nav_tabelas:
+            case R.id.nav_empreendimentos:
                 startActivity(new Intent(HomeActivity.this, TabelasActivity.class));
+                break;
+            case R.id.nav_terceiros:
+                startActivity(new Intent(HomeActivity.this, TerceirosActivity.class));
+                break;
+            case R.id.nav_terrenos:
                 break;
             case R.id.nav_simulador:
                 startActivity(new Intent(HomeActivity.this, SimuladorActivity.class));
@@ -164,22 +169,21 @@ public class HomeActivity extends AppCompatActivity
                 startActivity(new Intent(HomeActivity.this,ConfiguracoesActivity.class));
                 break;
             case R.id.bottom_emp:
-                //Toast.makeText(HomeActivity.this, "Bottom Empreendimento Clidado", Toast.LENGTH_SHORT).show();
+                /*Trocando para os Fragment Principal*/
                 fragmentManager = getSupportFragmentManager();
                 FragmentTransaction transaction = fragmentManager.beginTransaction(); //Responsavel por iniciar
                 transaction.replace(R.id.containerPrincipal, new MapsActivity()); //Adiciona o Fragment
                 transaction.commit(); //Aplica o commit, para verificar se esta tudo certo
                 break;
             case R.id.bottom_terceiros:
-                //Troca de Fragment
-                //Toast.makeText(HomeActivity.this, "Bottom Terceiros Clidado", Toast.LENGTH_SHORT).show();
+                /*Trocando para os Fragment de Terceiros*/
                 fragmentManager = getSupportFragmentManager();
                 FragmentTransaction transactionTer = fragmentManager.beginTransaction();
                 transactionTer.replace(R.id.containerPrincipal, new TerceirosFragment());
                 transactionTer.commit();
                 break;
             case R.id.bottom_terrenos:
-                //Toast.makeText(HomeActivity.this, "Bottom Terrenos Clidado", Toast.LENGTH_SHORT).show();
+                /*Trocando para os Fragment de Terrenos*/
                 fragmentManager = getSupportFragmentManager();
                 FragmentTransaction transactionTerrenos = fragmentManager.beginTransaction();
                 transactionTerrenos.replace(R.id.containerPrincipal, new TerrenosFragment());

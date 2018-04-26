@@ -1,5 +1,6 @@
 package com.eurezzolve.eucorretor.activities.secundarias;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DividerItemDecoration;
@@ -7,10 +8,12 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.eurezzolve.eucorretor.R;
 import com.eurezzolve.eucorretor.adapter.AdapterDocumentacao;
 import com.eurezzolve.eucorretor.model.Documentacao;
+import com.heinrichreimersoftware.materialintro.app.IntroActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -86,4 +89,5 @@ public class DuvidasDocumentacaoActivity extends AppCompatActivity {
         listaDocumentacao.add(documentacao);
 
     }
+
 }

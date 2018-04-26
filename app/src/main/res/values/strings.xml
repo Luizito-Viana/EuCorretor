@@ -8,4 +8,13 @@
     <string name="action_settings">Settings</string>
     <string name="title_activity_tabelas2">Tabelas</string>
     <string name="title_activity_maps">Map</string>
+    <string name="nav_pag_principal">Página Principal</string>
+    <string name="nav_empreendimentos">Empreendimentos</string>
+    <string name="nav_terceiros">Terceiros</string>
+    <string name="nav_terrenos">Terrenos</string>
+    <string name="nav_simulador">Simulador</string>
+    <string name="nav_duvidas">Dúvidas</string>
+    <string name="nav_configuracoes">Configurações</string>
+    <string name="textImovel">Nome do Imóvel</string>
+    <string name="textConstrutoraImovel">Construtora</string>
 </resources>

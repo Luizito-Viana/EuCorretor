@@ -18,4 +18,7 @@
 
     <!-- Cor da Toolbar Home -->
     <color name="toolbarHomeColor">#00BCD4</color>
+    <color name="imageButtonImovel">#00ffffff</color>
+
+    <color name="imageButtonImovelClick">#E1D9DDDE</color>
 </resources>

@@ -3,27 +3,59 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
 
-    <group android:checkableBehavior="single">
+    <group android:checkableBehavior="single"
+        android:id="@+id/menu_pag_principal">
         <item
             android:id="@+id/nav_principal"
             android:icon="@drawable/ic_menu_principal"
-            android:title="Página Principal" />
-        <item
-            android:id="@+id/nav_tabelas"
-            android:icon="@drawable/ic_menu_tables"
-            android:title="Tabelas" />
-        <item
+            android:title="@string/nav_pag_principal" />
+    </group>
+
+    <item android:title="Imóveis">
+        <menu>
+            <item
+                android:id="@+id/nav_empreendimentos"
+                android:icon="@drawable/ic_empreendimento"
+                android:title="@string/nav_empreendimentos"/>
+
+            <item
+                android:id="@+id/nav_terceiros"
+                android:icon="@drawable/ic_terceiros"
+                android:title="@string/nav_terceiros"/>
+
+            <item
+                android:id="@+id/nav_terrenos"
+                android:icon="@drawable/ic_terreno"
+                android:title="@string/nav_terrenos"/>
+        </menu>
+    </item>
+
+    <item android:title="Ajuda">
+        <menu>
+            <item
             android:id="@+id/nav_simulador"
             android:icon="@drawable/ic_menu_simulador"
-            android:title="Simulador" />
-        <item
-            android:id="@+id/nav_duvidas"
-            android:icon="@drawable/ic_menu_help"
-            android:title="Dúvidas" />
+            android:title="@string/nav_simulador" />
+            <item
+                android:id="@+id/nav_duvidas"
+                android:icon="@drawable/ic_menu_help"
+                android:title="@string/nav_duvidas" />
+        </menu>
+    </item>
+
+    <group
+        android:id="@+id/menu_bottom"
+        android:checkableBehavior="none">
+
         <item
             android:id="@+id/nav_configuracoes"
             android:icon="@drawable/ic_menu_settings"
-            android:title="Configurações" />
+            android:title="@string/nav_configuracoes" />
+
     </group>
+
+
+
+
 
 </menu>

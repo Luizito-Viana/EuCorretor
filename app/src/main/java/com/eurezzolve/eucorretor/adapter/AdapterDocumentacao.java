@@ -32,7 +32,7 @@ public class AdapterDocumentacao extends RecyclerView.Adapter<AdapterDocumentaca
     }
 
     @Override
-    public void onBindViewHolder(MyViewHolder holder, int position) {
+    public void onBindViewHolder(final MyViewHolder holder, final int position) {
         Documentacao documentacao = documentacaoLista.get(position);
         holder.pergunta.setText(documentacao.getPergunta());
         holder.resposta.setText(documentacao.getResposta());

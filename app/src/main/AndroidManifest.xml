@@ -43,11 +43,14 @@
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
+
         <!-- Activitys Padrões -->
-        <activity android:name=".activities.introducao.CadastroActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".activities.introducao.LoginActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".activities.introducao.CadastroActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activities.introducao.LoginActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".activities.primarias.ConfiguracoesActivity" />
         <activity android:name=".activities.primarias.DuvidasActivity" />
         <activity android:name=".activities.secundarias.DuvidasFinanciamentoActivity" />
@@ -73,11 +76,12 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyBgk8RutXjUkDPtQ5kq3bioeDC4E06JnTQ" />
-
+        <!--
         <activity
             android:name=".fragments.MapsActivity"
             android:label="@string/title_activity_maps" />
         <activity android:name=".activities.secundarias.NotificacaoActivity" />
+        -->
 
         <service android:name=".notification.MyFirebaseMessagingService">
             <intent-filter>
@@ -96,7 +100,9 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
         <activity android:name=".activities.introducao.ResetActivity" />
-        <activity android:name=".activities.secundarias.CadastroImoveisActivity"></activity>
+        <activity android:name=".activities.secundarias.CadastroImoveisActivity" />
+        <activity android:name=".activities.primarias.TerceirosActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 
 </manifest>
