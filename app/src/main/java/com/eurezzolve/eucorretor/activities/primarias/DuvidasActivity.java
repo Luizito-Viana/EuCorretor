@@ -70,13 +70,17 @@ public class DuvidasActivity extends AppCompatActivity {
         builder.setPositiveButton("Confirmar", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                Toast.makeText(DuvidasActivity.this, "Escolheu Confirmar", Toast.LENGTH_SHORT).show();
+                Intent emailIntent = new Intent(Intent.ACTION_SEND);
+                emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Nova dúvida!");
+                emailIntent.putExtra(Intent.EXTRA_EMAIL, new String[] {"eurezzolve@gmail.com"});
+                emailIntent.setType("message/rfc822");
+                startActivity(emailIntent);
             }
         });
         builder.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                Toast.makeText(DuvidasActivity.this, "Escolheu Cancelar", Toast.LENGTH_SHORT).show();
+                Toast.makeText(DuvidasActivity.this, "Evento cancelado", Toast.LENGTH_SHORT).show();
             }
         });
         AlertDialog dialog = builder.create();

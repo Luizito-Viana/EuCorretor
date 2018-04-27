@@ -1,6 +1,7 @@
 package com.eurezzolve.eucorretor.activities.primarias;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DividerItemDecoration;
@@ -14,6 +15,7 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.eurezzolve.eucorretor.R;
+import com.eurezzolve.eucorretor.activities.secundarias.DescricaoEmpActivity;
 import com.eurezzolve.eucorretor.adapter.AdapterEmp;
 import com.eurezzolve.eucorretor.model.Empreendimentos;
 import com.miguelcatalan.materialsearchview.MaterialSearchView;
@@ -95,7 +97,18 @@ public class EmpreendimentosActivity extends AppCompatActivity {
         return new AdapterEmp.DescricaoEmpOnClickListener() {
             @Override
             public void descEmpOnClick(AdapterEmp.MyViewHoler holer, int position, int flagLista) {
-                Toast.makeText(EmpreendimentosActivity.this, "Descrição ainda não aprimorado", Toast.LENGTH_SHORT).show();
+                if(flagLista == 0){
+                    Empreendimentos empreendimentos = listaEmpreendimentos.get(position);
+                    Intent i = new Intent(EmpreendimentosActivity.this, DescricaoEmpActivity.class);
+                    i.putExtra("info", empreendimentos);
+                    startActivity(i);
+                } else if(flagLista == 1){
+                    Empreendimentos emp = listaEmpreendimentosBusca.get(position);
+                    Intent j = new Intent(EmpreendimentosActivity.this, DescricaoEmpActivity.class);
+                    j.putExtra("info", emp);
+                    startActivity(j);
+                }
+
             }
         };
     }

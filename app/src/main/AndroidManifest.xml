@@ -52,8 +52,9 @@
             android:name=".activities.introducao.LoginActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".activities.primarias.ConfiguracoesActivity" />
-        <activity android:name=".activities.primarias.DuvidasActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".activities.primarias.DuvidasActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".activities.secundarias.DuvidasFinanciamentoActivity" />
         <activity android:name=".activities.secundarias.DuvidasSimulacaoActivity" />
         <activity android:name=".activities.secundarias.DuvidasDocumentacaoActivity" />
@@ -108,6 +109,8 @@
         <activity
             android:name=".activities.secundarias.DescricaoTerceirosActivity"
             android:theme="@style/AppTheme.NoActionCustom" />
+        <activity android:name=".activities.secundarias.DescricaoEmpActivity"
+            android:theme="@style/AppTheme.NoActionCustom"/>
     </application>
 
 </manifest>

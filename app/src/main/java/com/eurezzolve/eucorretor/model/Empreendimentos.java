@@ -1,10 +1,12 @@
 package com.eurezzolve.eucorretor.model;
 
+import java.io.Serializable;
+
 /**
  * Created by viana_2 on 17/04/2018.
  */
 
-public class Empreendimentos {
+public class Empreendimentos implements Serializable{
     private String nome;
     private String construtora;
     private String venda;
