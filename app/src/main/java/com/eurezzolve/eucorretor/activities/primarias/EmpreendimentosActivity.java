@@ -21,7 +21,7 @@ import com.miguelcatalan.materialsearchview.MaterialSearchView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TabelasActivity extends AppCompatActivity {
+public class EmpreendimentosActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private List<Empreendimentos> listaEmpreendimentos = new ArrayList<>();
@@ -47,7 +47,7 @@ public class TabelasActivity extends AppCompatActivity {
         this.criarEmpreendimentos();
 
         //Configurar o Adapter
-        adapterEmp = new AdapterEmp(listaEmpreendimentos, onClickTabelas(),0);
+        adapterEmp = new AdapterEmp(listaEmpreendimentos, tabelasEmpOnClickListener(), descricaoEmpOnClickListener(),0);
 
         //Configurar o RecyclerView
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
@@ -91,25 +91,27 @@ public class TabelasActivity extends AppCompatActivity {
         });
     }
 
-    protected AdapterEmp.TabelasOnClickListener onClickTabelas() {
-        return new AdapterEmp.TabelasOnClickListener() {
+    public AdapterEmp.DescricaoEmpOnClickListener descricaoEmpOnClickListener () {
+        return new AdapterEmp.DescricaoEmpOnClickListener() {
             @Override
-            public void onClickTabelas(AdapterEmp.MyViewHoler holder, int idx, int flagLista) {
-                if(flagLista == 0){
-                    Empreendimentos emp = listaEmpreendimentos.get(idx);
-                    Toast.makeText(TabelasActivity.this, "Clicado: " + emp.getNome(), Toast.LENGTH_SHORT).show();
-                } else if(flagLista == 1){
-                    Empreendimentos emp = listaEmpreendimentosBusca.get(idx);
-                    Toast.makeText(TabelasActivity.this, "Clicado: " + emp.getNome(), Toast.LENGTH_SHORT).show();
-                }
+            public void descEmpOnClick(AdapterEmp.MyViewHoler holer, int position, int flagLista) {
+                Toast.makeText(EmpreendimentosActivity.this, "Descrição ainda não aprimorado", Toast.LENGTH_SHORT).show();
+            }
+        };
+    }
 
+    public AdapterEmp.TabelasEmpOnClickListener tabelasEmpOnClickListener () {
+        return new AdapterEmp.TabelasEmpOnClickListener() {
+            @Override
+            public void tbEmpOnClick(AdapterEmp.MyViewHoler holer, int position, int flafLista) {
+                Toast.makeText(EmpreendimentosActivity.this, "Tabelas ainda não aprimorado", Toast.LENGTH_SHORT).show();
             }
         };
     }
 
 
     public void recarregarEmpreendimentos(){
-        adapterEmp = new AdapterEmp(listaEmpreendimentos, onClickTabelas(),0);
+        adapterEmp = new AdapterEmp(listaEmpreendimentos, tabelasEmpOnClickListener(), descricaoEmpOnClickListener(), 0);
         recyclerView.setAdapter(adapterEmp);
         adapterEmp.notifyDataSetChanged();
     }
@@ -125,7 +127,7 @@ public class TabelasActivity extends AppCompatActivity {
                 listaEmpreendimentosBusca.add(emp);
             }
         }
-        adapterEmp = new AdapterEmp(listaEmpreendimentosBusca, onClickTabelas(),1);
+        adapterEmp = new AdapterEmp(listaEmpreendimentosBusca, tabelasEmpOnClickListener(), descricaoEmpOnClickListener(),1);
         recyclerView.setAdapter(adapterEmp);
         adapterEmp.notifyDataSetChanged();
     }
@@ -811,46 +813,5 @@ public class TabelasActivity extends AppCompatActivity {
         //return super.onOptionsItemSelected(item);
         return true;
     }
-
-    //Evento de Click
-        /*recyclerView.addOnItemTouchListener(
-                new RecyclerItemClickListener(
-                        getApplicationContext(),
-                        recyclerView,
-                        new RecyclerItemClickListener.OnItemClickListener() {
-                            @Override
-                            public void onItemClick(View view, final int position) {
-                                Empreendimentos empreendimentos = listaEmpreendimentos.get(position);
-                                Toast.makeText(getApplicationContext(),"Escolhido: " + empreendimentos.getNome(),Toast.LENGTH_SHORT).show();
-                                if(empreendimentos.getAct_flag() == 0){
-                                    Intent i = new Intent(TabelasActivity.this, InformacoesActivity.class);
-                                    i.putExtra("codigo",empreendimentos.getCodigo());
-                                    i.putExtra("construtora",empreendimentos.getConstrutora());
-                                    i.putExtra("nome",empreendimentos.getNome());
-                                    startActivity(i);
-                                } else if(empreendimentos.getAct_flag() == 1) {
-                                    Intent j = new Intent(TabelasActivity.this, Informacoes2Activity.class);
-                                    j.putExtra("codigo",empreendimentos.getCodigo());
-                                    j.putExtra("construtora",empreendimentos.getConstrutora());
-                                    j.putExtra("nome",empreendimentos.getNome());
-                                    j.putExtra("telefone",empreendimentos.getTelefone());
-                                    startActivity(j);
-                                }
-
-                            }
-
-                            @Override
-                            public void onLongItemClick(View view, int position) {
-                                Toast.makeText(getApplicationContext(),"Para abrir, clique apenas uma vez",Toast.LENGTH_SHORT).show();
-                            }
-
-                            @Override
-                            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-
-                            }
-                        }
-                )
-        ); */
-
 
 }

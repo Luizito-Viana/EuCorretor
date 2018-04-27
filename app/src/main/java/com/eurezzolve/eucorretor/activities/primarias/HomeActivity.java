@@ -6,8 +6,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.View;
@@ -24,13 +22,11 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.eurezzolve.eucorretor.R;
-import com.eurezzolve.eucorretor.activities.introducao.MainActivity;
 import com.eurezzolve.eucorretor.config.ConfiguracaoFirebase;
 import com.eurezzolve.eucorretor.config.UsuarioFirebase;
 import com.eurezzolve.eucorretor.fragments.MapsActivity;
 import com.eurezzolve.eucorretor.fragments.TerceirosFragment;
 import com.eurezzolve.eucorretor.fragments.TerrenosFragment;
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.miguelcatalan.materialsearchview.MaterialSearchView;
 
@@ -152,12 +148,14 @@ public class HomeActivity extends AppCompatActivity
             case R.id.nav_principal:
                 break;
             case R.id.nav_empreendimentos:
-                startActivity(new Intent(HomeActivity.this, TabelasActivity.class));
+                startActivity(new Intent(HomeActivity.this, EmpreendimentosActivity.class));
                 break;
             case R.id.nav_terceiros:
                 startActivity(new Intent(HomeActivity.this, TerceirosActivity.class));
                 break;
             case R.id.nav_terrenos:
+                Toast.makeText(getApplicationContext(), "Ainda não aprimorado", Toast.LENGTH_SHORT).show();
+                //startActivity(new Intent(HomeActivity.this, DescricaoTerceirosActivity.class));
                 break;
             case R.id.nav_simulador:
                 startActivity(new Intent(HomeActivity.this, SimuladorActivity.class));

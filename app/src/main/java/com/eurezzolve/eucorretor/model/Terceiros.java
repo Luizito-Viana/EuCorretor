@@ -1,10 +1,12 @@
 package com.eurezzolve.eucorretor.model;
 
+import java.io.Serializable;
+
 /**
  * Created by viana_2 on 25/04/2018.
  */
 
-public class Terceiros {
+public class Terceiros implements Serializable {
     private String nome;
     private String dono;
     private String infoAdapter;
@@ -52,5 +54,11 @@ public class Terceiros {
 
     public void setImageThumb(int imageThumb) {
         this.imageThumb = imageThumb;
+    }
+
+    public String padronizarDescricao(){
+        String padrao = "";
+        padrao = "Descrição do Imóvel: \n";
+        return padrao;
     }
 }

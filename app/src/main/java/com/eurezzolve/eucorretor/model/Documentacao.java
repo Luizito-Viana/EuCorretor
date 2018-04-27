@@ -32,4 +32,14 @@ public class Documentacao {
     public void setResposta(String resposta) {
         this.resposta = resposta;
     }
+
+    public String padronizarPergunta(){
+        String text = "<html><body>" + "<p align=\"justify\">" + pergunta + "</p> " + "</body></html>";
+        return text;
+    }
+
+    public String padronizarResposta(){
+        String text = "<html><body>" + "<p align=\"justify\">" + resposta + "</p> " + "</body></html>";
+        return text;
+    }
 }

@@ -26,7 +26,7 @@ public class AdapterFinanciamento extends RecyclerView.Adapter<AdapterFinanciame
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemFinanciamento = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.adapter_question, parent, false);
+                .inflate(R.layout.adapter_auxiliar, parent, false);
         return new MyViewHolder(itemFinanciamento);
     }
 

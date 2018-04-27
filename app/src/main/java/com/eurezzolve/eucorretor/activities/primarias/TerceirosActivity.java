@@ -1,5 +1,6 @@
 package com.eurezzolve.eucorretor.activities.primarias;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -11,6 +12,7 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.eurezzolve.eucorretor.R;
+import com.eurezzolve.eucorretor.activities.secundarias.DescricaoTerceirosActivity;
 import com.eurezzolve.eucorretor.adapter.AdapterTerceiros;
 import com.eurezzolve.eucorretor.model.Terceiros;
 import com.miguelcatalan.materialsearchview.MaterialSearchView;
@@ -85,7 +87,7 @@ public class TerceirosActivity extends AppCompatActivity {
 
     //Cria os terceiros
     public void criarTerceiros(){
-        Terceiros terceiros = new Terceiros("Imóvel Luiz", "Luiz Viana", "4 Quartos\n3 Banheiros", R.drawable.casa_imovel);
+        Terceiros terceiros = new Terceiros("Imóvel do Luiz", "Luiz Viana", "4 Quartos\n3 Banheiros", R.drawable.casa_imovel);
         listaTerceiros.add(terceiros);
     }
 
@@ -95,7 +97,10 @@ public class TerceirosActivity extends AppCompatActivity {
             @Override
             public void descTerceirosOnClick(AdapterTerceiros.TerceirosHolder holder, int position) {
                 Terceiros terceiros = listaTerceiros.get(position);
-                Toast.makeText(TerceirosActivity.this, "Descrição: " + terceiros.getNome(), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(TerceirosActivity.this, "Descrição: " + terceiros.getNome(), Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(TerceirosActivity.this, DescricaoTerceirosActivity.class);
+                i.putExtra("info", terceiros);
+                startActivity(i);
             }
         };
     }

@@ -4,6 +4,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -16,53 +17,61 @@ import java.util.List;
 public class AdapterEmp extends RecyclerView.Adapter<AdapterEmp.MyViewHoler> {
 
     private static final int MODELO_UM = 0;
-    private static final int MODELO_DOIS = 1;
 
     private List<Empreendimentos> listaEmpreendimentos;
-    private TabelasOnClickListener onClickListener;
+    private TabelasEmpOnClickListener tabelasEmpOnClickListener;
+    private DescricaoEmpOnClickListener descricaoEmpOnClickListener;
     private int flagLista;
 
-    public interface TabelasOnClickListener {
-        public void onClickTabelas(MyViewHoler holder, int idx, int flagLista);
+    public interface TabelasEmpOnClickListener {
+        void tbEmpOnClick(MyViewHoler holer, int position, int flafLista);
     }
 
-    public AdapterEmp(List<Empreendimentos> empreendimentosLista, TabelasOnClickListener onClickListener, int flagLista){
+    public interface DescricaoEmpOnClickListener {
+        void descEmpOnClick(MyViewHoler holer, int position, int flagLista);
+    }
+
+
+    public AdapterEmp(List<Empreendimentos> empreendimentosLista, TabelasEmpOnClickListener tabelasEmpOnClickListener, DescricaoEmpOnClickListener descricaoEmpOnClickListener,int flagLista){
         this.listaEmpreendimentos = empreendimentosLista;
-        this.onClickListener = onClickListener;
+        this.descricaoEmpOnClickListener = descricaoEmpOnClickListener;
+        this.tabelasEmpOnClickListener = tabelasEmpOnClickListener;
         this.flagLista = flagLista;
     }
 
     @Override
     public MyViewHoler onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemListaEmpreendimentos = null;
-        if(viewType == MODELO_UM){
-            itemListaEmpreendimentos = LayoutInflater.from(parent.getContext())
-                    .inflate(R.layout.adapter_tabela, parent, false);
-        } else if (viewType == MODELO_DOIS){
-            itemListaEmpreendimentos = LayoutInflater.from(parent.getContext())
-                    .inflate(R.layout.adapter_tabela_modelodois, parent, false);
-        }
+        itemListaEmpreendimentos = LayoutInflater.from(parent.getContext())
+                    .inflate(R.layout.adapter_imoveis, parent, false);
         return new MyViewHoler(itemListaEmpreendimentos);
     }
 
     @Override
     public void onBindViewHolder(final MyViewHoler holder, final int position) {
         Empreendimentos empreendimentos = listaEmpreendimentos.get(position);
+        holder.textNome.setText(empreendimentos.getNome());
+        holder.textConstrutora.setText("Cons.: " + empreendimentos.getConstrutora());
+        holder.textInfo.setText("Informações Adicionais:\n" + empreendimentos.getVenda() + "\n" + empreendimentos.getSimulacao());
+        holder.imageEmp.setImageResource(empreendimentos.getImagem());
 
-        holder.nome.setText(empreendimentos.getNome());
-        holder.venda.setText(empreendimentos.getVenda());
-        holder.simulacao.setText(empreendimentos.getSimulacao());
-        holder.imagem.setImageResource(empreendimentos.getImagem());
-
-        if(onClickListener != null) {
-            holder.itemView.setOnClickListener(new View.OnClickListener() {
+        if(tabelasEmpOnClickListener != null){
+            holder.imageTabelas.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    onClickListener.onClickTabelas(holder, position, flagLista);
+                    tabelasEmpOnClickListener.tbEmpOnClick(holder, position, flagLista);
                 }
             });
         }
 
+        if(descricaoEmpOnClickListener != null){
+            holder.imageDescricao.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    descricaoEmpOnClickListener.descEmpOnClick(holder, position, flagLista);
+                }
+            });
+        }
     }
 
     @Override
@@ -72,31 +81,24 @@ public class AdapterEmp extends RecyclerView.Adapter<AdapterEmp.MyViewHoler> {
 
     @Override
     public int getItemViewType(int position) {
-        /*if(position == 0 ||position == 5 ||position == 8 ||position == 19
-                ||position == 21 ||position == 28 ||position == 33
-                ||position == 36 ||position == 38 ||position == 43
-                ||position == 45 ||position == 47 ||position == 53
-                ||position == 58 ||position == 60 ||position == 66
-                ||position == 70 ||position == 74 ||position == 76
-                ||position == 78){
-            return MODELO_DOIS;
-        }*/
         return MODELO_UM;
     }
 
     public class MyViewHoler extends RecyclerView.ViewHolder {
-
-        private TextView nome;
-        private TextView venda;
-        private TextView simulacao;
-        private ImageView imagem;
+        private ImageView imageEmp;
+        private ImageButton imageDescricao;
+        private ImageButton imageTabelas;
+        private TextView textNome, textConstrutora, textInfo;
 
         public MyViewHoler(View itemView) {
             super(itemView);
-            nome = itemView.findViewById(R.id.textNome);
-            venda = itemView.findViewById(R.id.textAvaliacao);
-            simulacao = itemView.findViewById(R.id.textVenda);
-            imagem = itemView.findViewById(R.id.imageCons);
+            imageEmp = itemView.findViewById(R.id.imageImovel);
+            imageDescricao = itemView.findViewById(R.id.imageDescricaoImovel);
+            imageTabelas = itemView.findViewById(R.id.imageTabelasImovel);
+            textNome = itemView.findViewById(R.id.textNomeImovel);
+            textConstrutora = itemView.findViewById(R.id.textConstrutoraImovel);
+            textInfo = itemView.findViewById(R.id.textInfoImovel);
+
         }
     }
 }

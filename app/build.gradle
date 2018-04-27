@@ -57,5 +57,8 @@ dependencies {
 
     /*Material Search*/
     compile 'com.miguelcatalan:materialsearchview:1.4.0'
+
+    /*Dependencia para TextJustify*/
+    compile 'com.github.bluejamesbond:textjustify-android:2.1.6'
 }
 apply plugin: 'com.google.gms.google-services'

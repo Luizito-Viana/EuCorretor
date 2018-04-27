@@ -29,7 +29,7 @@ public class SobreActivity extends AppCompatActivity {
                 .addGroup("Fale Conosco")
                 .addEmail("eurezzolve@gmail.com", "Email")
                 //.addFacebook("luiz.goncalvesviana","Facebook")
-                //.addInstagram("vianafgluiz","Instagram")
+                .addInstagram("eurezzolve","Instagram")
                 .addGroup("Informações Gerais")
                 .addItem(equipe)
                 .addItem(versionElement)
