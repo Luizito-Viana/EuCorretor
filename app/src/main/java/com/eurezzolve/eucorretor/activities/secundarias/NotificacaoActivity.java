@@ -13,7 +13,10 @@ import android.widget.Toast;
 
 import com.eurezzolve.eucorretor.R;
 import com.eurezzolve.eucorretor.activities.primarias.HomeActivity;
+import com.eurezzolve.eucorretor.helper.NotificationUtil;
 import com.google.firebase.messaging.FirebaseMessaging;
+
+import java.util.Calendar;
 
 public class NotificacaoActivity extends AppCompatActivity {
 
@@ -27,6 +30,9 @@ public class NotificacaoActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setTitle("Notificações");
+
+        /*Cria o channel necessario para o Android 8*/
+        NotificationUtil.createChannel(this);
 
         swAlertas = findViewById(R.id.sw_alertas);
         swEmp = findViewById(R.id.sw_emp);
@@ -71,6 +77,22 @@ public class NotificacaoActivity extends AppCompatActivity {
                 }
             }
         });
+
+        swLembretes.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(compoundButton.isChecked()){
+                    //ativaAlertasLembrete();
+                } else {
+                    //desativaAlertasLembrete();
+                }
+            }
+        });
+    }
+
+    /*Ativa e desativa os lembretes diarios*/
+    public void ativaAlertasLembrete(){
+
     }
 
     //Desativa e ativa do Topico tabelas
@@ -100,7 +122,10 @@ public class NotificacaoActivity extends AppCompatActivity {
         FirebaseMessaging.getInstance().subscribeToTopic("alertas");
     }
 
-
+    /*public long getTime(){
+        Calendar c = Calendar.getInstance();
+        c.setTimeInMillis();
+    }*/
 
     public void criarNotificacao(){
         long[] padrao = {150,300,150,300};

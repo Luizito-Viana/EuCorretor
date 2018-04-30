@@ -20,19 +20,21 @@ public class AdapterTerceiros extends RecyclerView.Adapter<AdapterTerceiros.Terc
     private List<Terceiros> listaTerceiros;
     private TabelasTerceirosOnClickListener tabelasTerceirosOnClickListener;
     private DescricaoTerceirosOnClickListener descricaoTerceirosOnClickListener;
+    private int flagLista;
 
     public interface TabelasTerceirosOnClickListener {
-        void tbTerceirosOnClick(TerceirosHolder holder, int position);
+        void tbTerceirosOnClick(TerceirosHolder holder, int position, int flagLista);
     }
 
     public interface DescricaoTerceirosOnClickListener {
-        void descTerceirosOnClick(TerceirosHolder holder, int position);
+        void descTerceirosOnClick(TerceirosHolder holder, int position, int flagLista);
     }
 
-    public AdapterTerceiros(List<Terceiros> listaTerceiros, TabelasTerceirosOnClickListener tabelasTerceirosOnClickListener, DescricaoTerceirosOnClickListener descricaoTerceirosOnClickListener) {
+    public AdapterTerceiros(List<Terceiros> listaTerceiros, TabelasTerceirosOnClickListener tabelasTerceirosOnClickListener, DescricaoTerceirosOnClickListener descricaoTerceirosOnClickListener, int flagLista) {
         this.listaTerceiros = listaTerceiros;
         this.tabelasTerceirosOnClickListener = tabelasTerceirosOnClickListener;
         this.descricaoTerceirosOnClickListener = descricaoTerceirosOnClickListener;
+        this.flagLista = flagLista;
     }
 
     @Override
@@ -55,7 +57,7 @@ public class AdapterTerceiros extends RecyclerView.Adapter<AdapterTerceiros.Terc
             holder.imageDescricao.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    descricaoTerceirosOnClickListener.descTerceirosOnClick(holder, position);
+                    descricaoTerceirosOnClickListener.descTerceirosOnClick(holder, position,flagLista);
                 }
             });
         }
@@ -64,7 +66,7 @@ public class AdapterTerceiros extends RecyclerView.Adapter<AdapterTerceiros.Terc
             holder.imageTabelas.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    tabelasTerceirosOnClickListener.tbTerceirosOnClick(holder, position);
+                    tabelasTerceirosOnClickListener.tbTerceirosOnClick(holder, position, flagLista);
                 }
             });
         }

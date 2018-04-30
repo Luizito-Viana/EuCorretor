@@ -17,4 +17,68 @@
     <string name="nav_configuracoes">Configurações</string>
     <string name="textImovel">Nome do Imóvel</string>
     <string name="textConstrutoraImovel">Construtora</string>
+
+    <string-array name="emp_suggestions">
+        <item>Residencial Vertentes III</item>
+        <item>Residencial Tavares</item>
+        <item>Residencial Flores do Cerrado</item>
+        <item>Residencial Vida Boa</item>
+        <item>Evora Residence</item>
+        <item>Caio Ferreira Residence</item>
+        <item>Jardins Residence</item>
+        <item>Lexus Office</item>
+        <item>Estoril Residence</item>
+        <item>Zenith Residence</item>
+        <item>Jardim Brasília Residencial</item>
+        <item>Residencial Solaris</item>
+        <item>Residencial Vila Real</item>
+        <item>Plaza Norte Residence</item>
+        <item>Residencial Monsenhor</item>
+        <item>Queens Residence</item>
+        <item>Versato Residence</item>
+        <item>Acqua Torre Centro Sul</item>
+        <item>Gran Plaza Residence</item>
+        <item>Barão 177</item>
+        <item>Edifício Califórnia</item>
+        <item>Lídice Premium</item>
+        <item>Residencial Varandas Tapuirama</item>
+        <item>Residencial Jardim Holanda</item>
+        <item>Place Alto Umuarama</item>
+        <item>New Quality Residence</item>
+        <item>Prime Club Residence</item>
+        <item>Residencial Acácias</item>
+        <item>Residencial Araucárias</item>
+        <item>Edifício Rubi Residence</item>
+        <item>Residencial Mirante 1 e 2</item>
+        <item>Residenciais Park</item>
+        <item>Residenciais Alpha</item>
+        <item>Gran Toro</item>
+        <item>Parque United States</item>
+        <item>Provence Residence Club</item>
+        <item>Residencial Platina</item>
+        <item>Residencial Royale</item>
+        <item>Residencial Flamboyant</item>
+        <item>Residencial Village Sul</item>
+        <item>Residencial Morada do Praia</item>
+        <item>Residencial Veneza</item>
+        <item>Residencial Unique</item>
+        <item>Residencial Lídice Boulevard</item>
+        <item>Residencial Evidence</item>
+        <item>Jardins do Cerrado</item>
+        <item>Residencial La Belle</item>
+        <item>Residencial Ravena</item>
+        <item>Residencial Sevilha</item>
+        <item>Residencial Valência</item>
+        <item>Residencial Milão</item>
+        <item>Condominio Bosque das Gameleiras</item>
+        <item>Edifício Aristides de Freitas</item>
+        <item>UZ Tower</item>
+        <item>Tropical Sul</item>
+        <item>Anita Residence</item>
+        <item>Village Paradiso II</item>
+        <item>Splendia Residence</item>
+        <item>Residencial Napoli</item>
+        <item>Start Tower Vivamus JH II</item>
+        <item>Smart Tower Vivamus JH II</item>
+    </string-array>
 </resources>

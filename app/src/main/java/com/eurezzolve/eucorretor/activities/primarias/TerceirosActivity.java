@@ -24,6 +24,7 @@ public class TerceirosActivity extends AppCompatActivity {
 
     private RecyclerView recyclerTerceiros;
     private List<Terceiros> listaTerceiros = new ArrayList<>();
+    private List<Terceiros> listaTerceirosBusca;
     private AdapterTerceiros adapterTerceiros;
     private MaterialSearchView searchView;
 
@@ -43,7 +44,7 @@ public class TerceirosActivity extends AppCompatActivity {
         this.criarTerceiros();
 
         //Define o Adapter
-        adapterTerceiros = new AdapterTerceiros(listaTerceiros, tbOnClickListener() ,descOnClickListener());
+        adapterTerceiros = new AdapterTerceiros(listaTerceiros, tbOnClickListener() ,descOnClickListener(),0);
 
         //Cria e configura o RecyclerView
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
@@ -53,6 +54,7 @@ public class TerceirosActivity extends AppCompatActivity {
 
         //Configurando o searchview
         searchView = findViewById(R.id.materialSearchTabelas);
+        searchView.setHint("Buscar Terceiros");
 
         //Listener para o searchview
         searchView.setOnSearchViewListener(new MaterialSearchView.SearchViewListener() {
@@ -63,7 +65,7 @@ public class TerceirosActivity extends AppCompatActivity {
 
             @Override
             public void onSearchViewClosed() {
-
+                recarregarTerceiros();
             }
         });
 
@@ -76,18 +78,44 @@ public class TerceirosActivity extends AppCompatActivity {
             }
             @Override
             public boolean onQueryTextChange(String newText) {
-                /*if(newText != null && !newText.isEmpty()){
-
-                }*/
+                if(newText != null && !newText.isEmpty()){
+                    pesquisarTerceiros(newText);
+                }
                 return true;
             }
         });
 
     }
 
+    /*Funcao pesquisar terceiros*/
+    public void pesquisarTerceiros(String texto){
+        listaTerceirosBusca = new ArrayList<>();
+        for(Terceiros terceiros : listaTerceiros){
+            String nomeTerceiro = terceiros.getNome().toLowerCase();
+            if(nomeTerceiro.contains(texto)){
+                listaTerceirosBusca.add(terceiros);
+            }
+        }
+        adapterTerceiros = new AdapterTerceiros(listaTerceirosBusca, tbOnClickListener(), descOnClickListener(),1);
+        recyclerTerceiros.setAdapter(adapterTerceiros);
+        adapterTerceiros.notifyDataSetChanged();
+    }
+
+    public void recarregarTerceiros() {
+        adapterTerceiros = new AdapterTerceiros(listaTerceiros, tbOnClickListener(), descOnClickListener(),0);
+        recyclerTerceiros.setAdapter(adapterTerceiros);
+        adapterTerceiros.notifyDataSetChanged();
+    }
+
     //Cria os terceiros
     public void criarTerceiros(){
-        Terceiros terceiros = new Terceiros("Imóvel do Luiz", "Luiz Viana", "4 Quartos\n3 Banheiros", R.drawable.casa_imovel);
+        Terceiros terceiros = new Terceiros("Imóvel do Luiz",
+                "Luiz Viana",
+                "4 Quartos\n3 Banheiros",
+                R.drawable.casa_imovel,
+                "Cidade Jardim",
+                250.00,
+                2, 4, 1, 3);
         listaTerceiros.add(terceiros);
     }
 
@@ -95,12 +123,18 @@ public class TerceirosActivity extends AppCompatActivity {
     protected AdapterTerceiros.DescricaoTerceirosOnClickListener descOnClickListener(){
         return new AdapterTerceiros.DescricaoTerceirosOnClickListener() {
             @Override
-            public void descTerceirosOnClick(AdapterTerceiros.TerceirosHolder holder, int position) {
-                Terceiros terceiros = listaTerceiros.get(position);
-                //Toast.makeText(TerceirosActivity.this, "Descrição: " + terceiros.getNome(), Toast.LENGTH_SHORT).show();
-                Intent i = new Intent(TerceirosActivity.this, DescricaoTerceirosActivity.class);
-                i.putExtra("info", terceiros);
-                startActivity(i);
+            public void descTerceirosOnClick(AdapterTerceiros.TerceirosHolder holder, int position, int flagLista) {
+                if(flagLista == 0){
+                    Terceiros terceiros = listaTerceiros.get(position);
+                    Intent i = new Intent(TerceirosActivity.this, DescricaoTerceirosActivity.class);
+                    i.putExtra("info", terceiros);
+                    startActivity(i);
+                } else {
+                    Terceiros terceiros = listaTerceirosBusca.get(position);
+                    Intent j = new Intent(TerceirosActivity.this, DescricaoTerceirosActivity.class);
+                    j.putExtra("info", terceiros);
+                    startActivity(j);
+                }
             }
         };
     }
@@ -108,7 +142,7 @@ public class TerceirosActivity extends AppCompatActivity {
     protected AdapterTerceiros.TabelasTerceirosOnClickListener tbOnClickListener(){
         return new AdapterTerceiros.TabelasTerceirosOnClickListener() {
             @Override
-            public void tbTerceirosOnClick(AdapterTerceiros.TerceirosHolder holder, int position) {
+            public void tbTerceirosOnClick(AdapterTerceiros.TerceirosHolder holder, int position, int flagLista) {
                 Terceiros terceiros = listaTerceiros.get(position);
                 Toast.makeText(TerceirosActivity.this, "Tabelas: " + terceiros.getNome(), Toast.LENGTH_SHORT).show();
             }

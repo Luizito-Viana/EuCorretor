@@ -16,6 +16,8 @@ import android.widget.Toast;
 
 import com.eurezzolve.eucorretor.R;
 import com.eurezzolve.eucorretor.activities.secundarias.DescricaoEmpActivity;
+import com.eurezzolve.eucorretor.activities.secundarias.TabelasEmpActivity;
+import com.eurezzolve.eucorretor.activities.secundarias.TabelasEmpM2Activity;
 import com.eurezzolve.eucorretor.adapter.AdapterEmp;
 import com.eurezzolve.eucorretor.model.Empreendimentos;
 import com.miguelcatalan.materialsearchview.MaterialSearchView;
@@ -38,7 +40,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tabelas);
         Toolbar toolbar = findViewById(R.id.toolbarTabela);
-        toolbar.setTitle("Tabelas");
+        toolbar.setTitle("Empreendimentos");
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
@@ -51,6 +53,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
         //Configurar o Adapter
         adapterEmp = new AdapterEmp(listaEmpreendimentos, tabelasEmpOnClickListener(), descricaoEmpOnClickListener(),0);
 
+
         //Configurar o RecyclerView
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(layoutManager);
@@ -58,9 +61,10 @@ public class EmpreendimentosActivity extends AppCompatActivity {
         recyclerView.addItemDecoration(new DividerItemDecoration(this, LinearLayout.VERTICAL));
         recyclerView.setAdapter(adapterEmp);
 
-
         //Configurando o searchview
         searchView = findViewById(R.id.materialSearchTabelas);
+        searchView.setHint("Buscar Empreendimento");
+        //searchView.setSuggestions(getResources().getStringArray(R.array.emp_suggestions));
 
         //Listener para o searchview
         searchView.setOnSearchViewListener(new MaterialSearchView.SearchViewListener() {
@@ -93,6 +97,11 @@ public class EmpreendimentosActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+    }
+
     public AdapterEmp.DescricaoEmpOnClickListener descricaoEmpOnClickListener () {
         return new AdapterEmp.DescricaoEmpOnClickListener() {
             @Override
@@ -117,7 +126,31 @@ public class EmpreendimentosActivity extends AppCompatActivity {
         return new AdapterEmp.TabelasEmpOnClickListener() {
             @Override
             public void tbEmpOnClick(AdapterEmp.MyViewHoler holer, int position, int flafLista) {
-                Toast.makeText(EmpreendimentosActivity.this, "Tabelas ainda não aprimorado", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(EmpreendimentosActivity.this, "Tabelas ainda não aprimorado", Toast.LENGTH_SHORT).show();
+                if(flafLista == 0){
+                    Empreendimentos empreendimentos = listaEmpreendimentos.get(position);
+                    if(empreendimentos.getAct_flag() == 0){
+                        Intent i = new Intent(EmpreendimentosActivity.this, TabelasEmpActivity.class);
+                        i.putExtra("info", empreendimentos);
+                        startActivity(i);
+                    } else {
+                        Intent j = new Intent(EmpreendimentosActivity.this, TabelasEmpM2Activity.class);
+                        j.putExtra("info", empreendimentos);
+                        startActivity(j);
+                    }
+
+                } else if(flafLista == 1){
+                    Empreendimentos empreendimentos = listaEmpreendimentosBusca.get(position);
+                    if(empreendimentos.getAct_flag() == 0){
+                        Intent j = new Intent(EmpreendimentosActivity.this, TabelasEmpActivity.class);
+                        j.putExtra("info", empreendimentos);
+                        startActivity(j);
+                    } else {
+                        Intent j = new Intent(EmpreendimentosActivity.this, TabelasEmpM2Activity.class);
+                        j.putExtra("info", empreendimentos);
+                        startActivity(j);
+                    }
+                }
             }
         };
     }
@@ -159,7 +192,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "azm",
                 "Venda: R$ 109.900,00 a partir",
                 "Avaliação: R$ 128.000,00",
-                R.drawable.img_azm,
+                R.drawable.avatar_empreendimento,
                 "azm_resFloresCerrado", 1, "+34 3213-4393",1,
                 "AZM");
         listaEmpreendimentos.add(empreendimentos);
@@ -197,7 +230,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
         //BARI
 
         empreendimentos = new Empreendimentos(
-                "Évora Residence",
+                "Evora Residence",
                 "bari",
                 "Venda: R$ 310.000,00 a partir",
                 "Avaliação: Não possui!",

@@ -124,4 +124,13 @@ public class Empreendimentos implements Serializable{
     public void setModelo(int modelo) {
         this.modelo = modelo;
     }
+
+    public String getCodigoConst() {
+        return codigoConst;
+    }
+
+    public void setCodigoConst(String codigoConst) {
+        this.codigoConst = codigoConst;
+    }
+
 }

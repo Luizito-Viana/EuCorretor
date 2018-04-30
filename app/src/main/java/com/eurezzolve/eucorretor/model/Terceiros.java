@@ -11,17 +11,29 @@ public class Terceiros implements Serializable {
     private String dono;
     private String infoAdapter;
     private int imageThumb;
+    private String bairro;
+    private Double metragem;
+    private int vagasGaragem;
+    private int quartos;
+    private int suites;
+    private int banheiros;
     /* Info Completo não foi implementado, capaz que usaremos um Array de Strings
     private String infoCompleto;*/
 
     public Terceiros() {
     }
 
-    public Terceiros(String nome, String dono, String infoAdapter, int imageThumb) {
+    public Terceiros(String nome, String dono, String infoAdapter, int imageThumb, String bairro, Double metragem, int vagasGaragem, int quartos, int suites, int banheiros) {
         this.nome = nome;
         this.dono = dono;
         this.infoAdapter = infoAdapter;
         this.imageThumb = imageThumb;
+        this.bairro = bairro;
+        this.metragem = metragem;
+        this.vagasGaragem = vagasGaragem;
+        this.quartos = quartos;
+        this.banheiros = banheiros;
+        this.suites = suites;
     }
 
     public String getNome() {
@@ -56,9 +68,70 @@ public class Terceiros implements Serializable {
         this.imageThumb = imageThumb;
     }
 
-    public String padronizarDescricao(){
+    public String getBairro() {
+        return bairro;
+    }
+
+    public void setBairro(String bairro) {
+        this.bairro = bairro;
+    }
+
+    public Double getMetragem() {
+        return metragem;
+    }
+
+    public void setMetragem(Double metragem) {
+        this.metragem = metragem;
+    }
+
+    public int getVagasGaragem() {
+        return vagasGaragem;
+    }
+
+    public void setVagasGaragem(int vagasGaragem) {
+        this.vagasGaragem = vagasGaragem;
+    }
+
+    public int getQuartos() {
+        return quartos;
+    }
+
+    public void setQuartos(int quartos) {
+        this.quartos = quartos;
+    }
+
+    public int getSuites() {
+        return suites;
+    }
+
+    public void setSuites(int suites) {
+        this.suites = suites;
+    }
+
+    public int getBanheiros() {
+        return banheiros;
+    }
+
+    public void setBanheiros(int banheiros) {
+        this.banheiros = banheiros;
+    }
+
+    public String padronizarDescricaoTerceiros(){
+        String y = "";
+        if(suites == 0){
+            y = "Sem suíte";
+        } else if (suites == 1){
+            y = "1 suíte";
+        } else {
+            y = String.valueOf(suites) + " suítes";
+        }
         String padrao = "";
-        padrao = "Descrição do Imóvel: \n";
+        padrao = "Descrição: \nImóvel localizado no bairro " + bairro + ", um ótimo lugar para residir, com segurança e variados comércios na região.\n" +
+                " > " + String.valueOf(metragem) + " metros quadrados\n" +
+                " > " + String.valueOf(quartos) +  " Quartos (" + y + ")\n" +
+                " > " + String.valueOf(banheiros) + " Banheiros\n" +
+                " > " + String.valueOf(vagasGaragem) + " Vagas na Garagem\n" +
+                " > Entre outros...";
         return padrao;
     }
 }

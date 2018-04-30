@@ -27,6 +27,7 @@ import com.eurezzolve.eucorretor.config.UsuarioFirebase;
 import com.eurezzolve.eucorretor.fragments.MapsActivity;
 import com.eurezzolve.eucorretor.fragments.TerceirosFragment;
 import com.eurezzolve.eucorretor.fragments.TerrenosFragment;
+import com.eurezzolve.eucorretor.helper.NotificationUtil;
 import com.google.firebase.auth.FirebaseUser;
 import com.miguelcatalan.materialsearchview.MaterialSearchView;
 
@@ -73,6 +74,34 @@ public class HomeActivity extends AppCompatActivity
         bottomNavigationView.setOnNavigationItemSelectedListener(this);
 
         searchView = findViewById(R.id.search_view);
+        searchView.setHint("Pesquisar");
+        //searchView.setSuggestions(getResources().getStringArray(R.array.emp_suggestions));
+
+        /*Listener para o SearchView*/
+        searchView.setOnSearchViewListener(new MaterialSearchView.SearchViewListener() {
+            @Override
+            public void onSearchViewShown() {
+
+            }
+
+            @Override
+            public void onSearchViewClosed() {
+
+            }
+        });
+
+        searchView.setOnQueryTextListener(new MaterialSearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                enviarCompleto(query);
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                return false;
+            }
+        });
 
         fragmentManager = getSupportFragmentManager();
         FragmentTransaction transaction = fragmentManager.beginTransaction(); //Responsavel por iniciar
@@ -82,6 +111,12 @@ public class HomeActivity extends AppCompatActivity
         preferences = getSharedPreferences(primeiraEx, MODE_PRIVATE);
 
     }
+
+    /*EnviarCompleto e EnviarPartes*/
+    public void enviarCompleto(String texto){
+        Toast.makeText(HomeActivity.this,"Enviado: " + texto, Toast.LENGTH_SHORT).show();
+    }
+
 
     @Override
     protected void onResume () {
@@ -113,9 +148,6 @@ public class HomeActivity extends AppCompatActivity
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
         return super.onOptionsItemSelected(item);
@@ -155,7 +187,6 @@ public class HomeActivity extends AppCompatActivity
                 break;
             case R.id.nav_terrenos:
                 Toast.makeText(getApplicationContext(), "Ainda não aprimorado", Toast.LENGTH_SHORT).show();
-                //startActivity(new Intent(HomeActivity.this, DescricaoTerceirosActivity.class));
                 break;
             case R.id.nav_simulador:
                 startActivity(new Intent(HomeActivity.this, SimuladorActivity.class));
