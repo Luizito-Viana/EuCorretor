@@ -24,7 +24,7 @@ public class TerrenosFragment extends SupportMapFragment
     //Definação das Variaveis
     private GoogleMap mMap;
     private LocationManager locationManager;
-    public final float camerazoom = 15.0f; //Grau do Zoom
+    public final float camerazoom = 13.0f; //Grau do Zoom
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

@@ -6,8 +6,10 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -24,12 +26,19 @@ import com.bumptech.glide.Glide;
 import com.eurezzolve.eucorretor.R;
 import com.eurezzolve.eucorretor.config.ConfiguracaoFirebase;
 import com.eurezzolve.eucorretor.config.UsuarioFirebase;
+import com.eurezzolve.eucorretor.fragments.EmpBuscaFragment;
 import com.eurezzolve.eucorretor.fragments.MapsActivity;
 import com.eurezzolve.eucorretor.fragments.TerceirosFragment;
 import com.eurezzolve.eucorretor.fragments.TerrenosFragment;
 import com.eurezzolve.eucorretor.helper.NotificationUtil;
+import com.eurezzolve.eucorretor.model.Marcadores;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
 import com.google.firebase.auth.FirebaseUser;
 import com.miguelcatalan.materialsearchview.MaterialSearchView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -39,12 +48,17 @@ public class HomeActivity extends AppCompatActivity
         BottomNavigationView.OnNavigationItemSelectedListener
 {
 
+    /*Variaveis para uso de pesquisa*/
+    private String nome, subtitulo;
+    private Double latitude, longitude;
+
     private static final String primeiraEx = "firstRun";
     private FragmentManager fragmentManager;
     private CircleImageView circleImageView;
     private TextView textNomeNav;
     private SharedPreferences preferences;
     private MaterialSearchView searchView;
+    private List<Marcadores> listaMarcadores = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -110,11 +124,45 @@ public class HomeActivity extends AppCompatActivity
 
         preferences = getSharedPreferences(primeiraEx, MODE_PRIVATE);
 
+        this.criarListaMarcadoresBuscas();
+
     }
+
+
 
     /*EnviarCompleto e EnviarPartes*/
     public void enviarCompleto(String texto){
-        Toast.makeText(HomeActivity.this,"Enviado: " + texto, Toast.LENGTH_SHORT).show();
+        for(Marcadores marcador : listaMarcadores){
+            String nomeMarcador = marcador.getNome().toLowerCase();
+            String nomePesquisaM1 = marcador.getPesquisaM1().toLowerCase();
+            String nomePesquisaM2 = marcador.getPesquisaM2().toLowerCase();
+            String nomePesquisaM3 = marcador.getPesquisaM3().toLowerCase();
+            String nomePesquisaM4 = marcador.getPesquisaM4().toLowerCase();
+
+            if(nomeMarcador.equals(texto)|| nomePesquisaM1.equals(texto) || nomePesquisaM2.equals(texto) || nomePesquisaM3.equals(texto) || nomePesquisaM4.equals(texto)){
+                 nome = marcador.getNome();
+                 subtitulo = marcador.getSubtitulo();
+                 latitude = marcador.getLatitude();
+                 longitude = marcador.getLongitude();
+                chamarFragmentResultado(nome, subtitulo, latitude, longitude);
+            }
+        }
+
+    }
+
+    public void chamarFragmentResultado(String nome, String subtitulo, Double latitude, Double longitude){
+        EmpBuscaFragment fragment = EmpBuscaFragment.newInstance(nome);
+        Bundle bundle = new Bundle();
+        bundle.putDouble("latitude", latitude);
+        bundle.putDouble("longitude", longitude);
+        bundle.putString("titulo", nome);
+        bundle.putString("subtitulo", subtitulo);
+        fragment.setArguments(bundle);
+
+        fragmentManager = getSupportFragmentManager();
+        FragmentTransaction transactionTer = fragmentManager.beginTransaction();
+        transactionTer.replace(R.id.containerPrincipal, fragment);
+        transactionTer.commit();
     }
 
 
@@ -186,7 +234,7 @@ public class HomeActivity extends AppCompatActivity
                 startActivity(new Intent(HomeActivity.this, TerceirosActivity.class));
                 break;
             case R.id.nav_terrenos:
-                Toast.makeText(getApplicationContext(), "Ainda não aprimorado", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(HomeActivity.this, TerrenosActivity.class));
                 break;
             case R.id.nav_simulador:
                 startActivity(new Intent(HomeActivity.this, SimuladorActivity.class));
@@ -223,6 +271,77 @@ public class HomeActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    private void criarListaMarcadoresBuscas() {
+
+        /*AZM*/
+        Marcadores marcadores = new Marcadores("Residencial Vertentes III",
+                "vertentes",
+                "residencial vertentes",
+                "res vertentes",
+                "residencial vertentes iii",
+                -18.941298,
+                -48.348096,
+                "Venda: R$129.900,00 a partir");
+        listaMarcadores.add(marcadores);
+
+        marcadores = new Marcadores("Residencial Tavares",
+                "tavares",
+                "res tavares",
+                "residencial tav",
+                "tavares residencial",
+                -18.945764, -48.350587,
+                "Venda: R$119.900,00 a partir");
+        listaMarcadores.add(marcadores);
+
+        marcadores = new Marcadores("Residencial Vida Boa",
+                "vida boa",
+                "res vida boa",
+                "residencial vida boa",
+                "vida boa residencial",
+                -18.948985,-48.318978,
+                "Venda: R$134.900,00 a partir");
+        listaMarcadores.add(marcadores);
+
+        marcadores = new Marcadores("Residencial Flores do Cerrado",
+                "flores do cerrado",
+                "res flores do cerrado",
+                "residencial flores",
+                "flores do cerrado residencial",
+                -18.965741,-48.339644,
+                "Venda: R$109.900,00 a partir");
+        listaMarcadores.add(marcadores);
+
+        /*Bari*/
+        marcadores = new Marcadores("Evora Residence",
+                "evora",
+                "evora residencial",
+                "evora res",
+                "residencial evora",
+                -18.923276,-48.233178,
+                "Venda: R$310.000,00 a partir");
+        listaMarcadores.add(marcadores);
+
+        marcadores = new Marcadores("Caio Ferreira Residence",
+                "caio ferreira",
+                "caio",
+                "res caio ferreira",
+                "caio ferreira res",
+                -18.920513, -48.235372,
+                "Venda: R$330.000,00");
+        listaMarcadores.add(marcadores);
+
+        /*C&A*/
+        marcadores = new Marcadores("Plaza Norte Residence",
+                "plaza norte",
+                "res plaza norte",
+                "res plaza",
+                "plaza norte res",
+                -18.8974186, -48.2784520,
+                "Venda: R$189.990,00 a partir");
+        listaMarcadores.add(marcadores);
+        
     }
 
     @Override

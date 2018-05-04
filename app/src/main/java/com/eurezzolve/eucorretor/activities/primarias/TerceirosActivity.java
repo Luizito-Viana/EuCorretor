@@ -114,7 +114,7 @@ public class TerceirosActivity extends AppCompatActivity {
                 "4 Quartos\n3 Banheiros",
                 R.drawable.casa_imovel,
                 "Cidade Jardim",
-                250.00,
+                "250.00",
                 2, 4, 1, 3);
         listaTerceiros.add(terceiros);
     }

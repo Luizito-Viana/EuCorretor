@@ -46,7 +46,10 @@ public class LegendaActivity extends AppCompatActivity {
     }
 
     private void criarLegendas() {
-        Legenda legenda = new Legenda(R.drawable.ic_mapa_empreendimentos,"Empreendimentos");
+        Legenda legenda = new Legenda(R.drawable.ic_mapa_buscafiltrada, "Resultado de buscas");
+        listaLegenda.add(legenda);
+
+        legenda = new Legenda(R.drawable.ic_mapa_empreendimentos,"Empreendimentos");
         listaLegenda.add(legenda);
 
         legenda = new Legenda(R.drawable.ic_mapa_imobiliaria,"Imobiliária");

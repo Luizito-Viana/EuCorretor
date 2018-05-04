@@ -155,7 +155,6 @@ public class EmpreendimentosActivity extends AppCompatActivity {
         };
     }
 
-
     public void recarregarEmpreendimentos(){
         adapterEmp = new AdapterEmp(listaEmpreendimentos, tabelasEmpOnClickListener(), descricaoEmpOnClickListener(), 0);
         recyclerView.setAdapter(adapterEmp);
@@ -177,7 +176,6 @@ public class EmpreendimentosActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapterEmp);
         adapterEmp.notifyDataSetChanged();
     }
-
 
     //Cria os Empreendimentos e Adiciona a lista que é enviada para o Adapter
     public void criarEmpreendimentos(){
@@ -202,7 +200,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "azm",
                 "Venda: R$ 119.900,00 a partir",
                 "Avaliação: R$ 128.000,00",
-                R.drawable.img_azm,
+                R.drawable.avatar_empreendimento,
                 "azm_resTavares",1,"+34 3213-4393",1,
                 "AZM");
         listaEmpreendimentos.add(empreendimentos);
@@ -212,7 +210,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "azm",
                 "Venda: R$ 129.900,00 a partir",
                 "Avaliação: R$ 150.000,00",
-                R.drawable.img_azm,
+                R.drawable.img_vertentes,
                 "azm_resVertentes", 1,"+34 3213-4393",1,
                 "AZM");
         listaEmpreendimentos.add(empreendimentos);
@@ -222,7 +220,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "azm",
                 "Venda: R$ 134.900,00 a partir",
                 "Avaliação: R$ 190.000,00",
-                R.drawable.img_azm,
+                R.drawable.img_vidaboa,
                 "azm_resVidaBoa",1,"+34 3213-4393",1,
                 "AZM");
         listaEmpreendimentos.add(empreendimentos);
@@ -234,7 +232,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "bari",
                 "Venda: R$ 310.000,00 a partir",
                 "Avaliação: Não possui!",
-                R.drawable.img_bari,
+                R.drawable.img_evora,
                 "bari_evoraResidence",0,1,
                 "BARI");
         listaEmpreendimentos.add(empreendimentos);
@@ -244,7 +242,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "bari",
                 "Venda: R$ 330.000,00",
                 "Avaliação: R$ 395.000,00",
-                R.drawable.img_bari,
+                R.drawable.avatar_empreendimento,
                 "bari_caioFerreira",0,1,
                 "BARI");
         listaEmpreendimentos.add(empreendimentos);
@@ -256,7 +254,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "cea",
                 "Venda: R$ 127.990,00",
                 "Avaliação: R$ 128.000,00",
-                R.drawable.img_cea,
+                R.drawable.avatar_empreendimento,
                 "cea_jardinsRes",0,1,
                 "C&A");
         listaEmpreendimentos.add(empreendimentos);
@@ -266,7 +264,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "cea",
                 "Venda: R$ 132.582,00 a partir",
                 "Avaliação: Individual",
-                R.drawable.img_cea,
+                R.drawable.avatar_empreendimento,
                 "cea_lexusOffice",0,1,
                 "C&A");
         listaEmpreendimentos.add(empreendimentos);
@@ -276,7 +274,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "cea",
                 "Venda: R$ 142.990,00",
                 "Avaliação: R$ 165.000,00",
-                R.drawable.img_cea,
+                R.drawable.avatar_empreendimento,
                 "cea_estorilRes",0,1,
                 "C&A");
         listaEmpreendimentos.add(empreendimentos);
@@ -286,7 +284,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "cea",
                 "Venda: R$ 142.990,00",
                 "Avaliação: R$ 165.000,00",
-                R.drawable.img_cea,
+                R.drawable.avatar_empreendimento,
                 "cea_zenithRes",0,1,
                 "C&A");
         listaEmpreendimentos.add(empreendimentos);
@@ -296,7 +294,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "cea",
                 "Venda: R$ 142.990,00",
                 "Avaliação: R$ 168.000,00",
-                R.drawable.img_cea,
+                R.drawable.avatar_empreendimento,
                 "cea_jardimBrasiliaRes",0,1,
                 "C&A");
         listaEmpreendimentos.add(empreendimentos);
@@ -306,7 +304,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "cea",
                 "Venda: R$ 149.990,00",
                 "Avaliação: R$ 180.000,00",
-                R.drawable.img_cea,
+                R.drawable.avatar_empreendimento,
                 "cea_resSolaris",0,1,
                 "C&A");
         listaEmpreendimentos.add(empreendimentos);
@@ -316,7 +314,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "cea",
                 "Venda: R$ 184.990,00",
                 "Avaliação: R$ 185.000,00",
-                R.drawable.img_cea,
+                R.drawable.avatar_empreendimento,
                 "cea_resVilaReal",0,1,
                 "C&A");
         listaEmpreendimentos.add(empreendimentos);
@@ -326,7 +324,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "cea",
                 "Venda: R$ 189.990,00 a partir",
                 "Avaliação: R$ 190.000,00 a partir",
-                R.drawable.img_cea,
+                R.drawable.avatar_empreendimento,
                 "cea_plazaNorteResidence",0,1,
                 "C&A");
         listaEmpreendimentos.add(empreendimentos);
@@ -336,7 +334,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "cea",
                 "Venda: R$ 195.990,00",
                 "Avaliação: R$ 190.000,00",
-                R.drawable.img_cea,
+                R.drawable.avatar_empreendimento,
                 "cea_resMonsenhor",0,1,
                 "C&A");
         listaEmpreendimentos.add(empreendimentos);
@@ -346,7 +344,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "cea",
                 "Venda: R$ 198.990,00",
                 "Avaliação: R$ 210.000,00",
-                R.drawable.img_cea,
+                R.drawable.avatar_empreendimento,
                 "cea_queensRes",0,1,
                 "C&A");
         listaEmpreendimentos.add(empreendimentos);
@@ -358,7 +356,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "cima",
                 "Venda: R$ 307.382,00 a partir",
                 "Avaliação: Não possui!",
-                R.drawable.img_cima,
+                R.drawable.avatar_empreendimento,
                 "cima_versatoRes",0,1,
                 "CIMA");
         listaEmpreendimentos.add(empreendimentos);
@@ -370,7 +368,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "conel",
                 "Venda: R$ 271.265,92 a partir",
                 "Avaliação: R$ 270.891,28 a partir",
-                R.drawable.img_conel,
+                R.drawable.avatar_empreendimento,
                 "conel_acquaTorre",0,1,
                 "CONEL");
         listaEmpreendimentos.add(empreendimentos);
@@ -380,7 +378,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "conel",
                 "Venda: R$ 284.628,00 a partir",
                 "Avaliação: R$ 284.628,00 a partir",
-                R.drawable.img_conel,
+                R.drawable.avatar_empreendimento,
                 "conel_granPlazaRes",0,1,
                 "CONEL");
         listaEmpreendimentos.add(empreendimentos);
@@ -390,7 +388,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "conel",
                 "Venda: R$ 299.627,38 a partir",
                 "Avaliação: R$ 299.213,57 a partir",
-                R.drawable.img_conel,
+                R.drawable.avatar_empreendimento,
                 "conel_barao177",0,1,
                 "CONEL");
         listaEmpreendimentos.add(empreendimentos);
@@ -400,7 +398,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "conel",
                 "Venda: R$ 328.629,35 a partir",
                 "Avaliação: R$ 328.000,00 a partir",
-                R.drawable.img_conel,
+                R.drawable.avatar_empreendimento,
                 "conel_edificioCalifor",0,1,
                 "CONEL");
         listaEmpreendimentos.add(empreendimentos);
@@ -410,7 +408,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "conel",
                 "Venda: R$1.016.836,38 a partir",
                 "Avaliação: R$1.016.863,88 a partir",
-                R.drawable.img_conel,
+                R.drawable.img_lidiceboulevard,
                 "conel_lidicePremium",0,1,
                 "CONEL");
         listaEmpreendimentos.add(empreendimentos);
@@ -420,7 +418,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "conel",
                 "Venda: R$ 1.022.625,81 a partir",
                 "Avaliação: R$ 1.021.210,41 a partir",
-                R.drawable.img_conel,
+                R.drawable.avatar_empreendimento,
                 "conel_VarandasTapui",0,1,
                 "CONEL");
         listaEmpreendimentos.add(empreendimentos);
@@ -432,7 +430,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "hlts",
                 "Venda: R$ 113.000,00 a partir",
                 "Avaliação: R$ 128.000,00 a partir",
-                R.drawable.img_hlts,
+                R.drawable.avatar_empreendimento,
                 "hlts_resJardimHol",0,1,
                 "HLTS");
         listaEmpreendimentos.add(empreendimentos);
@@ -442,7 +440,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "hlts",
                 "Venda: R$ 115.000,00 a partir",
                 "Avaliação: R$ 128.000,00 a partir",
-                R.drawable.img_hlts,
+                R.drawable.img_place,
                 "hlts_placeAltoUmu",0,1,
                 "HLTS");
         listaEmpreendimentos.add(empreendimentos);
@@ -452,7 +450,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "hlts",
                 "Venda: R$ 138.000,00 a partir",
                 "Avaliação: R$ 180.000,00",
-                R.drawable.img_hlts,
+                R.drawable.img_newquality,
                 "hlts_newQualityRes",0,1,
                 "HLTS");
         listaEmpreendimentos.add(empreendimentos);
@@ -462,7 +460,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "hlts",
                 "Venda: R$ 314.300,00 a partir",
                 "Avaliação: R$ 370.300,00 a partir",
-                R.drawable.img_hlts,
+                R.drawable.avatar_empreendimento,
                 "hlts_primeClubRes",0,1,
                 "HLTS");
         listaEmpreendimentos.add(empreendimentos);
@@ -474,7 +472,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "hpr",
                 "Venda: R$ 174.900,00 a partir",
                 "Avaliação: R$ 190.000,00",
-                R.drawable.img_hpr,
+                R.drawable.img_acacias,
                 "hpr_resAcacias",0,1,
                 "HPR");
         listaEmpreendimentos.add(empreendimentos);
@@ -484,7 +482,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "hpr",
                 "Venda: R$ 179.900,00 a partir",
                 "Avaliação: R$ 190.000,00",
-                R.drawable.img_hpr,
+                R.drawable.img_araucarias,
                 "hpr_resAraucarias",0,1,
                 "HPR");
         listaEmpreendimentos.add(empreendimentos);
@@ -496,7 +494,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "lsilva",
                 "Venda: R$ 220.000,00 a partir",
                 "Avaliação: Não possui!",
-                R.drawable.img_lsilva,
+                R.drawable.avatar_empreendimento,
                 "lsilva_rubiRes",0,1,
                 "L Silva");
         listaEmpreendimentos.add(empreendimentos);
@@ -507,7 +505,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "marcaRegistrada",
                 "Venda: R$110.000,00",
                 "Avaliação: R$110.000,00",
-                R.drawable.img_marcaregistrada,
+                R.drawable.avatar_empreendimento,
                 "mr_resMirante",0,1,
                 "Marca Registrada");
         listaEmpreendimentos.add(empreendimentos);
@@ -516,7 +514,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "marcaRegistrada",
                 "Venda: R$120.000,00 a partir",
                 "Avaliação: R$127.000,00",
-                R.drawable.img_marcaregistrada,
+                R.drawable.avatar_empreendimento,
                 "mr_residenciaisPark",0,1,
                 "Marca Registrada");
         listaEmpreendimentos.add(empreendimentos);
@@ -525,7 +523,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "marcaRegistrada",
                 "Venda: R$120.000,00 a partir",
                 "Avaliação: R$128.000,00",
-                R.drawable.img_marcaregistrada,
+                R.drawable.avatar_empreendimento,
                 "mr_residenciaisAlpha",0,1,
                 "Marca Registrada");
         listaEmpreendimentos.add(empreendimentos);
@@ -535,20 +533,19 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "marcaRegistrada",
                 "Venda: R$ 131.000,00 a partir",
                 "Avaliação: R$ 145.000,00 a partir",
-                R.drawable.img_marcaregistrada,
+                R.drawable.img_grantoro,
                 "mr_granToro",0,1,
                 "Marca Registrada");
         listaEmpreendimentos.add(empreendimentos);
 
         //MRV
 
-        /* ARRUMAR O ICONE AQUI*/
         empreendimentos = new Empreendimentos(
                 "Parque United States",
                 "mrv",
                 "Venda: R$ 128.000,00 a partir",
                 "Avaliação: R$ 150.500,00 a partir",
-                R.drawable.img_marcaregistrada,
+                R.drawable.avatar_empreendimento,
                 "mrv_parqueUnitedStates",0,1,
                 "MRV");
         listaEmpreendimentos.add(empreendimentos);
@@ -560,7 +557,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "maxi",
                 "Venda: R$334.700,00 a partir",
                 "Avaliação: R$340.000,00 a partir",
-                R.drawable.img_maxi,
+                R.drawable.img_provence,
                 "maxi_provenceResClub",0,1,
                 "MAXI");
         listaEmpreendimentos.add(empreendimentos);
@@ -572,7 +569,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "opcao",
                 "Venda: R$ 136.900,00 a partir",
                 "Avaliação: R$ 170.000,00",
-                R.drawable.img_opcao,
+                R.drawable.avatar_empreendimento,
                 "opcao_resPlatina",0,1,
                 "Opcao");
         listaEmpreendimentos.add(empreendimentos);
@@ -582,7 +579,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "opcao",
                 "Venda: R$ 140.900,00 a partir",
                 "Avaliação: R$ 180.000,00",
-                R.drawable.img_opcao,
+                R.drawable.img_royale,
                 "opcao_royale",0,1,
                 "Opcao");
         listaEmpreendimentos.add(empreendimentos);
@@ -592,7 +589,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "opcao",
                 "Venda: R$ 141.900,00",
                 "Avaliação: R$ 167.000,00 a partir",
-                R.drawable.img_opcao,
+                R.drawable.avatar_empreendimento,
                 "opcao_resFlamboyant",0,1,
                 "Opcao");
         listaEmpreendimentos.add(empreendimentos);
@@ -602,7 +599,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "opcao",
                 "Venda: R$ 141.900,00 a partir",
                 "Avaliação: R$ 180.000,00",
-                R.drawable.img_opcao,
+                R.drawable.avatar_empreendimento,
                 "opcao_villageSul",0,1,
                 "Opcao");
         listaEmpreendimentos.add(empreendimentos);
@@ -612,7 +609,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "opcao",
                 "Venda: R$ 181.000,00 a partir",
                 "Avaliação: R$ 190.000,00",
-                R.drawable.img_opcao,
+                R.drawable.avatar_empreendimento,
                 "opcao_moradaPraia",0,1,
                 "Opcao");
         listaEmpreendimentos.add(empreendimentos);
@@ -624,7 +621,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "pacheco",
                 "Venda: R$ 290.000,00 a partir",
                 "Avaliação: R$ 300.000,00 a partir",
-                R.drawable.img_pacheco,
+                R.drawable.img_veneza,
                 "pacheco_resVeneza",0,1,
                 "Pacheco");
         listaEmpreendimentos.add(empreendimentos);
@@ -634,7 +631,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "pacheco",
                 "Venda: R$ 355.000,00 a partir",
                 "Avaliação: Não possui!",
-                R.drawable.img_pacheco,
+                R.drawable.avatar_empreendimento,
                 "pacheco_resUnique",0,1,
                 "Pacheco");
         listaEmpreendimentos.add(empreendimentos);
@@ -644,7 +641,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "pacheco",
                 "Venda: R$ 671.000,00 a partir",
                 "Avaliação: Não possui!",
-                R.drawable.img_pacheco,
+                R.drawable.avatar_empreendimento,
                 "pacheco_resLidiceBou",0,1,
                 "Pacheco");
         listaEmpreendimentos.add(empreendimentos);
@@ -654,7 +651,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "pacheco",
                 "Venda: R$ 1.397.000,00 a partir",
                 "Avaliação: Não possui!",
-                R.drawable.img_pacheco,
+                R.drawable.img_evidence,
                 "pacheco_resEvidence",0,1,
                 "Pacheco");
         listaEmpreendimentos.add(empreendimentos);
@@ -666,7 +663,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "pdca",
                 "Venda: R$ 128.000,00",
                 "Avaliação: R$ 128.000,00",
-                R.drawable.img_pdca,
+                R.drawable.img_jardimdocerrado,
                 "pdca_jardinsCerrado",0,1,
                 "PDCA");
         listaEmpreendimentos.add(empreendimentos);
@@ -678,8 +675,8 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "portento",
                 "Venda: R$ 135.000,00 a partir",
                 "Avaliação: Não possui!",
-                R.drawable.img_portento,
-                "portento_laBelle",0,1,
+                R.drawable.img_labelle,
+                "portento_laBelle",1, "+34 3210-8714",1,
                 "Portento");
         listaEmpreendimentos.add(empreendimentos);
 
@@ -688,8 +685,8 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "portento",
                 "Venda: R$ 140.000,00 a partir",
                 "Avaliação: Não possui!",
-                R.drawable.img_portento,
-                "portento_ravena",0,1,
+                R.drawable.img_ravena,
+                "portento_ravena",1,"+34 3210-8714",1,
                 "Portento");
         listaEmpreendimentos.add(empreendimentos);
 
@@ -698,8 +695,8 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "portento",
                 "Venda: R$ 144.000,00 a partir",
                 "Avaliação: Não possui!",
-                R.drawable.img_portento,
-                "portento_sevilha",0,1,
+                R.drawable.img_sevilha,
+                "portento_sevilha",1,"+34 3210-8714",1,
                 "Portento");
         listaEmpreendimentos.add(empreendimentos);
 
@@ -708,8 +705,8 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "portento",
                 "Venda: R$ 145.000,00 a partir",
                 "Avaliação: Não possui!",
-                R.drawable.img_portento,
-                "portento_valencia",0,1,
+                R.drawable.img_valencia,
+                "portento_valencia",1,"+34 3210-8714",1,
                 "Portento");
         listaEmpreendimentos.add(empreendimentos);
 
@@ -718,8 +715,8 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "portento",
                 "Venda: R$ 330.000,00 a partir",
                 "Avaliação: Não possui!",
-                R.drawable.img_portento,
-                "portento_milao",0,1,
+                R.drawable.img_milao,
+                "portento_milao",1,"+34 3210-8714",1,
                 "Portento");
         listaEmpreendimentos.add(empreendimentos);
 
@@ -730,7 +727,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "rFreitas",
                 "Venda: R$ 180.000,00 a partir",
                 "Avaliação: R$ 187.000,00 a partir",
-                R.drawable.img_rfreitas,
+                R.drawable.img_bosquedasgameleiras,
                 "rfreitas_gameleiras",0,1,
                 "R Freitas");
         listaEmpreendimentos.add(empreendimentos);
@@ -740,7 +737,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "rFreitas",
                 "Venda: R$ 359.000,00 a partir",
                 "Avaliação: R$ 400.000,00",
-                R.drawable.img_rfreitas,
+                R.drawable.img_aristidesdefreitas,
                 "rfreitas_aristides",0,1,
                 "R Freitas");
         listaEmpreendimentos.add(empreendimentos);
@@ -750,7 +747,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "rFreitas",
                 "Venda: R$ 384.544,03 a partir",
                 "Avaliação: Não possui!",
-                R.drawable.img_rfreitas,
+                R.drawable.img_uztower,
                 "rfreitas_uzTower",0,1,
                 "R Freitas");
         listaEmpreendimentos.add(empreendimentos);
@@ -762,7 +759,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "realiza",
                 "Venda: R$ 180.000,00 a partir",
                 "Avaliação: Não possui!",
-                R.drawable.img_rfreitas,
+                R.drawable.avatar_empreendimento,
                 "realiza_tropicalSul",0,1,
                 "Realiza");
         listaEmpreendimentos.add(empreendimentos);
@@ -772,7 +769,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "realiza",
                 "Venda: R$ 310.500,00 a partir",
                 "Avaliação: Não possui!",
-                R.drawable.img_rfreitas,
+                R.drawable.avatar_empreendimento,
                 "realiza_anitaRes",0,1,
                 "Realiza");
         listaEmpreendimentos.add(empreendimentos);
@@ -782,7 +779,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "realiza",
                 "Venda: R$ 619.368,10 a partir",
                 "Avaliação: Não possui!",
-                R.drawable.img_rfreitas,
+                R.drawable.avatar_empreendimento,
                 "realiza_villageParII",0,1,
                 "Realiza");
         listaEmpreendimentos.add(empreendimentos);
@@ -794,7 +791,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "troia",
                 "Venda: R$ 540.000,00 a partir",
                 "Avaliação: Não possui!",
-                R.drawable.img_troia,
+                R.drawable.avatar_empreendimento,
                 "troia_splendiaRes",0,1,
                 "Troia");
         listaEmpreendimentos.add(empreendimentos);
@@ -806,7 +803,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "urbani",
                 "Venda: R$ 129.900,00 a partir",
                 "Avaliação: R$ 163.000,00 a partir",
-                R.drawable.img_urbani,
+                R.drawable.avatar_empreendimento,
                 "urbani_resNapoli",0,1,
                 "Urbani");
         listaEmpreendimentos.add(empreendimentos);
@@ -818,7 +815,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "vivamus",
                 "Venda: R$ 128.000,00",
                 "Avaliação: R$ R$ 128.000,00",
-                R.drawable.img_vivamus,
+                R.drawable.img_starttower,
                 "vivamus_startTower",0,1,
                 "Vivamus");
         listaEmpreendimentos.add(empreendimentos);
@@ -828,7 +825,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "vivamus",
                 "Venda: R$ 151.990,00 a partir",
                 "Avaliação: R$ 183.000,00",
-                R.drawable.img_vivamus,
+                R.drawable.img_smarttower,
                 "vivamus_smartTower",0,1,
                 "Vivamus");
         listaEmpreendimentos.add(empreendimentos);
@@ -856,7 +853,6 @@ public class EmpreendimentosActivity extends AppCompatActivity {
             default:
                 break;
         }
-        //return super.onOptionsItemSelected(item);
         return true;
     }
 

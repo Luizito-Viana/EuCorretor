@@ -18,6 +18,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
+
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_icon"
             android:resource="@drawable/ic_notification_alert" />
@@ -36,6 +46,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <!-- Aqui temos a HomeActivity -->
         <activity
             android:name=".activities.primarias.HomeActivity"
@@ -47,28 +58,63 @@
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
 
-        <!-- Activitys Padrões -->
+        <!-- Activitys Cadastro e Login e ResetPassword -->
         <activity
             android:name=".activities.introducao.CadastroActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activities.introducao.LoginActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".activities.primarias.ConfiguracoesActivity" />
+        <activity
+            android:name=".activities.introducao.ResetActivity"
+            android:screenOrientation="portrait" />
+
+        <!-- Aqui temos a Configuracoes -->
+        <activity
+            android:name=".activities.primarias.ConfiguracoesActivity"
+            android:screenOrientation="portrait" />
+
+        <!-- Aqui temos as Duvidas -->
         <activity
             android:name=".activities.primarias.DuvidasActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".activities.secundarias.DuvidasFinanciamentoActivity" />
-        <activity android:name=".activities.secundarias.DuvidasSimulacaoActivity" />
-        <activity android:name=".activities.secundarias.DuvidasDocumentacaoActivity" />
-        <activity android:name=".activities.primarias.SimuladorActivity" />
-        <activity android:name=".activities.secundarias.LegendaActivity" />
-        <activity android:name=".activities.secundarias.SobreActivity" />
-        <activity android:name=".activities.secundarias.PerfilActivity" />
+        <activity
+            android:name=".activities.secundarias.DuvidasFinanciamentoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.secundarias.DuvidasSimulacaoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.secundarias.DuvidasDocumentacaoActivity"
+            android:screenOrientation="portrait" />
+
+        <!-- Aqui temos o Simulador -->
+        <activity
+            android:name=".activities.primarias.SimuladorActivity"
+            android:screenOrientation="portrait" />
+
+        <!-- Aqui temos a Legenda -->
+        <activity
+            android:name=".activities.secundarias.LegendaActivity"
+            android:screenOrientation="portrait" />
+
+        <!-- Aqui temos a Sobre -->
+        <activity
+            android:name=".activities.secundarias.SobreActivity"
+            android:screenOrientation="portrait" />
+
+        <!-- Aqui temos a Perfil -->
+        <activity
+            android:name=".activities.secundarias.PerfilActivity"
+            android:screenOrientation="portrait" />
 
         <!-- Activity Tabela -->
         <activity
             android:name=".activities.primarias.EmpreendimentosActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
@@ -86,7 +132,12 @@
             android:name=".fragments.MapsActivity"
             android:label="@string/title_activity_maps" />
         -->
-        <activity android:name=".activities.secundarias.NotificacaoActivity" />
+
+
+        <!-- Aqui temos a Notificacao -->
+        <activity
+            android:name=".activities.secundarias.NotificacaoActivity"
+            android:screenOrientation="portrait" />
 
         <service android:name=".notification.MyFirebaseMessagingService">
             <intent-filter>
@@ -99,24 +150,41 @@
             </intent-filter>
         </service>
 
-        <activity android:name=".activities.terciarias.AtualizarLoginActivity" />
+        <activity
+            android:name=".activities.terciarias.AtualizarLoginActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".activities.introducao.MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
-        <activity android:name=".activities.introducao.ResetActivity" />
-        <activity android:name=".activities.secundarias.CadastroImoveisActivity" />
+        <activity
+            android:name=".activities.secundarias.CadastroImoveisActivity"
+            android:screenOrientation="portrait" />
+
+        <!-- Aqui temos as Tabelas e Descricoes -->
         <activity
             android:name=".activities.primarias.TerceirosActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activities.secundarias.DescricaoTerceirosActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionCustom" />
         <activity
             android:name=".activities.secundarias.DescricaoEmpActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionCustom" />
-        <activity android:name=".activities.secundarias.TabelasEmpActivity" />
-        <activity android:name=".activities.secundarias.TabelasEmpM2Activity"></activity>
+        <activity
+            android:name=".activities.secundarias.TabelasEmpActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.secundarias.TabelasEmpM2Activity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.primarias.TerrenosActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".activities.secundarias.TabelasTerceirosActivity"></activity>
     </application>
 
 </manifest>

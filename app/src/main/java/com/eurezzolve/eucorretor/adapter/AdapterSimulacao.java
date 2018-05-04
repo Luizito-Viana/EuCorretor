@@ -26,7 +26,7 @@ public class AdapterSimulacao extends RecyclerView.Adapter<AdapterSimulacao.MyVi
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemSimulacao = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.adapter_question,parent,false);
+                .inflate(R.layout.adapter_auxiliar,parent,false);
         return new MyViewHolder(itemSimulacao);
     }
 
@@ -41,7 +41,7 @@ public class AdapterSimulacao extends RecyclerView.Adapter<AdapterSimulacao.MyVi
 
     @Override
     public int getItemCount() {
-        return simulacaoLista.size();
+        return simulacaoLista != null? simulacaoLista.size() : 0;
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder{

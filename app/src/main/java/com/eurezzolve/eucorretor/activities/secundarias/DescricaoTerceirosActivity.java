@@ -1,5 +1,13 @@
 package com.eurezzolve.eucorretor.activities.secundarias;
 
+import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.AsyncTask;
+import android.support.v4.content.FileProvider;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -16,6 +24,7 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.eurezzolve.eucorretor.R;
+import com.eurezzolve.eucorretor.activities.primarias.DuvidasActivity;
 import com.eurezzolve.eucorretor.config.ConfiguracaoFirebase;
 import com.eurezzolve.eucorretor.model.Terceiros;
 import com.firebase.ui.storage.images.FirebaseImageLoader;
@@ -26,8 +35,14 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+
+import livroandroid.lib.fragment.BaseFragment;
+import livroandroid.lib.task.TaskListener;
+import livroandroid.lib.utils.IOUtils;
+import livroandroid.lib.utils.SDCardUtils;
 
 public class DescricaoTerceirosActivity extends AppCompatActivity {
 
@@ -93,7 +108,7 @@ public class DescricaoTerceirosActivity extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for(DataSnapshot ds : dataSnapshot.getChildren()){
                     String date = ds.getValue(String.class);
-                    Log.d("DataSnapshot", date);
+                    //Log.d("DataSnapshot", date);
                     strings.add(date);
                 }
             }
@@ -108,8 +123,8 @@ public class DescricaoTerceirosActivity extends AppCompatActivity {
         btProxima.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(strings == null){
-                    Toast.makeText(DescricaoTerceirosActivity.this, "Efetuando carregamento", Toast.LENGTH_SHORT);
+                if(strings.isEmpty()){
+                    Toast.makeText(DescricaoTerceirosActivity.this, "Efetuando carregamento", Toast.LENGTH_SHORT).show();
                 } else {
                     if(idx == strings.size()){
                         idx = 0;
@@ -130,20 +145,18 @@ public class DescricaoTerceirosActivity extends AppCompatActivity {
         btAnterior.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(strings == null){
-                    Toast.makeText(DescricaoTerceirosActivity.this, "Efetuando carregamento", Toast.LENGTH_SHORT);
+                if(strings.isEmpty()){
+                    Toast.makeText(DescricaoTerceirosActivity.this, "Efetuando carregamento", Toast.LENGTH_SHORT).show();
                 } else {
                     if(idx < 0 || idx > (strings.size() - 1)){
                         idx = (strings.size() - 1);
                     }
-                    Log.d("Numeros", "Antes: " + String.valueOf(idx));
                     String uso = strings.get(idx--);
                     storage = FirebaseStorage.getInstance().getReferenceFromUrl(uso);
                     Glide.with(DescricaoTerceirosActivity.this)
                             .using(new FirebaseImageLoader())
                             .load(storage)
                             .into((ImageView) imageSwitcher.getCurrentView());
-                    Log.d("Numeros", "Depois: " + String.valueOf(idx));
                 }
             }
         });
@@ -163,7 +176,11 @@ public class DescricaoTerceirosActivity extends AppCompatActivity {
                 finish();
                 break;
             case R.id.menudesc_compartilhar:
-
+                if(strings.isEmpty()){
+                    Toast.makeText(DescricaoTerceirosActivity.this, "Aguarde carregamento das imagens", Toast.LENGTH_SHORT).show();
+                } else {
+                    alertaDeConfirmacao();
+                }
                 break;
             case R.id.menudesc_favoritar:
                 Toast.makeText(DescricaoTerceirosActivity.this, "Favoritar ainda não aprimorado", Toast.LENGTH_SHORT).show();
@@ -173,55 +190,84 @@ public class DescricaoTerceirosActivity extends AppCompatActivity {
         }
 
         return true;
-        // return super.onOptionsItemSelected(item);
     }
 
-    /*Compartilhar Imagens
-    private class CompartilharTask implements TaskListener {
-        private final List<String> stringsSelecionadas;
-
-        //Lista para compartilhar
-        ArrayList<Uri> imageUris = new ArrayList<Uri>();
-
-        public CompartilharTask(List<String> stringsSelecionadas){
-            this.stringsSelecionadas = stringsSelecionadas;
-        }
-
-
-        @Override
-        public Object execute() throws Exception {
-            if(stringsSelecionadas != null){
-                for(String c : stringsSelecionadas){
-                    String fileName = c.substring(c.lastIndexOf("/"));
-                    //CRIA O ARQUIVO NO SD Card
-                    File file = SDCardUtils.getPrivateFile(getApplicationContext(),"Fotos Imoveis", fileName);
-                    IOUtils.downloadToFile(c, file);
-                    //Salva Uri para compartilhar
-                    imageUris.add(Uri.fromFile(file));
-                }
+    private void alertaDeConfirmacao() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Compartilhar as imagens");
+        builder.setMessage("Deseja compartilhar as imagenns desse imóvel?");
+        builder.setCancelable(false);
+        builder.setPositiveButton("Confirmar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                AsyncTasksImagens imagens = new AsyncTasksImagens(strings);
+                imagens.execute();
             }
-            return null;
+        });
+        builder.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                Toast.makeText(DescricaoTerceirosActivity.this, "Evento cancelado", Toast.LENGTH_SHORT).show();
+            }
+        });
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
+
+    /*Compartilhar Imagens*/
+    private class AsyncTasksImagens extends AsyncTask<List<String>, Void, ArrayList<Uri>> {
+
+        private ArrayList<Uri> imageUris = new ArrayList<Uri>();
+        private final List<String> listaSelecionada;
+        private ProgressDialog dialog;
+
+        public AsyncTasksImagens(List<String> listaSelecionada){
+            this.listaSelecionada = listaSelecionada;
         }
 
         @Override
-        public void updateView(Object response) {
+        protected void onPreExecute() {
+            dialog = new ProgressDialog(DescricaoTerceirosActivity.this);
+            dialog.setMessage("Salvando imagens, aguarde...");
+            dialog.setIndeterminate(true);
+            dialog.setCancelable(false);
+            dialog.show();
+            super.onPreExecute();
+        }
+
+        @Override
+        protected ArrayList<Uri> doInBackground(List<String>... voids) {
+            for (String s : listaSelecionada){
+                String url = s;
+                String filename = url.substring(url.lastIndexOf("/"));
+                /*Cria o arquivo no SD Card*/
+                File file = SDCardUtils.getPrivateFile(DescricaoTerceirosActivity.this, "imagens.jpeg", filename);
+                IOUtils.downloadToFile(s, file);
+                /*Salva para comparilhar a foto*/
+                imageUris.add(FileProvider.getUriForFile(DescricaoTerceirosActivity.this, getApplicationContext().getPackageName() + ".provider", file));
+            }
+
+            return imageUris;
+        }
+
+        @Override
+        protected void onProgressUpdate(Void... values) {
+            super.onProgressUpdate(values);
+        }
+
+        @Override
+        protected void onPostExecute(ArrayList<Uri> imagens) {
+            dialog.setMessage("Imagens salvas!");
+            dialog.dismiss();
             Intent shareIntent = new Intent();
             shareIntent.setAction(Intent.ACTION_SEND);
             shareIntent.setAction(Intent.ACTION_SEND_MULTIPLE);
-            shareIntent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.app_name));
-            shareIntent.putParcelableArrayListExtra(Intent.EXTRA_STREAM, imageUris);
+            shareIntent.putParcelableArrayListExtra(Intent.EXTRA_STREAM, imagens);
             shareIntent.setType("image/*");
-            startActivity(Intent.createChooser(shareIntent, "Enviar Fotos dos imóveis"));
+            startActivity(Intent.createChooser(shareIntent, "Enviar Imagens"));
+            super.onPostExecute(imagens);
         }
 
-        @Override
-        public void onError(Exception exception) {
-            Toast.makeText(DescricaoTerceirosActivity.this, "Ocorreu algum erro ao compartilhar.", Toast.LENGTH_SHORT).show();
-        }
+    }
 
-        @Override
-        public void onCancelled(String cod) {
-
-        }
-    }*/
 }

@@ -40,7 +40,7 @@ public class MapsActivity extends SupportMapFragment
     private GoogleApiClient googleApiClient;
     private GoogleMap mMap;
     private LocationManager locationManager;
-    public final float camerazoom = 15.0f; //Grau do Zoom
+    public final float camerazoom = 13.0f; //Grau do Zoom
 
     @Override
     public void onAttach(Context context) {
@@ -80,18 +80,11 @@ public class MapsActivity extends SupportMapFragment
         } catch (SecurityException ex) {
             Log.e("Catch", "Erro!");
         }
-        Log.d("onConnected", aBoolean.toString() );
-        if(aBoolean == true){
-            LatLng atual = new LatLng(locationAtual.getLatitude(), locationAtual.getLongitude());
-            mMap.moveCamera(CameraUpdateFactory.newLatLng(atual));
-            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(atual, camerazoom));
-        } else {
-            LatLng udiConfiancaElse = new LatLng(-18.921170, -48.275920);
-            mMap.moveCamera(CameraUpdateFactory.newLatLng(udiConfiancaElse));
-            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(udiConfiancaElse, camerazoom));
-        }
 
         LatLng udiConfianca = new LatLng(-18.921170, -48.275920);
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(udiConfianca));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(udiConfianca, camerazoom));
+
         MarkerOptions marker = new MarkerOptions(); //Instacia
         marker.position(udiConfianca);//Marca a Posição
         marker.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_CYAN)); //Determina a Cor

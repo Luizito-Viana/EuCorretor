@@ -1,6 +1,7 @@
 package com.eurezzolve.eucorretor.model;
 
 import java.io.Serializable;
+import java.text.DecimalFormat;
 
 /**
  * Created by viana_2 on 25/04/2018.
@@ -12,7 +13,7 @@ public class Terceiros implements Serializable {
     private String infoAdapter;
     private int imageThumb;
     private String bairro;
-    private Double metragem;
+    private String metragem;
     private int vagasGaragem;
     private int quartos;
     private int suites;
@@ -23,7 +24,7 @@ public class Terceiros implements Serializable {
     public Terceiros() {
     }
 
-    public Terceiros(String nome, String dono, String infoAdapter, int imageThumb, String bairro, Double metragem, int vagasGaragem, int quartos, int suites, int banheiros) {
+    public Terceiros(String nome, String dono, String infoAdapter, int imageThumb, String bairro, String metragem, int vagasGaragem, int quartos, int suites, int banheiros) {
         this.nome = nome;
         this.dono = dono;
         this.infoAdapter = infoAdapter;
@@ -35,6 +36,7 @@ public class Terceiros implements Serializable {
         this.banheiros = banheiros;
         this.suites = suites;
     }
+
 
     public String getNome() {
         return nome;
@@ -76,11 +78,11 @@ public class Terceiros implements Serializable {
         this.bairro = bairro;
     }
 
-    public Double getMetragem() {
+    public String getMetragem() {
         return metragem;
     }
 
-    public void setMetragem(Double metragem) {
+    public void setMetragem(String metragem) {
         this.metragem = metragem;
     }
 
@@ -127,7 +129,7 @@ public class Terceiros implements Serializable {
         }
         String padrao = "";
         padrao = "Descrição: \nImóvel localizado no bairro " + bairro + ", um ótimo lugar para residir, com segurança e variados comércios na região.\n" +
-                " > " + String.valueOf(metragem) + " metros quadrados\n" +
+                " > " + metragem + " metros quadrados\n" +
                 " > " + String.valueOf(quartos) +  " Quartos (" + y + ")\n" +
                 " > " + String.valueOf(banheiros) + " Banheiros\n" +
                 " > " + String.valueOf(vagasGaragem) + " Vagas na Garagem\n" +

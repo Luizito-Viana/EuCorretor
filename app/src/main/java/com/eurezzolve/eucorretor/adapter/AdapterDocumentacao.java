@@ -17,9 +17,6 @@ import java.util.List;
 
 import static com.bluejamesbond.text.hyphen.DefaultHyphenator.*;
 
-/**
- * Created by viana_2 on 17/04/2018.
- */
 
 public class AdapterDocumentacao extends RecyclerView.Adapter<AdapterDocumentacao.MyViewHolder>{
 
@@ -42,8 +39,6 @@ public class AdapterDocumentacao extends RecyclerView.Adapter<AdapterDocumentaca
         Documentacao documentacao = documentacaoLista.get(position);
         holder.pergunta.setText(documentacao.getPergunta());
         holder.resposta.setText(documentacao.getResposta());
-
-
     }
 
     @Override
