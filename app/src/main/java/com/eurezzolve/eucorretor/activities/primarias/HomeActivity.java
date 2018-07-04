@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -31,6 +32,7 @@ import com.eurezzolve.eucorretor.fragments.MapsActivity;
 import com.eurezzolve.eucorretor.fragments.TerceirosFragment;
 import com.eurezzolve.eucorretor.fragments.TerrenosFragment;
 import com.eurezzolve.eucorretor.helper.NotificationUtil;
+import com.eurezzolve.eucorretor.model.Empreendimentos;
 import com.eurezzolve.eucorretor.model.Marcadores;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
@@ -228,7 +230,9 @@ public class HomeActivity extends AppCompatActivity
             case R.id.nav_principal:
                 break;
             case R.id.nav_empreendimentos:
-                startActivity(new Intent(HomeActivity.this, EmpreendimentosActivity.class));
+                Intent intent = new Intent(HomeActivity.this, EmpreendimentosActivity.class);
+                startActivity(intent);
+                //startActivity(new Intent(HomeActivity.this, EmpreendimentosActivity.class));
                 break;
             case R.id.nav_terceiros:
                 startActivity(new Intent(HomeActivity.this, TerceirosActivity.class));

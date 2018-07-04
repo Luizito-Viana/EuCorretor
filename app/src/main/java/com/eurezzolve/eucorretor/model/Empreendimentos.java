@@ -1,5 +1,10 @@
 package com.eurezzolve.eucorretor.model;
 
+import com.eurezzolve.eucorretor.config.ConfiguracaoFirebase;
+import com.eurezzolve.eucorretor.helper.Base64Custom;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+
 import java.io.Serializable;
 
 /**
@@ -7,6 +12,7 @@ import java.io.Serializable;
  */
 
 public class Empreendimentos implements Serializable{
+
     private String nome;
     private String construtora;
     private String venda;
@@ -15,20 +21,32 @@ public class Empreendimentos implements Serializable{
     private String codigo;
     private int act_flag;
     private String telefone;
-    private int modelo;
     private String codigoConst;
+    private String descricao;
+    private String localizacao;
+    private int categoriaMetragem;
+    private String faixa;
+
 
 
     public Empreendimentos() {
     }
 
-    public Empreendimentos(String nome, int act_flag ,int modelo){
+    public void salvar(){
+        FirebaseAuth autenticacao = ConfiguracaoFirebase.getFirebaseAutenticacao();
+        String idUsuario = Base64Custom.codificarBase64(autenticacao.getCurrentUser().getEmail());
+        DatabaseReference firebase = ConfiguracaoFirebase.getFirebaseDatabase();
+        firebase.child("listaEmpreendimentos")
+                .child(codigo)
+                .setValue(this);
+    }
+
+    public Empreendimentos(String nome, int act_flag){
         this.nome = nome;
-        this.modelo = modelo;
         this.act_flag = act_flag;
     }
 
-    public Empreendimentos(String nome, String codigoConst, String venda, String simulacao, int imagem, String codigo, int act_flag, String telefone, int modelo, String construtora){
+    public Empreendimentos(String nome, String codigoConst, String venda, String simulacao, int imagem, String codigo, int act_flag, String telefone, String construtora){
         this.nome = nome;
         this.codigoConst = codigoConst;
         this.venda = venda;
@@ -37,11 +55,10 @@ public class Empreendimentos implements Serializable{
         this.codigo = codigo;
         this.act_flag = act_flag;
         this.telefone = telefone;
-        this.modelo = modelo;
         this.construtora = construtora;
     }
 
-    public Empreendimentos(String nome, String codigoConst, String venda, String simulacao, int imagem, String codigo, int act_flag, int modelo, String construtora) {
+    public Empreendimentos(String nome, String codigoConst, String venda, String simulacao, int imagem, String codigo, int act_flag, String telefone,  String construtora, String descricao){
         this.nome = nome;
         this.codigoConst = codigoConst;
         this.venda = venda;
@@ -49,8 +66,68 @@ public class Empreendimentos implements Serializable{
         this.imagem = imagem;
         this.codigo = codigo;
         this.act_flag = act_flag;
-        this.modelo = modelo;
+        this.telefone = telefone;
         this.construtora = construtora;
+        this.descricao = descricao;
+    }
+
+    public Empreendimentos(String nome, String codigoConst, String venda, String simulacao, int imagem, String codigo, String construtora, int act_flag, String descricao, String localizacao){
+        this.nome = nome;
+        this.codigoConst = codigoConst;
+        this.venda = venda;
+        this.simulacao = simulacao;
+        this.imagem = imagem;
+        this.codigo = codigo;
+        this.act_flag = act_flag;
+        this.telefone = telefone;
+        this.construtora = construtora;
+        this.descricao = descricao;
+        this.localizacao = localizacao;
+    }
+
+    public Empreendimentos(String nome, String codigoConst, String venda, String simulacao, int imagem, String codigo, int act_flag, String construtora) {
+        this.nome = nome;
+        this.codigoConst = codigoConst;
+        this.venda = venda;
+        this.simulacao = simulacao;
+        this.imagem = imagem;
+        this.codigo = codigo;
+        this.act_flag = act_flag;
+        this.construtora = construtora;
+    }
+
+    /*Esse é o COMPLETO sem telefone, ao final, adicionar o telefone AQUI*/
+
+    public Empreendimentos(String nome, String codigoConst, String venda, String simulacao, int imagem, String codigo, int act_flag, String construtora, String descricao, String localizacao, int categoriaMetragem, String faixa) {
+        this.nome = nome;
+        this.construtora = construtora;
+        this.venda = venda;
+        this.simulacao = simulacao;
+        this.imagem = imagem;
+        this.codigo = codigo;
+        this.act_flag = act_flag;
+        //this.telefone = telefone;
+        this.codigoConst = codigoConst;
+        this.descricao = descricao;
+        this.localizacao = localizacao;
+        this.categoriaMetragem = categoriaMetragem;
+        this.faixa = faixa;
+    }
+
+    public String getLocalizacao() {
+        return localizacao;
+    }
+
+    public void setLocalizacao(String localizacao) {
+        this.localizacao = localizacao;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
 
     public int getImagem() {
@@ -117,13 +194,6 @@ public class Empreendimentos implements Serializable{
         this.telefone = telefone;
     }
 
-    public int getModelo() {
-        return modelo;
-    }
-
-    public void setModelo(int modelo) {
-        this.modelo = modelo;
-    }
 
     public String getCodigoConst() {
         return codigoConst;

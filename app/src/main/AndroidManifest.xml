@@ -81,15 +81,6 @@
             android:name=".activities.primarias.DuvidasActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".activities.secundarias.DuvidasFinanciamentoActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".activities.secundarias.DuvidasSimulacaoActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".activities.secundarias.DuvidasDocumentacaoActivity"
-            android:screenOrientation="portrait" />
 
         <!-- Aqui temos o Simulador -->
         <activity
@@ -156,7 +147,7 @@
         <activity
             android:name=".activities.introducao.MainActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme" />
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activities.secundarias.CadastroImoveisActivity"
             android:screenOrientation="portrait" />
@@ -184,7 +175,10 @@
             android:name=".activities.primarias.TerrenosActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".activities.secundarias.TabelasTerceirosActivity"></activity>
+        <activity android:name=".activities.secundarias.TabelasTerceirosActivity" />
+        <activity android:name=".activities.secundarias.DuvidasSimplificadaActivity" />
+        <activity android:name=".activities.secundarias.FiltrarActivity" />
+        <activity android:name=".activities.terciarias.RespostasActivity"></activity>
     </application>
 
 </manifest>

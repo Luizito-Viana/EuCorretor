@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#00BCD4</color>
+    <color name="colorPrimary">#00bcd4</color>
     <color name="colorPrimaryDark">#0097A7</color>
     <color name="colorAccent">#69f0ae</color>
 
@@ -21,4 +21,6 @@
     <color name="imageButtonImovel">#00ffffff</color>
 
     <color name="imageButtonImovelClick">#E1D9DDDE</color>
+    <color name="cor_de_texto_descricao">#cad7d5d5</color>
+    <color name="background_item_duvidas">#dedada</color>
 </resources>

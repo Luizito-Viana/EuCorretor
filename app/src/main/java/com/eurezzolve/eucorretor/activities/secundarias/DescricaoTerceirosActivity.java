@@ -182,9 +182,6 @@ public class DescricaoTerceirosActivity extends AppCompatActivity {
                     alertaDeConfirmacao();
                 }
                 break;
-            case R.id.menudesc_favoritar:
-                Toast.makeText(DescricaoTerceirosActivity.this, "Favoritar ainda não aprimorado", Toast.LENGTH_SHORT).show();
-                break;
             default:
                 break;
         }

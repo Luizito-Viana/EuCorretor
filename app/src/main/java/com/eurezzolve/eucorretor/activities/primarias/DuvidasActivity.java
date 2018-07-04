@@ -2,25 +2,40 @@ package com.eurezzolve.eucorretor.activities.primarias;
 
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.DividerItemDecoration;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.eurezzolve.eucorretor.R;
-import com.eurezzolve.eucorretor.activities.secundarias.DuvidasDocumentacaoActivity;
-import com.eurezzolve.eucorretor.activities.secundarias.DuvidasFinanciamentoActivity;
-import com.eurezzolve.eucorretor.activities.secundarias.DuvidasSimulacaoActivity;
+import com.eurezzolve.eucorretor.activities.secundarias.DuvidasSimplificadaActivity;
+import com.eurezzolve.eucorretor.adapter.AdapterMenuDuvidas;
+import com.eurezzolve.eucorretor.config.RecyclerItemClickListener;
+import com.eurezzolve.eucorretor.model.MenuDuvida;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class DuvidasActivity extends AppCompatActivity {
 
-    private Button buttonDoc, buttonFin, buttonSim;
+    private Button btnEmail;
+    private SearchView searchViewPesquisa;
+    private RecyclerView recyclerPesquisa;
+    private AdapterMenuDuvidas adapterMenuDuvidas;
+    private List<MenuDuvida> listaMenu = new ArrayList<>();
+    private List<MenuDuvida> listaBusca = new ArrayList<>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,10 +48,97 @@ public class DuvidasActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
 
-        buttonDoc = findViewById(R.id.buttonDoc);
-        buttonFin = findViewById(R.id.buttonFin);
-        buttonSim = findViewById(R.id.buttonSim);
+        /*Identificando as Variaveis*/
+        btnEmail = findViewById(R.id.btnEmail);
+        searchViewPesquisa = findViewById(R.id.search_duvidas);
+        recyclerPesquisa = findViewById(R.id.recyclerDuvidasMenu);
 
+        /*Cria as Duvidas*/
+        this.criarDuvidas();
+
+        /*Cria o Adapter*/
+        adapterMenuDuvidas = new AdapterMenuDuvidas(listaMenu);
+
+        /*Recycler Configuracoes*/
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
+        recyclerPesquisa.setLayoutManager(layoutManager);
+        recyclerPesquisa.setHasFixedSize(true);
+        recyclerPesquisa.addItemDecoration(new DividerItemDecoration(this, LinearLayout.VERTICAL));
+        recyclerPesquisa.setAdapter(adapterMenuDuvidas);
+
+        recyclerPesquisa.addOnItemTouchListener(new RecyclerItemClickListener(
+                this,
+                recyclerPesquisa,
+                new RecyclerItemClickListener.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+                    }
+
+                    @Override
+                    public void onItemClick(View view, int position) {
+                        List<MenuDuvida> listaReal = adapterMenuDuvidas.getListaItens();
+                        MenuDuvida item = listaReal.get(position);
+                        Intent i = new Intent(DuvidasActivity.this, DuvidasSimplificadaActivity.class);
+                        i.putExtra("opcao", item.getIdTema());
+                        startActivity(i);
+                    }
+
+                    @Override
+                    public void onLongItemClick(View view, int position) {
+
+                    }
+                }
+        ));
+
+        btnEmail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                alertaDeConfirmacao();
+            }
+        });
+
+        searchViewPesquisa.setQueryHint("Buscar dúvida");
+        searchViewPesquisa.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                String textoDigitado = newText.toLowerCase();
+                pesquisarItem(textoDigitado);
+                return true;
+            }
+        });
+
+    }
+
+    private void pesquisarItem(String textoDigitado) {
+        listaBusca.clear();
+        for(MenuDuvida itemMenu : listaMenu){
+            String item = itemMenu.getItemMenu().toLowerCase();
+            if(item.contains(textoDigitado)){
+                listaBusca.add(itemMenu);
+            }
+        }
+
+        adapterMenuDuvidas = new AdapterMenuDuvidas(listaBusca);
+        recyclerPesquisa.setAdapter(adapterMenuDuvidas);
+        adapterMenuDuvidas.notifyDataSetChanged();
+
+    }
+
+    private void criarDuvidas() {
+        MenuDuvida itemMenu = new MenuDuvida("Documentação", 2);
+        listaMenu.add(itemMenu);
+
+        itemMenu = new MenuDuvida("Financiamento", 1);
+        listaMenu.add(itemMenu);
+
+        itemMenu = new MenuDuvida("Simulação", 3);
+        listaMenu.add(itemMenu);
     }
 
     @Override
@@ -54,8 +156,6 @@ public class DuvidasActivity extends AppCompatActivity {
                 //startActivity(new Intent(this, HomeActivity.class));
                 finish();
                 break;
-            case R.id.menu_duv_novaPergunta:
-                alertaDeConfirmacao();
             default:
                 break;
         }
@@ -85,21 +185,6 @@ public class DuvidasActivity extends AppCompatActivity {
         });
         AlertDialog dialog = builder.create();
         dialog.show();
-    }
-
-    //Abre a activity de Duvidas de financiamento
-    public void abrirDuvidasFinaciamento(View view){
-        startActivity(new Intent(this, DuvidasFinanciamentoActivity.class));
-    }
-
-    //Abre a activity de Duvidas de Documentacao
-    public void abrirDuvidasDocumentacao(View view){
-        startActivity(new Intent(this, DuvidasDocumentacaoActivity.class));
-    }
-
-    //Abre a activity de Duvidas de Simulacao
-    public void abrirDuvidasSimulacao(View view){
-        startActivity(new Intent(this, DuvidasSimulacaoActivity.class));
     }
 
 }

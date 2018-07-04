@@ -19,6 +19,7 @@ public class MainActivity extends IntroActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        setFullscreen(true);
         setButtonBackVisible(false);
         setButtonNextVisible(false);
 

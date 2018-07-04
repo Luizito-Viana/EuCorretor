@@ -54,7 +54,7 @@ public class DescricaoEmpActivity extends AppCompatActivity {
     private ImageSwitcher imageSwitcher;
     private int idx = 0;
     private ImageButton btAnterior, btProxima;
-    private TextView textInfo;
+    private TextView textInfo, textLocalizacao;
     private DatabaseReference imoveisRef = ConfiguracaoFirebase.getFirebaseDatabase().child("emp");
     private StorageReference storage;
 
@@ -84,7 +84,17 @@ public class DescricaoEmpActivity extends AppCompatActivity {
         }
 
         /*TextInfo padronizado*/
-
+        textInfo = findViewById(R.id.textInfoEmp);
+        if(empreendimentos.getDescricao().equals("")){
+            textInfo.setText("Descrição do Imovel nula");
+        } else if (empreendimentos.getDescricao().isEmpty()){
+            textInfo.setText("Descrição do Imovel nula");
+        }
+        else {
+            textInfo.setText(empreendimentos.getDescricao());
+        }
+        textLocalizacao = findViewById(R.id.textInfoLocalizacao);
+        textLocalizacao.setText(empreendimentos.getLocalizacao());
 
         /*ImageSwuitcher*/
         imageSwitcher = (ImageSwitcher) findViewById(R.id.imageSwitcherDescEmp);
@@ -194,9 +204,6 @@ public class DescricaoEmpActivity extends AppCompatActivity {
                 } else {
                     alertaDeConfirmacao();
                 }
-                break;
-            case R.id.menudesc_favoritar:
-                Toast.makeText(DescricaoEmpActivity.this, "Favoritar ainda não aprimorado", Toast.LENGTH_SHORT).show();
                 break;
             default:
                 break;

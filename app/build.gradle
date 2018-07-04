@@ -31,6 +31,7 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
     implementation 'com.android.support:design:26.1.0'
+    implementation 'com.android.support:transition:26.+'
 
     /*Biblioteca para a intro Screen*/
     compile 'agency.tango.android:material-intro-screen:0.0.5'
@@ -63,6 +64,9 @@ dependencies {
 
     /*Dependencia para Usar TaskListener Encapsulada*/
     compile 'br.com.livroandroid:android-utils:5.0.1'
+
+    /*Dependencia para textos justificados*/
+    compile 'me.biubiubiu.justifytext:library:1.1'
 
 }
 apply plugin: 'com.google.gms.google-services'

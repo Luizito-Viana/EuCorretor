@@ -9,6 +9,8 @@
     tools:layout_editor_absoluteY="25dp">
 
     <android.support.v7.widget.Toolbar
+        android:gravity="center"
+        android:layout_gravity="center"
         android:id="@+id/toolbarDuvidas"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
@@ -22,79 +24,55 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/textTitulo"
-            android:layout_width="wrap_content"
+
+        <Button
+            android:id="@+id/btnEmail"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:fontFamily="@font/roboto"
-            android:text="Escolha o tema de sua dúvida"
-            android:textColor="@color/common_google_signin_btn_text_dark_focused"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <Button
-            android:id="@+id/buttonDoc"
-            style="@style/RaisedButtonsIntro"
-            android:layout_width="368dp"
-            android:layout_height="40dp"
-            android:layout_marginTop="8dp"
-            android:background="@color/colorPrimary"
-            android:fontFamily="@font/roboto"
-            android:onClick="abrirDuvidasDocumentacao"
-            android:text="Documentação"
-            android:textColor="@android:color/white"
-            android:textStyle="bold"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textTitulo" />
-
-        <Button
-            android:id="@+id/buttonFin"
-            style="@style/RaisedButtonsIntro"
-            android:layout_width="368dp"
-            android:layout_height="40dp"
-            android:layout_marginTop="8dp"
-            android:background="@color/colorPrimary"
-            android:fontFamily="@font/roboto"
-            android:onClick="abrirDuvidasFinaciamento"
-            android:text="Financimento"
-            android:textColor="@android:color/white"
-            android:textStyle="bold"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/buttonDoc" />
-
-        <Button
-            android:id="@+id/buttonSim"
-            style="@style/RaisedButtonsIntro"
-            android:layout_width="368dp"
-            android:layout_height="40dp"
-            android:layout_marginTop="8dp"
-            android:background="@color/colorPrimary"
-            android:fontFamily="@font/roboto"
-            android:onClick="abrirDuvidasSimulacao"
-            android:text="Simulação"
-            android:textColor="@android:color/white"
-            android:textStyle="bold"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/buttonFin" />
-
-        <TextView
-            android:id="@+id/textView7"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="24dp"
-            android:fontFamily="@font/roboto"
-            android:text="Procurou por uma dúvida e não encontrou? Mande-a para nossa equipe! Assim você contribui ainda mais para o App"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="64dp"
+            android:layout_marginStart="64dp"
+            android:drawableLeft="@drawable/ic_contato_email"
+            android:drawablePadding="8dp"
+            android:fontFamily="@font/andika"
+            android:text="EMAIL"
             android:textAlignment="center"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/cardViewDuvidas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent" />
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <android.support.v7.widget.SearchView
+                android:id="@+id/search_duvidas"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerDuvidasMenu"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@id/btnEmail"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cardViewDuvidas" />
+
     </android.support.constraint.ConstraintLayout>
 
 

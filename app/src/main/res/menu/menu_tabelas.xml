@@ -5,4 +5,10 @@
         android:title="Pesquisar"
         app:showAsAction="always"
         android:icon="@drawable/ic_menu_pesquisar" />
+
+    <item android:id="@+id/ic_filtro"
+        android:title="Filtrar"
+        app:showAsAction="always"
+        android:icon="@drawable/icone_filtro"
+        />
 </menu>
