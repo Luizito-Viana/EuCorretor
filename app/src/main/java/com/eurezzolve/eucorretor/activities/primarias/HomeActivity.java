@@ -142,10 +142,10 @@ public class HomeActivity extends AppCompatActivity
             String nomePesquisaM4 = marcador.getPesquisaM4().toLowerCase();
 
             if(nomeMarcador.equals(texto)|| nomePesquisaM1.equals(texto) || nomePesquisaM2.equals(texto) || nomePesquisaM3.equals(texto) || nomePesquisaM4.equals(texto)){
-                 nome = marcador.getNome();
-                 subtitulo = marcador.getSubtitulo();
-                 latitude = marcador.getLatitude();
-                 longitude = marcador.getLongitude();
+                nome = marcador.getNome();
+                subtitulo = marcador.getSubtitulo();
+                latitude = marcador.getLatitude();
+                longitude = marcador.getLongitude();
                 chamarFragmentResultado(nome, subtitulo, latitude, longitude);
             }
         }
@@ -327,15 +327,6 @@ public class HomeActivity extends AppCompatActivity
                 "Venda: R$310.000,00 a partir");
         listaMarcadores.add(marcadores);
 
-        marcadores = new Marcadores("Caio Ferreira Residence",
-                "caio ferreira",
-                "caio",
-                "res caio ferreira",
-                "caio ferreira res",
-                -18.920513, -48.235372,
-                "Venda: R$330.000,00");
-        listaMarcadores.add(marcadores);
-
         /*C&A*/
         marcadores = new Marcadores("Plaza Norte Residence",
                 "plaza norte",
@@ -345,7 +336,7 @@ public class HomeActivity extends AppCompatActivity
                 -18.8974186, -48.2784520,
                 "Venda: R$189.990,00 a partir");
         listaMarcadores.add(marcadores);
-        
+
     }
 
     @Override

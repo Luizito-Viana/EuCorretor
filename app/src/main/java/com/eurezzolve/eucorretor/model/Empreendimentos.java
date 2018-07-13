@@ -22,10 +22,12 @@ public class Empreendimentos implements Serializable{
     private int act_flag;
     private String telefone;
     private String codigoConst;
-    private String descricao;
+    private String descricaoImovel;
+    private String descricaoEmp;
     private String localizacao;
     private int categoriaMetragem;
     private String faixa;
+
 
 
 
@@ -58,7 +60,7 @@ public class Empreendimentos implements Serializable{
         this.construtora = construtora;
     }
 
-    public Empreendimentos(String nome, String codigoConst, String venda, String simulacao, int imagem, String codigo, int act_flag, String telefone,  String construtora, String descricao){
+    public Empreendimentos(String nome, String codigoConst, String venda, String simulacao, int imagem, String codigo, int act_flag, String telefone,  String construtora, String descricaoImovel){
         this.nome = nome;
         this.codigoConst = codigoConst;
         this.venda = venda;
@@ -68,10 +70,10 @@ public class Empreendimentos implements Serializable{
         this.act_flag = act_flag;
         this.telefone = telefone;
         this.construtora = construtora;
-        this.descricao = descricao;
+        this.descricaoImovel = descricaoImovel;
     }
 
-    public Empreendimentos(String nome, String codigoConst, String venda, String simulacao, int imagem, String codigo, String construtora, int act_flag, String descricao, String localizacao){
+    public Empreendimentos(String nome, String codigoConst, String venda, String simulacao, int imagem, String codigo, String construtora, int act_flag, String descricaoImovel, String localizacao){
         this.nome = nome;
         this.codigoConst = codigoConst;
         this.venda = venda;
@@ -81,7 +83,7 @@ public class Empreendimentos implements Serializable{
         this.act_flag = act_flag;
         this.telefone = telefone;
         this.construtora = construtora;
-        this.descricao = descricao;
+        this.descricaoImovel = descricaoImovel;
         this.localizacao = localizacao;
     }
 
@@ -96,9 +98,7 @@ public class Empreendimentos implements Serializable{
         this.construtora = construtora;
     }
 
-    /*Esse é o COMPLETO sem telefone, ao final, adicionar o telefone AQUI*/
-
-    public Empreendimentos(String nome, String codigoConst, String venda, String simulacao, int imagem, String codigo, int act_flag, String construtora, String descricao, String localizacao, int categoriaMetragem, String faixa) {
+    public Empreendimentos(String nome, String codigoConst, String venda, String simulacao, int imagem, String codigo, int act_flag, String construtora, String descricaoImovel, String localizacao, int categoriaMetragem, String faixa) {
         this.nome = nome;
         this.construtora = construtora;
         this.venda = venda;
@@ -108,10 +108,37 @@ public class Empreendimentos implements Serializable{
         this.act_flag = act_flag;
         //this.telefone = telefone;
         this.codigoConst = codigoConst;
-        this.descricao = descricao;
+        this.descricaoImovel = descricaoImovel;
         this.localizacao = localizacao;
         this.categoriaMetragem = categoriaMetragem;
         this.faixa = faixa;
+    }
+
+    /*Esse é o COMPLETO sem telefone, ao final, adicionar o telefone AQUI*/
+
+    public Empreendimentos(String nome, String codigoConst, String venda, String simulacao, int imagem, String codigo, int act_flag, String construtora, String descricaoImovel, String descricaoEmp, String localizacao, int categoriaMetragem, String faixa) {
+        this.nome = nome;
+        this.construtora = construtora;
+        this.venda = venda;
+        this.simulacao = simulacao;
+        this.imagem = imagem;
+        this.codigo = codigo;
+        this.act_flag = act_flag;
+        //this.telefone = telefone;
+        this.codigoConst = codigoConst;
+        this.descricaoImovel = descricaoImovel;
+        this.descricaoEmp = descricaoEmp;
+        this.localizacao = localizacao;
+        this.categoriaMetragem = categoriaMetragem;
+        this.faixa = faixa;
+    }
+
+    public String getDescricaoEmp() {
+        return descricaoEmp;
+    }
+
+    public void setDescricaoEmp(String descricaoEmp) {
+        this.descricaoEmp = descricaoEmp;
     }
 
     public String getLocalizacao() {
@@ -122,12 +149,12 @@ public class Empreendimentos implements Serializable{
         this.localizacao = localizacao;
     }
 
-    public String getDescricao() {
-        return descricao;
+    public String getDescricaoImovel() {
+        return descricaoImovel;
     }
 
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
+    public void setDescricaoImovel(String descricaoImovel) {
+        this.descricaoImovel = descricaoImovel;
     }
 
     public int getImagem() {

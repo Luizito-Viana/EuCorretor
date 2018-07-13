@@ -1,6 +1,7 @@
 package com.eurezzolve.eucorretor.fragments;
 
 import android.content.Context;
+import android.content.Intent;
 import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationManager;
@@ -10,6 +11,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.eurezzolve.eucorretor.activities.secundarias.DescricaoEmpActivity;
+import com.eurezzolve.eucorretor.activities.secundarias.TabelasEmpActivity;
+import com.eurezzolve.eucorretor.activities.secundarias.TabelasEmpM2Activity;
+import com.eurezzolve.eucorretor.config.ConfiguracaoFirebase;
+import com.eurezzolve.eucorretor.model.Empreendimentos;
 import com.eurezzolve.eucorretor.model.Marcadores;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationServices;
@@ -19,11 +25,16 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.ValueEventListener;
 
-/**
- * Created by viana_2 on 30/04/2018.
- */
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class EmpBuscaFragment extends SupportMapFragment
         implements OnMapReadyCallback, GoogleMap.OnMapClickListener {
@@ -32,10 +43,13 @@ public class EmpBuscaFragment extends SupportMapFragment
     private String titulo, subtitulo;
     private Double latitude,longitude;
 
+    private List<Empreendimentos> empreendimentos = new ArrayList<>();
+    private DatabaseReference reference = ConfiguracaoFirebase.getFirebaseDatabase().child("listaEmpreendimentos");
+
     private Context context;
     private GoogleMap mMap;
     private LocationManager locationManager;
-    public final float camerazoom = 13.0f; //Grau do Zoom
+    public final float camerazoom = 16.0f; //Grau do Zoom
 
     public static EmpBuscaFragment newInstance(String teste){
         EmpBuscaFragment f = new EmpBuscaFragment();
@@ -94,6 +108,55 @@ public class EmpBuscaFragment extends SupportMapFragment
 
         mMap.moveCamera(CameraUpdateFactory.newLatLng(escolha));
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(escolha, camerazoom));
+
+        reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for(DataSnapshot ds : dataSnapshot.getChildren()){
+                    Empreendimentos emp = ds.getValue(Empreendimentos.class);
+                    empreendimentos.add(emp);
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+        mMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
+            @Override
+            public void onInfoWindowClick(Marker marker) {
+                String titulo = marker.getTitle();
+                for(Empreendimentos emp : empreendimentos){
+                    if(titulo.equals(emp.getNome())){
+                        Intent j = new Intent(getActivity(), DescricaoEmpActivity.class);
+                        j.putExtra("info", emp);
+                        startActivity(j);
+                    }
+                }
+            }
+        });
+
+        mMap.setOnInfoWindowLongClickListener(new GoogleMap.OnInfoWindowLongClickListener() {
+            @Override
+            public void onInfoWindowLongClick(Marker marker) {
+                String titulo = marker.getTitle();
+                for(Empreendimentos emp : empreendimentos){
+                    if(titulo.equals(emp.getNome())){
+                        if(emp.getAct_flag() == 0){
+                            Intent j = new Intent(getActivity(), TabelasEmpActivity.class);
+                            j.putExtra("info", emp);
+                            startActivity(j);
+                        } else if(emp.getAct_flag() == 1) {
+                            Intent j = new Intent(getActivity(), TabelasEmpM2Activity.class);
+                            j.putExtra("info", emp);
+                            startActivity(j);
+                        }
+                    }
+                }
+            }
+        });
     }
 
     @Override

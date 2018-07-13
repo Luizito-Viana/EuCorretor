@@ -80,7 +80,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
-        recyclerView.addItemDecoration(new DividerItemDecoration(this, LinearLayout.VERTICAL));
+        recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
         recyclerView.setAdapter(adapterEmp);
 
         //Configurando o searchview
@@ -242,10 +242,10 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "azm",
                 "Venda: R$ 109.900,00 a partir",
                 "Avaliação: R$ 128.000,00",
-                R.drawable.avatar_empreendimento,
+                R.drawable.img_flores_cerrado,
                 "azm_resFloresCerrado", 1,"+34 3213-4393",
                 "AZM",
-                "• 44,70-49,80 metros quadrados\n• 2 quartos (0 suite)\n• 1 banheiros\n• 1 vagas na Garagem\n• Entre outros...");
+                "• 44,70-49,80 m²\n• 2 quartos (0 suite)\n• 1 banheiros\n• 1 vagas na Garagem\n• Entre outros...");
         listaEmpreendimentos.add(empreendimentos);
 
         empreendimentos = new Empreendimentos(
@@ -256,7 +256,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 R.drawable.avatar_empreendimento,
                 "azm_resTavares",1,"+34 3213-4393",
                 "AZM",
-                "• 44,70 metros quadrados\n• 2 quartos (0 suite)\n• 1 banheiros\n• 1 vagas na Garagem\n• Entre outros...");
+                "• 44,70 m²\n• 2 quartos (0 suite)\n• 1 banheiros\n• 1 vagas na Garagem\n• Entre outros...");
         listaEmpreendimentos.add(empreendimentos);
 
         empreendimentos = new Empreendimentos(
@@ -267,7 +267,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 R.drawable.img_vertentes,
                 "azm_resVertentes", 1,"+34 3213-4393",
                 "AZM",
-                "• 49,00-57,00 metros quadrados\n• 2 quartos (0-1 suite)\n• 1-2 banheiros\n• 1-2 vagas na Garagem\n• Entre outros...");
+                "• 49,00-57,00 m²\n• 2 quartos (0-1 suite)\n• 1-2 banheiros\n• 1-2 vagas na Garagem\n• Entre outros...");
         listaEmpreendimentos.add(empreendimentos);
 
         empreendimentos = new Empreendimentos(
@@ -278,7 +278,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 R.drawable.img_vidaboa,
                 "azm_resVidaBoa",1,"+34 3213-4393",
                 "AZM",
-                "• 56,90-61,50 metros quadrados\n• 2 quartos (0-1 suite)\n• 1-2 banheiros\n• 1 vagas na Garagem\n• Entre outros...");
+                "• 56,90-61,50 m²\n• 2 quartos (0-1 suite)\n• 1-2 banheiros\n• 1 vagas na Garagem\n• Entre outros...");
         listaEmpreendimentos.add(empreendimentos);
 
         //BARI
@@ -290,7 +290,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "Avaliação: Não possui!",
                 R.drawable.img_evora,
                 "bari_evoraResidence","BARI", 0,
-                "• 88,96-90,56 metros quadrados\n• 3 quartos (1 suite)\n• 2 banheiros\n• 2 vagas na Garagem\n• Entre outros...",
+                "• 88,96-90,56 m²\n• 3 quartos (1 suite)\n• 2 banheiros\n• 2 vagas na Garagem\n• Entre outros...",
                 "• R. Professora Maria Alves Castilho, 9640\n• Santa Mônica");
         listaEmpreendimentos.add(empreendimentos);
 
@@ -378,7 +378,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "cea",
                 "Venda: R$ 195.990,00",
                 "Avaliação: R$ 190.000,00",
-                R.drawable.avatar_empreendimento,
+                R.drawable.img_monsenhor,
                 "cea_resMonsenhor",0,"C&A",
                 "• 2 quartos (1 suite)\n• 2 banheiros\n• 1 vagas na Garagem\n• Entre outros...",
                 "• R. Osório José da Cunha, 1795\n• Marta Helena",
@@ -406,7 +406,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "cima",
                 "Venda: R$ 307.382,00 a partir",
                 "Avaliação: Não possui!",
-                R.drawable.avatar_empreendimento,
+                R.drawable.img_versato_res,
                 "cima_versatoRes",0,
                 "CIMA");
         listaEmpreendimentos.add(empreendimentos);
@@ -422,7 +422,8 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "conel_acquaTorre",0,
                 "CONEL",
                 "• 2-3 quartos (1-2 suite)\n• 2 banheiros\n• Entre outros...",
-                "",
+                "• Pontos para ar-condicionado\n• 2 Elevadores\n• Piso porcelanato\n• Playground\n• Entre outros...",
+                "-",
                 0,
                 "Acima");
         listaEmpreendimentos.add(empreendimentos);
@@ -436,6 +437,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "conel_granPlazaRes",0,
                 "CONEL",
                 "• 45,69-73,20 m²\n• 1 ou 2 quartos (0 ou 1 suite)\n• 1 banheiro\n• 1 ou 2 vagas na Garagem\n• Entre outros...",
+                "• 2 elevadores\n• Sala de ginástica\n• Salão de festas\n• Guarita\n• Entre outros...",
                 "• R. Barão de Camargos, 296\n• Centro",
                 3,
                 "Acima");
@@ -450,6 +452,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "conel_barao177",0,
                 "CONEL",
                 "• 69,85-77,46 m²\n• 2 quartos (2 suites)\n• 2 banheiros\n• 1 ou 2 vagas na Garagem\n• Entre outros...",
+                "• 2 Elevadores\n• Playground\n• Salão de festas\n• Espaço gourmet com churrasqueira\n• Entre outros...",
                 "• R. Barão de Camargos, 177\n• Centro",
                 3,
                 "Acima");
@@ -464,6 +467,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "conel_edificioCalifor",0,
                 "CONEL",
                 "• 86,39 m²\n• 3 quartos (1 suite)\n• 2 banheiros\n• 1 ou 2 vagas na Garagem\n• Entre outros...",
+                "• 2 Elevadores\n• Salão de festas\n• Playground\n• Quiosque com churrasqueira\n• Entre outros...",
                 "• R. da Carioca, 1350\n• Morada da Colina",
                 3,
                 "Acima");
@@ -478,6 +482,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "conel_lidicePremium",0,
                 "CONEL",
                 "• 166,36-342,60 m²\n• 3 quartos (3 suite)\n• 5 banheiros\n• 3 vagas na Garagem\n• Entre outros...",
+                "• Piscina\n• Playground infantil\n• 2 Elevadores\n• Salão de festas\n• Entre outros...",
                 "• R. Tobias Inacio\n• Lídice",
                 3,
                 "Acima");
@@ -492,6 +497,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "conel_varandasTapui",0,
                 "CONEL",
                 "• 197,00 m²\n• 3 quartos (3 suite)\n• 4 banheiros\n• 3 vagas na Garagem\n• Entre outros...",
+                "• 2 Elevadores\n• Salão de festas\n• Espaços para ginástica\n• Espaços para brinquedotecas\n• Entre outros...",
                 "• R. Tapuirama, 300\n• Osvaldo Resende",
                 3,
                 "Acima");
@@ -534,7 +540,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "hlts",
                 "Venda: R$ 314.300,00 a partir",
                 "Avaliação: R$ 370.300,00 a partir",
-                R.drawable.avatar_empreendimento,
+                R.drawable.img_prime_club,
                 "hlts_primeClubRes",0,
                 "HLTS");
         listaEmpreendimentos.add(empreendimentos);
@@ -568,7 +574,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "lsilva",
                 "Venda: R$ 220.000,00 a partir",
                 "Avaliação: Não possui!",
-                R.drawable.avatar_empreendimento,
+                R.drawable.img_rubi,
                 "lsilva_rubiRes",0,
                 "L Silva");
         listaEmpreendimentos.add(empreendimentos);
@@ -590,7 +596,9 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "Avaliação: R$127.000,00",
                 R.drawable.avatar_empreendimento,
                 "mr_residenciaisPark",0,
-                "Marca Registrada");
+                "Marca Registrada",
+                "• 40,00 m²\n• 2 quartos (0 suite)\n• 1 banheiro\n• 1 vagas na Garagem\n• Entre outros...",
+                "• R. Atílio Spini\n• Shopping Park", 3, "Faixa 1,5");
         listaEmpreendimentos.add(empreendimentos);
 
         empreendimentos = new Empreendimentos("Residenciais Alpha",
@@ -599,7 +607,9 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "Avaliação: R$128.000,00",
                 R.drawable.avatar_empreendimento,
                 "mr_residenciaisAlpha",0,
-                "Marca Registrada");
+                "Marca Registrada",
+                "• 40,00 m²\n• 2 quartos (0 suite)\n• 1 banheiro\n• 1 vagas na Garagem\n• Entre outros...",
+                "• R. dos Votos\n• Complexo Integração", 3, "Faixa 1,5");
         listaEmpreendimentos.add(empreendimentos);
 
         empreendimentos = new Empreendimentos(
@@ -615,12 +625,102 @@ public class EmpreendimentosActivity extends AppCompatActivity {
         //MRV
 
         empreendimentos = new Empreendimentos(
+                "Parque Trilhas do Cerrado",
+                "mrv",
+                "Venda: R$ 128.000,00 a partir",
+                "Avaliação: R$ 128.000,00 a partir",
+                R.drawable.img_trilhas_cerrado,
+                "mrv_trilhaCerrado",0,
+                "MRV");
+        listaEmpreendimentos.add(empreendimentos);
+
+        empreendimentos = new Empreendimentos(
+                "Parque Trilhas do Sábia",
+                "mrv",
+                "Venda: R$ 128.000,00 a partir",
+                "Avaliação: R$ 128.000,00 a partir",
+                R.drawable.img_trilhas_sabia,
+                "mrv_trilhaSabia",0,
+                "MRV");
+        listaEmpreendimentos.add(empreendimentos);
+
+        empreendimentos = new Empreendimentos(
+                "Parque Unistella",
+                "mrv",
+                "Venda: R$ 128.000,00 a partir",
+                "Avaliação: R$ 128.000,00 a partir",
+                R.drawable.img_unistella,
+                "mrv_unistella",0,
+                "MRV");
+        listaEmpreendimentos.add(empreendimentos);
+
+        empreendimentos = new Empreendimentos(
+                "Resid_Hyde Park",
+                "mrv",
+                "Venda: R$ 128.000,00 a partir",
+                "Avaliação: R$ 128.000,00 a partir",
+                R.drawable.img_hyde_park,
+                "mrv_hydePark",0,
+                "MRV");
+        listaEmpreendimentos.add(empreendimentos);
+
+        empreendimentos = new Empreendimentos(
+                "Parque Univita",
+                "mrv",
+                "Venda: R$ 128.000,00 a partir",
+                "Avaliação: R$ 146.000,00 a partir",
+                R.drawable.img_univita,
+                "mrv_univita",0,
+                "MRV");
+        listaEmpreendimentos.add(empreendimentos);
+
+        empreendimentos = new Empreendimentos(
                 "Parque United States",
                 "mrv",
                 "Venda: R$ 128.000,00 a partir",
                 "Avaliação: R$ 150.500,00 a partir",
-                R.drawable.avatar_empreendimento,
+                R.drawable.img_parque_states,
                 "mrv_parqueUnitedStates",0,
+                "MRV");
+        listaEmpreendimentos.add(empreendimentos);
+
+        empreendimentos = new Empreendimentos(
+                "Spazio Uniplace",
+                "mrv",
+                "Venda: R$ 128.691 a partir",
+                "Avaliação: R$ 150.000,00 a partir",
+                R.drawable.avatar_empreendimento,
+                "mrv_uniplace",0,
+                "MRV");
+        listaEmpreendimentos.add(empreendimentos);
+
+        empreendimentos = new Empreendimentos(
+                "Parque Universitá",
+                "mrv",
+                "Venda: R$ 135.004,00",
+                "Avaliação: R$ 140.000,00",
+                R.drawable.avatar_empreendimento,
+                "mrv_universita",0,
+                "MRV");
+        listaEmpreendimentos.add(empreendimentos);
+
+        empreendimentos = new Empreendimentos(
+                "Parque Ubá",
+                "mrv",
+                "Venda: R$ 137.217,00",
+                "Avaliação: R$ 139.000,00",
+                R.drawable.img_uba,
+                "mrv_uba",0,
+                "MRV");
+        listaEmpreendimentos.add(empreendimentos);
+
+        empreendimentos = new Empreendimentos(
+                "Spazio Unigarden",
+                "mrv",
+                "Venda: R$ 137.981 a partir",
+                "Avaliação: R$ 170.000,00 a partir",
+                R.drawable.img_unigarden,
+                "mrv_unigarden",0,
                 "MRV");
         listaEmpreendimentos.add(empreendimentos);
 
@@ -636,6 +736,27 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "MAXI");
         listaEmpreendimentos.add(empreendimentos);
 
+        //MOR
+        empreendimentos = new Empreendimentos(
+                "Residencial Colina Sul",
+                "mor",
+                "Venda: R$110.000,00",
+                "Avaliação: R$120.000,00",
+                R.drawable.img_colina_sul,
+                "mor_colinaSul", 0,
+                "MOR");
+        listaEmpreendimentos.add(empreendimentos);
+
+        empreendimentos = new Empreendimentos(
+                "Residencial Bello Sul",
+                "mor",
+                "Venda: R$129.900,00 a partir",
+                "Avaliação: R$149.000,00 a partir",
+                R.drawable.img_bello_sul,
+                "mor_belloSul", 1, "+34 3227-7007" ,
+                "MOR");
+        listaEmpreendimentos.add(empreendimentos);
+
         //Opcao
 
         empreendimentos = new Empreendimentos(
@@ -643,7 +764,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "opcao",
                 "Venda: R$ 136.900,00 a partir",
                 "Avaliação: R$ 170.000,00",
-                R.drawable.avatar_empreendimento,
+                R.drawable.img_res_platina,
                 "opcao_resPlatina",0,
                 "Opcao");
         listaEmpreendimentos.add(empreendimentos);
@@ -663,7 +784,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "opcao",
                 "Venda: R$ 141.900,00",
                 "Avaliação: R$ 167.000,00 a partir",
-                R.drawable.avatar_empreendimento,
+                R.drawable.img_flamboyant,
                 "opcao_resFlamboyant",0,
                 "Opcao");
         listaEmpreendimentos.add(empreendimentos);
@@ -683,7 +804,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "opcao",
                 "Venda: R$ 181.000,00 a partir",
                 "Avaliação: R$ 190.000,00",
-                R.drawable.avatar_empreendimento,
+                R.drawable.img_morada_praia,
                 "opcao_moradaPraia",0,
                 "Opcao");
         listaEmpreendimentos.add(empreendimentos);
@@ -705,7 +826,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "pacheco",
                 "Venda: R$ 355.000,00 a partir",
                 "Avaliação: Não possui!",
-                R.drawable.avatar_empreendimento,
+                R.drawable.img_residencial_unique,
                 "pacheco_resUnique",0,
                 "Pacheco");
         listaEmpreendimentos.add(empreendimentos);
@@ -831,16 +952,6 @@ public class EmpreendimentosActivity extends AppCompatActivity {
         //Realiza
 
         empreendimentos = new Empreendimentos(
-                "Tropical Sul",
-                "realiza",
-                "Venda: R$ 180.000,00 a partir",
-                "Avaliação: Não possui!",
-                R.drawable.avatar_empreendimento,
-                "realiza_tropicalSul",0,
-                "Realiza");
-        listaEmpreendimentos.add(empreendimentos);
-
-        empreendimentos = new Empreendimentos(
                 "Anita Residence",
                 "realiza",
                 "Venda: R$ 310.500,00 a partir",
@@ -855,7 +966,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "realiza",
                 "Venda: R$ 619.368,10 a partir",
                 "Avaliação: Não possui!",
-                R.drawable.avatar_empreendimento,
+                R.drawable.img_village_paradiso,
                 "realiza_villageParII",0,
                 "Realiza");
         listaEmpreendimentos.add(empreendimentos);

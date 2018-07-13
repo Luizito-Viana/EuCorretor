@@ -214,7 +214,7 @@ public class DescricaoEmpActivity extends AppCompatActivity {
     private void alertaDeConfirmacao() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Compartilhar as imagens");
-        builder.setMessage("Deseja compartilhar as imagenns desse imóvel?");
+        builder.setMessage("Deseja compartilhar as imagens desse imóvel?");
         builder.setCancelable(false);
         builder.setPositiveButton("Confirmar", new DialogInterface.OnClickListener() {
             @Override

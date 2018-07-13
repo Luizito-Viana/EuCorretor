@@ -2,6 +2,7 @@ package com.eurezzolve.eucorretor.fragments;
 
 import android.Manifest;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Criteria;
 import android.location.Location;
@@ -15,9 +16,17 @@ import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.eurezzolve.eucorretor.R;
 import com.eurezzolve.eucorretor.activities.introducao.MainActivity;
+import com.eurezzolve.eucorretor.activities.primarias.ConfiguracoesActivity;
+import com.eurezzolve.eucorretor.activities.primarias.EmpreendimentosActivity;
+import com.eurezzolve.eucorretor.activities.secundarias.DescricaoEmpActivity;
+import com.eurezzolve.eucorretor.activities.secundarias.TabelasEmpActivity;
+import com.eurezzolve.eucorretor.activities.secundarias.TabelasEmpM2Activity;
+import com.eurezzolve.eucorretor.config.ConfiguracaoFirebase;
+import com.eurezzolve.eucorretor.model.Empreendimentos;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationServices;
@@ -29,18 +38,28 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MapsActivity extends SupportMapFragment
         implements OnMapReadyCallback, GoogleMap.OnMapClickListener, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener {
 
     //Definação das Variaveis
+    private DatabaseReference reference = ConfiguracaoFirebase.getFirebaseDatabase().child("listaEmpreendimentos");
     private Boolean aBoolean = false;
-    private Location locationAtual;
+    private List<Empreendimentos> empreendimentos = new ArrayList<>();
     private Context context;
     private GoogleApiClient googleApiClient;
     private GoogleMap mMap;
     private LocationManager locationManager;
     public final float camerazoom = 13.0f; //Grau do Zoom
+
+    private List<Marker> listaMarcadores = new ArrayList<>();
 
     @Override
     public void onAttach(Context context) {
@@ -78,7 +97,7 @@ public class MapsActivity extends SupportMapFragment
 
 
         } catch (SecurityException ex) {
-            Log.e("Catch", "Erro!");
+
         }
 
         LatLng udiConfianca = new LatLng(-18.921170, -48.275920);
@@ -107,9 +126,7 @@ public class MapsActivity extends SupportMapFragment
         //BARI
         LatLng evoraResidence = new LatLng(-18.923276, -48.233178);
         criarMarcadoresEmpreendimentos(evoraResidence, "Évora Residence", "Venda: R$310.000,00 a partir");
-        LatLng caioFerreira = new LatLng(-18.920513, -48.235372);
-        criarMarcadoresEmpreendimentos(caioFerreira, "Caio Ferreira Residence", "Venda: R$330.000,00");
-
+        
         //C&A
         LatLng plazanorte = new LatLng(-18.8974186, -48.2784520);
         criarMarcadoresEmpreendimentos(plazanorte, "Plaza Norte Residence", "Venda: R$189.990,00 a partir");
@@ -159,40 +176,59 @@ public class MapsActivity extends SupportMapFragment
         LatLng primeclub = new LatLng(-18.9287291, -48.24139154);
         criarMarcadoresEmpreendimentos(primeclub, "Prime Club Residence", "Venda: R$314.300,00 a partir");
         LatLng newQuality = new LatLng(-18.937093, -48.251524);
-        criarMarcadoresEmpreendimentos(newQuality, "New Quality Residence", "R$138.000,00 a partir");
+        criarMarcadoresEmpreendimentos(newQuality, "New Quality Residence", "Venda: R$138.000,00 a partir");
         LatLng placeAltoUmuarama = new LatLng(-18.937093, -48.215574);
-        criarMarcadoresEmpreendimentos(placeAltoUmuarama, "Place Alto Umuarama", "R$115.000,00 a partir");
+        criarMarcadoresEmpreendimentos(placeAltoUmuarama, "Place Alto Umuarama", "Venda: R$115.000,00 a partir");
         LatLng jardimHolanda = new LatLng(-18.956365, -48.317597);
-        criarMarcadoresEmpreendimentos(jardimHolanda, "Residencial Jardim Holanda", "R$113.000,00 a partir");
+        criarMarcadoresEmpreendimentos(jardimHolanda, "Residencial Jardim Holanda", "Venda: R$113.000,00 a partir");
         //LatLng qualityResidence = new LatLng(-18.937093,-48.251520);
 
         //HPR
         LatLng araucarias = new LatLng(-18.899538, -48.286909);
-        criarMarcadoresEmpreendimentos(araucarias, "Residencial Araucárias", "R$179.900,00 a partir");
+        criarMarcadoresEmpreendimentos(araucarias, "Residencial Araucárias", "Venda: R$179.900,00 a partir");
         LatLng acacias = new LatLng(-18.872044, -48.233464);
-        criarMarcadoresEmpreendimentos(acacias, "Residencial Acácias", "R$174.000,00 a partir");
+        criarMarcadoresEmpreendimentos(acacias, "Residencial Acácias", "Venda: R$174.000,00 a partir");
 
         //L Silva
         LatLng rubiResidence = new LatLng(-18.933670, -48.239460);
-        criarMarcadoresEmpreendimentos(rubiResidence, "Edifício Rubi Residence", "R$220.000,00 a partir");
+        criarMarcadoresEmpreendimentos(rubiResidence, "Edifício Rubi Residence", "Venda: R$220.000,00 a partir");
 
         //Marca Registrada
         LatLng granToro = new LatLng(-18.9653999, -48.2482812);
-        criarMarcadoresEmpreendimentos(granToro, "Gran Toro", "R$131.000,00 a partir");
+        criarMarcadoresEmpreendimentos(granToro, "Gran Toro", "Venda: R$131.000,00 a partir");
+
+        LatLng resPark = new LatLng(-18.9901803, -48.2672743);
+        criarMarcadoresEmpreendimentos(resPark, "Residenciais Park", "Venda: R$120.000,00");
+        LatLng resAlpha = new LatLng(-18.908925, -48.205216);
+        criarMarcadoresEmpreendimentos(resAlpha, "Residenciais Alpha", "Venda: R$120.000,00");
 
         //Maxi
         LatLng provenceResidenceClub = new LatLng(-18.925502, -48.248975);
-        criarMarcadoresEmpreendimentos(provenceResidenceClub, "Provence Residence Club", "R$334.700,00 a partir");
+        criarMarcadoresEmpreendimentos(provenceResidenceClub, "Provence Residence Club", "Venda: R$334.700,00 a partir");
 
         //MRV
         LatLng unitedstates = new LatLng(-18.9661300, -48.27963224);
         criarMarcadoresEmpreendimentos(unitedstates, "Parque United States", "Venda: R$128.000,00 a partir");
 
+        /*Daqui para Baixo editar o Snippet*/
+        LatLng trilhasCerrado = new LatLng(-18.9105246, -48.2170002);
+        criarMarcadoresEmpreendimentos(trilhasCerrado, "Parque Trilhas do Cerrado","Venda: R$128.000,00 a partir" );
+        LatLng trilhasSabia= new LatLng(-18.9128059, -48.3257193);
+        criarMarcadoresEmpreendimentos(trilhasSabia, "Parque Trilhas do Sábia","Venda: R$128.000,00 a partir" );
+        LatLng hydepark = new LatLng(-18.9520644, -48.2359943);
+        criarMarcadoresEmpreendimentos(hydepark, "Resid_Hyde Park","Venda: R$128.000,00 a partir" );
+        LatLng univita = new LatLng(-18.9566551,-48.3191597 );
+        criarMarcadoresEmpreendimentos(univita, "Parque Univita","Venda: R$128.000,00 a partir" );
+        LatLng unigarden = new LatLng(-18.9395354, -48.2818682);
+        criarMarcadoresEmpreendimentos(unigarden, "Spazio Unigarden","Venda: R$128.000,00 a partir" );
+        LatLng uniplace = new LatLng(-18.9017808, -48.2865066);
+        criarMarcadoresEmpreendimentos(uniplace, "Spazio Uniplace","Venda: R$128.000,00 a partir" );
+
         //Opção
         LatLng villagesul = new LatLng(-18.9688751, -48.22366152);
         criarMarcadoresEmpreendimentos(villagesul, "Residencial Village Sul", "Venda: R$136.900,00 a partir");
         LatLng royaleResidence = new LatLng(-18.947939, -48.350186);
-        criarMarcadoresEmpreendimentos(royaleResidence, "Residencial Royale", "R$140.900,00 a partir");
+        criarMarcadoresEmpreendimentos(royaleResidence, "Residencial Royale", "Venda: R$140.900,00 a partir");
 
         //Pacheco
         LatLng evidenceResidencial = new LatLng(-18.923221, -48.275812);
@@ -254,30 +290,64 @@ public class MapsActivity extends SupportMapFragment
         LatLng starttower = new LatLng(-18.9572098, -48.322110);
         criarMarcadoresEmpreendimentos(starttower, "Start Tower Vivamus", "Venda: R$128.000,00");
 
-        mMap.setInfoWindowAdapter(new GoogleMap.InfoWindowAdapter() {
+        reference.addValueEventListener(new ValueEventListener() {
             @Override
-            public View getInfoWindow(Marker marker) {
-                /*LinearLayout linear = new LinearLayout(getContext());
-                linear.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
-                linear.setBackgroundResource(R.drawable.janela_marker);*/
-
-                return null;
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for(DataSnapshot ds : dataSnapshot.getChildren()){
+                    Empreendimentos emp = ds.getValue(Empreendimentos.class);
+                    empreendimentos.add(emp);
+                }
             }
 
             @Override
-            public View getInfoContents(Marker marker) {
-                return null;
+            public void onCancelled(DatabaseError databaseError) {
+
             }
         });
 
 
+        mMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
+            @Override
+            public void onInfoWindowClick(Marker marker) {
+                String titulo = marker.getTitle();
+                for(Empreendimentos emp : empreendimentos){
+                    if(titulo.equals(emp.getNome())){
+                        Intent j = new Intent(getActivity(), DescricaoEmpActivity.class);
+                        j.putExtra("info", emp);
+                        startActivity(j);
+                    }
+                }
+            }
+        });
+
+        mMap.setOnInfoWindowLongClickListener(new GoogleMap.OnInfoWindowLongClickListener() {
+            @Override
+            public void onInfoWindowLongClick(Marker marker) {
+                String titulo = marker.getTitle();
+                for(Empreendimentos emp : empreendimentos){
+                    if(titulo.equals(emp.getNome())){
+                        if(emp.getAct_flag() == 0){
+                            Intent j = new Intent(getActivity(), TabelasEmpActivity.class);
+                            j.putExtra("info", emp);
+                            startActivity(j);
+                        } else if(emp.getAct_flag() == 1) {
+                            Intent j = new Intent(getActivity(), TabelasEmpM2Activity.class);
+                            j.putExtra("info", emp);
+                            startActivity(j);
+                        }
+                    }
+                }
+            }
+        });
     }
 
     //Cria os devidos marcadores
     public void criarMarcadoresEmpreendimentos(LatLng position, String tittle, String snippet) {
-        mMap.addMarker(new MarkerOptions().position(position)
+        Marker marker = mMap.addMarker(new MarkerOptions().position(position)
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN))
                 .title(tittle).snippet(snippet));
+
+        listaMarcadores.add(marker);
     }
 
     public void criarMarcadoresImobiliarias(LatLng position, String tittle, String snippet) {
@@ -333,6 +403,4 @@ public class MapsActivity extends SupportMapFragment
         super.onStop();
         pararConexaoComGoogleApi();
     }
-
-
 }
