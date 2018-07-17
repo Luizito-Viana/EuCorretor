@@ -54,7 +54,7 @@ public class DescricaoEmpActivity extends AppCompatActivity {
     private ImageSwitcher imageSwitcher;
     private int idx = 0;
     private ImageButton btAnterior, btProxima;
-    private TextView textInfo, textLocalizacao;
+    private TextView textInfo, textLocalizacao, textDescricaoEmp;
     private DatabaseReference imoveisRef = ConfiguracaoFirebase.getFirebaseDatabase().child("emp");
     private StorageReference storage;
 
@@ -85,16 +85,19 @@ public class DescricaoEmpActivity extends AppCompatActivity {
 
         /*TextInfo padronizado*/
         textInfo = findViewById(R.id.textInfoEmp);
-        if(empreendimentos.getDescricao().equals("")){
+        if(empreendimentos.getDescricaoImovel().equals("")){
             textInfo.setText("Descrição do Imovel nula");
-        } else if (empreendimentos.getDescricao().isEmpty()){
+        } else if (empreendimentos.getDescricaoImovel().isEmpty()){
             textInfo.setText("Descrição do Imovel nula");
         }
         else {
-            textInfo.setText(empreendimentos.getDescricao());
+            textInfo.setText(empreendimentos.getDescricaoImovel());
         }
         textLocalizacao = findViewById(R.id.textInfoLocalizacao);
         textLocalizacao.setText(empreendimentos.getLocalizacao());
+
+        textDescricaoEmp = findViewById(R.id.textInfoDescEmp);
+        textDescricaoEmp.setText(empreendimentos.getDescricaoEmp());
 
         /*ImageSwuitcher*/
         imageSwitcher = (ImageSwitcher) findViewById(R.id.imageSwitcherDescEmp);

@@ -245,7 +245,9 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 R.drawable.img_flores_cerrado,
                 "azm_resFloresCerrado", 1,"+34 3213-4393",
                 "AZM",
-                "• 44,70-49,80 m²\n• 2 quartos (0 suite)\n• 1 banheiros\n• 1 vagas na Garagem\n• Entre outros...");
+                "• 44,70-49,80 m²\n• 2 quartos (0 suite)\n• 1 banheiros\n• 1 vagas na Garagem\n• Entre outros...",
+                "• Piscina\n• Salão de Festas\n• Espaço Gourmet\n• Espaço Fitness\n• Entre outros...",
+                "• Av. Edson Gallana, 210\n• Canaã", 2, "Faixa 1,5");
         listaEmpreendimentos.add(empreendimentos);
 
         empreendimentos = new Empreendimentos(
@@ -256,7 +258,9 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 R.drawable.avatar_empreendimento,
                 "azm_resTavares",1,"+34 3213-4393",
                 "AZM",
-                "• 44,70 m²\n• 2 quartos (0 suite)\n• 1 banheiros\n• 1 vagas na Garagem\n• Entre outros...");
+                "• 44,70 m²\n• 2 quartos (0 suite)\n• 1 banheiros\n• 1 vagas na Garagem\n• Entre outros...",
+                "• Áreas de Convivência\n• Espaço Gourmet\n• Playground\n• Elevador\n• Entre outros...",
+                "• Av. Tonico Resende\n• Parque Santo Antônio", 1, "Faixa 1,5");
         listaEmpreendimentos.add(empreendimentos);
 
         empreendimentos = new Empreendimentos(
@@ -267,7 +271,9 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 R.drawable.img_vertentes,
                 "azm_resVertentes", 1,"+34 3213-4393",
                 "AZM",
-                "• 49,00-57,00 m²\n• 2 quartos (0-1 suite)\n• 1-2 banheiros\n• 1-2 vagas na Garagem\n• Entre outros...");
+                "• 49,00-57,00 m²\n• 2 quartos (0-1 suite)\n• 1-2 banheiros\n• 1-2 vagas na Garagem\n• Entre outros...",
+                "• Ampla Piscina Adulto/infantil\n• Amplo Salão de Festas\n• Espaço Gourmet\n• Áreas de convivência\n• Entre outros...",
+                "• R. Alfredo Vieira\n• Jardim Europa", 2, "Faixa 2");
         listaEmpreendimentos.add(empreendimentos);
 
         empreendimentos = new Empreendimentos(
@@ -278,7 +284,9 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 R.drawable.img_vidaboa,
                 "azm_resVidaBoa",1,"+34 3213-4393",
                 "AZM",
-                "• 56,90-61,50 m²\n• 2 quartos (0-1 suite)\n• 1-2 banheiros\n• 1 vagas na Garagem\n• Entre outros...");
+                "• 56,90-61,50 m²\n• 2 quartos (0-1 suite)\n• 1-2 banheiros\n• 1 vagas na Garagem\n• Entre outros...",
+                "• 3 elevadores\n• Monitoramento 24 horas\n• Playground\n• Áreas de convivência\n• Entre outros...",
+                "• R. do Poe.\n• Jardim das Palmeiras", 3, "Faixa 2");
         listaEmpreendimentos.add(empreendimentos);
 
         //BARI
@@ -289,9 +297,11 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "Venda: R$ 310.000,00 a partir",
                 "Avaliação: Não possui!",
                 R.drawable.img_evora,
-                "bari_evoraResidence","BARI", 0,
+                "bari_evoraResidence",0, "+34 3229-6026",
+                "BARI",
                 "• 88,96-90,56 m²\n• 3 quartos (1 suite)\n• 2 banheiros\n• 2 vagas na Garagem\n• Entre outros...",
-                "• R. Professora Maria Alves Castilho, 9640\n• Santa Mônica");
+                "• 2 elevadores\n• Salão de festas com terraço\n• Brinquedoteca\n• Espaço para bicicletário\n• Entre outros...",
+                "• R. Professora Maria Alves Castilho, 9640\n• Santa Mônica", 3, "Acima da Faixa 2");
         listaEmpreendimentos.add(empreendimentos);
 
         //C&A
@@ -302,11 +312,12 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "Venda: R$ 127.990,00",
                 "Avaliação: R$ 128.000,00",
                 R.drawable.avatar_empreendimento,
-                "cea_jardinsRes",0,"C&A",
+                "cea_jardinsRes",0, "+34 3236-1551",
+                "C&A",
                 "• 47,00 m²\n• 2 quartos (1 suite)\n• 2 banheiros\n• 1-2 vagas na Garagem\n• Entre outros...",
+                "• Elevador\n• Portaria\n• Areas de conveniência\n• Entre outros...",
                 "• R. do Calistemon, 363\n• Jardim Célia",
-                2,
-                "Faixa 1,5");
+                2, "Faixa 1,5");
         listaEmpreendimentos.add(empreendimentos);
 
 
@@ -316,11 +327,12 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "Venda: R$ 142.990,00",
                 "Avaliação: R$ 165.000,00",
                 R.drawable.avatar_empreendimento,
-                "cea_estorilRes",0,"C&A",
+                "cea_estorilRes",0, "+34 3236-1551",
+                "C&A",
                 "• 51,00 m²\n• 2 quartos (0 suite)\n• 1 banheiros\n• 1 vagas na Garagem\n• Entre outros...",
+                "• Elevador\n• Área de lazer \n• Espaço Gourmet\n• Azulejos até o teto (cozinha, banheiro)\n• Entre outros...",
                 "• R. Leonardo da Vinci\n• Laranjeiras",
-                2,
-                "Faixa 2");
+                2, "Faixa 2");
         listaEmpreendimentos.add(empreendimentos);
 
         empreendimentos = new Empreendimentos(
@@ -329,11 +341,12 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "Venda: R$ 142.990,00",
                 "Avaliação: R$ 165.000,00",
                 R.drawable.avatar_empreendimento,
-                "cea_zenithRes",0,"C&A",
+                "cea_zenithRes",0,"+34 3236-1551",
+                "C&A",
                 "• A partir de 50,00 m²\n• 2 quartos (0-1 suite)\n• 1-2 banheiros\n• 1 vagas na Garagem\n• Entre outros...",
+                "• 02 Elevadores\n• Portaria\n• Gás canalizado\n• Esquadrias de alumínio\n• Entre outros...",
                 "• R. Zenith, 109\n• Jardim Brasília",
-                2,
-                "Faixa 2");
+                2, "Faixa 2");
         listaEmpreendimentos.add(empreendimentos);
 
         empreendimentos = new Empreendimentos(
@@ -342,11 +355,12 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "Venda: R$ 149.990,00",
                 "Avaliação: R$ 180.000,00",
                 R.drawable.avatar_empreendimento,
-                "cea_resSolaris",0,"C&A",
+                "cea_resSolaris",0, "+34 3236-1551",
+                "C&A",
                 "• 51,00 m²\n• 2 quartos (0 suite)\n• 1 banheiros\n• 1 vagas na Garagem\n• Entre outros...",
+                "• Elevador\n• Portaria\n• Esquadrias em alumínio\n• Azulejo até o teto (Cozinha, banheiro e área de serviço)\n• Entre outros...",
                 "• Av. Dimas Machado, 580\n• Chácaras Tubalina",
-                2,
-                "Faixa 2");
+                2, "Faixa 2");
         listaEmpreendimentos.add(empreendimentos);
 
         empreendimentos = new Empreendimentos(
@@ -355,11 +369,12 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "Venda: R$ 184.990,00",
                 "Avaliação: R$ 185.000,00",
                 R.drawable.avatar_empreendimento,
-                "cea_resVilaReal",0,"C&A",
+                "cea_resVilaReal",0,"+34 3236-1551",
+                "C&A",
                 "• 65,73 m²\n• 2 quartos (X suite)\n• 1 banheiros\n• 1 vagas na Garagem\n• Entre outros...",
+                "• Murado nas laterais e ao fundo\n• Casas individuais\n• Sala de jantar e TV integradas\n• Excelente padrão de acabamento\n• Entre outros...",
                 "• Bairro Mansour II",
-                3,
-                "Faixa 2");
+                3, "Faixa 2");
         listaEmpreendimentos.add(empreendimentos);
 
         empreendimentos = new Empreendimentos(
@@ -368,9 +383,11 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "Venda: R$ 189.990,00 a partir",
                 "Avaliação: R$ 190.000,00 a partir",
                 R.drawable.avatar_empreendimento,
-                "cea_plazaNorteResidence","C&A",0,
+                "cea_plazaNorteResidence",0, "+34 3236-1551",
+                "C&A",
                 "• 56,00-67,00 m²\n• 2-3 quartos (0-1-2 suite)\n• 2 banheiros\n• 1-2 vagas na Garagem\n• Entre outros...",
-                "• Av. Adriano Bailoni, 420\n• Roosevelt");
+                "• 2 Elevadores\n• Espaço de lazer infantil\n• Gás canalizado\n• Portaria\n• Entre outros...",
+                "• Av. Adriano Bailoni, 420\n• Roosevelt", 3, "Faixa 2");
         listaEmpreendimentos.add(empreendimentos);
 
         empreendimentos = new Empreendimentos(
@@ -379,24 +396,26 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "Venda: R$ 195.990,00",
                 "Avaliação: R$ 190.000,00",
                 R.drawable.img_monsenhor,
-                "cea_resMonsenhor",0,"C&A",
+                "cea_resMonsenhor",0, "+34 3236-1551",
+                "C&A",
                 "• 2 quartos (1 suite)\n• 2 banheiros\n• 1 vagas na Garagem\n• Entre outros...",
+                "• 2 Elevadores\n• Portaria\n• Gás canalizado\n• Sacada com blindex\n• Entre outros...",
                 "• R. Osório José da Cunha, 1795\n• Marta Helena",
-                2,
-                "Faixa 2");
+                2, "Faixa 2");
         listaEmpreendimentos.add(empreendimentos);
 
         empreendimentos = new Empreendimentos(
-                "Queens Residence",              "cea",
+                "Queens Residence",
+                "cea",
                 "Venda: R$ 198.990,00",
                 "Avaliação: R$ 210.000,00",
                 R.drawable.avatar_empreendimento,
-                "cea_queensRes", 0,
+                "cea_queensRes", 0, "+34 3236-1551",
                 "C&A",
                 "• 52,37 ou 64,81 m²\n• 2 ou 3 quartos (0-1 suite)\n• 1 ou 2 banheiros\n• 2 vagas na Garagem\n• Entre outros...",
+                "• 2 elevadores\n• Espaço de convivência\n• Gás canalizado\n• Portaria\n• Entre outros...",
                 "• R. Dr. Luiz Antônio Waack, 1480\n• Umuarama",
-                3,
-                "Acima");
+                3, "Acima");
         listaEmpreendimentos.add(empreendimentos);
 
         //CIMA
