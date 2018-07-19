@@ -235,7 +235,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
         // Os empreendimentos serão exibidos por ordem Alfabetica de Empresa
         // E dentro dessa ordem Alfabetica teremos uma ordem de preços por empresa
 
-        //AZM
+        //AZM COMPLETO
 
         Empreendimentos empreendimentos = new Empreendimentos(
                 "Residencial Flores do Cerrado",
@@ -289,7 +289,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "• R. do Poe.\n• Jardim das Palmeiras", 3, "Faixa 2");
         listaEmpreendimentos.add(empreendimentos);
 
-        //BARI
+        //BARI  COMPLETO
 
         empreendimentos = new Empreendimentos(
                 "Evora Residence",
@@ -304,7 +304,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "• R. Professora Maria Alves Castilho, 9640\n• Santa Mônica", 3, "Acima da Faixa 2");
         listaEmpreendimentos.add(empreendimentos);
 
-        //C&A
+        //C&A COMPLETO
 
         empreendimentos = new Empreendimentos(
                 "Jardins Residence",
@@ -418,7 +418,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 3, "Acima");
         listaEmpreendimentos.add(empreendimentos);
 
-        //CIMA
+        //CIMA NÃO FEITO
 
         empreendimentos = new Empreendimentos(
                 "Versato Residence",
@@ -430,7 +430,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "CIMA");
         listaEmpreendimentos.add(empreendimentos);
 
-        //CONEL
+        //CONEL COMPLETO SEM TELEFONE
 
         empreendimentos = new Empreendimentos(
                 "Acqua Torre Centro Sul",
@@ -487,9 +487,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "CONEL",
                 "• 86,39 m²\n• 3 quartos (1 suite)\n• 2 banheiros\n• 1 ou 2 vagas na Garagem\n• Entre outros...",
                 "• 2 Elevadores\n• Salão de festas\n• Playground\n• Quiosque com churrasqueira\n• Entre outros...",
-                "• R. da Carioca, 1350\n• Morada da Colina",
-                3,
-                "Acima");
+                "• R. da Carioca, 1350\n• Morada da Colina", 3, "Acima");
         listaEmpreendimentos.add(empreendimentos);
 
         empreendimentos = new Empreendimentos(
@@ -502,9 +500,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "CONEL",
                 "• 166,36-342,60 m²\n• 3 quartos (3 suite)\n• 5 banheiros\n• 3 vagas na Garagem\n• Entre outros...",
                 "• Piscina\n• Playground infantil\n• 2 Elevadores\n• Salão de festas\n• Entre outros...",
-                "• R. Tobias Inacio\n• Lídice",
-                3,
-                "Acima");
+                "• R. Tobias Inacio\n• Lídice", 3, "Acima");
         listaEmpreendimentos.add(empreendimentos);
 
         empreendimentos = new Empreendimentos(
@@ -522,7 +518,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "Acima");
         listaEmpreendimentos.add(empreendimentos);
 
-        //HLTS
+        //HLTS -> FALTAM 1
 
         empreendimentos = new Empreendimentos(
                 "Residencial Jardim Holanda",
@@ -540,8 +536,11 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "Venda: R$ 115.000,00 a partir",
                 "Avaliação: R$ 128.000,00 a partir",
                 R.drawable.img_place,
-                "hlts_placeAltoUmu",0,
-                "HLTS");
+                "hlts_placeAltoUmu",0, "+34 3223-5966",
+                "HLTS",
+                "• 47,31 m²\n• 2 quartos (0 suite)\n• 1 banheiros\n• 1 vagas na Garagem\n• Entre outros...",
+                "• Informações ainda não disponíveis",
+                "• Informações ainda não disponíveis", 2, "Faixa 1,5");
         listaEmpreendimentos.add(empreendimentos);
 
         empreendimentos = new Empreendimentos(
@@ -550,8 +549,11 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "Venda: R$ 138.000,00 a partir",
                 "Avaliação: R$ 180.000,00",
                 R.drawable.img_newquality,
-                "hlts_newQualityRes",0,
-                "HLTS");
+                "hlts_newQualityRes",0, "+34 3223-5966",
+                "HLTS",
+                "• 53,23 m²\n• 2 quartos (0 suite)\n• 1 banheiros\n• 1 vagas na Garagem\n• Entre outros...",
+                "• Elevador\n• Piscina Infatil/Playground\n• Quadra recreativa\n• Salão de festas\n• Entre outros...",
+                "• R. Renato de Oliveira Grama", 2, "Faixa 2");
         listaEmpreendimentos.add(empreendimentos);
 
         empreendimentos = new Empreendimentos(
@@ -560,11 +562,14 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "Venda: R$ 314.300,00 a partir",
                 "Avaliação: R$ 370.300,00 a partir",
                 R.drawable.img_prime_club,
-                "hlts_primeClubRes",0,
-                "HLTS");
+                "hlts_primeClubRes",0, "+34 3223-5966",
+                "HLTS",
+                "• 85,19 e 84,45 m²\n• 3 quartos (1 suite)\n• 2 banheiros\n• 2 vagas na Garagem\n• Entre outros...",
+                "• 02 Elevadores\n• Espaço gourmet/grill\n• Piscina\n• Salão de festas\n• Entre outros...",
+                "• Av. Francisco Ribeiro\n• Santa Mônica", 3, "Acima");
         listaEmpreendimentos.add(empreendimentos);
 
-        //HPR
+        //HPR COMPLETO
 
         empreendimentos = new Empreendimentos(
                 "Residencial Acácias",
@@ -572,8 +577,11 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "Venda: R$ 174.900,00 a partir",
                 "Avaliação: R$ 190.000,00",
                 R.drawable.img_acacias,
-                "hpr_resAcacias",0,
-                "HPR");
+                "hpr_resAcacias",0, "+34 3229-7962",
+                "HPR",
+                "• 52 até 58 m²\n• 2 quartos (1 suite)\n• 2 banheiros\n• 2 vagas na Garagem\n• Entre outros...",
+                "• Portaria\n• Salão de festas\n• Espaço kids\n• Área de lazer\n• Entre outros...",
+                "• Av. dos Ferreiras, 175\n• Jardim Califórnia", 2, "Faixa 2");
         listaEmpreendimentos.add(empreendimentos);
 
         empreendimentos = new Empreendimentos(
@@ -582,11 +590,14 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "Venda: R$ 179.900,00 a partir",
                 "Avaliação: R$ 190.000,00",
                 R.drawable.img_araucarias,
-                "hpr_resAraucarias",0,
-                "HPR");
+                "hpr_resAraucarias",0, "+34 3229-7962",
+                "HPR",
+                "• 52 até 56 m²\n• 2 quartos (1 suite)\n• 2 banheiros\n• 2 vagas na Garagem\n• Entre outros...",
+                "• Portaria\n• Salão de festas\n• Espaço kids\n• 2 Elevadores\n• Entre outros...",
+                "• R. Domingos Alvares, 79\n• Roosevelt", 2, "Faixa 2");
         listaEmpreendimentos.add(empreendimentos);
 
-        //L Silva
+        //L Silva COMPLETO
 
         empreendimentos = new Empreendimentos(
                 "Edifício Rubi Residence",
@@ -594,11 +605,14 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "Venda: R$ 220.000,00 a partir",
                 "Avaliação: Não possui!",
                 R.drawable.img_rubi,
-                "lsilva_rubiRes",0,
-                "L Silva");
+                "lsilva_rubiRes",0, "+34 3083-2950",
+                "L Silva",
+                "• 57,82 m²\n• 2 quartos (1 ou 2 suite)\n• 2 banheiros\n• 2 vagas na Garagem\n• Entre outros...",
+                "• Elevador\n• Playground\n• Portaria\n• Espaço fitness/gourrmet\n• Entre outros...",
+                "• R. Bernardo de Vasconcelos, 780\n• Pampulha", 2, "Acima");
         listaEmpreendimentos.add(empreendimentos);
 
-        //Marca Registrada
+        //Marca Registrada PRONTO SO O GRAN TORO
 
         empreendimentos = new Empreendimentos("Residencial Mirante 1 e 2",
                 "marcaRegistrada",
@@ -637,8 +651,11 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "Venda: R$ 131.000,00 a partir",
                 "Avaliação: R$ 145.000,00 a partir",
                 R.drawable.img_grantoro,
-                "mr_granToro",0,
-                "Marca Registrada");
+                "mr_granToro",0, "+34 3014-5001",
+                "Marca Registrada",
+                "• 44 ou 49 m²\n• 2 quartos (0 suite)\n• 1 banheiros\n• 1 vagas na Garagem\n• Entre outros...",
+                "• Varanda Gourmet\n• 2 Elevadores\n• Espaço kids\n• Praças e canteiros com paisagismo\n• Entre outros...",
+                "• R. Bétis, 305\n• Zona Sul de Uberlândia",  2, "Faixa 2");
         listaEmpreendimentos.add(empreendimentos);
 
         //MRV
@@ -743,7 +760,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "MRV");
         listaEmpreendimentos.add(empreendimentos);
 
-        //MAXI
+        //MAXI COMPLETO
 
         empreendimentos = new Empreendimentos(
                 "Provence Residence Club",
@@ -751,19 +768,25 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "Venda: R$334.700,00 a partir",
                 "Avaliação: R$340.000,00 a partir",
                 R.drawable.img_provence,
-                "maxi_provenceResClub",0,
-                "MAXI");
+                "maxi_provenceResClub",0, "34 3214-4424",
+                "MAXI",
+                "• 74,51 ou 107,29 m²\n• 2 ou 3 quartos (1 suite)\n• 2 banheiros\n• 2 vagas na Garagem\n• Entre outros...",
+                "• Piscina, spa e sauna\n• Espaço gourmet\n• Espaço fitness e kids\n• Salão de festas\n• Entre outros...",
+                "• Rua José Saramago, 1497\n• Santa Mônica", 4, "Acima");
         listaEmpreendimentos.add(empreendimentos);
 
-        //MOR
+        //MOR COMPLETO
         empreendimentos = new Empreendimentos(
                 "Residencial Colina Sul",
                 "mor",
                 "Venda: R$110.000,00",
                 "Avaliação: R$120.000,00",
                 R.drawable.img_colina_sul,
-                "mor_colinaSul", 0,
-                "MOR");
+                "mor_colinaSul", 0, "+34 3227-7007",
+                "MOR",
+                "• 45 m²\\n• 2 quartos (0 suite)\\n• 1 banheiros\\n• 1 vagas na Garagem\\n• Entre outros...",
+                "• Espaço de ginástica ao ar livre\\n• Quiosque para eventos\\n• Portaria \\n• Depósito de lixo\\n• Entre outros...",
+                "• Av. Sul Americana\n• Shopping Park", 2, "Faixa 1.5");
         listaEmpreendimentos.add(empreendimentos);
 
         empreendimentos = new Empreendimentos(
@@ -773,7 +796,10 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "Avaliação: R$149.000,00 a partir",
                 R.drawable.img_bello_sul,
                 "mor_belloSul", 1, "+34 3227-7007" ,
-                "MOR");
+                "MOR",
+                "• 50 m²\n• 2 quartos (1 suite)\n• 2 banheiros\n• 1 vagas na Garagem\n• Entre outros...",
+                "• Espaço Gourmet\n• Salão de festas\n• Espaço de ginástica ao ar livre\n• Piscina adulto/infantil\n• Entre outros...",
+                "• Av. Sul Americana\n• Shopping Park", 2, "Faixa 2");
         listaEmpreendimentos.add(empreendimentos);
 
         //Opcao

@@ -1,5 +1,7 @@
 package com.eurezzolve.eucorretor.activities.secundarias;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -8,6 +10,7 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -37,6 +40,7 @@ public class TabelasEmpActivity extends AppCompatActivity {
     private ValueEventListener valueEventListener;
     private Empreendimentos empInicial;
     private Empreendimentos empreendimentos;
+    private Button btnLigar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +54,7 @@ public class TabelasEmpActivity extends AppCompatActivity {
         recyclerViewInfo = findViewById(R.id.recyclerInfo);
         textNome = findViewById(R.id.textNomeEmpreendimento);
         progressBarInfo = findViewById(R.id.progressBarInfo);
+        btnLigar = findViewById(R.id.btnLigar);
 
         /*Ativa a ProgressBar*/
         ativaProgressBar();
@@ -61,6 +66,9 @@ public class TabelasEmpActivity extends AppCompatActivity {
         String nome = empInicial.getNome();
         textNome.setText(nome);
 
+        final String telefone = empInicial.getTelefone();
+        btnLigar.setText("Telefone: " + telefone);
+
         //Cria o adapter
         adapterInfo = new AdapterValores(informacoesLista,this);
 
@@ -70,6 +78,13 @@ public class TabelasEmpActivity extends AppCompatActivity {
         recyclerViewInfo.setHasFixedSize(true);
         recyclerViewInfo.setAdapter(adapterInfo);
 
+        btnLigar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent callIntent = new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", telefone, null));
+                startActivity(callIntent);
+            }
+        });
     }
 
     public void criarInformacoes(){
