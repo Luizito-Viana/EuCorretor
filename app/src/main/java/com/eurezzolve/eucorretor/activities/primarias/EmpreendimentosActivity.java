@@ -653,12 +653,12 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 R.drawable.img_grantoro,
                 "mr_granToro",0, "+34 3014-5001",
                 "Marca Registrada",
-                "• 44 ou 49 m²\n• 2 quartos (0 suite)\n• 1 banheiros\n• 1 vagas na Garagem\n• Entre outros...",
+                "• 44 ou 49 m²\n• 2 quartos (0 suite)\n• 1 banheiro\n• 1 vagas na Garagem\n• Entre outros...",
                 "• Varanda Gourmet\n• 2 Elevadores\n• Espaço kids\n• Praças e canteiros com paisagismo\n• Entre outros...",
                 "• R. Bétis, 305\n• Zona Sul de Uberlândia",  2, "Faixa 2");
         listaEmpreendimentos.add(empreendimentos);
 
-        //MRV
+        //MRV FALTAM 1
 
         empreendimentos = new Empreendimentos(
                 "Parque Trilhas do Cerrado",
@@ -666,8 +666,11 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "Venda: R$ 128.000,00 a partir",
                 "Avaliação: R$ 128.000,00 a partir",
                 R.drawable.img_trilhas_cerrado,
-                "mrv_trilhaCerrado",0,
-                "MRV");
+                "mrv_trilhaCerrado",0, "+34 4004-9000",
+                "MRV",
+                "• 39,6 ou 46,46 m²\n• 2 quartos (0 suite)\n• 1 banheiro\n• 1 vagas na Garagem\n• Entre outros...",
+                "• Salão de festas\n• Playground\n• Espaço gourmet\n• Piscina adulto/infantil\n• Entre outros...",
+                "• Av. Manuel Lucio, 520\n• Grand Ville", 2, "Faixa 1,5");
         listaEmpreendimentos.add(empreendimentos);
 
         empreendimentos = new Empreendimentos(
@@ -676,8 +679,11 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "Venda: R$ 128.000,00 a partir",
                 "Avaliação: R$ 128.000,00 a partir",
                 R.drawable.img_trilhas_sabia,
-                "mrv_trilhaSabia",0,
-                "MRV");
+                "mrv_trilhaSabia",0, "+34 4004-9000",
+                "MRV",
+                "• 39,3 ou 46,46 m²\n• 2 quartos (0 suite)\n• 1 banheiro\n• 1 vagas na Garagem\n• Entre outros...",
+                "• Salão de Festas\n• Piscina adulto/infantil\n• Quadra Gramada e Poliesportiva\n• Espaço Gourmet\n• Entre outros...",
+                "• Av. dos Eucaliptos, 1140\n• Jardim Patrícia", 2, "Faixa 1,5");
         listaEmpreendimentos.add(empreendimentos);
 
         empreendimentos = new Empreendimentos(
@@ -686,8 +692,11 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "Venda: R$ 128.000,00 a partir",
                 "Avaliação: R$ 128.000,00 a partir",
                 R.drawable.img_unistella,
-                "mrv_unistella",0,
-                "MRV");
+                "mrv_unistella",0, "+34 4004-9000",
+                "MRV",
+                "• 41,14 ou 46,47 m²\n• 2 quartos (0 suite)\n• 1 banheiro\n• 1 vagas na Garagem\n• Entre outros...",
+                "• Salão de Festas\n• Playground\n• Espaço Gourmet\n• Piscinas Adulto e Infantil\n• Entre outros...",
+                "• Rua Aguapés, 800\n• Tubalina", 2, "Faixa 1,5");
         listaEmpreendimentos.add(empreendimentos);
 
         empreendimentos = new Empreendimentos(
@@ -696,8 +705,11 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "Venda: R$ 128.000,00 a partir",
                 "Avaliação: R$ 128.000,00 a partir",
                 R.drawable.img_hyde_park,
-                "mrv_hydePark",0,
-                "MRV");
+                "mrv_hydePark",0, "+34 4004-9000",
+                "MRV",
+                "• 39,3 ou 46,46 m²\n• 2 quartos (0 suite)\n• 1 banheiros\n• 1 vagas na Garagem\n• Entre outros...",
+                "• Salão de Festas\n• Playground\n• Espaço Fitness\n• Piscinas Adulto e Infantil\n• Entre outros...",
+                "• Rua Dolorita Elias do Nascimento, 220\n• Região do São Jorge", 2, "Faixa 1,5");
         listaEmpreendimentos.add(empreendimentos);
 
         empreendimentos = new Empreendimentos(
@@ -706,8 +718,11 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "Venda: R$ 128.000,00 a partir",
                 "Avaliação: R$ 146.000,00 a partir",
                 R.drawable.img_univita,
-                "mrv_univita",0,
-                "MRV");
+                "mrv_univita",0, "+34 4004-9000",
+                "MRV",
+                "• 39,3 ou 46,49 m²\n• 2 quartos (0 suite)\n• 1 banheiros\n• 1 vagas na Garagem\n• Entre outros...",
+                "• Salão de Festas\n• Espaço Gourmet\n• Piscinas Adulto e Infantil\n• Espaço Kids\n• Entre outros...",
+                "• Alameda José de Oliveira Guimarães, 900\n• Jardim Holanda", 2, "Faixa 2");
         listaEmpreendimentos.add(empreendimentos);
 
         empreendimentos = new Empreendimentos(
@@ -716,8 +731,11 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "Venda: R$ 128.000,00 a partir",
                 "Avaliação: R$ 150.500,00 a partir",
                 R.drawable.img_parque_states,
-                "mrv_parqueUnitedStates",0,
-                "MRV");
+                "mrv_parqueUnitedStates",0, "+34 4004-9000",
+                "MRV",
+                "• 41,14 ou 47,7 m²\n• 2 quartos (0 suite)\n• 1 banheiros\n• 1 vagas na Garagem\n• Entre outros...",
+                "• Salão de Festas\n• Playground\n• Quadra Poliesportiva\n• Espaço Gourmet\n• Entre outros...",
+                "• R Professora Maria Célia Cence\n• Região da Gávea", 2, "Faixa 2");
         listaEmpreendimentos.add(empreendimentos);
 
         empreendimentos = new Empreendimentos(
@@ -726,8 +744,11 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "Venda: R$ 128.691 a partir",
                 "Avaliação: R$ 150.000,00 a partir",
                 R.drawable.avatar_empreendimento,
-                "mrv_uniplace",0,
-                "MRV");
+                "mrv_uniplace",0, "+34 4004-9000",
+                "MRV",
+                "• 39,39 - 49,43 m²\n• 1-2 quartos (0-1 suite)\n• 1 banheiros\n• 1 vagas na Garagem\n• Entre outros...",
+                "• Salão de Festas\n• Playground\n• Espaço Gourmet\n• Piscinas Adulto e Infantil\n• Entre outros...",
+                "• Av. Rodrigo Pereira Júnior, 205\n• Roosvelt", 2, "Faixa 2");
         listaEmpreendimentos.add(empreendimentos);
 
         empreendimentos = new Empreendimentos(
@@ -736,7 +757,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "Venda: R$ 135.004,00",
                 "Avaliação: R$ 140.000,00",
                 R.drawable.avatar_empreendimento,
-                "mrv_universita",0,
+                "mrv_universita",0, "+34 4004-9000",
                 "MRV");
         listaEmpreendimentos.add(empreendimentos);
 
@@ -746,8 +767,11 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "Venda: R$ 137.217,00",
                 "Avaliação: R$ 139.000,00",
                 R.drawable.img_uba,
-                "mrv_uba",0,
-                "MRV");
+                "mrv_uba",0, "+34 4004-9000",
+                "MRV",
+                "• 44,01 m²\n• 2 quartos (0 suite)\n• 1 banheiros\n• 1 vagas na Garagem\n• Entre outros...",
+                "• Salão de Festas\n• Playgroung\n• Quadra Gramada\n• Gazebo\n• Entre outros...",
+                "• Rua Luiza Naves Flack, 150\n• Região da Gávea", 2, "Faixa 2");
         listaEmpreendimentos.add(empreendimentos);
 
         empreendimentos = new Empreendimentos(
@@ -756,8 +780,11 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "Venda: R$ 137.981 a partir",
                 "Avaliação: R$ 170.000,00 a partir",
                 R.drawable.img_unigarden,
-                "mrv_unigarden",0,
-                "MRV");
+                "mrv_unigarden",0, "+34 4004-9000",
+                "MRV",
+                "• 35,76 - 51,06 m²\n• 1-2 quartos (0-1 suite)\n• 1 banheiros\n• 1 vagas na Garagem\n• Entre outros...",
+                "• Salão de Festas\n• Playground\n• Espaço Fitness\n• Piscinas Adulto e Infantil\n• Entre outros...",
+                "• Av. Oscarina Cunha Chaves, 510\n• Copacabana", 2, "Faixa 2");
         listaEmpreendimentos.add(empreendimentos);
 
         //MAXI COMPLETO
