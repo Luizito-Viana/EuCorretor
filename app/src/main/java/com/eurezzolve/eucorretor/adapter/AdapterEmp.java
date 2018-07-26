@@ -98,7 +98,6 @@ public class AdapterEmp extends RecyclerView.Adapter<AdapterEmp.MyViewHoler> {
             textNome = itemView.findViewById(R.id.textNomeImovel);
             textConstrutora = itemView.findViewById(R.id.textConstrutoraImovel);
             textInfo = itemView.findViewById(R.id.textInfoImovel);
-
         }
     }
 }

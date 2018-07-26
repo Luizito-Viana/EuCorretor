@@ -20,6 +20,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,6 +30,7 @@ import com.eurezzolve.eucorretor.config.ConfiguracaoFirebase;
 import com.eurezzolve.eucorretor.config.UsuarioFirebase;
 import com.eurezzolve.eucorretor.fragments.EmpBuscaFragment;
 import com.eurezzolve.eucorretor.fragments.MapsActivity;
+import com.eurezzolve.eucorretor.fragments.SearchFragment;
 import com.eurezzolve.eucorretor.fragments.TerceirosFragment;
 import com.eurezzolve.eucorretor.fragments.TerrenosFragment;
 import com.eurezzolve.eucorretor.helper.NotificationUtil;
@@ -49,10 +51,12 @@ public class HomeActivity extends AppCompatActivity
         BottomNavigationView.OnNavigationItemReselectedListener,
         BottomNavigationView.OnNavigationItemSelectedListener
 {
+    private SearchFragment searchFragment;
 
     /*Variaveis para uso de pesquisa*/
     private String nome, subtitulo;
     private Double latitude, longitude;
+
 
     private static final String primeiraEx = "firstRun";
     private FragmentManager fragmentManager;
@@ -70,7 +74,7 @@ public class HomeActivity extends AppCompatActivity
         toolbar.setTitle("");
         setSupportActionBar(toolbar);
 
-
+        //searchFragment = new SearchFragment();
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -93,16 +97,28 @@ public class HomeActivity extends AppCompatActivity
         searchView.setHint("Pesquisar");
         //searchView.setSuggestions(getResources().getStringArray(R.array.emp_suggestions));
 
+
+
         /*Listener para o SearchView*/
         searchView.setOnSearchViewListener(new MaterialSearchView.SearchViewListener() {
             @Override
             public void onSearchViewShown() {
-
+                 /*Trocando para os Fragment Principal*/
+                searchFragment = new SearchFragment();
+                fragmentManager = getSupportFragmentManager();
+                FragmentTransaction transaction = fragmentManager.beginTransaction(); //Responsavel por iniciar
+                transaction.setCustomAnimations( android.R.animator.fade_in, android.R.animator.fade_out);
+                transaction.replace(R.id.containerPrincipal, searchFragment); //Adiciona o Fragment
+                transaction.commit();
             }
 
             @Override
             public void onSearchViewClosed() {
-
+                /*Trocando para os Fragment Principal*/
+                fragmentManager = getSupportFragmentManager();
+                FragmentTransaction transaction = fragmentManager.beginTransaction(); //Responsavel por iniciar
+                transaction.replace(R.id.containerPrincipal, new MapsActivity()); //Adiciona o Fragment
+                transaction.commit();
             }
         });
 
@@ -115,7 +131,11 @@ public class HomeActivity extends AppCompatActivity
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                return false;
+                //SearchFragment searchFragment = SearchFragment.newInstace();
+                if(newText != null & !newText.isEmpty()) {
+                    searchFragment.pesquisarEmp(newText.toLowerCase());
+                }
+                return true;
             }
         });
 
@@ -179,6 +199,8 @@ public class HomeActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
+        } else if(searchView.isSearchOpen()) {
+            searchView.closeSearch();
         } else {
             finishAffinity();
             super.onBackPressed();
