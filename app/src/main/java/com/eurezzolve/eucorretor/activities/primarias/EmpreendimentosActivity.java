@@ -247,7 +247,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "AZM",
                 "• 44,70-49,80 m²\n• 2 quartos (0 suite)\n• 1 banheiros\n• 1 vagas na Garagem\n• Entre outros...",
                 "• Piscina\n• Salão de Festas\n• Espaço Gourmet\n• Espaço Fitness\n• Entre outros...",
-                "• Av. Edson Gallana, 210\n• Canaã", 2, "Faixa 1,5");
+                "• Av. Edson Gallana, 210\n• Canaã", 2, "Faixa 1,5",-18.965741, -48.339644);
         listaEmpreendimentos.add(empreendimentos);
 
         empreendimentos = new Empreendimentos(
@@ -260,7 +260,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "AZM",
                 "• 44,70 m²\n• 2 quartos (0 suite)\n• 1 banheiros\n• 1 vagas na Garagem\n• Entre outros...",
                 "• Áreas de Convivência\n• Espaço Gourmet\n• Playground\n• Elevador\n• Entre outros...",
-                "• Av. Tonico Resende\n• Parque Santo Antônio", 1, "Faixa 1,5");
+                "• Av. Tonico Resende\n• Parque Santo Antônio", 1, "Faixa 1,5",-18.945764, -48.350587);
         listaEmpreendimentos.add(empreendimentos);
 
         empreendimentos = new Empreendimentos(
@@ -273,7 +273,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "AZM",
                 "• 49,00-57,00 m²\n• 2 quartos (0-1 suite)\n• 1-2 banheiros\n• 1-2 vagas na Garagem\n• Entre outros...",
                 "• Ampla Piscina Adulto/infantil\n• Amplo Salão de Festas\n• Espaço Gourmet\n• Áreas de convivência\n• Entre outros...",
-                "• R. Alfredo Vieira\n• Jardim Europa", 2, "Faixa 2");
+                "• R. Alfredo Vieira\n• Jardim Europa", 2, "Faixa 2", -18.941298, -48.348096);
         listaEmpreendimentos.add(empreendimentos);
 
         empreendimentos = new Empreendimentos(
@@ -286,7 +286,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "AZM",
                 "• 56,90-61,50 m²\n• 2 quartos (0-1 suite)\n• 1-2 banheiros\n• 1 vagas na Garagem\n• Entre outros...",
                 "• 3 elevadores\n• Monitoramento 24 horas\n• Playground\n• Áreas de convivência\n• Entre outros...",
-                "• R. do Poe.\n• Jardim das Palmeiras", 3, "Faixa 2");
+                "• R. do Poe.\n• Jardim das Palmeiras", 3, "Faixa 2",-18.948985, -48.318978);
         listaEmpreendimentos.add(empreendimentos);
 
         //BARI  COMPLETO
@@ -301,7 +301,8 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "BARI",
                 "• 88,96-90,56 m²\n• 3 quartos (1 suite)\n• 2 banheiros\n• 2 vagas na Garagem\n• Entre outros...",
                 "• 2 elevadores\n• Salão de festas com terraço\n• Brinquedoteca\n• Espaço para bicicletário\n• Entre outros...",
-                "• R. Professora Maria Alves Castilho, 9640\n• Santa Mônica", 3, "Acima da Faixa 2");
+                "• R. Professora Maria Alves Castilho, 9640\n• Santa Mônica", 3, "Acima da Faixa 2",
+                -18.923276, -48.233178);
         listaEmpreendimentos.add(empreendimentos);
 
         //C&A COMPLETO
@@ -317,7 +318,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "• 47,00 m²\n• 2 quartos (1 suite)\n• 2 banheiros\n• 1-2 vagas na Garagem\n• Entre outros...",
                 "• Elevador\n• Portaria\n• Areas de conveniência\n• Entre outros...",
                 "• R. do Calistemon, 363\n• Jardim Célia",
-                2, "Faixa 1,5");
+                2, "Faixa 1,5", -18.936320, -48.377321);
         listaEmpreendimentos.add(empreendimentos);
 
 
@@ -332,7 +333,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "• 51,00 m²\n• 2 quartos (0 suite)\n• 1 banheiros\n• 1 vagas na Garagem\n• Entre outros...",
                 "• Elevador\n• Área de lazer \n• Espaço Gourmet\n• Azulejos até o teto (cozinha, banheiro)\n• Entre outros...",
                 "• R. Leonardo da Vinci\n• Laranjeiras",
-                2, "Faixa 2");
+                2, "Faixa 2", -18.965689, -48.247368);
         listaEmpreendimentos.add(empreendimentos);
 
         empreendimentos = new Empreendimentos(
@@ -346,7 +347,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "• A partir de 50,00 m²\n• 2 quartos (0-1 suite)\n• 1-2 banheiros\n• 1 vagas na Garagem\n• Entre outros...",
                 "• 02 Elevadores\n• Portaria\n• Gás canalizado\n• Esquadrias de alumínio\n• Entre outros...",
                 "• R. Zenith, 109\n• Jardim Brasília",
-                2, "Faixa 2");
+                2, "Faixa 2", -18.8930038, -48.3000398);
         listaEmpreendimentos.add(empreendimentos);
 
         empreendimentos = new Empreendimentos(
@@ -360,7 +361,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "• 51,00 m²\n• 2 quartos (0 suite)\n• 1 banheiros\n• 1 vagas na Garagem\n• Entre outros...",
                 "• Elevador\n• Portaria\n• Esquadrias em alumínio\n• Azulejo até o teto (Cozinha, banheiro e área de serviço)\n• Entre outros...",
                 "• Av. Dimas Machado, 580\n• Chácaras Tubalina",
-                2, "Faixa 2");
+                2, "Faixa 2",-18.935183, -48.320994);
         listaEmpreendimentos.add(empreendimentos);
 
         empreendimentos = new Empreendimentos(
@@ -374,7 +375,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "• 65,73 m²\n• 2 quartos (X suite)\n• 1 banheiros\n• 1 vagas na Garagem\n• Entre outros...",
                 "• Murado nas laterais e ao fundo\n• Casas individuais\n• Sala de jantar e TV integradas\n• Excelente padrão de acabamento\n• Entre outros...",
                 "• Bairro Mansour II",
-                3, "Faixa 2");
+                3, "Faixa 2",-18.936320, -48.377321);
         listaEmpreendimentos.add(empreendimentos);
 
         empreendimentos = new Empreendimentos(
@@ -387,7 +388,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "C&A",
                 "• 56,00-67,00 m²\n• 2-3 quartos (0-1-2 suite)\n• 2 banheiros\n• 1-2 vagas na Garagem\n• Entre outros...",
                 "• 2 Elevadores\n• Espaço de lazer infantil\n• Gás canalizado\n• Portaria\n• Entre outros...",
-                "• Av. Adriano Bailoni, 420\n• Roosevelt", 3, "Faixa 2");
+                "• Av. Adriano Bailoni, 420\n• Roosevelt", 3, "Faixa 2",-18.8974186, -48.2784520);
         listaEmpreendimentos.add(empreendimentos);
 
         empreendimentos = new Empreendimentos(
@@ -401,7 +402,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "• 2 quartos (1 suite)\n• 2 banheiros\n• 1 vagas na Garagem\n• Entre outros...",
                 "• 2 Elevadores\n• Portaria\n• Gás canalizado\n• Sacada com blindex\n• Entre outros...",
                 "• R. Osório José da Cunha, 1795\n• Marta Helena",
-                2, "Faixa 2");
+                2, "Faixa 2", -18.936320, -48.377321);
         listaEmpreendimentos.add(empreendimentos);
 
         empreendimentos = new Empreendimentos(
@@ -415,7 +416,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "• 52,37 ou 64,81 m²\n• 2 ou 3 quartos (0-1 suite)\n• 1 ou 2 banheiros\n• 2 vagas na Garagem\n• Entre outros...",
                 "• 2 elevadores\n• Espaço de convivência\n• Gás canalizado\n• Portaria\n• Entre outros...",
                 "• R. Dr. Luiz Antônio Waack, 1480\n• Umuarama",
-                3, "Acima");
+                3, "Acima", -18.882544, -48.255123);
         listaEmpreendimentos.add(empreendimentos);
 
         //CIMA NÃO FEITO
@@ -540,7 +541,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "HLTS",
                 "• 47,31 m²\n• 2 quartos (0 suite)\n• 1 banheiros\n• 1 vagas na Garagem\n• Entre outros...",
                 "• Informações ainda não disponíveis",
-                "• Informações ainda não disponíveis", 2, "Faixa 1,5");
+                "• Informações ainda não disponíveis", 2, "Faixa 1,5",-18.937093, -48.215574);
         listaEmpreendimentos.add(empreendimentos);
 
         empreendimentos = new Empreendimentos(
@@ -553,7 +554,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "HLTS",
                 "• 53,23 m²\n• 2 quartos (0 suite)\n• 1 banheiros\n• 1 vagas na Garagem\n• Entre outros...",
                 "• Elevador\n• Piscina Infatil/Playground\n• Quadra recreativa\n• Salão de festas\n• Entre outros...",
-                "• R. Renato de Oliveira Grama", 2, "Faixa 2");
+                "• R. Renato de Oliveira Grama", 2, "Faixa 2",-18.937093, -48.251524);
         listaEmpreendimentos.add(empreendimentos);
 
         empreendimentos = new Empreendimentos(
@@ -566,7 +567,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "HLTS",
                 "• 85,19 e 84,45 m²\n• 3 quartos (1 suite)\n• 2 banheiros\n• 2 vagas na Garagem\n• Entre outros...",
                 "• 02 Elevadores\n• Espaço gourmet/grill\n• Piscina\n• Salão de festas\n• Entre outros...",
-                "• Av. Francisco Ribeiro\n• Santa Mônica", 3, "Acima");
+                "• Av. Francisco Ribeiro\n• Santa Mônica", 3, "Acima",-18.9287291, -48.24139154);
         listaEmpreendimentos.add(empreendimentos);
 
         //HPR COMPLETO
@@ -581,7 +582,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "HPR",
                 "• 52 até 58 m²\n• 2 quartos (1 suite)\n• 2 banheiros\n• 2 vagas na Garagem\n• Entre outros...",
                 "• Portaria\n• Salão de festas\n• Espaço kids\n• Área de lazer\n• Entre outros...",
-                "• Av. dos Ferreiras, 175\n• Jardim Califórnia", 2, "Faixa 2");
+                "• Av. dos Ferreiras, 175\n• Jardim Califórnia", 2, "Faixa 2",-18.872044, -48.233464);
         listaEmpreendimentos.add(empreendimentos);
 
         empreendimentos = new Empreendimentos(
@@ -594,7 +595,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "HPR",
                 "• 52 até 56 m²\n• 2 quartos (1 suite)\n• 2 banheiros\n• 2 vagas na Garagem\n• Entre outros...",
                 "• Portaria\n• Salão de festas\n• Espaço kids\n• 2 Elevadores\n• Entre outros...",
-                "• R. Domingos Alvares, 79\n• Roosevelt", 2, "Faixa 2");
+                "• R. Domingos Alvares, 79\n• Roosevelt", 2, "Faixa 2",-18.899538, -48.286909);
         listaEmpreendimentos.add(empreendimentos);
 
         //L Silva COMPLETO
@@ -609,7 +610,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "L Silva",
                 "• 57,82 m²\n• 2 quartos (1 ou 2 suite)\n• 2 banheiros\n• 2 vagas na Garagem\n• Entre outros...",
                 "• Elevador\n• Playground\n• Portaria\n• Espaço fitness/gourrmet\n• Entre outros...",
-                "• R. Bernardo de Vasconcelos, 780\n• Pampulha", 2, "Acima");
+                "• R. Bernardo de Vasconcelos, 780\n• Pampulha", 2, "Acima",-18.933670, -48.239460);
         listaEmpreendimentos.add(empreendimentos);
 
         //Marca Registrada PRONTO SO O GRAN TORO
@@ -655,7 +656,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "Marca Registrada",
                 "• 44 ou 49 m²\n• 2 quartos (0 suite)\n• 1 banheiro\n• 1 vagas na Garagem\n• Entre outros...",
                 "• Varanda Gourmet\n• 2 Elevadores\n• Espaço kids\n• Praças e canteiros com paisagismo\n• Entre outros...",
-                "• R. Bétis, 305\n• Zona Sul de Uberlândia",  2, "Faixa 2");
+                "• R. Bétis, 305\n• Zona Sul de Uberlândia",  2, "Faixa 2",-18.9653999, -48.2482812);
         listaEmpreendimentos.add(empreendimentos);
 
         //MRV FALTAM 1
@@ -670,7 +671,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "MRV",
                 "• 39,6 ou 46,46 m²\n• 2 quartos (0 suite)\n• 1 banheiro\n• 1 vagas na Garagem\n• Entre outros...",
                 "• Salão de festas\n• Playground\n• Espaço gourmet\n• Piscina adulto/infantil\n• Entre outros...",
-                "• Av. Manuel Lucio, 520\n• Grand Ville", 2, "Faixa 1,5");
+                "• Av. Manuel Lucio, 520\n• Grand Ville", 2, "Faixa 1,5", -18.9105246, -48.2170002);
         listaEmpreendimentos.add(empreendimentos);
 
         empreendimentos = new Empreendimentos(
@@ -683,9 +684,10 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "MRV",
                 "• 39,3 ou 46,46 m²\n• 2 quartos (0 suite)\n• 1 banheiro\n• 1 vagas na Garagem\n• Entre outros...",
                 "• Salão de Festas\n• Piscina adulto/infantil\n• Quadra Gramada e Poliesportiva\n• Espaço Gourmet\n• Entre outros...",
-                "• Av. dos Eucaliptos, 1140\n• Jardim Patrícia", 2, "Faixa 1,5");
+                "• Av. dos Eucaliptos, 1140\n• Jardim Patrícia", 2, "Faixa 1,5", -18.9128059, -48.3257193);
         listaEmpreendimentos.add(empreendimentos);
 
+        //ARRUMAR
         empreendimentos = new Empreendimentos(
                 "Parque Unistella",
                 "mrv",
@@ -696,7 +698,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "MRV",
                 "• 41,14 ou 46,47 m²\n• 2 quartos (0 suite)\n• 1 banheiro\n• 1 vagas na Garagem\n• Entre outros...",
                 "• Salão de Festas\n• Playground\n• Espaço Gourmet\n• Piscinas Adulto e Infantil\n• Entre outros...",
-                "• Rua Aguapés, 800\n• Tubalina", 2, "Faixa 1,5");
+                "• Rua Aguapés, 800\n• Tubalina", 2, "Faixa 1,5", -18.9128059, -48.3257193);
         listaEmpreendimentos.add(empreendimentos);
 
         empreendimentos = new Empreendimentos(
@@ -709,7 +711,8 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "MRV",
                 "• 39,3 ou 46,46 m²\n• 2 quartos (0 suite)\n• 1 banheiros\n• 1 vagas na Garagem\n• Entre outros...",
                 "• Salão de Festas\n• Playground\n• Espaço Fitness\n• Piscinas Adulto e Infantil\n• Entre outros...",
-                "• Rua Dolorita Elias do Nascimento, 220\n• Região do São Jorge", 2, "Faixa 1,5");
+                "• Rua Dolorita Elias do Nascimento, 220\n• Região do São Jorge", 2, "Faixa 1,5",
+                -18.9520644, -48.2359943);
         listaEmpreendimentos.add(empreendimentos);
 
         empreendimentos = new Empreendimentos(
@@ -722,7 +725,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "MRV",
                 "• 39,3 ou 46,49 m²\n• 2 quartos (0 suite)\n• 1 banheiros\n• 1 vagas na Garagem\n• Entre outros...",
                 "• Salão de Festas\n• Espaço Gourmet\n• Piscinas Adulto e Infantil\n• Espaço Kids\n• Entre outros...",
-                "• Alameda José de Oliveira Guimarães, 900\n• Jardim Holanda", 2, "Faixa 2");
+                "• Alameda José de Oliveira Guimarães, 900\n• Jardim Holanda", 2, "Faixa 2", -18.9566551,-48.3191597);
         listaEmpreendimentos.add(empreendimentos);
 
         empreendimentos = new Empreendimentos(
@@ -735,20 +738,20 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "MRV",
                 "• 41,14 ou 47,7 m²\n• 2 quartos (0 suite)\n• 1 banheiros\n• 1 vagas na Garagem\n• Entre outros...",
                 "• Salão de Festas\n• Playground\n• Quadra Poliesportiva\n• Espaço Gourmet\n• Entre outros...",
-                "• R Professora Maria Célia Cence\n• Região da Gávea", 2, "Faixa 2");
+                "• R Professora Maria Célia Cence\n• Região da Gávea", 2, "Faixa 2",-18.9661300, -48.27963224);
         listaEmpreendimentos.add(empreendimentos);
 
         empreendimentos = new Empreendimentos(
                 "Spazio Uniplace",
                 "mrv",
-                "Venda: R$ 128.691 a partir",
+                "Venda: R$ 128.691,00 a partir",
                 "Avaliação: R$ 150.000,00 a partir",
                 R.drawable.avatar_empreendimento,
                 "mrv_uniplace",0, "+34 4004-9000",
                 "MRV",
                 "• 39,39 - 49,43 m²\n• 1-2 quartos (0-1 suite)\n• 1 banheiros\n• 1 vagas na Garagem\n• Entre outros...",
                 "• Salão de Festas\n• Playground\n• Espaço Gourmet\n• Piscinas Adulto e Infantil\n• Entre outros...",
-                "• Av. Rodrigo Pereira Júnior, 205\n• Roosvelt", 2, "Faixa 2");
+                "• Av. Rodrigo Pereira Júnior, 205\n• Roosvelt", 2, "Faixa 2",-18.9017808, -48.2865066);
         listaEmpreendimentos.add(empreendimentos);
 
         empreendimentos = new Empreendimentos(
@@ -761,6 +764,8 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "MRV");
         listaEmpreendimentos.add(empreendimentos);
 
+
+        //ARRUMAR
         empreendimentos = new Empreendimentos(
                 "Parque Ubá",
                 "mrv",
@@ -771,7 +776,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "MRV",
                 "• 44,01 m²\n• 2 quartos (0 suite)\n• 1 banheiros\n• 1 vagas na Garagem\n• Entre outros...",
                 "• Salão de Festas\n• Playgroung\n• Quadra Gramada\n• Gazebo\n• Entre outros...",
-                "• Rua Luiza Naves Flack, 150\n• Região da Gávea", 2, "Faixa 2");
+                "• Rua Luiza Naves Flack, 150\n• Região da Gávea", 2, "Faixa 2",-18.9017808, -48.2865066);
         listaEmpreendimentos.add(empreendimentos);
 
         empreendimentos = new Empreendimentos(
@@ -784,7 +789,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "MRV",
                 "• 35,76 - 51,06 m²\n• 1-2 quartos (0-1 suite)\n• 1 banheiros\n• 1 vagas na Garagem\n• Entre outros...",
                 "• Salão de Festas\n• Playground\n• Espaço Fitness\n• Piscinas Adulto e Infantil\n• Entre outros...",
-                "• Av. Oscarina Cunha Chaves, 510\n• Copacabana", 2, "Faixa 2");
+                "• Av. Oscarina Cunha Chaves, 510\n• Copacabana", 2, "Faixa 2",-18.9395354, -48.2818682);
         listaEmpreendimentos.add(empreendimentos);
 
         //MAXI COMPLETO
@@ -799,10 +804,10 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "MAXI",
                 "• 74,51 ou 107,29 m²\n• 2 ou 3 quartos (1 suite)\n• 2 banheiros\n• 2 vagas na Garagem\n• Entre outros...",
                 "• Piscina, spa e sauna\n• Espaço gourmet\n• Espaço fitness e kids\n• Salão de festas\n• Entre outros...",
-                "• Rua José Saramago, 1497\n• Santa Mônica", 4, "Acima");
+                "• Rua José Saramago, 1497\n• Santa Mônica", 4, "Acima", -18.925502, -48.248975);
         listaEmpreendimentos.add(empreendimentos);
 
-        //MOR COMPLETO
+        //MOR COMPLETO -> arrumar latitude e longitude
         empreendimentos = new Empreendimentos(
                 "Residencial Colina Sul",
                 "mor",
@@ -813,7 +818,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "MOR",
                 "• 45 m²\\n• 2 quartos (0 suite)\\n• 1 banheiros\\n• 1 vagas na Garagem\\n• Entre outros...",
                 "• Espaço de ginástica ao ar livre\\n• Quiosque para eventos\\n• Portaria \\n• Depósito de lixo\\n• Entre outros...",
-                "• Av. Sul Americana\n• Shopping Park", 2, "Faixa 1.5");
+                "• Av. Sul Americana\n• Shopping Park", 2, "Faixa 1.5", -18.925502, -48.248975);
         listaEmpreendimentos.add(empreendimentos);
 
         empreendimentos = new Empreendimentos(
@@ -826,7 +831,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                 "MOR",
                 "• 50 m²\n• 2 quartos (1 suite)\n• 2 banheiros\n• 1 vagas na Garagem\n• Entre outros...",
                 "• Espaço Gourmet\n• Salão de festas\n• Espaço de ginástica ao ar livre\n• Piscina adulto/infantil\n• Entre outros...",
-                "• Av. Sul Americana\n• Shopping Park", 2, "Faixa 2");
+                "• Av. Sul Americana\n• Shopping Park", 2, "Faixa 2", -18.925502, -48.248975);
         listaEmpreendimentos.add(empreendimentos);
 
         //Opcao

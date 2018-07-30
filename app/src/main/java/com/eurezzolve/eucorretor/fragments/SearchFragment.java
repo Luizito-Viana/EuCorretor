@@ -75,8 +75,8 @@ public class SearchFragment extends Fragment {
 
                 EmpBuscaFragment fragment = EmpBuscaFragment.newInstance("teste");
                 Bundle bundle = new Bundle();
-                bundle.putDouble("longitude", -48.2482812);
-                bundle.putDouble("latitude", -18.9653999);
+                bundle.putDouble("longitude", emp.getLongitude());
+                bundle.putDouble("latitude", emp.getLatitude());
                 bundle.putString("titulo", emp.getNome());
                 bundle.putString("subtitulo", emp.getVenda());
                 fragment.setArguments(bundle);

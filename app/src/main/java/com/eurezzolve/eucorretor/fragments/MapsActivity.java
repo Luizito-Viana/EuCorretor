@@ -126,19 +126,14 @@ public class MapsActivity extends SupportMapFragment
         //BARI
         LatLng evoraResidence = new LatLng(-18.923276, -48.233178);
         criarMarcadoresEmpreendimentos(evoraResidence, "Évora Residence", "Venda: R$310.000,00 a partir");
-        
+
         //C&A
         LatLng plazanorte = new LatLng(-18.8974186, -48.2784520);
         criarMarcadoresEmpreendimentos(plazanorte, "Plaza Norte Residence", "Venda: R$189.990,00 a partir");
         LatLng solaris = new LatLng(-18.935183, -48.320994);
         criarMarcadoresEmpreendimentos(solaris, "Residencial Solaris", "Venda: R$149.990,00");
-
-        /*
-        LatLng zenith = new LatLng();
-        mMap.addMarker(new MarkerOptions().position(zenith)
-                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN))
-                .title("Zenith Residence").snippet("Venda: R$142.990"));*/
-
+        LatLng zenith = new LatLng(-18.8930038, -48.3000398);
+        criarMarcadoresEmpreendimentos(zenith, "Zenith Residence", "Venda: R$142.990");
         LatLng villaReal = new LatLng(-18.936320, -48.377321);
         criarMarcadoresEmpreendimentos(villaReal, "Residencial Villa Real", "Venda: R$184.990,00");
         LatLng estoril = new LatLng(-18.965689, -48.247368);
@@ -147,12 +142,8 @@ public class MapsActivity extends SupportMapFragment
         criarMarcadoresEmpreendimentos(queens, "Queens Residence", "Venda: R$198.990,00");
         LatLng monsenhor = new LatLng(-18.936320, -48.377321);
         criarMarcadoresEmpreendimentos(monsenhor, "Residencial Monsenhor", "Venda: R$195.990,00");
-        LatLng lexusOffice = new LatLng(-18.936320, -48.377321);
-        criarMarcadoresEmpreendimentos(lexusOffice, "Lexus Office", "Venda: R$132.582,00 a partir");
         LatLng jardinsResidence = new LatLng(-18.936320, -48.377321);
         criarMarcadoresEmpreendimentos(jardinsResidence, "Jardins Residence", "Venda: R$127.990,00");
-        LatLng jardimBrasiliaResidencial = new LatLng(-18.936320, -48.377321);
-        criarMarcadoresEmpreendimentos(jardimBrasiliaResidencial, "Jardim Brasília Residencial", "Venda: R$142.990,00");
 
         //CIMA
         LatLng versatto = new LatLng(-18.908935, -48.250678);
@@ -181,7 +172,6 @@ public class MapsActivity extends SupportMapFragment
         criarMarcadoresEmpreendimentos(placeAltoUmuarama, "Place Alto Umuarama", "Venda: R$115.000,00 a partir");
         LatLng jardimHolanda = new LatLng(-18.956365, -48.317597);
         criarMarcadoresEmpreendimentos(jardimHolanda, "Residencial Jardim Holanda", "Venda: R$113.000,00 a partir");
-        //LatLng qualityResidence = new LatLng(-18.937093,-48.251520);
 
         //HPR
         LatLng araucarias = new LatLng(-18.899538, -48.286909);
@@ -196,7 +186,6 @@ public class MapsActivity extends SupportMapFragment
         //Marca Registrada
         LatLng granToro = new LatLng(-18.9653999, -48.2482812);
         criarMarcadoresEmpreendimentos(granToro, "Gran Toro", "Venda: R$131.000,00 a partir");
-
         LatLng resPark = new LatLng(-18.9901803, -48.2672743);
         criarMarcadoresEmpreendimentos(resPark, "Residenciais Park", "Venda: R$120.000,00");
         LatLng resAlpha = new LatLng(-18.908925, -48.205216);
@@ -209,8 +198,6 @@ public class MapsActivity extends SupportMapFragment
         //MRV
         LatLng unitedstates = new LatLng(-18.9661300, -48.27963224);
         criarMarcadoresEmpreendimentos(unitedstates, "Parque United States", "Venda: R$128.000,00 a partir");
-
-        /*Daqui para Baixo editar o Snippet*/
         LatLng trilhasCerrado = new LatLng(-18.9105246, -48.2170002);
         criarMarcadoresEmpreendimentos(trilhasCerrado, "Parque Trilhas do Cerrado","Venda: R$128.000,00 a partir" );
         LatLng trilhasSabia= new LatLng(-18.9128059, -48.3257193);
@@ -220,9 +207,9 @@ public class MapsActivity extends SupportMapFragment
         LatLng univita = new LatLng(-18.9566551,-48.3191597 );
         criarMarcadoresEmpreendimentos(univita, "Parque Univita","Venda: R$128.000,00 a partir" );
         LatLng unigarden = new LatLng(-18.9395354, -48.2818682);
-        criarMarcadoresEmpreendimentos(unigarden, "Spazio Unigarden","Venda: R$128.000,00 a partir" );
+        criarMarcadoresEmpreendimentos(unigarden, "Spazio Unigarden","Venda: R$ 137.981 a partir" );
         LatLng uniplace = new LatLng(-18.9017808, -48.2865066);
-        criarMarcadoresEmpreendimentos(uniplace, "Spazio Uniplace","Venda: R$128.000,00 a partir" );
+        criarMarcadoresEmpreendimentos(uniplace, "Spazio Uniplace","Venda: R$ 128.691,00 a partir" );
 
         //Opção
         LatLng villagesul = new LatLng(-18.9688751, -48.22366152);

@@ -27,7 +27,8 @@ public class Empreendimentos implements Serializable{
     private String localizacao;
     private int categoriaMetragem;
     private String faixa;
-
+    private Double latitude;
+    private Double longitude;
 
 
 
@@ -36,7 +37,6 @@ public class Empreendimentos implements Serializable{
 
     public void salvar(){
         FirebaseAuth autenticacao = ConfiguracaoFirebase.getFirebaseAutenticacao();
-        String idUsuario = Base64Custom.codificarBase64(autenticacao.getCurrentUser().getEmail());
         DatabaseReference firebase = ConfiguracaoFirebase.getFirebaseDatabase();
         firebase.child("listaEmpreendimentos")
                 .child(codigo)
@@ -133,7 +133,11 @@ public class Empreendimentos implements Serializable{
     }
 
     /*Esse é o COMPLETO com telefone, ao final, adicionar o telefone AQUI*/
-    public Empreendimentos(String nome, String codigoConst, String venda, String simulacao, int imagem, String codigo, int act_flag,String telefone ,String construtora, String descricaoImovel, String descricaoEmp, String localizacao, int categoriaMetragem, String faixa) {
+    public Empreendimentos(String nome, String codigoConst, String venda,
+                           String simulacao, int imagem, String codigo, int act_flag,
+                           String telefone ,String construtora, String descricaoImovel,
+                           String descricaoEmp, String localizacao, int categoriaMetragem,
+                           String faixa, Double latitude, Double longitude) {
         this.nome = nome;
         this.construtora = construtora;
         this.venda = venda;
@@ -148,38 +152,8 @@ public class Empreendimentos implements Serializable{
         this.localizacao = localizacao;
         this.categoriaMetragem = categoriaMetragem;
         this.faixa = faixa;
-    }
-
-    public String getDescricaoEmp() {
-        return descricaoEmp;
-    }
-
-    public void setDescricaoEmp(String descricaoEmp) {
-        this.descricaoEmp = descricaoEmp;
-    }
-
-    public String getLocalizacao() {
-        return localizacao;
-    }
-
-    public void setLocalizacao(String localizacao) {
-        this.localizacao = localizacao;
-    }
-
-    public String getDescricaoImovel() {
-        return descricaoImovel;
-    }
-
-    public void setDescricaoImovel(String descricaoImovel) {
-        this.descricaoImovel = descricaoImovel;
-    }
-
-    public int getImagem() {
-        return imagem;
-    }
-
-    public void setImagem(int imagem) {
-        this.imagem = imagem;
+        this.latitude = latitude;
+        this.longitude = longitude;
     }
 
     public String getNome() {
@@ -214,6 +188,14 @@ public class Empreendimentos implements Serializable{
         this.simulacao = simulacao;
     }
 
+    public int getImagem() {
+        return imagem;
+    }
+
+    public void setImagem(int imagem) {
+        this.imagem = imagem;
+    }
+
     public String getCodigo() {
         return codigo;
     }
@@ -238,7 +220,6 @@ public class Empreendimentos implements Serializable{
         this.telefone = telefone;
     }
 
-
     public String getCodigoConst() {
         return codigoConst;
     }
@@ -247,4 +228,59 @@ public class Empreendimentos implements Serializable{
         this.codigoConst = codigoConst;
     }
 
+    public String getDescricaoImovel() {
+        return descricaoImovel;
+    }
+
+    public void setDescricaoImovel(String descricaoImovel) {
+        this.descricaoImovel = descricaoImovel;
+    }
+
+    public String getDescricaoEmp() {
+        return descricaoEmp;
+    }
+
+    public void setDescricaoEmp(String descricaoEmp) {
+        this.descricaoEmp = descricaoEmp;
+    }
+
+    public String getLocalizacao() {
+        return localizacao;
+    }
+
+    public void setLocalizacao(String localizacao) {
+        this.localizacao = localizacao;
+    }
+
+    public int getCategoriaMetragem() {
+        return categoriaMetragem;
+    }
+
+    public void setCategoriaMetragem(int categoriaMetragem) {
+        this.categoriaMetragem = categoriaMetragem;
+    }
+
+    public String getFaixa() {
+        return faixa;
+    }
+
+    public void setFaixa(String faixa) {
+        this.faixa = faixa;
+    }
+
+    public Double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(Double latitude) {
+        this.latitude = latitude;
+    }
+
+    public Double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(Double longitude) {
+        this.longitude = longitude;
+    }
 }
