@@ -60,14 +60,8 @@ dependencies {
     /*Material Search*/
     compile 'com.miguelcatalan:materialsearchview:1.4.0'
 
-    /*Dependencia para TextJustify*/
-    compile 'com.github.bluejamesbond:textjustify-android:2.1.6'
-
-    /*Dependencia para Usar TaskListener Encapsulada*/
+    /*Livro Android*/
     compile 'br.com.livroandroid:android-utils:5.0.1'
-
-    /*Dependencia para textos justificados*/
-    compile 'me.biubiubiu.justifytext:library:1.1'
 
 }
 apply plugin: 'com.google.gms.google-services'

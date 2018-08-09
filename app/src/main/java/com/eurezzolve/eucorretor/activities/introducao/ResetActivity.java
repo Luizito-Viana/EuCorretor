@@ -1,3 +1,11 @@
+/*
+ * Desenvolvido por Luiz F. Viana em 08/08/18 21:39
+ * Todos os direitos reservados.
+ * Este aplicativo ou qualquer parte dele não pode ser reproduzido ou usado de forma alguma
+ * sem autorização expressa, por escrito, do autor.
+ * Copyright © 2018
+ */
+
 package com.eurezzolve.eucorretor.activities.introducao;
 
 import android.support.annotation.NonNull;

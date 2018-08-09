@@ -1,3 +1,11 @@
+/*
+ * Desenvolvido por Luiz F. Viana em 08/08/18 22:00
+ * Todos os direitos reservados.
+ * Este aplicativo ou qualquer parte dele não pode ser reproduzido ou usado de forma alguma
+ * sem autorização expressa, por escrito, do autor.
+ * Copyright © 2018
+ */
+
 package com.eurezzolve.eucorretor.helper;
 
 import android.app.Activity;
@@ -9,9 +17,6 @@ import android.support.v4.content.ContextCompat;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by viana_2 on 17/04/2018.
- */
 
 public class Permissao {
     public static  boolean validarPermissoes(String[] permissoes, Activity activity, int requestCode){

@@ -1,10 +1,15 @@
+/*
+ * Desenvolvido por Luiz F. Viana em 08/08/18 22:00
+ * Todos os direitos reservados.
+ * Este aplicativo ou qualquer parte dele não pode ser reproduzido ou usado de forma alguma
+ * sem autorização expressa, por escrito, do autor.
+ * Copyright © 2018
+ */
+
 package com.eurezzolve.eucorretor.helper;
 
 import android.util.Base64;
 
-/**
- * Created by viana_2 on 17/04/2018.
- */
 
 public class Base64Custom {
     public static String codificarBase64(String texto){

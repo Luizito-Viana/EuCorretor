@@ -1,12 +1,18 @@
+/*
+ * Desenvolvido por Luiz F. Viana em 08/08/18 22:00
+ * Todos os direitos reservados.
+ * Este aplicativo ou qualquer parte dele não pode ser reproduzido ou usado de forma alguma
+ * sem autorização expressa, por escrito, do autor.
+ * Copyright © 2018
+ */
+
 package com.eurezzolve.eucorretor.model;
 
 import com.google.android.gms.maps.model.LatLng;
 
 import java.io.Serializable;
 
-/**
- * Created by viana_2 on 30/04/2018.
- */
+
 
 public class Marcadores implements Serializable{
     String nome;
