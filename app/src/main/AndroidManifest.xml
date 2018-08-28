@@ -99,7 +99,7 @@
 
         <!-- Aqui temos a Perfil -->
         <activity
-            android:name=".activities.secundarias.PerfilActivity"
+            android:name=".activities.primarias.PerfilActivity"
             android:screenOrientation="portrait" />
 
         <!-- Activity Tabela -->
@@ -178,7 +178,10 @@
         <activity android:name=".activities.secundarias.TabelasTerceirosActivity" />
         <activity android:name=".activities.secundarias.DuvidasSimplificadaActivity" />
         <activity android:name=".activities.secundarias.FiltrarActivity" />
-        <activity android:name=".activities.terciarias.RespostasActivity"></activity>
+        <activity android:name=".activities.terciarias.RespostasActivity" />
+        <activity android:name=".activities.primarias.ContatosActivity" />
+        <activity android:name=".activities.secundarias.AddContatoActivity" />
+        <activity android:name=".activities.secundarias.DetalheClienteActivity"></activity>
     </application>
 
 </manifest>

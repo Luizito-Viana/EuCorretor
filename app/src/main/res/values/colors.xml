@@ -11,7 +11,7 @@
     <color name="configuracoesDois">#f2f2f2</color>
 
     <!-- Cores dos Bancos -->
-    <color name="colorCaixa">#4286AB</color>
+    <color name="colorCaixa">#4286ab</color>
     <color name="colorBB">#FEF200</color>
 
     <color name="background_material_dark">#dedbdb</color>
@@ -23,4 +23,7 @@
     <color name="imageButtonImovelClick">#E1D9DDDE</color>
     <color name="cor_de_texto_descricao">#cad7d5d5</color>
     <color name="background_item_duvidas">#dedada</color>
+
+    <color name="contatoAzul">#FF0097A7</color>
+    <color name="contatoVermelho">#FFF5180C</color>
 </resources>

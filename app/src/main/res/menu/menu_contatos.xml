@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Desenvolvido por Luiz F. Viana em 21/08/18 22:32
+  ~ Todos os direitos reservados.
+  ~ Este aplicativo ou qualquer parte dele não pode ser reproduzido ou usado de forma alguma
+  ~ sem autorização expressa, por escrito, do autor.
+  ~ Copyright © 2018
+  -->
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/ic_excluir_contato"
+        android:title="Excluir"
+        app:showAsAction="never"
+        android:orderInCategory="200"
+        />
+
+    <item android:id="@+id/ic_editar_contato"
+        android:title="Editar"
+        app:showAsAction="never"
+        android:orderInCategory="100"
+        />
+</menu>

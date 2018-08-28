@@ -10,6 +10,7 @@ package com.eurezzolve.eucorretor.fragments;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationManager;
@@ -33,6 +34,7 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -55,10 +57,9 @@ public class EmpBuscaFragment extends SupportMapFragment
     private List<Empreendimentos> empreendimentos = new ArrayList<>();
     private DatabaseReference reference = ConfiguracaoFirebase.getFirebaseDatabase().child("listaEmpreendimentos");
 
-    private Context context;
     private GoogleMap mMap;
     private LocationManager locationManager;
-    public final float camerazoom = 16.0f; //Grau do Zoom
+    public final float camerazoom = 13.0f; //Grau do Zoom
 
     public static EmpBuscaFragment newInstance(String teste){
         EmpBuscaFragment f = new EmpBuscaFragment();
@@ -101,10 +102,6 @@ public class EmpBuscaFragment extends SupportMapFragment
         } catch (SecurityException ex) {
             Log.e("Catch", "Erro!");
         }
-        LatLng udi = new LatLng(-18.921170, -48.275920);
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(udi));
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(udi, camerazoom));
-
 
         LatLng escolha = new LatLng(latitude, longitude);
 
@@ -114,6 +111,14 @@ public class EmpBuscaFragment extends SupportMapFragment
         marker.title(titulo); //Cria um titulo
         marker.snippet(subtitulo); //Cria uma janela de informações
         mMap.addMarker(marker);
+
+        CircleOptions circleOptions = new CircleOptions();
+        circleOptions.center(escolha);
+        circleOptions.radius(1000);
+        circleOptions.strokeWidth(1);
+        circleOptions.fillColor(Color.argb(77,102, 255, 102));
+
+        mMap.addCircle(circleOptions);
 
         mMap.moveCamera(CameraUpdateFactory.newLatLng(escolha));
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(escolha, camerazoom));

@@ -57,8 +57,10 @@ public class EmpreendimentosActivity extends AppCompatActivity {
     private List<Empreendimentos> listaEmpreendimentosBusca;
     private MaterialSearchView searchView;
     private AdapterEmp adapterEmp;
-    private DatabaseReference reference = ConfiguracaoFirebase.getFirebaseDatabase().child("listaEmpreendimentos");
 
+    private DatabaseReference empRef;
+    private DatabaseReference reference = ConfiguracaoFirebase.getFirebaseDatabase();
+    private ValueEventListener valueEventListenerEmp;
     //OnCreate
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @SuppressLint("ResourceAsColor")
@@ -76,9 +78,6 @@ public class EmpreendimentosActivity extends AppCompatActivity {
 
         loadBar = findViewById(R.id.progressLoadEmp);
         recyclerView = findViewById(R.id.recyclerPostagem);
-
-        //Listagem de Empreendimentos
-        this.criarEmpreendimentos();
 
         //Configurar o Adapter
         adapterEmp = new AdapterEmp(listaEmpreendimentos, tabelasEmpOnClickListener(), descricaoEmpOnClickListener(),0);
@@ -128,10 +127,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
         ativaProgressBar();
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-    }
+
 
     public void ativaProgressBar(){
         loadBar.setVisibility(View.VISIBLE);
@@ -217,8 +213,10 @@ public class EmpreendimentosActivity extends AppCompatActivity {
         adapterEmp.notifyDataSetChanged();
     }
 
-    public void criarEmpreendimentos(){
-        reference.addValueEventListener(new ValueEventListener() {
+    private void recuperarEmpreendimentos() {
+        listaEmpreendimentos.clear();
+        empRef = reference.child("listaEmpreendimentos");
+        valueEventListenerEmp = empRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for(DataSnapshot ds : dataSnapshot.getChildren()){
@@ -237,8 +235,9 @@ public class EmpreendimentosActivity extends AppCompatActivity {
         });
     }
 
+
     //Cria os Empreendimentos e Adiciona a lista que é enviada para o Adapter
-    public void criarEmpreendimentosAntigos(){
+    public void recuperarEmpreendimentosAntigo(){
 
         // Os empreendimentos serão exibidos por ordem Alfabetica de Empresa
         // E dentro dessa ordem Alfabetica teremos uma ordem de preços por empresa
@@ -1121,27 +1120,26 @@ public class EmpreendimentosActivity extends AppCompatActivity {
     }
 
     @Override
+    protected void onStart() {
+        super.onStart();
+        recuperarEmpreendimentos();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        empRef.removeEventListener(valueEventListenerEmp);
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
             case android.R.id.home:
                 finish();
                 break;
-            case R.id.ic_filtro:
-                Intent intent = new Intent(EmpreendimentosActivity.this, FiltrarActivity.class);
-                startActivityForResult(intent, 1);
             default:
                 break;
         }
         return true;
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        if (resultCode == RESULT_OK && requestCode == 1 ){
-            /*String resposta = data.getStringExtra("resposta");
-            Toast.makeText(this,"Recuperado: " + resposta, Toast.LENGTH_LONG).show();*/
-        }
     }
 }

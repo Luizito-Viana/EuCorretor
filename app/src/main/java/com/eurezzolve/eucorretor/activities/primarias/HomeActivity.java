@@ -8,17 +8,18 @@
 
 package com.eurezzolve.eucorretor.activities.primarias;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.location.Address;
+import android.location.Geocoder;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
-import android.support.v4.app.ActivityOptionsCompat;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.util.Log;
+import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -28,7 +29,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -41,16 +41,14 @@ import com.eurezzolve.eucorretor.fragments.MapsActivity;
 import com.eurezzolve.eucorretor.fragments.SearchFragment;
 import com.eurezzolve.eucorretor.fragments.TerceirosFragment;
 import com.eurezzolve.eucorretor.fragments.TerrenosFragment;
-import com.eurezzolve.eucorretor.helper.NotificationUtil;
-import com.eurezzolve.eucorretor.model.Empreendimentos;
 import com.eurezzolve.eucorretor.model.Marcadores;
-import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.LatLng;
 import com.google.firebase.auth.FirebaseUser;
 import com.miguelcatalan.materialsearchview.MaterialSearchView;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -72,7 +70,6 @@ public class HomeActivity extends AppCompatActivity
     private TextView textNomeNav;
     private SharedPreferences preferences;
     private MaterialSearchView searchView;
-    private List<Marcadores> listaMarcadores = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -111,7 +108,7 @@ public class HomeActivity extends AppCompatActivity
         searchView.setOnSearchViewListener(new MaterialSearchView.SearchViewListener() {
             @Override
             public void onSearchViewShown() {
-                 /*Trocando para os Fragment Principal*/
+                 /*Trocando para o Fragment de BUSCA*/
                 searchFragment = new SearchFragment();
                 fragmentManager = getSupportFragmentManager();
                 FragmentTransaction transaction = fragmentManager.beginTransaction(); //Responsavel por iniciar
@@ -133,7 +130,7 @@ public class HomeActivity extends AppCompatActivity
         searchView.setOnQueryTextListener(new MaterialSearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
-                enviarCompleto(query);
+                verificarEnderecoExistente(query);
                 return false;
             }
 
@@ -154,45 +151,81 @@ public class HomeActivity extends AppCompatActivity
 
         preferences = getSharedPreferences(primeiraEx, MODE_PRIVATE);
 
-        this.criarListaMarcadoresBuscas();
-
     }
 
+    private void verificarEnderecoExistente(String enderecoDestino) {
+        if(!enderecoDestino.equals("") || enderecoDestino != null){
+            Address addressDestino = recuperarEndereco (enderecoDestino);
+            if( addressDestino != null ){
+                final Marcadores marcadores = new Marcadores();
+                marcadores.setCidade( addressDestino.getAdminArea() );
+                marcadores.setCep( addressDestino.getPostalCode() );
+                marcadores.setBairro( addressDestino.getSubLocality() );
+                marcadores.setRua( addressDestino.getThoroughfare() );
+                marcadores.setNumero( addressDestino.getFeatureName() );
+                marcadores.setLatitude( String.valueOf(addressDestino.getLatitude()) );
+                marcadores.setLongitude( String.valueOf(addressDestino.getLongitude()) );
+
+                StringBuilder mensagem = new StringBuilder();
+                mensagem.append( "Cidade: " + marcadores.getCidade() );
+                mensagem.append( "\nRua: " + marcadores.getRua() );
+                mensagem.append( "\nBairro: " + marcadores.getBairro() );
+                mensagem.append( "\nNúmero: " + marcadores.getNumero() );
+                mensagem.append( "\nCep: " + marcadores.getCep() );
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(this)
+                        .setTitle("Confirme o endereco!")
+                        .setMessage(mensagem)
+                        .setPositiveButton("Confirmar", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                chamarFragmentEndereco(marcadores);
 
 
-    /*EnviarCompleto e EnviarPartes*/
-    public void enviarCompleto(String texto){
-        for(Marcadores marcador : listaMarcadores){
-            String nomeMarcador = marcador.getNome().toLowerCase();
-            String nomePesquisaM1 = marcador.getPesquisaM1().toLowerCase();
-            String nomePesquisaM2 = marcador.getPesquisaM2().toLowerCase();
-            String nomePesquisaM3 = marcador.getPesquisaM3().toLowerCase();
-            String nomePesquisaM4 = marcador.getPesquisaM4().toLowerCase();
+                            }
+                        }).setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
 
-            if(nomeMarcador.equals(texto)|| nomePesquisaM1.equals(texto) || nomePesquisaM2.equals(texto) || nomePesquisaM3.equals(texto) || nomePesquisaM4.equals(texto)){
-                nome = marcador.getNome();
-                subtitulo = marcador.getSubtitulo();
-                latitude = marcador.getLatitude();
-                longitude = marcador.getLongitude();
-                chamarFragmentResultado(nome, subtitulo, latitude, longitude);
+                            }
+                        });
+                AlertDialog dialog = builder.create();
+                dialog.show();
+
             }
         }
-
     }
 
-    public void chamarFragmentResultado(String nome, String subtitulo, Double latitude, Double longitude){
-        EmpBuscaFragment fragment = EmpBuscaFragment.newInstance(nome);
+    private void chamarFragmentEndereco(Marcadores marcadores) {
+        EmpBuscaFragment fragment = EmpBuscaFragment.newInstance("Trocando Fragment");
         Bundle bundle = new Bundle();
-        bundle.putDouble("latitude", latitude);
-        bundle.putDouble("longitude", longitude);
-        bundle.putString("titulo", nome);
-        bundle.putString("subtitulo", subtitulo);
+        bundle.putDouble("longitude", Double.parseDouble(marcadores.getLongitude()));
+        bundle.putDouble("latitude", Double.parseDouble(marcadores.getLatitude()));
+        bundle.putString("titulo", marcadores.getRua());
+        bundle.putString("subtitulo", marcadores.getBairro());
         fragment.setArguments(bundle);
 
-        fragmentManager = getSupportFragmentManager();
-        FragmentTransaction transactionTer = fragmentManager.beginTransaction();
+
+        FragmentTransaction transactionTer = getSupportFragmentManager().beginTransaction();
         transactionTer.replace(R.id.containerPrincipal, fragment);
         transactionTer.commit();
+    }
+
+    private Address recuperarEndereco(String enderecoDestino) {
+        Geocoder geocoder = new Geocoder(this, Locale.getDefault());
+        try {
+            List<Address> listaEnderecos = geocoder.getFromLocationName(enderecoDestino, 1);
+            if( listaEnderecos != null && listaEnderecos.size() > 0){
+                Address address = listaEnderecos.get(0);
+
+                return address;
+            }
+        } catch (Exception e) {
+            Toast.makeText(HomeActivity.this, "Não foi possível recuperar o endereço!", Toast.LENGTH_SHORT).show();
+            e.printStackTrace();
+        }
+
+        return null;
     }
 
 
@@ -259,10 +292,14 @@ public class HomeActivity extends AppCompatActivity
         switch (id){
             case R.id.nav_principal:
                 break;
+            case R.id.nav_perfil:
+                startActivity(new Intent(HomeActivity.this, PerfilActivity.class));
+                break;
+            case R.id.nav_contatos:
+                startActivity(new Intent(HomeActivity.this, ContatosActivity.class));
+                break;
             case R.id.nav_empreendimentos:
-                Intent intent = new Intent(HomeActivity.this, EmpreendimentosActivity.class);
-                startActivity(intent);
-                //startActivity(new Intent(HomeActivity.this, EmpreendimentosActivity.class));
+                startActivity(new Intent(HomeActivity.this, EmpreendimentosActivity.class));
                 break;
             case R.id.nav_terceiros:
                 startActivity(new Intent(HomeActivity.this, TerceirosActivity.class));
@@ -305,68 +342,6 @@ public class HomeActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
-    }
-
-    private void criarListaMarcadoresBuscas() {
-
-        /*AZM*/
-        Marcadores marcadores = new Marcadores("Residencial Vertentes III",
-                "vertentes",
-                "residencial vertentes",
-                "res vertentes",
-                "residencial vertentes iii",
-                -18.941298,
-                -48.348096,
-                "Venda: R$129.900,00 a partir");
-        listaMarcadores.add(marcadores);
-
-        marcadores = new Marcadores("Residencial Tavares",
-                "tavares",
-                "res tavares",
-                "residencial tav",
-                "tavares residencial",
-                -18.945764, -48.350587,
-                "Venda: R$119.900,00 a partir");
-        listaMarcadores.add(marcadores);
-
-        marcadores = new Marcadores("Residencial Vida Boa",
-                "vida boa",
-                "res vida boa",
-                "residencial vida boa",
-                "vida boa residencial",
-                -18.948985,-48.318978,
-                "Venda: R$134.900,00 a partir");
-        listaMarcadores.add(marcadores);
-
-        marcadores = new Marcadores("Residencial Flores do Cerrado",
-                "flores do cerrado",
-                "res flores do cerrado",
-                "residencial flores",
-                "flores do cerrado residencial",
-                -18.965741,-48.339644,
-                "Venda: R$109.900,00 a partir");
-        listaMarcadores.add(marcadores);
-
-        /*Bari*/
-        marcadores = new Marcadores("Evora Residence",
-                "evora",
-                "evora residencial",
-                "evora res",
-                "residencial evora",
-                -18.923276,-48.233178,
-                "Venda: R$310.000,00 a partir");
-        listaMarcadores.add(marcadores);
-
-        /*C&A*/
-        marcadores = new Marcadores("Plaza Norte Residence",
-                "plaza norte",
-                "res plaza norte",
-                "res plaza",
-                "plaza norte res",
-                -18.8974186, -48.2784520,
-                "Venda: R$189.990,00 a partir");
-        listaMarcadores.add(marcadores);
-
     }
 
     @Override

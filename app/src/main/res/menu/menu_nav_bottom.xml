@@ -8,15 +8,19 @@
             android:id="@+id/bottom_emp"
             android:icon="@drawable/ic_empreendimento"
             android:title="Empreendimentos"
-            android:checked="true"/>
+            android:checked="true" />
+
         <item
             android:id="@+id/bottom_terceiros"
             android:icon="@drawable/ic_terceiros"
-            android:title="Terceiros" />
+            android:title="Terceiros"
+            android:checked="false"/>
+
         <item
             android:id="@+id/bottom_terrenos"
             android:icon="@drawable/ic_terreno"
-            android:title="Terrenos" />
+            android:title="Terrenos"
+            android:checked="false"/>
     </group>
 
 </menu>

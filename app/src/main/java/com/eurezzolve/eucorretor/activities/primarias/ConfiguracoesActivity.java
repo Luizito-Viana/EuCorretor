@@ -25,7 +25,6 @@ import com.eurezzolve.eucorretor.activities.introducao.MainActivity;
 import com.eurezzolve.eucorretor.activities.secundarias.CadastroImoveisActivity;
 import com.eurezzolve.eucorretor.activities.secundarias.LegendaActivity;
 import com.eurezzolve.eucorretor.activities.secundarias.NotificacaoActivity;
-import com.eurezzolve.eucorretor.activities.secundarias.PerfilActivity;
 import com.eurezzolve.eucorretor.activities.secundarias.SobreActivity;
 import com.eurezzolve.eucorretor.adapter.AdapterConfig;
 import com.eurezzolve.eucorretor.model.Config;
@@ -96,10 +95,7 @@ public class ConfiguracoesActivity extends AppCompatActivity {
     //Listagem de configuracoes para mandar ao adpter
     public void criarConfiguracoes() {
 
-        Config config = new Config("Meu perfil", R.drawable.ic_config_perfil,2);
-        listaConfig.add(config);
-
-        config = new Config("Legenda",R.drawable.ic_config_legenda,0);
+        Config config = new Config("Legenda",R.drawable.ic_config_legenda,0);
         listaConfig.add(config);
 
         config = new Config("Notificações", R.drawable.ic_config_alertas,4);
@@ -130,9 +126,6 @@ public class ConfiguracoesActivity extends AppCompatActivity {
                 autenticacao.signOut();
                 startActivity(new Intent(ConfiguracoesActivity.this, MainActivity.class));
                 finish();
-                break;
-            case 2: // Abre o Perfil
-                startActivity(new Intent(ConfiguracoesActivity.this, PerfilActivity.class));
                 break;
             case 3: //Abre a Pagina Sobre
                 startActivity(new Intent(ConfiguracoesActivity.this, SobreActivity.class));

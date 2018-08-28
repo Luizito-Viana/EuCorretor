@@ -15,99 +15,72 @@ import java.io.Serializable;
 
 
 public class Marcadores implements Serializable{
-    String nome;
-    String pesquisaM1;
-    String pesquisaM2;
-    String pesquisaM3;
-    String pesquisaM4;
-    LatLng latLng;
-    String subtitulo;
-    Double latitude, longitude;
+    private String rua;
+    private String numero;
+    private String cidade;
+    private String bairro;
+    private String cep;
+
+    private String latitude;
+    private String longitude;
 
     public Marcadores() {
     }
 
-    public Marcadores(String nome, String pesquisaM1, String pesquisaM2, String pesquisaM3, String pesquisaM4, Double latitude, Double longitude, String subtitulo) {
-        this.nome = nome;
-        this.pesquisaM1 = pesquisaM1;
-        this.pesquisaM2 = pesquisaM2;
-        this.pesquisaM3 = pesquisaM3;
-        this.pesquisaM4 = pesquisaM4;
-        //this.latLng = latLng;
-        this.latitude = latitude;
-        this.longitude = longitude;
-        this.subtitulo = subtitulo;
+    public String getRua() {
+        return rua;
     }
 
-    public String getNome() {
-        return nome;
+    public void setRua(String rua) {
+        this.rua = rua;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public String getNumero() {
+        return numero;
     }
 
-    public String getPesquisaM1() {
-        return pesquisaM1;
+    public void setNumero(String numero) {
+        this.numero = numero;
     }
 
-    public void setPesquisaM1(String pesquisaM1) {
-        this.pesquisaM1 = pesquisaM1;
+    public String getCidade() {
+        return cidade;
     }
 
-    public String getPesquisaM2() {
-        return pesquisaM2;
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
     }
 
-    public void setPesquisaM2(String pesquisaM2) {
-        this.pesquisaM2 = pesquisaM2;
+    public String getBairro() {
+        return bairro;
     }
 
-    public String getPesquisaM3() {
-        return pesquisaM3;
+    public void setBairro(String bairro) {
+        this.bairro = bairro;
     }
 
-    public void setPesquisaM3(String pesquisaM3) {
-        this.pesquisaM3 = pesquisaM3;
+    public String getCep() {
+        return cep;
     }
 
-    public String getPesquisaM4() {
-        return pesquisaM4;
+    public void setCep(String cep) {
+        this.cep = cep;
     }
 
-    public void setPesquisaM4(String pesquisaM4) {
-        this.pesquisaM4 = pesquisaM4;
-    }
-
-    public LatLng getLatLng() {
-        return latLng;
-    }
-
-    public void setLatLng(LatLng latLng) {
-        this.latLng = latLng;
-    }
-
-    public String getSubtitulo() {
-        return subtitulo;
-    }
-
-    public void setSubtitulo(String subtitulo) {
-        this.subtitulo = subtitulo;
-    }
-
-    public Double getLatitude() {
+    public String getLatitude() {
         return latitude;
     }
 
-    public void setLatitude(Double latitude) {
+    public void setLatitude(String latitude) {
         this.latitude = latitude;
     }
 
-    public Double getLongitude() {
+    public String getLongitude() {
         return longitude;
     }
 
-    public void setLongitude(Double longitude) {
+    public void setLongitude(String longitude) {
         this.longitude = longitude;
     }
+
 }

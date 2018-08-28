@@ -11,6 +11,21 @@
             android:title="@string/nav_pag_principal" />
     </group>
 
+    <item android:title="Pessoal">
+        <menu>
+            <item
+                android:id="@+id/nav_perfil"
+                android:icon="@drawable/ic_config_perfil"
+                android:title="Meu Perfil"/>
+
+            <item
+                android:id="@+id/nav_contatos"
+                android:icon="@drawable/ic_agenda"
+                android:title="Contatos"/>
+
+        </menu>
+    </item>
+
     <item android:title="Imóveis">
         <menu>
             <item
