@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Desenvolvido por Luiz F. Viana em 28/08/18 20:37
+  ~ Todos os direitos reservados.
+  ~ Este aplicativo ou qualquer parte dele não pode ser reproduzido ou usado de forma alguma
+  ~ sem autorização expressa, por escrito, do autor.
+  ~ Copyright © 2018
+  -->
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <Spinner
+        android:id="@+id/spinnerFiltro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

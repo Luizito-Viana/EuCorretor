@@ -58,7 +58,7 @@ public class SearchFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_search, container, false);
 
-        database = ConfiguracaoFirebase.getFirebaseDatabase().child("listaEmpreendimentos");
+        database = ConfiguracaoFirebase.getFirebaseDatabase().child("listaEmp");
         recyclerSearch = view.findViewById(R.id.recSearchFragment);
         progressBar = view.findViewById(R.id.progressBarSearch);
 

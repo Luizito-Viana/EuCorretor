@@ -18,32 +18,20 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.animation.AnimationUtils;
-import android.widget.Button;
-import android.widget.ImageButton;
-import android.widget.ImageSwitcher;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.ViewSwitcher;
 
-import com.bumptech.glide.Glide;
 import com.eurezzolve.eucorretor.R;
 import com.eurezzolve.eucorretor.config.ConfiguracaoFirebase;
 import com.eurezzolve.eucorretor.model.Empreendimentos;
-import com.eurezzolve.eucorretor.model.Terceiros;
-import com.firebase.ui.storage.images.FirebaseImageLoader;
-import com.google.android.gms.maps.internal.IMapFragmentDelegate;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+import com.squareup.picasso.Picasso;
+import com.synnapps.carouselview.CarouselView;
+import com.synnapps.carouselview.ImageListener;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -59,142 +47,58 @@ public class DescricaoEmpActivity extends AppCompatActivity {
     private ImageView imageView;
 
     /*Elementos de descricao*/
-    private ImageSwitcher imageSwitcher;
+    //private ImageSwitcher imageSwitcher;
+    private CarouselView carouselView;
     private int idx = 0;
-    private ImageButton btAnterior, btProxima;
     private TextView textInfo, textLocalizacao, textDescricaoEmp;
-    private DatabaseReference imoveisRef = ConfiguracaoFirebase.getFirebaseDatabase().child("emp");
-    private StorageReference storage;
 
-    /*Lista Imagens*/
-    private List<String> listaStrings = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_descricao_empreendimentos);
+
         /*Recuperação dos Dados enviados pela Activity anterior*/
-         empreendimentos = (Empreendimentos) getIntent().getSerializableExtra("info");
+        empreendimentos = (Empreendimentos) getIntent().getSerializableExtra("info");
         /*Fim da Recuperação dos dados*/
 
-        String nome = empreendimentos.getNome();
-        toolbar = findViewById(R.id.toolbarDescEmp);
-        toolbar.setTitle(nome);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeButtonEnabled(true);
-        imageView = findViewById(R.id.imageDescEmp);
+        if(empreendimentos != null){
+            String nome = empreendimentos.getNome();
+            toolbar = findViewById(R.id.toolbarDescEmp);
+            toolbar.setTitle(nome);
+            setSupportActionBar(toolbar);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setHomeButtonEnabled(true);
+            imageView = findViewById(R.id.imageDescEmp);
+            textInfo = findViewById(R.id.textInfoEmp);
+            textLocalizacao = findViewById(R.id.textInfoLocalizacao);
+            textDescricaoEmp = findViewById(R.id.textInfoDescEmp);
+            carouselView = findViewById(R.id.carouselView);
 
-        if(empreendimentos.getImagem() == 0){
-            imageView.setImageResource(R.drawable.avatar_empreendimento);
-        } else {
-            imageView.setImageResource(empreendimentos.getImagem());
-        }
+            if(empreendimentos.getImagem() == 0){
+                imageView.setImageResource(R.drawable.avatar_empreendimento);
+            } else {
+                imageView.setImageResource(empreendimentos.getImagem());
+            }
 
-        /*TextInfo padronizado*/
-        textInfo = findViewById(R.id.textInfoEmp);
-        if(empreendimentos.getDescricaoImovel().equals("")){
-            textInfo.setText("Descrição do Imovel nula");
-        } else if (empreendimentos.getDescricaoImovel().isEmpty()){
-            textInfo.setText("Descrição do Imovel nula");
-        }
-        else {
+            /*TextInfo padronizado*/
             textInfo.setText(empreendimentos.getDescricaoImovel());
+            textDescricaoEmp.setText(empreendimentos.getDescricaoEmp());
+            textLocalizacao.setText(empreendimentos.getLocalizacao());
+
+            ImageListener imageListener = new ImageListener() {
+                @Override
+                public void setImageForPosition(int position, ImageView imageView) {
+                    String urlString = empreendimentos.getListaImagens().get(position);
+                    Picasso.get().load(urlString).into(imageView);
+                }
+            };
+
+            carouselView.setPageCount(empreendimentos.getListaImagens().size());
+            carouselView.setImageListener(imageListener);
+
+            /*Setando eventos de clique nos buttons*/
         }
-        textLocalizacao = findViewById(R.id.textInfoLocalizacao);
-        textLocalizacao.setText(empreendimentos.getLocalizacao());
-
-        textDescricaoEmp = findViewById(R.id.textInfoDescEmp);
-        textDescricaoEmp.setText(empreendimentos.getDescricaoEmp());
-
-        /*ImageSwuitcher*/
-        imageSwitcher = (ImageSwitcher) findViewById(R.id.imageSwitcherDescEmp);
-        imageSwitcher.setFactory(new ImageSwitcher.ViewFactory() {
-            @Override
-            public View makeView() {
-                ImageView img = new ImageView(getBaseContext());
-                img.setScaleType(ImageView.ScaleType.CENTER_CROP);
-                img.setLayoutParams(new ImageSwitcher.LayoutParams(ImageSwitcher.LayoutParams.MATCH_PARENT,ImageSwitcher.LayoutParams.MATCH_PARENT ));
-                return img;
-            }
-        });
-
-        imageSwitcher.setInAnimation(AnimationUtils.loadAnimation(this, android.R.anim.fade_in));
-        imageSwitcher.setOutAnimation(AnimationUtils.loadAnimation(this, android.R.anim.fade_out));
-        imageSwitcher.setImageResource(R.drawable.avatar_empreendimento);
-
-        btAnterior = (ImageButton) findViewById(R.id.imageButtonAnteriorEmp);
-        btProxima = (ImageButton) findViewById(R.id.imageButtonProximaEmp);
-
-        /*Recupera a lista de Urls com os endereços das imagens na WEB*/
-        recuperarUrls();
-
-        /*Setando eventos de clique nos buttons*/
-        btProxima.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(listaStrings.isEmpty()){
-                    Toast.makeText(DescricaoEmpActivity.this, "Efetuando carregamento, tente novamente", Toast.LENGTH_SHORT).show();
-                    recuperarUrls();
-                } else {
-                    if(idx == listaStrings.size()){
-                        idx = 0;
-                    }  else if (idx < 0){
-                        idx = 0;
-                    }
-                    String uso = listaStrings.get(idx++);
-                    storage = FirebaseStorage.getInstance().getReferenceFromUrl(uso);
-                    Glide.with(DescricaoEmpActivity.this)
-                            .using(new FirebaseImageLoader())
-                            .load(storage)
-                            .into((ImageView) imageSwitcher.getCurrentView());
-                }
-            }
-        });
-
-        btAnterior.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(listaStrings.isEmpty()){
-                    Toast.makeText(DescricaoEmpActivity.this, "Efetuando carregamento, tente novamente", Toast.LENGTH_SHORT).show();
-                    recuperarUrls();
-                } else {
-                    if(idx < 0 || idx > (listaStrings.size() - 1)){
-                        idx = (listaStrings.size() - 1);
-                    }
-                    Log.d("Numeros", "Antes: " + String.valueOf(idx));
-                    String uso = listaStrings.get(idx--);
-                    storage = FirebaseStorage.getInstance().getReferenceFromUrl(uso);
-                    Glide.with(DescricaoEmpActivity.this)
-                            .using(new FirebaseImageLoader())
-                            .load(storage)
-                            .into((ImageView) imageSwitcher.getCurrentView());
-                    Log.d("Numeros", "Depois: " + String.valueOf(idx));
-                }
-            }
-        });
-
-    }
-
-    public void recuperarUrls(){
-        /*Recupera as imagens*/
-        String construtoraCodigo = empreendimentos.getCodigoConst();
-        String codigo = empreendimentos.getCodigo();
-        imoveisRef.child(construtoraCodigo).child(codigo).addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                for(DataSnapshot ds : dataSnapshot.getChildren()){
-                    String date = ds.getValue(String.class);
-                    listaStrings.add(date);
-                }
-                Log.d("Booleanos", "Retorno: " + listaStrings);
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
     }
 
     @Override
@@ -210,7 +114,7 @@ public class DescricaoEmpActivity extends AppCompatActivity {
                 finish();
                 break;
             case R.id.menudesc_compartilhar:
-                if(listaStrings.isEmpty()){
+                if(empreendimentos.getListaImagens().isEmpty()){
                     Toast.makeText(DescricaoEmpActivity.this, "Aguarde carregamento das imagens", Toast.LENGTH_SHORT).show();
                 } else {
                     alertaDeConfirmacao();
@@ -230,7 +134,7 @@ public class DescricaoEmpActivity extends AppCompatActivity {
         builder.setPositiveButton("Confirmar", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                DescricaoEmpActivity.AsyncTasksImagens imagens = new DescricaoEmpActivity.AsyncTasksImagens(listaStrings);
+                DescricaoEmpActivity.AsyncTasksImagens imagens = new DescricaoEmpActivity.AsyncTasksImagens(empreendimentos.getListaImagens());
                 imagens.execute();
             }
         });
@@ -276,7 +180,6 @@ public class DescricaoEmpActivity extends AppCompatActivity {
                 /*Salva para comparilhar a foto*/
                 imageUris.add(FileProvider.getUriForFile(DescricaoEmpActivity.this, getApplicationContext().getPackageName() + ".provider", file));
             }
-
             return imageUris;
         }
 

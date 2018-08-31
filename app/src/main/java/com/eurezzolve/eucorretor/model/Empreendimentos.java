@@ -8,140 +8,100 @@
 
 package com.eurezzolve.eucorretor.model;
 
+import android.util.Log;
+
 import com.eurezzolve.eucorretor.config.ConfiguracaoFirebase;
 import com.eurezzolve.eucorretor.helper.Base64Custom;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class Empreendimentos implements Serializable{
 
+    /*Observações: codigoConst, categoriaMetragem, faixa serão removidos*/
+    private String codigoConst;
+    private int categoriaMetragem;
+    private String faixa;
+
+
+    private String codigo;
     private String nome;
     private String construtora;
     private String venda;
     private String simulacao;
     private int imagem;
-    private String codigo;
     private int act_flag;
     private String telefone;
-    private String codigoConst;
     private String descricaoImovel;
     private String descricaoEmp;
     private String localizacao;
-    private int categoriaMetragem;
-    private String faixa;
     private Double latitude;
     private Double longitude;
-
-
+    private List<String> listaImagens;
 
     public Empreendimentos() {
     }
 
-    public void salvar(){
-        FirebaseAuth autenticacao = ConfiguracaoFirebase.getFirebaseAutenticacao();
+    public void salvarFaixa(int id) {
         DatabaseReference firebase = ConfiguracaoFirebase.getFirebaseDatabase();
-        firebase.child("listaEmpreendimentos")
+        switch (id){
+            case 1:
+                firebase.child("listaEmpPorFaixa")
+                        .child("faixa1meio")
+                        .child(codigo)
+                        .setValue(this);
+                break;
+            case 2:
+                firebase.child("listaEmpPorFaixa")
+                        .child("faixa2")
+                        .child(codigo)
+                        .setValue(this);
+                break;
+            case 3:
+                firebase.child("listaEmpPorFaixa")
+                        .child("acima")
+                        .child(codigo)
+                        .setValue(this);
+                break;
+            case 4:
+                firebase.child("listaEmpPorFaixa")
+                        .child("indefinido")
+                        .child(codigo)
+                        .setValue(this);
+                break;
+        }
+    }
+
+    public void salvar(){
+        DatabaseReference firebase = ConfiguracaoFirebase.getFirebaseDatabase();
+        firebase.child("listaEmp")
                 .child(codigo)
                 .setValue(this);
     }
 
-    public Empreendimentos(String nome, int act_flag){
-        this.nome = nome;
-        this.act_flag = act_flag;
+    public void salvarAtual(){
+        DatabaseReference firebase = ConfiguracaoFirebase.getFirebaseDatabase();
+        firebase.child("listaEmpCompleta")
+                .child(codigo)
+                .setValue(this);
+
+        if(listaImagens.size() > 0){
+            Log.d("TAG", "salvarAtual: " + "Salvou");
+        } else {
+            Log.d("TAG", "salvarAtual: " + "Salvou Errado");
+        }
+
     }
 
-    public Empreendimentos(String nome, String codigoConst, String venda, String simulacao, int imagem, String codigo, int act_flag, String telefone, String construtora){
-        this.nome = nome;
-        this.codigoConst = codigoConst;
-        this.venda = venda;
-        this.simulacao = simulacao;
-        this.imagem = imagem;
-        this.codigo = codigo;
-        this.act_flag = act_flag;
-        this.telefone = telefone;
-        this.construtora = construtora;
-    }
 
-    public Empreendimentos(String nome, String codigoConst, String venda, String simulacao, int imagem, String codigo, int act_flag, String telefone,  String construtora, String descricaoImovel, String descricaoEmp){
-        this.nome = nome;
-        this.codigoConst = codigoConst;
-        this.venda = venda;
-        this.simulacao = simulacao;
-        this.imagem = imagem;
-        this.codigo = codigo;
-        this.act_flag = act_flag;
-        this.telefone = telefone;
-        this.construtora = construtora;
-        this.descricaoImovel = descricaoImovel;
-        this.descricaoEmp = descricaoEmp;
-    }
-
-    public Empreendimentos(String nome, String codigoConst, String venda, String simulacao, int imagem, String codigo, String construtora, int act_flag, String descricaoImovel, String localizacao){
-        this.nome = nome;
-        this.codigoConst = codigoConst;
-        this.venda = venda;
-        this.simulacao = simulacao;
-        this.imagem = imagem;
-        this.codigo = codigo;
-        this.act_flag = act_flag;
-        this.telefone = telefone;
-        this.construtora = construtora;
-        this.descricaoImovel = descricaoImovel;
-        this.localizacao = localizacao;
-    }
-
-    public Empreendimentos(String nome, String codigoConst, String venda, String simulacao, int imagem, String codigo, int act_flag, String construtora) {
-        this.nome = nome;
-        this.codigoConst = codigoConst;
-        this.venda = venda;
-        this.simulacao = simulacao;
-        this.imagem = imagem;
-        this.codigo = codigo;
-        this.act_flag = act_flag;
-        this.construtora = construtora;
-    }
-
-    public Empreendimentos(String nome, String codigoConst, String venda, String simulacao, int imagem, String codigo, int act_flag, String construtora, String descricaoImovel, String localizacao, int categoriaMetragem, String faixa) {
-        this.nome = nome;
-        this.construtora = construtora;
-        this.venda = venda;
-        this.simulacao = simulacao;
-        this.imagem = imagem;
-        this.codigo = codigo;
-        this.act_flag = act_flag;
-        //this.telefone = telefone;
-        this.codigoConst = codigoConst;
-        this.descricaoImovel = descricaoImovel;
-        this.localizacao = localizacao;
-        this.categoriaMetragem = categoriaMetragem;
-        this.faixa = faixa;
-    }
-
-    public Empreendimentos(String nome, String codigoConst, String venda, String simulacao, int imagem, String codigo, int act_flag, String construtora, String descricaoImovel, String descricaoEmp, String localizacao, int categoriaMetragem, String faixa) {
-        this.nome = nome;
-        this.construtora = construtora;
-        this.venda = venda;
-        this.simulacao = simulacao;
-        this.imagem = imagem;
-        this.codigo = codigo;
-        this.act_flag = act_flag;
-        //this.telefone = telefone;
-        this.codigoConst = codigoConst;
-        this.descricaoImovel = descricaoImovel;
-        this.descricaoEmp = descricaoEmp;
-        this.localizacao = localizacao;
-        this.categoriaMetragem = categoriaMetragem;
-        this.faixa = faixa;
-    }
-
-    /*Esse é o COMPLETO com telefone, ao final, adicionar o telefone AQUI*/
+    /*Esse é o COMPLETO SEM A LISTA DE IMAGENS*/
     public Empreendimentos(String nome, String codigoConst, String venda,
                            String simulacao, int imagem, String codigo, int act_flag,
                            String telefone ,String construtora, String descricaoImovel,
                            String descricaoEmp, String localizacao, int categoriaMetragem,
-                           String faixa, Double latitude, Double longitude) {
+                           String faixa) {
         this.nome = nome;
         this.construtora = construtora;
         this.venda = venda;
@@ -156,9 +116,40 @@ public class Empreendimentos implements Serializable{
         this.localizacao = localizacao;
         this.categoriaMetragem = categoriaMetragem;
         this.faixa = faixa;
-        this.latitude = latitude;
-        this.longitude = longitude;
     }
+
+    /*Esse é o COMPLETO */
+    public Empreendimentos(String nome, String codigoConst, String venda,
+                           String simulacao, int imagem, String codigo, int act_flag,
+                           String telefone ,String construtora, String descricaoImovel,
+                           String descricaoEmp, String localizacao, int categoriaMetragem,
+                           String faixa, List<String> listaImagens) {
+        this.nome = nome;
+        this.construtora = construtora;
+        this.venda = venda;
+        this.simulacao = simulacao;
+        this.imagem = imagem;
+        this.codigo = codigo;
+        this.act_flag = act_flag;
+        this.telefone = telefone;
+        this.codigoConst = codigoConst;
+        this.descricaoImovel = descricaoImovel;
+        this.descricaoEmp = descricaoEmp;
+        this.localizacao = localizacao;
+        this.categoriaMetragem = categoriaMetragem;
+        this.faixa = faixa;
+        this.listaImagens = listaImagens;
+    }
+
+    /*Getters and Setters*/
+    public List<String> getListaImagens() {
+        return listaImagens;
+    }
+
+    public void setListaImagens(List<String> listaImagens) {
+        this.listaImagens = listaImagens;
+    }
+
 
     public String getNome() {
         return nome;
@@ -287,4 +278,6 @@ public class Empreendimentos implements Serializable{
     public void setLongitude(Double longitude) {
         this.longitude = longitude;
     }
+
+
 }

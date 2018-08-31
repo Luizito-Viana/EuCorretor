@@ -27,14 +27,13 @@
             android:text="Empreendimentos"
             android:textSize="16sp" />
 
-        <Switch
+        <com.github.angads25.toggle.LabeledSwitch
             android:id="@+id/sw_emp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right|center_vertical"
-            android:checked="true"
-            android:paddingRight="8dp"
-            tools:checked="false" />
+            app:on="true"
+            android:paddingRight="8dp" />
     </android.support.v7.widget.CardView>
 
     <android.support.v7.widget.CardView
@@ -59,14 +58,13 @@
             android:text="Tabelas"
             android:textSize="16sp" />
 
-        <Switch
+        <com.github.angads25.toggle.LabeledSwitch
             android:id="@+id/sw_tabelas"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right|center_vertical"
-            android:checked="true"
-            android:paddingRight="8dp"
-            tools:checked="false" />
+            app:on="true"
+            android:paddingRight="8dp" />
     </android.support.v7.widget.CardView>
 
     <TextView
@@ -124,14 +122,13 @@
             android:text="Alertas"
             android:textSize="16sp" />
 
-        <Switch
+        <com.github.angads25.toggle.LabeledSwitch
             android:id="@+id/sw_alertas"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right|center_vertical"
-            android:checked="true"
-            android:paddingRight="8dp"
-            tools:checked="false" />
+            app:on="true"
+            android:paddingRight="8dp" />
     </android.support.v7.widget.CardView>
 
     <TextView
@@ -172,14 +169,13 @@
             android:text="Lembretes Diários"
             android:textSize="16sp" />
 
-        <Switch
+        <com.github.angads25.toggle.LabeledSwitch
             android:id="@+id/sw_lembretes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right|center_vertical"
-            android:checked="true"
-            android:paddingRight="8dp"
-            tools:checked="false" />
+            app:on="true"
+            android:paddingRight="8dp" />
     </android.support.v7.widget.CardView>
 
 </android.support.constraint.ConstraintLayout>

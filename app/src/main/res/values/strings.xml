@@ -82,6 +82,70 @@
         <item>Smart Tower Vivamus JH II</item>
     </string-array>
 
+    <string-array name="faixas">
+        <item>Todos</item>
+        <item>Faixa 1.5</item>
+        <item>Faixa 2</item>
+        <item>Acima</item>
+        <item>Indefinido</item>
+    </string-array>
+
+    <string-array name="faixasIds">
+        <item>todos</item>
+        <item>faixa1meio</item>
+        <item>faixa2</item>
+        <item>acima</item>
+        <item>indefinido</item>
+    </string-array>
+
+    <string-array name="construtorasLista">
+    <item>AZM</item>
+    <item>BARI</item>
+    <item>CeA</item>
+    <item>CIMA</item>
+    <item>CONEL</item>
+    <item>HLTS</item>
+    <item>HPR</item>
+    <item>L. Silva</item>
+    <item>MAXI</item>
+    <item>MOR</item>
+    <item>Marca Registrada</item>
+    <item>MRV</item>
+    <item>Opcao</item>
+    <item>Pacheco</item>
+    <item>PDCA</item>
+    <item>Portento</item>
+    <item>Realiza</item>
+    <item>R. Freitas</item>
+    <item>Troia</item>
+    <item>Urbani</item>
+    <item>Vivamus</item>
+    </string-array>
+
+    <string-array name="construtorasListaIds">
+        <item>azm</item>
+        <item>bari</item>
+        <item>cea</item>
+        <item>cima</item>
+        <item>conel</item>
+        <item>hlts</item>
+        <item>hpr</item>
+        <item>lsilva</item>
+        <item>maxi</item>
+        <item>mor</item>
+        <item>mr</item>
+        <item>mrv</item>
+        <item>opcao</item>
+        <item>pacheco</item>
+        <item>pdca</item>
+        <item>portento</item>
+        <item>realiza</item>
+        <item>rfreitas</item>
+        <item>troia</item>
+        <item>urbani</item>
+        <item>vivamus</item>
+    </string-array>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

@@ -55,224 +55,183 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginEnd="16dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp">
-
-            <TextView
-                android:id="@+id/tituloDescricao"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentRight="true"
-                android:drawableLeft="@drawable/ic_descricao"
-                android:drawablePadding="4dp"
-                android:fontFamily="@font/andika"
-                android:text="Descrição do Imóvel:"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="16dp" />
-
-            <TextView
-                android:id="@+id/textInfoEmp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentRight="true"
-                android:layout_below="@id/tituloDescricao"
-                android:fontFamily="@font/andika"
-                android:text="Tem uma descrição bacana"
-                android:textColor="@color/colorTextBlack"
-                android:textSize="15dp" />
-
-            <View
-                android:id="@+id/divisor_1"
-                android:layout_width="370dp"
-                android:layout_height="1dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:background="@color/colorAccent"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentRight="true"
-                android:layout_below="@id/textInfoEmp"/>
-
-            <TextView
-                android:id="@+id/tituloDescricaoEmp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentRight="true"
-                android:layout_below="@id/divisor_1"
-                android:layout_marginTop="8dp"
-                android:drawableLeft="@drawable/ic_descricao_empreendimento"
-                android:drawablePadding="4dp"
-                android:fontFamily="@font/andika"
-                android:text="Descrição do Empreendimento:"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="16dp" />
-
-            <TextView
-                android:id="@+id/textInfoDescEmp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentRight="true"
-                android:layout_below="@id/tituloDescricaoEmp"
-                android:fontFamily="@font/andika"
-                android:text="Tem uma descrição aqui"
-                android:textColor="@color/colorTextBlack"
-                android:textSize="15dp" />
-
-            <View
-                android:id="@+id/divisor_3"
-                android:layout_width="370dp"
-                android:layout_height="1dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:background="@color/colorAccent"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentRight="true"
-                android:layout_below="@id/textInfoDescEmp"/>
-
-            <TextView
-                android:id="@+id/tituloLocalizacao"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentRight="true"
-                android:layout_below="@id/divisor_3"
-                android:layout_marginTop="8dp"
-                android:drawableLeft="@drawable/ic_localizacao_empact"
-                android:drawablePadding="4dp"
-                android:fontFamily="@font/andika"
-                android:text="Localização:"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="16dp" />
-
-            <TextView
-                android:id="@+id/textInfoLocalizacao"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentRight="true"
-                android:layout_below="@id/tituloLocalizacao"
-                android:fontFamily="@font/andika"
-                android:text="Tem uma localização aqui"
-                android:textColor="@color/colorTextBlack"
-                android:textSize="15dp" />
-
-            <View
-                android:id="@+id/divisor_2"
-                android:layout_width="370dp"
-                android:layout_height="1dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:background="@color/colorAccent"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentRight="true"
-                android:layout_below="@id/textInfoLocalizacao"/>
-
-            <TextView
-                android:id="@+id/tituloGaleria"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentRight="true"
-                android:layout_below="@id/divisor_2"
-                android:layout_marginTop="8dp"
-                android:drawableLeft="@drawable/ic_galeria_empact"
-                android:drawablePadding="4dp"
-                android:fontFamily="@font/andika"
-                android:text="Galeria"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="16dp" />
-
-
-            <android.support.v7.widget.CardView
-                android:id="@+id/cardViewImage"
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentRight="true"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_below="@id/tituloGaleria">
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp">
 
-                <ImageSwitcher
-                    android:id="@+id/imageSwitcherDescEmp"
+                <TextView
+                    android:id="@+id/tituloDescricao"
                     android:layout_width="match_parent"
-                    android:layout_height="200dp" />
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentRight="true"
+                    android:drawableLeft="@drawable/ic_descricao"
+                    android:drawablePadding="4dp"
+                    android:fontFamily="@font/andika"
+                    android:text="Descrição do Imóvel:"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="16dp" />
 
-            </android.support.v7.widget.CardView>
+                <TextView
+                    android:id="@+id/textInfoEmp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@id/tituloDescricao"
+                    android:fontFamily="@font/andika"
+                    android:text="Tem uma descrição bacana"
+                    android:textColor="@color/colorTextBlack"
+                    android:textSize="15dp" />
 
-            <android.support.constraint.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentRight="true"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginTop="4dp"
-                android:layout_marginBottom="32dp"
-                android:layout_below="@id/cardViewImage"
-                android:id="@+id/constraintLayout">
+                <View
+                    android:id="@+id/divisor_1"
+                    android:layout_width="370dp"
+                    android:layout_height="1dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@color/colorAccent"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@id/textInfoEmp"/>
+
+                <TextView
+                    android:id="@+id/tituloDescricaoEmp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@id/divisor_1"
+                    android:layout_marginTop="8dp"
+                    android:drawableLeft="@drawable/ic_descricao_empreendimento"
+                    android:drawablePadding="4dp"
+                    android:fontFamily="@font/andika"
+                    android:text="Descrição do Empreendimento:"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:id="@+id/textInfoDescEmp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@id/tituloDescricaoEmp"
+                    android:fontFamily="@font/andika"
+                    android:text="Tem uma descrição aqui"
+                    android:textColor="@color/colorTextBlack"
+                    android:textSize="15dp" />
+
+                <View
+                    android:id="@+id/divisor_3"
+                    android:layout_width="370dp"
+                    android:layout_height="1dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@color/colorAccent"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@id/textInfoDescEmp"/>
+
+                <TextView
+                    android:id="@+id/tituloLocalizacao"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@id/divisor_3"
+                    android:layout_marginTop="8dp"
+                    android:drawableLeft="@drawable/ic_localizacao_empact"
+                    android:drawablePadding="4dp"
+                    android:fontFamily="@font/andika"
+                    android:text="Localização:"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:id="@+id/textInfoLocalizacao"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@id/tituloLocalizacao"
+                    android:fontFamily="@font/andika"
+                    android:text="Tem uma localização aqui"
+                    android:textColor="@color/colorTextBlack"
+                    android:textSize="15dp" />
+
+                <View
+                    android:id="@+id/divisor_2"
+                    android:layout_width="370dp"
+                    android:layout_height="1dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@color/colorAccent"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@id/textInfoLocalizacao"/>
+
+                <TextView
+                    android:id="@+id/tituloGaleria"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@id/divisor_2"
+                    android:layout_marginTop="8dp"
+                    android:drawableLeft="@drawable/ic_galeria_empact"
+                    android:drawablePadding="4dp"
+                    android:fontFamily="@font/andika"
+                    android:text="Galeria"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="16dp" />
+
 
                 <android.support.v7.widget.CardView
-                    android:id="@+id/btProximo"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintRight_toRightOf="parent">
+                    android:id="@+id/cardViewImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:layout_below="@id/tituloGaleria">
 
-                    <ImageButton
-                        android:id="@+id/imageButtonProximaEmp"
-                        android:layout_width="60dp"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/imagebutton_adapter_imovel"
-                        app:srcCompat="@drawable/ic_descricao_proxima"
-                        tools:ignore="VectorDrawableCompat" />
+                    <com.synnapps.carouselview.CarouselView
+                        android:id="@+id/carouselView"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        app:fillColor="#FFFFFFFF"
+                        app:pageColor="#00000000"
+                        app:radius="3dp"
+                        app:slideInterval="5000"
+                        app:strokeColor="#FF777777"
+                        app:strokeWidth="0.5dp" />
 
                 </android.support.v7.widget.CardView>
 
-                <android.support.v7.widget.CardView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
 
-                    <ImageButton
-                        android:id="@+id/imageButtonAnteriorEmp"
-                        android:layout_width="60dp"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/imagebutton_adapter_imovel"
-                        app:srcCompat="@drawable/ic_descricao_anterior"
-                        tools:ignore="VectorDrawableCompat" />
-
-                </android.support.v7.widget.CardView>
-
-            </android.support.constraint.ConstraintLayout>
-
-            <ImageView
-                android:id="@+id/imageView3"
-                android:layout_width="125dp"
-                android:layout_height="35dp"
-                android:layout_alignEnd="@+id/constraintLayout"
-                android:layout_alignRight="@+id/constraintLayout"
-                app:srcCompat="@drawable/ic_logotipo_"
-                tools:ignore="VectorDrawableCompat"
-                android:layout_below="@id/constraintLayout"
-                android:layout_marginBottom="16dp"/>
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="125dp"
+                    android:layout_height="35dp"
+                    android:layout_alignEnd="@+id/cardViewImage"
+                    android:layout_alignRight="@+id/cardViewImage"
+                    app:srcCompat="@drawable/ic_logotipo_"
+                    tools:ignore="VectorDrawableCompat"
+                    android:layout_below="@id/cardViewImage"
+                    android:layout_marginBottom="16dp"/>
 
 
-        </RelativeLayout>
+            </RelativeLayout>
 
         </ScrollView>
     </android.support.v4.widget.NestedScrollView>

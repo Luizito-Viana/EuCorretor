@@ -22,13 +22,15 @@ import android.widget.Toast;
 import com.eurezzolve.eucorretor.R;
 import com.eurezzolve.eucorretor.activities.primarias.HomeActivity;
 import com.eurezzolve.eucorretor.helper.NotificationUtil;
+import com.github.angads25.toggle.LabeledSwitch;
+import com.github.angads25.toggle.interfaces.OnToggledListener;
 import com.google.firebase.messaging.FirebaseMessaging;
 
 import java.util.Calendar;
 
 public class NotificacaoActivity extends AppCompatActivity {
 
-    private Switch swTabelas, swEmp, swAlertas,swLembretes;
+    private LabeledSwitch swTabelas, swEmp, swAlertas,swLembretes;
     private static final String CHANNEL_ID = "idDoCanal";
 
     @Override
@@ -47,10 +49,10 @@ public class NotificacaoActivity extends AppCompatActivity {
         swTabelas = findViewById(R.id.sw_tabelas);
         swLembretes = findViewById(R.id.sw_lembretes);
 
-        swAlertas.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        swAlertas.setOnToggledListener(new OnToggledListener() {
             @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if(compoundButton.isChecked()){
+            public void onSwitched(LabeledSwitch labeledSwitch, boolean isOn) {
+                if(labeledSwitch.isOn()){
                     ativaAlertas();
                     Toast.makeText(getApplicationContext(), "Alertas ativados!", Toast.LENGTH_SHORT).show();
                 } else{
@@ -60,42 +62,45 @@ public class NotificacaoActivity extends AppCompatActivity {
             }
         });
 
-        swEmp.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        swEmp.setOnToggledListener(new OnToggledListener() {
             @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if(compoundButton.isChecked()){
-                    ativaEmp();
-                    Toast.makeText(getApplicationContext(), "Alertas de Empreendimentos ativado!", Toast.LENGTH_SHORT).show();
-                } else {
-                    desativaEmp();
-                    Toast.makeText(getApplicationContext(), "Alertas de Empreendimentos desativado!", Toast.LENGTH_SHORT).show();
+            public void onSwitched(LabeledSwitch labeledSwitch, boolean isOn) {
+                if(labeledSwitch.isOn()){
+                    ativaAlertas();
+                    Toast.makeText(getApplicationContext(), "Alertas ativados!", Toast.LENGTH_SHORT).show();
+                } else{
+                    desativaAlertas();
+                    Toast.makeText(getApplicationContext(), "Alertas desativados!", Toast.LENGTH_SHORT).show();
                 }
             }
         });
 
-        swTabelas.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        swTabelas.setOnToggledListener(new OnToggledListener() {
             @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if(compoundButton.isChecked()){
-                    ativaTabela();
-                    Toast.makeText(getApplicationContext(), "Alertas de Tabelas ativado!", Toast.LENGTH_SHORT).show();
-                } else {
-                    desativaTabela();
-                    Toast.makeText(getApplicationContext(), "Alertas de Tabelas desativado!", Toast.LENGTH_SHORT).show();
+            public void onSwitched(LabeledSwitch labeledSwitch, boolean isOn) {
+                if(labeledSwitch.isOn()){
+                    ativaAlertas();
+                    Toast.makeText(getApplicationContext(), "Alertas ativados!", Toast.LENGTH_SHORT).show();
+                } else{
+                    desativaAlertas();
+                    Toast.makeText(getApplicationContext(), "Alertas desativados!", Toast.LENGTH_SHORT).show();
                 }
             }
         });
 
-        swLembretes.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        swLembretes.setOnToggledListener(new OnToggledListener() {
             @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if(compoundButton.isChecked()){
-                    //ativaAlertasLembrete();
-                } else {
-                    //desativaAlertasLembrete();
+            public void onSwitched(LabeledSwitch labeledSwitch, boolean isOn) {
+                if(labeledSwitch.isOn()){
+                    ativaAlertas();
+                    Toast.makeText(getApplicationContext(), "Alertas ativados!", Toast.LENGTH_SHORT).show();
+                } else{
+                    desativaAlertas();
+                    Toast.makeText(getApplicationContext(), "Alertas desativados!", Toast.LENGTH_SHORT).show();
                 }
             }
         });
+
     }
 
     /*Ativa e desativa os lembretes diarios*/

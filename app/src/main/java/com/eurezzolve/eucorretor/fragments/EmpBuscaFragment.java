@@ -55,7 +55,7 @@ public class EmpBuscaFragment extends SupportMapFragment
     private Double latitude,longitude;
 
     private List<Empreendimentos> empreendimentos = new ArrayList<>();
-    private DatabaseReference reference = ConfiguracaoFirebase.getFirebaseDatabase().child("listaEmpreendimentos");
+    private DatabaseReference reference = ConfiguracaoFirebase.getFirebaseDatabase().child("listaEmp");
 
     private GoogleMap mMap;
     private LocationManager locationManager;
