@@ -8,11 +8,7 @@
 
 package com.eurezzolve.eucorretor.model;
 
-import com.google.android.gms.maps.model.LatLng;
-
 import java.io.Serializable;
-
-
 
 public class Marcadores implements Serializable{
     private String rua;

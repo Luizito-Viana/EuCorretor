@@ -52,7 +52,8 @@
             android:name=".activities.primarias.HomeActivity"
             android:label="@string/title_activity_home"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan"/>
 
         <meta-data
             android:name="preloaded_fonts"
@@ -118,14 +119,8 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyBgk8RutXjUkDPtQ5kq3bioeDC4E06JnTQ" />
-        <!--
-        <activity
-            android:name=".fragments.MapsActivity"
-            android:label="@string/title_activity_maps" />
-        -->
 
-
-        <!-- Aqui temos a Notificacao -->
+    <!-- Aqui temos a Notificacao -->
         <activity
             android:name=".activities.secundarias.NotificacaoActivity"
             android:screenOrientation="portrait" />

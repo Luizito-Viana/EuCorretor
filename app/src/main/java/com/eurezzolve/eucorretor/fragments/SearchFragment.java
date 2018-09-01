@@ -9,15 +9,12 @@
 package com.eurezzolve.eucorretor.fragments;
 
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,7 +23,6 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 
 import com.eurezzolve.eucorretor.R;
-import com.eurezzolve.eucorretor.activities.primarias.HomeActivity;
 import com.eurezzolve.eucorretor.adapter.AdapterEmpBusca;
 import com.eurezzolve.eucorretor.config.ConfiguracaoFirebase;
 import com.eurezzolve.eucorretor.config.RecyclerItemClickListener;
@@ -83,10 +79,13 @@ public class SearchFragment extends Fragment {
 
                 EmpBuscaFragment fragment = EmpBuscaFragment.newInstance("teste");
                 Bundle bundle = new Bundle();
+
                 bundle.putDouble("longitude", emp.getLongitude());
                 bundle.putDouble("latitude", emp.getLatitude());
                 bundle.putString("titulo", emp.getNome());
                 bundle.putString("subtitulo", emp.getVenda());
+
+                //bundle.putSerializable("info", emp);
                 fragment.setArguments(bundle);
 
 

@@ -37,7 +37,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/menu_nav_bottom">
+        app:menu="@menu/menu_nav_bottom"
+        android:layout_alignParentBottom = "true">
 
     </android.support.design.widget.BottomNavigationView>
 

@@ -13,23 +13,14 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Criteria;
-import android.location.Location;
 import android.location.LocationManager;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
-import android.widget.Toast;
 
-import com.eurezzolve.eucorretor.R;
-import com.eurezzolve.eucorretor.activities.introducao.MainActivity;
-import com.eurezzolve.eucorretor.activities.primarias.ConfiguracoesActivity;
-import com.eurezzolve.eucorretor.activities.primarias.EmpreendimentosActivity;
+
 import com.eurezzolve.eucorretor.activities.secundarias.DescricaoEmpActivity;
 import com.eurezzolve.eucorretor.activities.secundarias.TabelasEmpActivity;
 import com.eurezzolve.eucorretor.activities.secundarias.TabelasEmpM2Activity;
@@ -192,6 +183,8 @@ public class MapsActivity extends SupportMapFragment
         criarMarcadoresEmpreendimentos(rubiResidence, "Edifício Rubi Residence", "Venda: R$220.000,00 a partir");
 
         //Marca Registrada
+        LatLng mirante = new LatLng(-18.975827, -48.275174);
+        criarMarcadoresEmpreendimentos(mirante, "Residencial Mirante 1 e 2", "Venda: R$110.000,00");
         LatLng granToro = new LatLng(-18.9653999, -48.2482812);
         criarMarcadoresEmpreendimentos(granToro, "Gran Toro", "Venda: R$131.000,00 a partir");
         LatLng resPark = new LatLng(-18.9901803, -48.2672743);
@@ -218,12 +211,26 @@ public class MapsActivity extends SupportMapFragment
         criarMarcadoresEmpreendimentos(unigarden, "Spazio Unigarden","Venda: R$ 137.981 a partir" );
         LatLng uniplace = new LatLng(-18.9017808, -48.2865066);
         criarMarcadoresEmpreendimentos(uniplace, "Spazio Uniplace","Venda: R$ 128.691,00 a partir" );
+        LatLng unistella = new LatLng(-18.921933, -48.316037);
+        criarMarcadoresEmpreendimentos(unistella, "Parque Unistella", "Venda: R$ 128.000,00 a partir");
+        LatLng parqueUba = new LatLng(-18.970711, -48.274580);
+        criarMarcadoresEmpreendimentos(parqueUba, "Parque Ubá", "Venda: R$ 137.217,00");
+
+        //MOR
+        LatLng colinaSul = new LatLng(-18.979736, -48.277298);
+        criarMarcadoresEmpreendimentos(colinaSul,"Residencial Colina Sul", "Venda: R$110.000,00");
+        LatLng belloSul = new LatLng(-18.980191, -48.279035);
+        criarMarcadoresEmpreendimentos(belloSul, "Residencial Bello Sul", "Venda: R$129.900,00 a partir");
 
         //Opção
+        LatLng platina = new LatLng(-18.911519, -48.311260);
+        criarMarcadoresEmpreendimentos(platina,  "Residencial Platina", "Venda: R$ 136.900,00 a partir");
         LatLng villagesul = new LatLng(-18.9688751, -48.22366152);
         criarMarcadoresEmpreendimentos(villagesul, "Residencial Village Sul", "Venda: R$136.900,00 a partir");
         LatLng royaleResidence = new LatLng(-18.947939, -48.350186);
         criarMarcadoresEmpreendimentos(royaleResidence, "Residencial Royale", "Venda: R$140.900,00 a partir");
+        LatLng moradaPraia = new LatLng(-18.940428, -48.297246);
+        criarMarcadoresEmpreendimentos(moradaPraia, "Residencial Morada do Praia", "Venda: R$ 181.000,00 a partir");
 
         //Pacheco
         LatLng evidenceResidencial = new LatLng(-18.923221, -48.275812);
@@ -241,34 +248,30 @@ public class MapsActivity extends SupportMapFragment
 
         //Portento
         LatLng milao = new LatLng(-18.937114, -48.283756);
-        criarMarcadoresEmpreendimentos(jardinsdoCerrado, "Residencial Milão", "Venda: R$330.000,00 a partir");
+        criarMarcadoresEmpreendimentos(milao, "Residencial Milão", "Venda: R$330.000,00 a partir");
         LatLng sevilha = new LatLng(-18.9960109, -48.316545);
-        criarMarcadoresEmpreendimentos(jardinsdoCerrado, "Residencial Sevilha", "Venda: R$144.000,00 a partir");
+        criarMarcadoresEmpreendimentos(sevilha, "Residencial Sevilha", "Venda: R$144.000,00 a partir");
         LatLng valencia = new LatLng(-18.912071, -48.299931);
-        criarMarcadoresEmpreendimentos(jardinsdoCerrado, "Residencial Valência", "Venda: R$145.000,00 a partir");
+        criarMarcadoresEmpreendimentos(valencia, "Residencial Valência", "Venda: R$145.000,00 a partir");
         LatLng ravena = new LatLng(-18.933384, -48.299948);
-        criarMarcadoresEmpreendimentos(jardinsdoCerrado, "Residencial Ravena", "Venda: R$140.000,00 a partir");
+        criarMarcadoresEmpreendimentos(ravena, "Residencial Ravena", "Venda: R$140.000,00 a partir");
         LatLng laBelle = new LatLng(-18.939161, -48.299913);
-        criarMarcadoresEmpreendimentos(jardinsdoCerrado, "Residencial La Belle", "Venda: R$135.000,00 a partir");
-
-        //Quartzo
+        criarMarcadoresEmpreendimentos(laBelle, "Residencial La Belle", "Venda: R$135.000,00 a partir");
 
 
         //R Freitas
         LatLng uzTower = new LatLng(-18.924512, -48.289580);
         criarMarcadoresEmpreendimentos(uzTower, "UZ Tower", "Venda: R$384.544,03 a partir");
-        LatLng Aristides = new LatLng(-18.916850, -48.283689);
-        criarMarcadoresEmpreendimentos(Aristides, "Edifício Aristides de Freitas", "Venda: R$180.000,00 a partir");
-        LatLng BosquedasGameleiras = new LatLng(-18.880146, -48.297098);
-        criarMarcadoresEmpreendimentos(BosquedasGameleiras, "Condomínio Bosque das Gameleiras", "Venda: R$359.000,00 a partir");
+        LatLng aristides = new LatLng(-18.916850, -48.283689);
+        criarMarcadoresEmpreendimentos(aristides, "Edifício Aristides de Freitas", "Venda: R$180.000,00 a partir");
+        LatLng bosquedasGameleiras = new LatLng(-18.880146, -48.297098);
+        criarMarcadoresEmpreendimentos(bosquedasGameleiras, "Condomínio Bosque das Gameleiras", "Venda: R$359.000,00 a partir");
 
         //Realiza
         LatLng anita = new LatLng(-18.918045, -48.270920);
         criarMarcadoresEmpreendimentos(anita, "Anita Residence", "Venda: R$310.500,00 a partir");
         LatLng villageParadisoii = new LatLng(-18.874486, -48.246085);
         criarMarcadoresEmpreendimentos(villageParadisoii, "Village Paradiso II", "Venda: R$619.368,10 a partir");
-        LatLng tropicalSul = new LatLng(-18.957483, -48.249472);
-        criarMarcadoresEmpreendimentos(tropicalSul, "Tropical Sul", "Venda: R$180.000,00");
 
         //Troia
         LatLng splendiaResidence = new LatLng(-18.936585, -48.294116);
@@ -277,7 +280,6 @@ public class MapsActivity extends SupportMapFragment
         //Urbani
         LatLng residencialNapoli = new LatLng(-18.963645, -48.248534);
         criarMarcadoresEmpreendimentos(residencialNapoli, "Residencial Napoli", "Venda: R$129.900,00 a partir");
-
 
         //Vivamus
         LatLng smartower = new LatLng(-18.957149, -48.322014);
@@ -360,22 +362,7 @@ public class MapsActivity extends SupportMapFragment
     @Override
     public void onConnected(@Nullable Bundle bundle) {
         Log.d("onConnected", "Entrou aqui");
-        if (ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
-            aBoolean = false;
-            Log.d("onConnected", "false");
-        } else {
-            //locationAtual = LocationServices.FusedLocationApi.getLastLocation(googleApiClient);
-            aBoolean = true;
-            Log.d("onConnected", "true");
-        }
-
+        aBoolean = !(ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED);
     }
 
     @Override

@@ -21,6 +21,7 @@ public class CriarEmpreendimentos {
         List<String> naoDisponivel = new ArrayList<>();
 
         naoDisponivel.add("https://firebasestorage.googleapis.com/v0/b/eurezzolve-ec.appspot.com/o/empreendimentos%2FmarcaRegistrada%2Fmr_residenciaisAlpha%2Fnao_ha_imoveis.jpeg?alt=media&token=0456956b-67f7-42f2-a438-206cbcc7c219");
+
         /*Cria os Empreendimentos e Adiciona a lista que é enviada para o Adapter*/
         //AZM COMPLETO
         listaImagens.add("https://firebasestorage.googleapis.com/v0/b/eurezzolve-ec.appspot.com/o/empreendimentos%2Fazm%2Fazm_resFloresCerrado%2F2.jpeg?alt=media&token=d1020f81-3a6f-4ba5-8d33-fe4a8d1746d6");
@@ -38,7 +39,8 @@ public class CriarEmpreendimentos {
                 "AZM",
                 "• 44,70-49,80 m²\n• 2 quartos (0 suite)\n• 1 banheiros\n• 1 vagas na Garagem\n• Entre outros...",
                 "• Piscina\n• Salão de Festas\n• Espaço Gourmet\n• Espaço Fitness\n• Entre outros...",
-                "• Av. Edson Gallana, 210\n• Canaã", 2, "Faixa 1,5", listaImagens);
+                "• Av. Edson Gallana, 210\n• Canaã", "Faixa 1,5", listaImagens,
+                -18.965741, -48.339644);
         listaEmpreendimentos.add(empreendimentos);
 
         listaImagens.clear();
@@ -57,7 +59,8 @@ public class CriarEmpreendimentos {
                 "AZM",
                 "• 44,70 m²\n• 2 quartos (0 suite)\n• 1 banheiros\n• 1 vagas na Garagem\n• Entre outros...",
                 "• Áreas de Convivência\n• Espaço Gourmet\n• Playground\n• Elevador\n• Entre outros...",
-                "• Av. Tonico Resende\n• Parque Santo Antônio", 1, "Faixa 1,5", listaImagens);
+                "• Av. Tonico Resende\n• Parque Santo Antônio",  "Faixa 1,5", listaImagens,
+                -18.945764, -48.350587);
         listaEmpreendimentos.add(empreendimentos);
 
         listaImagens.clear();
@@ -79,7 +82,8 @@ public class CriarEmpreendimentos {
                 "AZM",
                 "• 49,00-57,00 m²\n• 2 quartos (0-1 suite)\n• 1-2 banheiros\n• 1-2 vagas na Garagem\n• Entre outros...",
                 "• Ampla Piscina Adulto/infantil\n• Amplo Salão de Festas\n• Espaço Gourmet\n• Áreas de convivência\n• Entre outros...",
-                "• R. Alfredo Vieira\n• Jardim Europa", 2, "Faixa 2",listaImagens);
+                "• R. Alfredo Vieira\n• Jardim Europa", "Faixa 2",listaImagens,
+                -18.941298, -48.348096);
         listaEmpreendimentos.add(empreendimentos);
 
         listaImagens.clear();
@@ -99,7 +103,8 @@ public class CriarEmpreendimentos {
                 "AZM",
                 "• 56,90-61,50 m²\n• 2 quartos (0-1 suite)\n• 1-2 banheiros\n• 1 vagas na Garagem\n• Entre outros...",
                 "• 3 elevadores\n• Monitoramento 24 horas\n• Playground\n• Áreas de convivência\n• Entre outros...",
-                "• R. do Poe.\n• Jardim das Palmeiras", 3, "Faixa 2", listaImagens);
+                "• R. do Poe.\n• Jardim das Palmeiras",  "Faixa 2", listaImagens,
+                -18.948985, -48.318978);
         listaEmpreendimentos.add(empreendimentos);
 
         //BARI  COMPLETO
@@ -124,8 +129,8 @@ public class CriarEmpreendimentos {
                 "BARI",
                 "• 88,96-90,56 m²\n• 3 quartos (1 suite)\n• 2 banheiros\n• 2 vagas na Garagem\n• Entre outros...",
                 "• 2 elevadores\n• Salão de festas com terraço\n• Brinquedoteca\n• Espaço para bicicletário\n• Entre outros...",
-                "• R. Professora Maria Alves Castilho, 9640\n• Santa Mônica", 3, "Acima",
-                listaImagens);
+                "• R. Professora Maria Alves Castilho, 9640\n• Santa Mônica",  "Acima",
+                listaImagens, -18.923276, -48.233178);
         listaEmpreendimentos.add(empreendimentos);
 
         //C&A COMPLETO
@@ -141,7 +146,7 @@ public class CriarEmpreendimentos {
                 "• 47,00 m²\n• 2 quartos (1 suite)\n• 2 banheiros\n• 1-2 vagas na Garagem\n• Entre outros...",
                 "• Elevador\n• Portaria\n• Areas de conveniência\n• Entre outros...",
                 "• R. do Calistemon, 363\n• Jardim Célia",
-                2, "Faixa 1,5", naoDisponivel);
+                 "Faixa 1,5", naoDisponivel,-18.936320, -48.377321);
         listaEmpreendimentos.add(empreendimentos);
 
 
@@ -156,7 +161,7 @@ public class CriarEmpreendimentos {
                 "• 51,00 m²\n• 2 quartos (0 suite)\n• 1 banheiros\n• 1 vagas na Garagem\n• Entre outros...",
                 "• Elevador\n• Área de lazer \n• Espaço Gourmet\n• Azulejos até o teto (cozinha, banheiro)\n• Entre outros...",
                 "• R. Leonardo da Vinci\n• Laranjeiras",
-                2, "Faixa 2", naoDisponivel);
+                 "Faixa 2", naoDisponivel , -18.965689, -48.247368);
         listaEmpreendimentos.add(empreendimentos);
 
         empreendimentos = new Empreendimentos(
@@ -170,7 +175,7 @@ public class CriarEmpreendimentos {
                 "• A partir de 50,00 m²\n• 2 quartos (0-1 suite)\n• 1-2 banheiros\n• 1 vagas na Garagem\n• Entre outros...",
                 "• 02 Elevadores\n• Portaria\n• Gás canalizado\n• Esquadrias de alumínio\n• Entre outros...",
                 "• R. Zenith, 109\n• Jardim Brasília",
-                2, "Faixa 2", naoDisponivel);
+                "Faixa 2", naoDisponivel, -18.8930038, -48.3000398);
         listaEmpreendimentos.add(empreendimentos);
 
         empreendimentos = new Empreendimentos(
@@ -184,7 +189,7 @@ public class CriarEmpreendimentos {
                 "• 51,00 m²\n• 2 quartos (0 suite)\n• 1 banheiros\n• 1 vagas na Garagem\n• Entre outros...",
                 "• Elevador\n• Portaria\n• Esquadrias em alumínio\n• Azulejo até o teto (Cozinha, banheiro e área de serviço)\n• Entre outros...",
                 "• Av. Dimas Machado, 580\n• Chácaras Tubalina",
-                2, "Faixa 2", naoDisponivel);
+                "Faixa 2", naoDisponivel, -18.935183, -48.320994);
         listaEmpreendimentos.add(empreendimentos);
 
         empreendimentos = new Empreendimentos(
@@ -198,7 +203,7 @@ public class CriarEmpreendimentos {
                 "• 65,73 m²\n• 2 quartos (X suite)\n• 1 banheiros\n• 1 vagas na Garagem\n• Entre outros...",
                 "• Murado nas laterais e ao fundo\n• Casas individuais\n• Sala de jantar e TV integradas\n• Excelente padrão de acabamento\n• Entre outros...",
                 "• Bairro Mansour II",
-                3, "Faixa 2", naoDisponivel);
+                "Faixa 2", naoDisponivel, -18.936320, -48.377321);
         listaEmpreendimentos.add(empreendimentos);
 
         listaImagens.clear();
@@ -217,7 +222,8 @@ public class CriarEmpreendimentos {
                 "C&A",
                 "• 56,00-67,00 m²\n• 2-3 quartos (0-1-2 suite)\n• 2 banheiros\n• 1-2 vagas na Garagem\n• Entre outros...",
                 "• 2 Elevadores\n• Espaço de lazer infantil\n• Gás canalizado\n• Portaria\n• Entre outros...",
-                "• Av. Adriano Bailoni, 420\n• Roosevelt", 3, "Faixa 2", listaImagens);
+                "• Av. Adriano Bailoni, 420\n• Roosevelt",
+                "Faixa 2", listaImagens, -18.8974186, -48.2784520);
         listaEmpreendimentos.add(empreendimentos);
 
         listaImagens.clear();
@@ -240,7 +246,7 @@ public class CriarEmpreendimentos {
                 "• 2 quartos (1 suite)\n• 2 banheiros\n• 1 vagas na Garagem\n• Entre outros...",
                 "• 2 Elevadores\n• Portaria\n• Gás canalizado\n• Sacada com blindex\n• Entre outros...",
                 "• R. Osório José da Cunha, 1795\n• Marta Helena",
-                2, "Faixa 2", listaImagens);
+                "Faixa 2", listaImagens, -18.936320, -48.377321);
         listaEmpreendimentos.add(empreendimentos);
 
         empreendimentos = new Empreendimentos(
@@ -254,7 +260,7 @@ public class CriarEmpreendimentos {
                 "• 52,37 ou 64,81 m²\n• 2 ou 3 quartos (0-1 suite)\n• 1 ou 2 banheiros\n• 2 vagas na Garagem\n• Entre outros...",
                 "• 2 elevadores\n• Espaço de convivência\n• Gás canalizado\n• Portaria\n• Entre outros...",
                 "• R. Dr. Luiz Antônio Waack, 1480\n• Umuarama",
-                3, "Acima", naoDisponivel);
+                "Acima", naoDisponivel,-18.882544, -48.255123);
         listaEmpreendimentos.add(empreendimentos);
 
         //CIMA COMPLETO
@@ -280,7 +286,7 @@ public class CriarEmpreendimentos {
                 "• 66 e 87 m²\n• 2 a 3 quartos (1 suite)\n• 2 vagas na Garagem\n• Entre outros...",
                 "• Salão de Festas\n• Piscina\n• Espaço Gourmet com Churrasqueira\n• Quadra Poliesportiva\n• Entre outros...",
                 "-",
-                0, "Acima", listaImagens);
+                "Acima", listaImagens, -18.908935, -48.250678);
         listaEmpreendimentos.add(empreendimentos);
 
         //CONEL COMPLETO
@@ -305,8 +311,7 @@ public class CriarEmpreendimentos {
                 "• 2-3 quartos (1-2 suite)\n• 2 banheiros\n• Entre outros...",
                 "• Pontos para ar-condicionado\n• 2 Elevadores\n• Piso porcelanato\n• Playground\n• Entre outros...",
                 "-",
-                0,
-                "Acima", listaImagens);
+                "Acima", listaImagens, -18.928847, -48.292604);
         listaEmpreendimentos.add(empreendimentos);
 
         listaImagens.clear();
@@ -327,8 +332,7 @@ public class CriarEmpreendimentos {
                 "• 45,69-73,20 m²\n• 1 ou 2 quartos (0 ou 1 suite)\n• 1 banheiro\n• 1 ou 2 vagas na Garagem\n• Entre outros...",
                 "• 2 elevadores\n• Sala de ginástica\n• Salão de festas\n• Guarita\n• Entre outros...",
                 "• R. Barão de Camargos, 296\n• Centro",
-                3,
-                "Acima", listaImagens);
+                "Acima", listaImagens, -18.923641, -48.278165);
         listaEmpreendimentos.add(empreendimentos);
 
         listaImagens.clear();
@@ -352,8 +356,7 @@ public class CriarEmpreendimentos {
                 "• 69,85-77,46 m²\n• 2 quartos (2 suites)\n• 2 banheiros\n• 1 ou 2 vagas na Garagem\n• Entre outros...",
                 "• 2 Elevadores\n• Playground\n• Salão de festas\n• Espaço gourmet com churrasqueira\n• Entre outros...",
                 "• R. Barão de Camargos, 177\n• Centro",
-                3,
-                "Acima", listaImagens);
+                "Acima", listaImagens, -18.923511, -48.277237);
         listaEmpreendimentos.add(empreendimentos);
 
         listaImagens.clear();
@@ -375,7 +378,8 @@ public class CriarEmpreendimentos {
                 "CONEL",
                 "• 86,39 m²\n• 3 quartos (1 suite)\n• 2 banheiros\n• 1 ou 2 vagas na Garagem\n• Entre outros...",
                 "• 2 Elevadores\n• Salão de festas\n• Playground\n• Quiosque com churrasqueira\n• Entre outros...",
-                "• R. da Carioca, 1350\n• Morada da Colina", 3, "Acima", listaImagens);
+                "• R. da Carioca, 1350\n• Morada da Colina", "Acima", listaImagens,
+                -18.941665, -48.285403);
         listaEmpreendimentos.add(empreendimentos);
 
         listaImagens.clear();
@@ -398,7 +402,7 @@ public class CriarEmpreendimentos {
                 "CONEL",
                 "• 166,36-342,60 m²\n• 3 quartos (3 suite)\n• 5 banheiros\n• 3 vagas na Garagem\n• Entre outros...",
                 "• Piscina\n• Playground infantil\n• 2 Elevadores\n• Salão de festas\n• Entre outros...",
-                "• R. Tobias Inacio\n• Lídice", 3, "Acima", listaImagens);
+                "• R. Tobias Inacio\n• Lídice", "Acima", listaImagens, -18.926833, -48.278707);
         listaEmpreendimentos.add(empreendimentos);
 
         empreendimentos = new Empreendimentos(
@@ -412,8 +416,7 @@ public class CriarEmpreendimentos {
                 "• 197,00 m²\n• 3 quartos (3 suite)\n• 4 banheiros\n• 3 vagas na Garagem\n• Entre outros...",
                 "• 2 Elevadores\n• Salão de festas\n• Espaços para ginástica\n• Espaços para brinquedotecas\n• Entre outros...",
                 "• R. Tapuirama, 300\n• Osvaldo Resende",
-                3,
-                "Acima", naoDisponivel);
+                "Acima", naoDisponivel, -18.921502, -48.289379);
         listaEmpreendimentos.add(empreendimentos);
 
         //HLTS
@@ -436,7 +439,7 @@ public class CriarEmpreendimentos {
                 "• 2 quartos (0 suite)\n• 1 banheiro\n• 1 vagas na Garagem\n• Entre outros...",
                 "-",
                 "Rua Alameda José de Oliveira Guimarães - Jardim Holanda",
-                0, "Faixa 1,5", listaImagens);
+                "Faixa 1,5", listaImagens, -18.956365, -48.317597);
         listaEmpreendimentos.add(empreendimentos);
 
         listaImagens.clear();
@@ -457,7 +460,8 @@ public class CriarEmpreendimentos {
                 "HLTS",
                 "• 47,31 m²\n• 2 quartos (0 suite)\n• 1 banheiros\n• 1 vagas na Garagem\n• Entre outros...",
                 "• Informações ainda não disponíveis",
-                "• Informações ainda não disponíveis", 2, "Faixa 1,5", listaImagens);
+                "• Informações ainda não disponíveis", "Faixa 1,5", listaImagens,
+                -18.937093, -48.215574);
         listaEmpreendimentos.add(empreendimentos);
 
         listaImagens.clear();
@@ -478,7 +482,8 @@ public class CriarEmpreendimentos {
                 "HLTS",
                 "• 53,23 m²\n• 2 quartos (0 suite)\n• 1 banheiros\n• 1 vagas na Garagem\n• Entre outros...",
                 "• Elevador\n• Piscina Infatil/Playground\n• Quadra recreativa\n• Salão de festas\n• Entre outros...",
-                "• R. Renato de Oliveira Grama", 2, "Faixa 2", listaImagens);
+                "• R. Renato de Oliveira Grama",
+                "Faixa 2", listaImagens, -18.937093, -48.251524);
         listaEmpreendimentos.add(empreendimentos);
 
         listaImagens.clear();
@@ -498,7 +503,8 @@ public class CriarEmpreendimentos {
                 "HLTS",
                 "• 85,19 e 84,45 m²\n• 3 quartos (1 suite)\n• 2 banheiros\n• 2 vagas na Garagem\n• Entre outros...",
                 "• 02 Elevadores\n• Espaço gourmet/grill\n• Piscina\n• Salão de festas\n• Entre outros...",
-                "• Av. Francisco Ribeiro\n• Santa Mônica", 3, "Acima", listaImagens);
+                "• Av. Francisco Ribeiro\n• Santa Mônica",  "Acima", listaImagens,
+                -18.9287291, -48.24139154);
         listaEmpreendimentos.add(empreendimentos);
 
         //HPR COMPLETO
@@ -521,7 +527,8 @@ public class CriarEmpreendimentos {
                 "HPR",
                 "• 52 até 58 m²\n• 2 quartos (1 suite)\n• 2 banheiros\n• 2 vagas na Garagem\n• Entre outros...",
                 "• Portaria\n• Salão de festas\n• Espaço kids\n• Área de lazer\n• Entre outros...",
-                "• Av. dos Ferreiras, 175\n• Jardim Califórnia", 2, "Faixa 2", listaImagens);
+                "• Av. dos Ferreiras, 175\n• Jardim Califórnia", "Faixa 2", listaImagens,
+                -18.872044, -48.233464);
         listaEmpreendimentos.add(empreendimentos);
 
         listaImagens.clear();
@@ -542,7 +549,8 @@ public class CriarEmpreendimentos {
                 "HPR",
                 "• 52 até 56 m²\n• 2 quartos (1 suite)\n• 2 banheiros\n• 2 vagas na Garagem\n• Entre outros...",
                 "• Portaria\n• Salão de festas\n• Espaço kids\n• 2 Elevadores\n• Entre outros...",
-                "• R. Domingos Alvares, 79\n• Roosevelt", 2, "Faixa 2", listaImagens);
+                "• R. Domingos Alvares, 79\n• Roosevelt",
+                "Faixa 2", listaImagens, -18.899538, -48.286909);
         listaEmpreendimentos.add(empreendimentos);
 
         //L Silva COMPLETO
@@ -562,7 +570,8 @@ public class CriarEmpreendimentos {
                 "L Silva",
                 "• 57,82 m²\n• 2 quartos (1 ou 2 suite)\n• 2 banheiros\n• 2 vagas na Garagem\n• Entre outros...",
                 "• Elevador\n• Playground\n• Portaria\n• Espaço fitness/gourrmet\n• Entre outros...",
-                "• R. Bernardo de Vasconcelos, 780\n• Pampulha", 2, "Acima", listaImagens);
+                "• R. Bernardo de Vasconcelos, 780\n• Pampulha", "Acima", listaImagens,
+                -18.933670, -48.239460);
         listaEmpreendimentos.add(empreendimentos);
 
         //Marca Registrada COMPLETO
@@ -577,7 +586,7 @@ public class CriarEmpreendimentos {
                 "Informações não disponíveis!",
                 "Informações não disponíveis!",
                 "Informações não disponíveis!",
-                0, "Faixa 1,5", naoDisponivel);
+                "Faixa 1,5", naoDisponivel, -18.975827, -48.275174);
         listaEmpreendimentos.add(empreendimentos);
 
         empreendimentos = new Empreendimentos("Residenciais Park",
@@ -590,7 +599,7 @@ public class CriarEmpreendimentos {
                 "• 40,00 m²\n• 2 quartos (0 suite)\n• 1 banheiro\n• 1 vagas na Garagem\n• Entre outros...",
                 "• Área Verde\n• Play-Ground\n• Área de Descanço\n• Entre outros...",
                 "• R. Atílio Spini\n• Shopping Park",
-                3, "Faixa 1,5", naoDisponivel);
+                "Faixa 1,5", naoDisponivel, -18.9901803, -48.2672743);
         listaEmpreendimentos.add(empreendimentos);
 
         empreendimentos = new Empreendimentos("Residenciais Alpha",
@@ -603,7 +612,7 @@ public class CriarEmpreendimentos {
                 "• 40,00 m²\n• 2 quartos (0 suite)\n• 1 banheiro\n• 1 vagas na Garagem\n• Entre outros...",
                 "• Área Verde\n• Play-Ground\n• Área de Descanço\n• Entre outros...",
                 "• R. dos Votos\n• Complexo Integração",
-                3, "Faixa 1,5", naoDisponivel);
+                "Faixa 1,5", naoDisponivel, -18.908925, -48.205216);
         listaEmpreendimentos.add(empreendimentos);
 
         listaImagens.clear();
@@ -621,7 +630,8 @@ public class CriarEmpreendimentos {
                 "Marca Registrada",
                 "• 44 ou 49 m²\n• 2 quartos (0 suite)\n• 1 banheiro\n• 1 vagas na Garagem\n• Entre outros...",
                 "• Varanda Gourmet\n• 2 Elevadores\n• Espaço kids\n• Praças e canteiros com paisagismo\n• Entre outros...",
-                "• R. Bétis, 305\n• Zona Sul de Uberlândia",  2, "Faixa 2", listaImagens);
+                "• R. Bétis, 305\n• Zona Sul de Uberlândia",  "Faixa 2", listaImagens,
+                -18.9653999, -48.2482812);
         listaEmpreendimentos.add(empreendimentos);
 
         //MRV COMPLETO
@@ -644,7 +654,8 @@ public class CriarEmpreendimentos {
                 "MRV",
                 "• 39,6 ou 46,46 m²\n• 2 quartos (0 suite)\n• 1 banheiro\n• 1 vagas na Garagem\n• Entre outros...",
                 "• Salão de festas\n• Playground\n• Espaço gourmet\n• Piscina adulto/infantil\n• Entre outros...",
-                "• Av. Manuel Lucio, 520\n• Grand Ville", 2, "Faixa 1,5", listaImagens);
+                "• Av. Manuel Lucio, 520\n• Grand Ville", "Faixa 1,5", listaImagens,
+                -18.9105246, -48.2170002);
         listaEmpreendimentos.add(empreendimentos);
 
         listaImagens.clear();
@@ -667,7 +678,8 @@ public class CriarEmpreendimentos {
                 "MRV",
                 "• 39,3 ou 46,46 m²\n• 2 quartos (0 suite)\n• 1 banheiro\n• 1 vagas na Garagem\n• Entre outros...",
                 "• Salão de Festas\n• Piscina adulto/infantil\n• Quadra Gramada e Poliesportiva\n• Espaço Gourmet\n• Entre outros...",
-                "• Av. dos Eucaliptos, 1140\n• Jardim Patrícia", 2, "Faixa 1,5", listaImagens);
+                "• Av. dos Eucaliptos, 1140\n• Jardim Patrícia", "Faixa 1,5", listaImagens,
+                -18.9128059, -48.3257193);
         listaEmpreendimentos.add(empreendimentos);
 
         listaImagens.clear();
@@ -689,7 +701,8 @@ public class CriarEmpreendimentos {
                 "MRV",
                 "• 41,14 ou 46,47 m²\n• 2 quartos (0 suite)\n• 1 banheiro\n• 1 vagas na Garagem\n• Entre outros...",
                 "• Salão de Festas\n• Playground\n• Espaço Gourmet\n• Piscinas Adulto e Infantil\n• Entre outros...",
-                "• Rua Aguapés, 800\n• Tubalina", 2, "Faixa 1,5", listaImagens);
+                "• Rua Aguapés, 800\n•Chácaras Tubalina", "Faixa 1,5", listaImagens,
+                -18.921933, -48.316037);
         listaEmpreendimentos.add(empreendimentos);
 
         listaImagens.clear();
@@ -710,7 +723,9 @@ public class CriarEmpreendimentos {
                 "MRV",
                 "• 39,3 ou 46,46 m²\n• 2 quartos (0 suite)\n• 1 banheiros\n• 1 vagas na Garagem\n• Entre outros...",
                 "• Salão de Festas\n• Playground\n• Espaço Fitness\n• Piscinas Adulto e Infantil\n• Entre outros...",
-                "• Rua Dolorita Elias do Nascimento, 220\n• Região do São Jorge", 2, "Faixa 1,5", listaImagens);
+                "• Rua Dolorita Elias do Nascimento, 220\n• Região do São Jorge",
+                "Faixa 1,5", listaImagens,
+                -18.9520644, -48.2359943);
         listaEmpreendimentos.add(empreendimentos);
 
         listaImagens.clear();
@@ -733,7 +748,8 @@ public class CriarEmpreendimentos {
                 "MRV",
                 "• 39,3 ou 46,49 m²\n• 2 quartos (0 suite)\n• 1 banheiros\n• 1 vagas na Garagem\n• Entre outros...",
                 "• Salão de Festas\n• Espaço Gourmet\n• Piscinas Adulto e Infantil\n• Espaço Kids\n• Entre outros...",
-                "• Alameda José de Oliveira Guimarães, 900\n• Jardim Holanda", 2, "Faixa 2", listaImagens);
+                "• Alameda José de Oliveira Guimarães, 900\n• Jardim Holanda",
+                "Faixa 2", listaImagens, -18.9566551,-48.3191597);
         listaEmpreendimentos.add(empreendimentos);
 
         listaImagens.clear();
@@ -757,7 +773,8 @@ public class CriarEmpreendimentos {
                 "MRV",
                 "• 41,14 ou 47,7 m²\n• 2 quartos (0 suite)\n• 1 banheiros\n• 1 vagas na Garagem\n• Entre outros...",
                 "• Salão de Festas\n• Playground\n• Quadra Poliesportiva\n• Espaço Gourmet\n• Entre outros...",
-                "• R Professora Maria Célia Cence\n• Região da Gávea", 2, "Faixa 2", listaImagens);
+                "• R Professora Maria Célia Cence\n• Região da Gávea","Faixa 2", listaImagens,
+                -18.9661300, -48.27963224);
         listaEmpreendimentos.add(empreendimentos);
 
         listaImagens.clear();
@@ -778,7 +795,8 @@ public class CriarEmpreendimentos {
                 "MRV",
                 "• 39,39 - 49,43 m²\n• 1-2 quartos (0-1 suite)\n• 1 banheiros\n• 1 vagas na Garagem\n• Entre outros...",
                 "• Salão de Festas\n• Playground\n• Espaço Gourmet\n• Piscinas Adulto e Infantil\n• Entre outros...",
-                "• Av. Rodrigo Pereira Júnior, 205\n• Roosvelt", 2, "Faixa 2", listaImagens);
+                "• Av. Rodrigo Pereira Júnior, 205\n• Roosvelt","Faixa 2", listaImagens,
+                -18.9017808, -48.2865066);
         listaEmpreendimentos.add(empreendimentos);
 
         listaImagens.clear();
@@ -800,7 +818,8 @@ public class CriarEmpreendimentos {
                 "MRV",
                 "• 44,01 m²\n• 2 quartos (0 suite)\n• 1 banheiros\n• 1 vagas na Garagem\n• Entre outros...",
                 "• Salão de Festas\n• Playgroung\n• Quadra Gramada\n• Gazebo\n• Entre outros...",
-                "• Rua Luiza Naves Flack, 150\n• Região da Gávea", 2, "Faixa 2", listaImagens);
+                "• Rua Luiza Naves Flack, 150\n• Região da Gávea","Faixa 2", listaImagens,
+                -18.970711, -48.274580);
         listaEmpreendimentos.add(empreendimentos);
 
         listaImagens.clear();
@@ -821,7 +840,8 @@ public class CriarEmpreendimentos {
                 "MRV",
                 "• 35,76 - 51,06 m²\n• 1-2 quartos (0-1 suite)\n• 1 banheiros\n• 1 vagas na Garagem\n• Entre outros...",
                 "• Salão de Festas\n• Playground\n• Espaço Fitness\n• Piscinas Adulto e Infantil\n• Entre outros...",
-                "• Av. Oscarina Cunha Chaves, 510\n• Copacabana", 2, "Faixa 2", listaImagens);
+                "• Av. Oscarina Cunha Chaves, 510\n• Copacabana", "Faixa 2", listaImagens,
+                -18.9395354, -48.2818682);
         listaEmpreendimentos.add(empreendimentos);
 
         //MAXI COMPLETO
@@ -846,7 +866,8 @@ public class CriarEmpreendimentos {
                 "MAXI",
                 "• 74,51 ou 107,29 m²\n• 2 ou 3 quartos (1 suite)\n• 2 banheiros\n• 2 vagas na Garagem\n• Entre outros...",
                 "• Piscina, spa e sauna\n• Espaço gourmet\n• Espaço fitness e kids\n• Salão de festas\n• Entre outros...",
-                "• Rua José Saramago, 1497\n• Santa Mônica", 4, "Acima", listaImagens);
+                "• Rua José Saramago, 1497\n• Santa Mônica",
+                "Acima", listaImagens, -18.925502, -48.248975);
         listaEmpreendimentos.add(empreendimentos);
 
         //MOR COMPLETO
@@ -867,7 +888,8 @@ public class CriarEmpreendimentos {
                 "MOR",
                 "• 45 m²\n• 2 quartos (0 suite)\n• 1 banheiros\n• 1 vagas na Garagem\n• Entre outros...",
                 "• Espaço de ginástica ao ar livre\n• Quiosque para eventos\n• Portaria \n• Depósito de lixo\n• Entre outros...",
-                "• Av. Sul Americana\n• Shopping Park", 2, "Faixa 1,5", listaImagens);
+                "• Av. Sul Americana\n• Shopping Park", "Faixa 1,5", listaImagens,
+                -18.979736, -48.277298);
         listaEmpreendimentos.add(empreendimentos);
 
         listaImagens.clear();
@@ -889,7 +911,8 @@ public class CriarEmpreendimentos {
                 "MOR",
                 "• 50 m²\n• 2 quartos (1 suite)\n• 2 banheiros\n• 1 vagas na Garagem\n• Entre outros...",
                 "• Espaço Gourmet\n• Salão de festas\n• Espaço de ginástica ao ar livre\n• Piscina adulto/infantil\n• Entre outros...",
-                "• Av. Sul Americana\n• Shopping Park", 2, "Faixa 2", listaImagens);
+                "• Av. Sul Americana\n• Shopping Park",  "Faixa 2", listaImagens,
+                -18.980191, -48.279035);
         listaEmpreendimentos.add(empreendimentos);
 
         //Opcao COMPLETO
@@ -913,7 +936,7 @@ public class CriarEmpreendimentos {
                 "• A partir de 47 m²\n• 2 quartos (0 suite)\n• 1 banheiros\n• 1 vagas na Garagem\n• Entre outros...",
                 "• Salão de festas e espaço para playground\n• Portaria projetada para funcionamento 24 h\n• Elevador\n• Gás canalizado\n• Entre outros...",
                 "• Avenida Platina, 545\n• Dona Zulmira",
-                0, "Faixa 2", listaImagens);
+                "Faixa 2", listaImagens, -18.911519, -48.311260);
         listaEmpreendimentos.add(empreendimentos);
 
         listaImagens.clear();
@@ -936,7 +959,7 @@ public class CriarEmpreendimentos {
                 "• 51,62 até 58,41 m²\n• 2 quartos (1 suite)\n• 2 banheiros\n• 1 vagas na Garagem\n• Entre outros...",
                 "• Salão de festas*\n• Espaço comum para churrasqueira*\n• Portaria projetada para 24 h\n• Elevador\n• Entre outros...",
                 "• Ainda não disponível!",
-                0, "Faixa 2", listaImagens);
+                "Faixa 2", listaImagens, -18.947939, -48.350186);
         listaEmpreendimentos.add(empreendimentos);
 
         listaImagens.clear();
@@ -959,7 +982,7 @@ public class CriarEmpreendimentos {
                 "• 51 m²\n• 2 quartos (1 suite)\n• 2 banheiros\n• 1 vagas na Garagem\n• Entre outros...",
                 "• Espaço para playground\n• Salão de festas*\n• Espaço comum para churrasqueira*\n• Elevador\n• Entre outros...",
                 "• Ainda não disponível!",
-                0, "Faixa 2", listaImagens);
+                "Faixa 2", listaImagens, 0.00000, 0.00000);
         listaEmpreendimentos.add(empreendimentos);
 
         empreendimentos = new Empreendimentos(
@@ -972,8 +995,8 @@ public class CriarEmpreendimentos {
                 "Opcao",
                 "• 51 m²\n• 2 quartos (1 suite)\n• 2 banheiros\n• 1 vagas na Garagem\n• Entre outros...",
                 "• Espaço para playground\n• Salão de festas*\n• Espaço comum para churrasqueira*\n• Elevador\n• Entre outros...",
-                "• Ainda não disponível!",
-                0, "Faixa 2", naoDisponivel);
+                "• Rua Monte Roraima, 181\n• São Jorge",
+                "Faixa 2", naoDisponivel, -18.9688751, -48.22366152);
         listaEmpreendimentos.add(empreendimentos);
 
         listaImagens.clear();
@@ -995,7 +1018,7 @@ public class CriarEmpreendimentos {
                 "• 59 m²\n• 2 quartos (1 suite)\n• 2 banheiros\n• 1 vagas na Garagem\n• Entre outros...",
                 "• Salão de festas e espaço para playground\n• Sacada\n• Elevador\n• Gás canalizado\n• Entre outros...",
                 "• R. Graça Aranha, 481\n• Tubalina",
-                0, "Faixa 2", listaImagens);
+                "Faixa 2", listaImagens, -18.940428, -48.297246);
         listaEmpreendimentos.add(empreendimentos);
 
         //PACHECO COMPLETO
@@ -1020,7 +1043,7 @@ public class CriarEmpreendimentos {
                 "• 67 m²\n• 2 quartos (1 suite)\n• 2 banheiros\n• 2 vagas na Garagem\n• Entre outros...",
                 "• Estrutura para ar condicionado split\n• Estrutura para portaria 24h\n• 2 elevadores\n• Espaço de convivência com salão de festas\n• Entre outros...",
                 "• R. João Velasco de Andrade, 218\n• Santa Mônica",
-                0, "Acima", listaImagens);
+                "Acima", listaImagens, -18.912732, -48.252659);
         listaEmpreendimentos.add(empreendimentos);
 
         empreendimentos = new Empreendimentos(
@@ -1034,7 +1057,7 @@ public class CriarEmpreendimentos {
                 "• 88, 92 ou 98 m²\n• 2 ou 3 quartos (1 suite)\n• 2 banheiros\n• 2 ou 3 vagas na Garagem\n• Entre outros...",
                 "• Estrutura para ar condicionado split\n• Estrutura para portaria 24h\n• 2 elevadores\n• Espaço de convivência com salão de festas\n• Entre outros...",
                 "• R. Antônia Saltão de Almeida\n• Jardim Finotti",
-                0, "Acima", naoDisponivel);
+                "Acima", naoDisponivel, -18.923696, -48.260475);
         listaEmpreendimentos.add(empreendimentos);
 
         listaImagens.clear();
@@ -1057,7 +1080,7 @@ public class CriarEmpreendimentos {
                 "• 120 e 125 m²\n• 3 quartos (3 suite)\n• 4 banheiros\n• 3 vagas na Garagem\n• Entre outros...",
                 "• Estrutura para automação\n• 2 elevadores\n• Piscina com deck\n• Academia\n• Entre outros...",
                 "• Rua Carajás, 1148\n• Lídice",
-                0, "Acima", listaImagens);
+                "Acima", listaImagens, -18.923962, -48.273261);
         listaEmpreendimentos.add(empreendimentos);
 
         listaImagens.clear();
@@ -1079,7 +1102,7 @@ public class CriarEmpreendimentos {
                 "• 197 m²\n• 3 ou 4 quartos (3 ou 2 suite)\n• 4 banheiros\n• 3 vagas na Garagem\n• Entre outros...",
                 "• Academia equipada, sauna e spa\n• Brinquedoteca\n• Espaço gourmet\n• 2 elevadores\n• Entre outros...",
                 "• Rua Padre Anchieta, 46\n• Lídice",
-                0, "Acima", listaImagens);
+                "Acima", listaImagens, -18.923221, -48.275812);
         listaEmpreendimentos.add(empreendimentos);
 
         //PDCA COMPLETO
@@ -1100,7 +1123,7 @@ public class CriarEmpreendimentos {
                 "• 44,20 m²\n• 2 quartos (0 suite)\n• 1 banheiros\n• 1 vagas na Garagem\n• Entre outros...",
                 "• Casa em condomínio fechado",
                 "• R. 2A3-02\n• Pequis",
-                0, "Faixa 1,5", listaImagens);
+                "Faixa 1,5", listaImagens, -18.970602, -48.367926);
         listaEmpreendimentos.add(empreendimentos);
 
         //Portento COMPLETO
@@ -1118,7 +1141,8 @@ public class CriarEmpreendimentos {
                 "Portento",
                 "• 42 m²\n• 2 quartos (0 suite)\n• 1 banheiros\n• 1 vagas na Garagem\n• Entre outros...",
                 "• Garagem Coberta\n• Sacata em todas as unidades\n• Cozinha e sala interligadas\n• Varanda Gourmet com churrasqueira\n• Entre outros...",
-                "• Rua Athos Paranhos, 920\n• Tubalina", 0 , "Faixa 2", listaImagens);
+                "• Rua Athos Paranhos, 920\n• Tubalina", "Faixa 2", listaImagens,
+                -18.939161, -48.299913);
         listaEmpreendimentos.add(empreendimentos);
 
         listaImagens.clear();
@@ -1134,7 +1158,8 @@ public class CriarEmpreendimentos {
                 "Portento",
                 "• 45 m²\n• 2 quartos (0 suite)\n• 1 banheiros\n• 1 vagas na Garagem\n• Entre outros...",
                 "Ainda não disponível!",
-                "• Rua Afonso Arinos de Melo Franco 382\n• Tubalina", 0 , "Faixa 2", listaImagens);
+                "• Rua Afonso Arinos de Melo Franco 382\n• Tubalina","Faixa 2", listaImagens,
+                -18.933384, -48.299948);
         listaEmpreendimentos.add(empreendimentos);
 
         listaImagens.clear();
@@ -1151,7 +1176,9 @@ public class CriarEmpreendimentos {
                 "Portento",
                 "• 46 e 47 m²\n• 2 quartos (0 suite)\n• 1 banheiros\n• 1 vagas na Garagem\n• Entre outros...",
                 "• Cozinha e sala separadas\n• Bancadas em granito\n• Sacadas na sala e cozinha\n• Garagem com vaga dupla\n• Entre outros...",
-                "• Av Alice de Oliveira e Silva, 200\n• Jardins das Palmeiras", 0 , "Faixa 2", listaImagens);
+                "• Av Alice de Oliveira e Silva, 200\n• Jardins das Palmeiras",
+                "Faixa 2", listaImagens,
+                -18.9960109, -48.316545);
         listaEmpreendimentos.add(empreendimentos);
 
         listaImagens.clear();
@@ -1166,7 +1193,8 @@ public class CriarEmpreendimentos {
                 "Portento",
                 "• 47 e 48 m²\n• 2 quartos (0 suite)\n• 1 banheiros\n• 1 vagas na Garagem\n• Entre outros...",
                 "• Cozinha e sala separadas\n• Bancadas em granito\n• Sacadas na sala e cozinha\n• Garagem com vaga dupla\n• Entre outros...",
-                "• Rua Estrela do Sul, 2810\n• Martins", 0 , "Faixa 2", listaImagens);
+                "• Rua Estrela do Sul, 2810\n• Martins",  "Faixa 2", listaImagens,
+                -18.912071, -48.299931);
         listaEmpreendimentos.add(empreendimentos);
 
         listaImagens.clear();
@@ -1183,7 +1211,8 @@ public class CriarEmpreendimentos {
                 "Portento",
                 "• 96 m²\n• 3 quartos (2 suite)\n• 3 banheiros\n• 2 vagas na Garagem\n• Entre outros...",
                 "• Escadas e elevador\n• Varanda Gourmet com churrasqueira\n• Pontos para ar condicionado (4 pontos)\n• Janelas em blindex na área social\n• Entre outros...",
-                "• Rua José Humberto Alves, 54\n• Copacabana", 0 , "Acima", listaImagens);
+                "• Rua José Humberto Alves, 54\n• Copacabana", "Acima", listaImagens,
+                -18.937114, -48.283756);
         listaEmpreendimentos.add(empreendimentos);
 
         //R. Freitas COMPLETO
@@ -1205,7 +1234,8 @@ public class CriarEmpreendimentos {
                 "• 64,90 ou 80,90 m²\n• 2 quartos (0 suite)\n• 1 banheiros\n• 1 vagas na Garagem\n• Entre outros...",
                 "• Casas independentes (não geminadas)\n• Área de Lazer\n• Quadra Poliesportiva\n• Segurança\n• Entre outros...",
                 "• R. do Marmelo\n• Pacaembu",
-                0, "Faixa 2", listaImagens);
+                "Faixa 2", listaImagens,
+                -18.880146, -48.297098);
         listaEmpreendimentos.add(empreendimentos);
 
         listaImagens.clear();
@@ -1227,7 +1257,8 @@ public class CriarEmpreendimentos {
                 "• 77 m²\n• 2 quartos (2 suite)\n• 2 banheiros\n• 2 vagas na Garagem\n• Entre outros...",
                 "• 2 elevadores\n• Instalação para A/C split\n• Área de Lazer\n• \n• Entre outros...",
                 "• Rua Eduardo Marquez, 350\n• Martins.",
-                0, "Acima", listaImagens);
+                "Acima", listaImagens,
+                -18.916850, -48.283689);
         listaEmpreendimentos.add(empreendimentos);
 
         listaImagens.clear();
@@ -1248,7 +1279,8 @@ public class CriarEmpreendimentos {
                 "• Até 84 m²\n• 2 quartos (1 suite)\n• 2 banheiros\n• - vagas na Garagem\n• Entre outros...",
                 "• Espaço FItness\n• Espaço Gourmet\n• Piscina\n• Otima localização\n• Entre outros...",
                 "• R. Quinze de Novembro, 743\n• Centro",
-                0, "Acima", listaImagens);
+                "Acima", listaImagens,
+                -18.924512, -48.289580);
         listaEmpreendimentos.add(empreendimentos);
 
         //Realiza COMPLETO
@@ -1273,7 +1305,8 @@ public class CriarEmpreendimentos {
                 "• 68,66 até 191,76 m²\n• 2 ou 3 quartos (2 ou 3 suite)\n• 3 ou 4 banheiros\n• 3 vagas na Garagem\n• Entre outros...",
                 "• SEGURANÇA 24H COM MONITORAMENTO POR CÂMERA DE VÍDEO\n• ACADEMIA\n• PLAYGROUND\n• PISCINA\n• Entre outros...",
                 "• Rua Rezende\n• Centro",
-                0 , "Acima", listaImagens);
+                "Acima", listaImagens,
+                -18.918045, -48.270920);
         listaEmpreendimentos.add(empreendimentos);
 
         listaImagens.clear();
@@ -1296,7 +1329,8 @@ public class CriarEmpreendimentos {
                 "• 144,22 até 200 m²\n• 3 ou 4 quartos (3 ou 4 suite)\n• 4 banheiros\n• 3 vagas na Garagem\n• Entre outros...",
                 "• ESPAÇO GOURMET\n• GUARDA MOTORIZADA\n• PLAYGROUND\n• QUADRA POLIESPORTIVA COM SAUNA\n• Entre outros...",
                 "• Rua E Lote 02 Quadra F\n• Granja Marileusa",
-                0 , "Acima", listaImagens);
+                "Acima", listaImagens,
+                -18.874486, -48.246085);
         listaEmpreendimentos.add(empreendimentos);
 
         //TROIA
@@ -1312,7 +1346,8 @@ public class CriarEmpreendimentos {
                 "• 135 m²\n• 3 quartos (1 suite)\n• 2 banheiros\n• 2 a 3 vagas na Garagem\n• Entre outros...",
                 "• Salão de festas\n• Espaço gourmet\n• Espaço Brinquedoteca\n• 2 Elevadores\n• Entre outros...",
                 "• Rua Senhor dos Passos, 590\n• Tubalina ",
-                0, "Acima", naoDisponivel);
+                "Acima", naoDisponivel,
+                -18.936585, -48.294116);
         listaEmpreendimentos.add(empreendimentos);
 
         //URBANI
@@ -1328,7 +1363,7 @@ public class CriarEmpreendimentos {
                 "• 43 e 45,35 m²\n• 2 quartos (0 suite)\n• 1 banheiros\n• 1 vagas na Garagem\n• Entre outros...",
                 "• Playground\n• Academia\n• Espaço de Lazer\n• Piscina\n• Entre outros...",
                 "• Av. Castela\n• Laranjeiras",
-                0, "Faixa 2", naoDisponivel);
+                "Faixa 2", naoDisponivel,-18.963645, -48.248534);
         listaEmpreendimentos.add(empreendimentos);
 
         //Vivamus
@@ -1349,7 +1384,8 @@ public class CriarEmpreendimentos {
                 "• 47 m²\n• 2 quartos (1 suite)\n• 2 banheiros\n• 1 vagas na Garagem\n• Entre outros...",
                 "• 100% Acessível\n• Salão de Festas\n• Playground\n• Entre outros...",
                 "• Alameda José de Oliveira Guimarães\n• Jardim Holanda",
-                0, "Faixa 1,5", listaImagens);
+                "Faixa 1,5", listaImagens,
+                -18.9572098, -48.322110);
         listaEmpreendimentos.add(empreendimentos);
 
         listaImagens.clear();
@@ -1372,7 +1408,8 @@ public class CriarEmpreendimentos {
                 "• 57 m²\n• 2 quartos (1 suite)\n• 2 banheiros\n• 2 vagas na Garagem\n• Entre outros...",
                 "• Pista de Corrida\n• Piscinas\n• Quadra Poliesportiva\n• Espaço Gourmet\n• Entre outros...",
                 "• Alameda José de Oliveira Guimarães\n• Jardim Holanda",
-                0, "Faixa 2", listaImagens);
+                "Faixa 2", listaImagens,
+                -18.957149, -48.322014);
         listaEmpreendimentos.add(empreendimentos);
 
         return listaEmpreendimentos;

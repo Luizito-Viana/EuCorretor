@@ -21,8 +21,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.transition.Explode;
-import android.transition.Fade;
-import android.transition.Slide;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -30,22 +28,18 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.eurezzolve.eucorretor.R;
 import com.eurezzolve.eucorretor.activities.secundarias.DescricaoEmpActivity;
-import com.eurezzolve.eucorretor.activities.secundarias.FiltrarActivity;
 import com.eurezzolve.eucorretor.activities.secundarias.TabelasEmpActivity;
 import com.eurezzolve.eucorretor.activities.secundarias.TabelasEmpM2Activity;
 import com.eurezzolve.eucorretor.adapter.AdapterEmp;
 import com.eurezzolve.eucorretor.config.ConfiguracaoFirebase;
 import com.eurezzolve.eucorretor.helper.CriarEmpreendimentos;
-import com.eurezzolve.eucorretor.model.Config;
 import com.eurezzolve.eucorretor.model.Empreendimentos;
-import com.eurezzolve.eucorretor.model.ImagensEmp;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -230,7 +224,8 @@ public class EmpreendimentosActivity extends AppCompatActivity {
     private void recuperarEmpreendimentos() {
         listaEmpreendimentos.clear();
 
-        /*listaEmpreendimentos = CriarEmpreendimentos.retornaEmp();
+        /*
+        listaEmpreendimentos = CriarEmpreendimentos.retornaEmp();
         Log.d("Lista", "recuperarEmpreendimentos: " + listaEmpreendimentos.get(0).getNome());
         for(Empreendimentos emp : listaEmpreendimentos){
             emp.salvar();
@@ -249,6 +244,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
                     break;
             }
         }*/
+
 
         empRef = reference.child("listaEmp");
         valueEventListenerEmp = empRef.addValueEventListener(new ValueEventListener() {

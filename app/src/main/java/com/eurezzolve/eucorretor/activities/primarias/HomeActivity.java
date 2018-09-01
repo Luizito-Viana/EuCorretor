@@ -16,6 +16,7 @@ import android.location.Geocoder;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -211,14 +212,13 @@ public class HomeActivity extends AppCompatActivity
         transactionTer.commit();
     }
 
+    @Nullable
     private Address recuperarEndereco(String enderecoDestino) {
         Geocoder geocoder = new Geocoder(this, Locale.getDefault());
         try {
             List<Address> listaEnderecos = geocoder.getFromLocationName(enderecoDestino, 1);
             if( listaEnderecos != null && listaEnderecos.size() > 0){
-                Address address = listaEnderecos.get(0);
-
-                return address;
+                return listaEnderecos.get(0);
             }
         } catch (Exception e) {
             Toast.makeText(HomeActivity.this, "Não foi possível recuperar o endereço!", Toast.LENGTH_SHORT).show();
@@ -250,7 +250,6 @@ public class HomeActivity extends AppCompatActivity
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.home, menu);
 
         MenuItem item = menu.findItem(R.id.searchHome);
@@ -324,18 +323,20 @@ public class HomeActivity extends AppCompatActivity
                 transaction.commit(); //Aplica o commit, para verificar se esta tudo certo
                 break;
             case R.id.bottom_terceiros:
-                /*Trocando para os Fragment de Terceiros*/
+                /*Trocando para os Fragment de Terceiros
                 fragmentManager = getSupportFragmentManager();
                 FragmentTransaction transactionTer = fragmentManager.beginTransaction();
                 transactionTer.replace(R.id.containerPrincipal, new TerceirosFragment());
-                transactionTer.commit();
+                transactionTer.commit();*/
+                Toast.makeText(this, "Será implementado na versão 2.0!", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.bottom_terrenos:
-                /*Trocando para os Fragment de Terrenos*/
+                /*Trocando para os Fragment de Terrenos
                 fragmentManager = getSupportFragmentManager();
                 FragmentTransaction transactionTerrenos = fragmentManager.beginTransaction();
                 transactionTerrenos.replace(R.id.containerPrincipal, new TerrenosFragment());
-                transactionTerrenos.commit();
+                transactionTerrenos.commit();*/
+                Toast.makeText(this, "Será implementado na versão 2.0!", Toast.LENGTH_SHORT).show();
                 break;
         }
 

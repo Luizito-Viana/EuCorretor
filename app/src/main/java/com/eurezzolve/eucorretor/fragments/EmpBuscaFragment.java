@@ -19,6 +19,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.eurezzolve.eucorretor.activities.primarias.HomeActivity;
 import com.eurezzolve.eucorretor.activities.secundarias.DescricaoEmpActivity;
@@ -54,6 +55,8 @@ public class EmpBuscaFragment extends SupportMapFragment
     private String titulo, subtitulo;
     private Double latitude,longitude;
 
+    private Empreendimentos emp;
+
     private List<Empreendimentos> empreendimentos = new ArrayList<>();
     private DatabaseReference reference = ConfiguracaoFirebase.getFirebaseDatabase().child("listaEmp");
 
@@ -75,10 +78,19 @@ public class EmpBuscaFragment extends SupportMapFragment
         super.onCreate(savedInstanceState);
         Bundle args = getArguments();
         if(args != null){
+            //emp = (Empreendimentos) args.getSerializable("info");
             titulo = args.getString("titulo");
             subtitulo = args.getString("subtitulo");
             latitude = args.getDouble("latitude");
             longitude = args.getDouble("longitude");
+
+            if(latitude == 0.00000 || longitude == 0.00000){
+                latitude = -18.921170;
+                longitude = -48.275920;
+                titulo = "UdiConfiança Imóveis";
+                subtitulo = "Mais de 10 anos de mercado";
+                Toast.makeText(getActivity().getApplicationContext(), "Informações de mapa não disponíveis", Toast.LENGTH_SHORT).show();
+            }
         }
         getMapAsync(this);
     }
