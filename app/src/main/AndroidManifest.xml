@@ -53,7 +53,7 @@
             android:label="@string/title_activity_home"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"
-            android:windowSoftInputMode="adjustPan"/>
+            android:windowSoftInputMode="adjustPan" />
 
         <meta-data
             android:name="preloaded_fonts"
@@ -108,6 +108,7 @@
             android:name=".activities.primarias.EmpreendimentosActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
+
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -120,7 +121,7 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyBgk8RutXjUkDPtQ5kq3bioeDC4E06JnTQ" />
 
-    <!-- Aqui temos a Notificacao -->
+        <!-- Aqui temos a Notificacao -->
         <activity
             android:name=".activities.secundarias.NotificacaoActivity"
             android:screenOrientation="portrait" />
@@ -170,13 +171,20 @@
             android:name=".activities.primarias.TerrenosActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".activities.secundarias.TabelasTerceirosActivity" />
-        <activity android:name=".activities.secundarias.DuvidasSimplificadaActivity" />
-        <activity android:name=".activities.secundarias.FiltrarActivity" />
-        <activity android:name=".activities.terciarias.RespostasActivity" />
-        <activity android:name=".activities.primarias.ContatosActivity" />
-        <activity android:name=".activities.secundarias.AddContatoActivity" />
-        <activity android:name=".activities.secundarias.DetalheClienteActivity"></activity>
+        <activity android:name=".activities.secundarias.TabelasTerceirosActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activities.secundarias.DuvidasSimplificadaActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activities.terciarias.RespostasActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activities.primarias.ContatosActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activities.secundarias.AddContatoActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activities.secundarias.DetalheClienteActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activities.secundarias.EditarClienteActivity"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

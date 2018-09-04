@@ -40,7 +40,18 @@ public class Empreendimentos implements Serializable{
     private Double longitude;
     private List<String> listaImagens;
 
+
     public Empreendimentos() {
+    }
+
+
+    public void salvarConstrutora(){
+        DatabaseReference firebase = ConfiguracaoFirebase.getFirebaseDatabase();
+
+        firebase.child("listaEmpPorConst")
+                .child(codigoConst)
+                .child(codigo)
+                .setValue(this);
     }
 
     public void salvarFaixa(int id) {
@@ -78,20 +89,6 @@ public class Empreendimentos implements Serializable{
         firebase.child("listaEmp")
                 .child(codigo)
                 .setValue(this);
-    }
-
-    public void salvarAtual(){
-        DatabaseReference firebase = ConfiguracaoFirebase.getFirebaseDatabase();
-        firebase.child("listaEmpCompleta")
-                .child(codigo)
-                .setValue(this);
-
-        if(listaImagens.size() > 0){
-            Log.d("TAG", "salvarAtual: " + "Salvou");
-        } else {
-            Log.d("TAG", "salvarAtual: " + "Salvou Errado");
-        }
-
     }
 
     /*Esse é o COMPLETO */
@@ -247,5 +244,4 @@ public class Empreendimentos implements Serializable{
     public void setLongitude(Double longitude) {
         this.longitude = longitude;
     }
-
 }

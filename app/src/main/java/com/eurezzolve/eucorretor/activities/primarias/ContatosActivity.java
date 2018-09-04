@@ -92,11 +92,8 @@ public class ContatosActivity extends AppCompatActivity {
                     public void onItemClick(View view, int position) {
                         Clientes cliente = listaClientes.get(position);
                         Intent intent = new Intent(ContatosActivity.this, DetalheClienteActivity.class);
-                        intent.putExtra("nomeCliente", cliente.getNomeCliente());
-                        intent.putExtra("telefoneCliente", cliente.getTelefoneCliente());
-                        intent.putExtra("interesseCliente", cliente.getInteresseCliente());
+                        intent.putExtra("cliente", cliente);
                         startActivity(intent);
-
                     }
 
                     @Override

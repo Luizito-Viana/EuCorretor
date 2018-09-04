@@ -1,5 +1,5 @@
 /*
- * Desenvolvido por Luiz F. Viana em 20/08/18 08:36
+ * Desenvolvido por Luiz F. Viana em 03/09/18 11:30
  * Todos os direitos reservados.
  * Este aplicativo ou qualquer parte dele não pode ser reproduzido ou usado de forma alguma
  * sem autorização expressa, por escrito, do autor.
@@ -11,11 +11,10 @@ package com.eurezzolve.eucorretor.activities.secundarias;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.CompoundButton;
 import android.widget.EditText;
-import android.widget.Switch;
 import android.widget.Toast;
 
 import com.eurezzolve.eucorretor.R;
@@ -26,32 +25,42 @@ import com.github.angads25.toggle.LabeledSwitch;
 import com.github.angads25.toggle.interfaces.OnToggledListener;
 import com.google.firebase.database.DatabaseReference;
 
-public class AddContatoActivity extends AppCompatActivity {
+public class EditarClienteActivity extends AppCompatActivity {
 
     private int escolha = 0;
     private LabeledSwitch switchModelo;
     private EditText editNomeCliente, editTelefoneCliente, editInteresseCliente;
     private FloatingActionButton fabConfirmar;
     private LabeledSwitch swCasado, swCarteira, swFilhos;
+    private Clientes clientes;
+    private String codigo;
 
     private DatabaseReference reference = ConfiguracaoFirebase.getFirebaseDatabase().child("clientes");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_contato);
+        setContentView(R.layout.activity_editar_cliente);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
-        getSupportActionBar().setTitle("Adicionar Contato");
+        getSupportActionBar().setTitle("Editar Contato");
 
-        switchModelo = findViewById(R.id.swModeloContato);
-        editInteresseCliente = findViewById(R.id.editInteresseCliente);
-        editNomeCliente = findViewById(R.id.editNomeCliente);
-        editTelefoneCliente = findViewById(R.id.editTelefoneCliente);
-        fabConfirmar = findViewById(R.id.fabConfirmarCadastro);
-        swCasado = findViewById(R.id.swCasado);
-        swCarteira = findViewById(R.id.swCarteira);
-        swFilhos = findViewById(R.id.swFilho);
+        switchModelo = findViewById(R.id.swModeloContatoEditar);
+        editInteresseCliente = findViewById(R.id.editInteresseClienteEditar);
+        editNomeCliente = findViewById(R.id.editNomeClienteEditar);
+        editTelefoneCliente = findViewById(R.id.editTelefoneClienteEditar);
+        fabConfirmar = findViewById(R.id.fabConfirmarEdicao);
+        swCasado = findViewById(R.id.swCasadoEditar);
+        swCarteira = findViewById(R.id.swCarteiraEditar);
+        swFilhos = findViewById(R.id.swFilhoEditar);
+
+        /*Busca da activity anterior*/
+        Bundle dados = getIntent().getExtras();
+        clientes = (Clientes) dados.getSerializable("info");
+
+        if(clientes != null){
+            inicializaComponentes();
+        }
 
         switchModelo.setOnToggledListener(new OnToggledListener() {
             @Override
@@ -71,12 +80,40 @@ public class AddContatoActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if(testarEditTextVazio()){
                     cadastrarCliente(escolha);
-                    Toast.makeText(AddContatoActivity.this, "Sucesso ao cadastrar!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(EditarClienteActivity.this, "Sucesso ao cadastrar!", Toast.LENGTH_SHORT).show();
                     finish();
                 }
             }
         });
+    }
 
+    private void inicializaComponentes() {
+        codigo = clientes.getCodigoCliente();
+        Log.d("EditarClientes", "inicializaComponentes: " + codigo);
+        editNomeCliente.setText(clientes.getNomeCliente());
+        editTelefoneCliente.setText(clientes.getTelefoneCliente());
+        editInteresseCliente.setText(clientes.getInteresseCliente());
+
+        if(clientes.getCasadoCliente().equals("SIM"))
+            swCasado.setOn(true);
+        else
+            swCasado.setOn(false);
+
+        if(clientes.getFilhoMenorIdade().equals("SIM"))
+            swFilhos.setOn(true);
+        else
+            swFilhos.setOn(false);
+
+        if(clientes.getCarteiraAssinada().equals("SIM"))
+            swCarteira.setOn(true);
+        else
+            swCarteira.setOn(false);
+
+        if(clientes.getModeloCliente() == 0){
+            switchModelo.setOn(false);
+        } else{
+            switchModelo.setOn(true);
+        }
     }
 
     private void cadastrarCliente(int escolhaModelo) {
@@ -89,10 +126,6 @@ public class AddContatoActivity extends AppCompatActivity {
         cliente.setCasadoCliente(swCasado.isOn() ? "SIM" : "NÃO");
         cliente.setFilhoMenorIdade(swFilhos.isOn() ? "SIM" : "NÃO");
 
-        String codigo = editNomeCliente.getText().toString().toLowerCase();
-        codigo = codigo.replace(" ", "_");
-        codigo = GeradorChaveAleatoria.geraAleatoria(codigo);
-
         cliente.setCodigoCliente(codigo);
         cliente.salvar();
     }
@@ -103,15 +136,15 @@ public class AddContatoActivity extends AppCompatActivity {
                 if(!editTelefoneCliente.getText().toString().isEmpty()){
                     return true;
                 } else {
-                    Toast.makeText(AddContatoActivity.this, "Preencha o Interesse do Cliente!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(EditarClienteActivity.this, "Preencha o Interesse do Cliente!", Toast.LENGTH_SHORT).show();
                     return false;
                 }
             } else {
-                Toast.makeText(AddContatoActivity.this, "Preencha o Telefone!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(EditarClienteActivity.this, "Preencha o Telefone!", Toast.LENGTH_SHORT).show();
                 return false;
             }
         } else {
-            Toast.makeText(AddContatoActivity.this, "Preencha o nome!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(EditarClienteActivity.this, "Preencha o nome!", Toast.LENGTH_SHORT).show();
             return false;
         }
     }

@@ -16,7 +16,12 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_marginTop="4dp"
+        android:layout_marginRight="4dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginStart="4dp">
 
         <Button
             android:id="@+id/btnFaixa"
@@ -24,32 +29,41 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="FAIXA"
-            android:textColor="@color/colorPrimary"
+            android:background="@drawable/button_filtro_faixa"
             android:fontFamily="@font/andika"
-            android:onClick="filtrarPorFaixaEsc"/>
+            android:onClick="filtrarPorFaixaEsc"
+            android:text="Faixa"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:textAllCaps="true"/>
+
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="|" />
+            android:text=" "/>
 
         <Button
-            android:id="@+id/btnConstrutora"
+            android:id="@+id/btnContrutora"
             style="?attr/buttonBarButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="CONSTRUTORA"
-            android:textColor="@color/colorPrimary"
+            android:background="@drawable/button_filtro_faixa"
             android:fontFamily="@font/andika"
-            android:onClick="filtrarPorConstrutoraEsc"/>
+            android:onClick="filtrarPorConstrutoraEsc"
+            android:text="Const."
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:textStyle="normal"
+            android:textAllCaps="true"/>
 
     </LinearLayout>
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginTop="4dp">
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recyclerPostagem"

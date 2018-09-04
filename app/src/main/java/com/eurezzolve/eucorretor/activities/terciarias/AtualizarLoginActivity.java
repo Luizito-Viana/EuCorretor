@@ -11,9 +11,11 @@ package com.eurezzolve.eucorretor.activities.terciarias;
 import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.eurezzolve.eucorretor.R;
 import com.eurezzolve.eucorretor.model.DadosUsuario;
@@ -23,6 +25,7 @@ public class AtualizarLoginActivity extends AppCompatActivity {
     private Button buttonAtualizar;
     private DadosUsuario dadosUsuario;
     private TextInputEditText campoTelefone, campoEmpresa, campoCreci;
+    private String telefone, creci, empresa;
 
     //OnCreate
     @Override
@@ -32,6 +35,14 @@ public class AtualizarLoginActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setTitle("Atualizar Perfil");
+
+        /*Recupera os dados passados na Activity anterior*/
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            telefone = extras.getString("telefone");
+            empresa = extras.getString("empresa");
+            creci = extras.getString("creci");
+        }
 
         campoCreci = (TextInputEditText) findViewById(R.id.editTextCreci);
         campoEmpresa = (TextInputEditText) findViewById(R.id.editTextEmpresa);
@@ -55,9 +66,24 @@ public class AtualizarLoginActivity extends AppCompatActivity {
     //Atualiza o perfil do usuario
     public void atualizarPerfilUsuario(View view) {
         dadosUsuario = new DadosUsuario();
-        dadosUsuario.setTelefone(campoTelefone.getText().toString());
-        dadosUsuario.setEmpresa(campoEmpresa.getText().toString());
-        dadosUsuario.setCreci(campoCreci.getText().toString());
+        if(!campoTelefone.getText().toString().equals("")){
+            dadosUsuario.setTelefone(campoTelefone.getText().toString());
+        } else {
+            dadosUsuario.setTelefone(telefone);
+        }
+
+        if(!campoEmpresa.getText().toString().equals("")){
+            dadosUsuario.setEmpresa(campoEmpresa.getText().toString());
+        } else {
+            dadosUsuario.setEmpresa(empresa);
+        }
+
+        if(!campoCreci.getText().toString().equals("")){
+            dadosUsuario.setCreci(campoCreci.getText().toString());
+        } else {
+            dadosUsuario.setCreci(creci);
+        }
+
         dadosUsuario.salvar();
         finish();
     }

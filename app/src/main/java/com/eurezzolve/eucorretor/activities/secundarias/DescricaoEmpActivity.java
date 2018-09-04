@@ -47,7 +47,6 @@ public class DescricaoEmpActivity extends AppCompatActivity {
     private ImageView imageView;
 
     /*Elementos de descricao*/
-    //private ImageSwitcher imageSwitcher;
     private CarouselView carouselView;
     private int idx = 0;
     private TextView textInfo, textLocalizacao, textDescricaoEmp;

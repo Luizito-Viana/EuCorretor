@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  ~ Desenvolvido por Luiz F. Viana em 20/08/18 08:36
+  ~ Desenvolvido por Luiz F. Viana em 03/09/18 11:30
   ~ Todos os direitos reservados.
   ~ Este aplicativo ou qualquer parte dele não pode ser reproduzido ou usado de forma alguma
   ~ sem autorização expressa, por escrito, do autor.
   ~ Copyright © 2018
   -->
 
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.eurezzolve.eucorretor.activities.secundarias.AddContatoActivity">
+    tools:context="com.eurezzolve.eucorretor.activities.secundarias.EditarClienteActivity">
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
@@ -70,7 +70,7 @@
                     tools:layout_editor_absoluteY="190dp" />
 
                 <EditText
-                    android:id="@+id/editNomeCliente"
+                    android:id="@+id/editNomeClienteEditar"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="8dp"
@@ -96,7 +96,7 @@
                     tools:ignore="VectorDrawableCompat" />
 
                 <EditText
-                    android:id="@+id/editTelefoneCliente"
+                    android:id="@+id/editTelefoneClienteEditar"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="8dp"
@@ -126,7 +126,7 @@
                     tools:ignore="VectorDrawableCompat" />
 
                 <EditText
-                    android:id="@+id/editInteresseCliente"
+                    android:id="@+id/editInteresseClienteEditar"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="8dp"
@@ -172,7 +172,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <com.github.angads25.toggle.LabeledSwitch
-                    android:id="@+id/swCasado"
+                    android:id="@+id/swCasadoEditar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="16dp"
@@ -217,7 +217,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <com.github.angads25.toggle.LabeledSwitch
-                    android:id="@+id/swFilho"
+                    android:id="@+id/swFilhoEditar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="16dp"
@@ -262,7 +262,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <com.github.angads25.toggle.LabeledSwitch
-                    android:id="@+id/swCarteira"
+                    android:id="@+id/swCarteiraEditar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="16dp"
@@ -276,7 +276,7 @@
         </LinearLayout>
 
         <com.github.angads25.toggle.LabeledSwitch
-            android:id="@+id/swModeloContato"
+            android:id="@+id/swModeloContatoEditar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
@@ -299,7 +299,7 @@
             android:text="Azul"
             android:textAlignment="textEnd"
             android:textSize="16sp"
-            app:layout_constraintEnd_toStartOf="@+id/swModeloContato"
+            app:layout_constraintEnd_toStartOf="@+id/swModeloContatoEditar"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
             android:gravity="end" />
@@ -315,12 +315,12 @@
             android:text="Vermelho"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/swModeloContato"
+            app:layout_constraintStart_toEndOf="@+id/swModeloContatoEditar"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
 
 
         <android.support.design.widget.FloatingActionButton
-            android:id="@+id/fabConfirmarCadastro"
+            android:id="@+id/fabConfirmarEdicao"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
@@ -332,10 +332,10 @@
             app:layout_constraintBottom_toBottomOf="@id/clPrincipal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/swModeloContato"
+            app:layout_constraintTop_toBottomOf="@id/swModeloContatoEditar"
             app:srcCompat="@drawable/ic_confirmar_cadastro" />
 
 
     </android.support.constraint.ConstraintLayout>
 
-</ScrollView>
+</android.support.constraint.ConstraintLayout>

@@ -1,5 +1,5 @@
 <!--
-  ~ Desenvolvido por Luiz F. Viana em 20/08/18 10:58
+  ~ Desenvolvido por Luiz F. Viana em 02/09/18 22:09
   ~ Todos os direitos reservados.
   ~ Este aplicativo ou qualquer parte dele não pode ser reproduzido ou usado de forma alguma
   ~ sem autorização expressa, por escrito, do autor.
@@ -13,5 +13,5 @@
         android:viewportHeight="24.0">
     <path
         android:fillColor="#00bcd4"
-        android:pathData="M12,7L12,3L2,3v18h20L22,7L12,7zM6,19L4,19v-2h2v2zM6,15L4,15v-2h2v2zM6,11L4,11L4,9h2v2zM6,7L4,7L4,5h2v2zM10,19L8,19v-2h2v2zM10,15L8,15v-2h2v2zM10,11L8,11L8,9h2v2zM10,7L8,7L8,5h2v2zM20,19h-8v-2h2v-2h-2v-2h2v-2h-2L12,9h8v10zM18,11h-2v2h2v-2zM18,15h-2v2h2v-2z"/>
+        android:pathData="M7.5,2A2,2 0,0 1,9.5 4A2,2 0,0 1,7.5 6A2,2 0,0 1,5.5 4A2,2 0,0 1,7.5 2M6,7H9A2,2 0,0 1,11 9V14.5H9.5V22H5.5V14.5H4V9A2,2 0,0 1,6 7M16.5,2A2,2 0,0 1,18.5 4A2,2 0,0 1,16.5 6A2,2 0,0 1,14.5 4A2,2 0,0 1,16.5 2M15,22V16H12L14.59,8.41C14.84,7.59 15.6,7 16.5,7C17.4,7 18.16,7.59 18.41,8.41L21,16H18V22H15Z"/>
 </vector>

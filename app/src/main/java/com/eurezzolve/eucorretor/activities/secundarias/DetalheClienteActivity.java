@@ -8,10 +8,13 @@
 
 package com.eurezzolve.eucorretor.activities.secundarias;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -21,13 +24,20 @@ import android.widget.Toast;
 
 import com.eurezzolve.eucorretor.R;
 import com.eurezzolve.eucorretor.config.ConfiguracaoFirebase;
+import com.eurezzolve.eucorretor.helper.Base64Custom;
+import com.eurezzolve.eucorretor.model.Clientes;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class DetalheClienteActivity extends AppCompatActivity {
 
-    private TextView tvNomeCliente, tvInteresseCliente;
+    private TextView tvNomeCliente, tvInteresseCliente, tvCasadoCliente, tvFilhosCliente, tvCarteiraCliente;
     private Button btnTelefoneCliente;
-    private String nome, telefone, interesse;
+    private CircleImageView imageCliente;
+    private Clientes cliente;
+    private String codigo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,24 +49,37 @@ public class DetalheClienteActivity extends AppCompatActivity {
 
         Bundle dados = getIntent().getExtras();
         if(dados != null){
-            nome = dados.getString("nomeCliente");
-            telefone = dados.getString("telefoneCliente");
-            interesse = dados.getString("interesseCliente");
+            cliente = (Clientes) dados.getSerializable("cliente");
         }
 
         tvNomeCliente = findViewById(R.id.tvNomeClienteEscolhido);
         tvInteresseCliente = findViewById(R.id.tvInteresseCliente);
+        tvCasadoCliente = findViewById(R.id.tvClienteCasado);
+        tvFilhosCliente = findViewById(R.id.tvFilhosCliente);
+        tvCarteiraCliente = findViewById(R.id.tvCarteiraAssinadaCliente);
         btnTelefoneCliente = findViewById(R.id.btnTelefoneCliente);
+        imageCliente = findViewById(R.id.circleImageCliente);
 
         //Seta as informações
-        tvNomeCliente.setText(nome);
-        tvInteresseCliente.setText(interesse);
-        btnTelefoneCliente.setText("Telefone: " + telefone);
+        codigo = cliente.getCodigoCliente();
+
+        if(cliente.getModeloCliente() == 0){
+            imageCliente.setImageResource(R.color.contatoAzul);
+        } else {
+            imageCliente.setImageResource(R.color.contatoVermelho);
+        }
+
+        tvNomeCliente.setText(cliente.getNomeCliente());
+        tvCasadoCliente.setText("Cliente é casado? " + cliente.getCasadoCliente());
+        tvFilhosCliente.setText("Possui filhos menor de idade? " + cliente.getFilhoMenorIdade());
+        tvCarteiraCliente.setText("3(+) anos de carteira assinada? " + cliente.getCarteiraAssinada());
+        tvInteresseCliente.setText(cliente.getInteresseCliente());
+        btnTelefoneCliente.setText("Telefone: " + cliente.getTelefoneCliente());
 
         btnTelefoneCliente.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent callIntent = new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", telefone, null));
+                Intent callIntent = new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", cliente.getTelefoneCliente(), null));
                 startActivity(callIntent);
             }
         });
@@ -73,11 +96,10 @@ public class DetalheClienteActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         switch (id) {
-            case R.id.ic_excluir_contato:
-                Toast.makeText(DetalheClienteActivity.this, "Clicou no Excluir!", Toast.LENGTH_SHORT).show();
-                break;
             case R.id.ic_editar_contato:
-                Toast.makeText(DetalheClienteActivity.this, "Clicou no Editar!", Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(DetalheClienteActivity.this, EditarClienteActivity.class);
+                i.putExtra("info", cliente);
+                startActivity(i);
                 break;
             case android.R.id.home:
                 finish();

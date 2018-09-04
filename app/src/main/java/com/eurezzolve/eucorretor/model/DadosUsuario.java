@@ -13,8 +13,10 @@ import com.eurezzolve.eucorretor.helper.Base64Custom;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 
+import java.io.Serializable;
 
-public class DadosUsuario {
+
+public class DadosUsuario implements Serializable{
     private String telefone;
     private String empresa;
     private String creci;

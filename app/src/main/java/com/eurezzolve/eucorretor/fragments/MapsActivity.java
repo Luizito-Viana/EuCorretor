@@ -49,7 +49,7 @@ public class MapsActivity extends SupportMapFragment
         implements OnMapReadyCallback, GoogleMap.OnMapClickListener, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener {
 
     //Definação das Variaveis
-    private DatabaseReference reference = ConfiguracaoFirebase.getFirebaseDatabase().child("listaEmpreendimentos");
+    private DatabaseReference reference = ConfiguracaoFirebase.getFirebaseDatabase().child("listaEmp");
     private Boolean aBoolean = false;
     private List<Empreendimentos> empreendimentos = new ArrayList<>();
     private Context context;
@@ -132,7 +132,7 @@ public class MapsActivity extends SupportMapFragment
         LatLng solaris = new LatLng(-18.935183, -48.320994);
         criarMarcadoresEmpreendimentos(solaris, "Residencial Solaris", "Venda: R$149.990,00");
         LatLng zenith = new LatLng(-18.8930038, -48.3000398);
-        criarMarcadoresEmpreendimentos(zenith, "Zenith Residence", "Venda: R$142.990");
+        criarMarcadoresEmpreendimentos(zenith, "Zenith Residence", "Venda: R$142.990,00");
         LatLng villaReal = new LatLng(-18.936320, -48.377321);
         criarMarcadoresEmpreendimentos(villaReal, "Residencial Villa Real", "Venda: R$184.990,00");
         LatLng estoril = new LatLng(-18.965689, -48.247368);
@@ -263,9 +263,9 @@ public class MapsActivity extends SupportMapFragment
         LatLng uzTower = new LatLng(-18.924512, -48.289580);
         criarMarcadoresEmpreendimentos(uzTower, "UZ Tower", "Venda: R$384.544,03 a partir");
         LatLng aristides = new LatLng(-18.916850, -48.283689);
-        criarMarcadoresEmpreendimentos(aristides, "Edifício Aristides de Freitas", "Venda: R$180.000,00 a partir");
+        criarMarcadoresEmpreendimentos(aristides, "Edifício Aristides de Freitas", "Venda: R$359.000,00 a partir");
         LatLng bosquedasGameleiras = new LatLng(-18.880146, -48.297098);
-        criarMarcadoresEmpreendimentos(bosquedasGameleiras, "Condomínio Bosque das Gameleiras", "Venda: R$359.000,00 a partir");
+        criarMarcadoresEmpreendimentos(bosquedasGameleiras, "Condomínio Bosque das Gameleiras", "Venda: R$180.000,00 a partir");
 
         //Realiza
         LatLng anita = new LatLng(-18.918045, -48.270920);

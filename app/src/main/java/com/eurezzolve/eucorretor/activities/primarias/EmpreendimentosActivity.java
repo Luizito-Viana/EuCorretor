@@ -53,10 +53,6 @@ import static android.app.PendingIntent.getActivity;
 
 public class EmpreendimentosActivity extends AppCompatActivity {
 
-    private int filtroFaixa = 0;
-    private int filtroConstrutora = 0;
-    private Boolean filtrandoPorFaixa = false;
-
     private Button btnConstrutora, btnFaixa;
     private ProgressBar loadBar;
     private RecyclerView recyclerView;
@@ -86,7 +82,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
 
         loadBar = findViewById(R.id.progressLoadEmp);
         recyclerView = findViewById(R.id.recyclerPostagem);
-        btnConstrutora = findViewById(R.id.btnConstrutora);
+        btnConstrutora = findViewById(R.id.btnContrutora);
         btnFaixa = findViewById(R.id.btnFaixa);
 
         //Configurar o Adapter
@@ -103,7 +99,6 @@ public class EmpreendimentosActivity extends AppCompatActivity {
         //Configurando o searchview
         searchView = findViewById(R.id.materialSearchTabelas);
         searchView.setHint("Buscar Empreendimento");
-        //searchView.setSuggestions(getResources().getStringArray(R.array.emp_suggestions));
 
         //Listener para o searchview
         searchView.setOnSearchViewListener(new MaterialSearchView.SearchViewListener() {
@@ -202,6 +197,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
         adapterEmp = new AdapterEmp(listaEmpreendimentos, tabelasEmpOnClickListener(), descricaoEmpOnClickListener(), 0);
         recyclerView.setAdapter(adapterEmp);
         adapterEmp.notifyDataSetChanged();
+        desativaProgressBar();
     }
 
     public void pesquisarEmpreendimentos(String texto){
@@ -209,9 +205,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
         listaEmpreendimentosBusca = new ArrayList<>();
         for( Empreendimentos emp : listaEmpreendimentos){
             String nomeEmp = emp.getNome().toLowerCase();
-            String constEmp = emp.getConstrutora().toLowerCase();
-            //String vendaEmp = emp.getVenda().toLowerCase();
-            if(nomeEmp.contains(texto) || constEmp.contains(texto)){
+            if(nomeEmp.contains(texto)){
                 listaEmpreendimentosBusca.add(emp);
             }
         }
@@ -229,6 +223,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
         Log.d("Lista", "recuperarEmpreendimentos: " + listaEmpreendimentos.get(0).getNome());
         for(Empreendimentos emp : listaEmpreendimentos){
             emp.salvar();
+            emp.salvarConstrutora();
             switch (emp.getFaixa()) {
                 case "Faixa 1,5":
                     emp.salvarFaixa(1);
@@ -327,7 +322,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 recuperarAnunciosPorFaixa(spinnerFaixas.getSelectedItemPosition());
-                filtrandoPorFaixa = true;
+                //filtrandoPorFaixa = true;
             }
         });
 
@@ -364,8 +359,7 @@ public class EmpreendimentosActivity extends AppCompatActivity {
         dialogEstado.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                recuperarAnunciosPorConstrutora(spinnerConstr.getSelectedItemPosition());
-                filtrandoPorFaixa = true;
+                recuperarAnunciosPorConstrutoras(spinnerConstr.getSelectedItemPosition());
             }
         });
 
@@ -380,15 +374,40 @@ public class EmpreendimentosActivity extends AppCompatActivity {
         dialog.show();
     }
 
-    private void recuperarAnunciosPorConstrutora(int id) {
+    private void recuperarAnunciosPorConstrutoras(int id) {
         String[] construtoras = getResources().getStringArray(R.array.construtorasListaIds);
         String construtoraEscolhida = construtoras[id];
-        Toast.makeText(EmpreendimentosActivity.this, "Escolha: " + construtoraEscolhida, Toast.LENGTH_SHORT).show();
+
         if(listaEmpreendimentosBusca != null){
             listaEmpreendimentosBusca.clear();
         } else {
             listaEmpreendimentosBusca = new ArrayList<>();
         }
+        if(construtoraEscolhida.equals("todos")){
+            recarregarEmpreendimentos();
+        } else {
+            DatabaseReference faixaRef = reference.child("listaEmpPorConst").child(construtoraEscolhida);
+            valueEventListenerEmp = faixaRef.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    for(DataSnapshot ds : dataSnapshot.getChildren()){
+                        Empreendimentos empreendimentos = ds.getValue(Empreendimentos.class);
+                        empreendimentos.setImagem(Integer.parseInt(String.valueOf(empreendimentos.getImagem())));
+                        listaEmpreendimentosBusca.add(empreendimentos);
+                    }
+                    adapterEmp = new AdapterEmp(listaEmpreendimentosBusca, tabelasEmpOnClickListener(), descricaoEmpOnClickListener(),1);
+                    recyclerView.setAdapter(adapterEmp);
+                    adapterEmp.notifyDataSetChanged();
+                    desativaProgressBar();
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            });
+        }
+
     }
 
     private void recuperarAnunciosPorFaixa(int id) {

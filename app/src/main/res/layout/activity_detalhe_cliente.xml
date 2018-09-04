@@ -17,26 +17,25 @@
         android:layout_height="match_parent"
         tools:context="com.eurezzolve.eucorretor.activities.secundarias.DetalheClienteActivity">
 
-        <ImageView
-            android:id="@+id/imageView7"
-            android:layout_width="0dp"
-            android:layout_height="200dp"
-            android:layout_gravity="center"
-            android:background="@color/colorPrimaryDark"
-            android:scaleType="fitCenter"
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/circleImageCliente"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:src="@color/colorPrimary"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_contato_azul"
-            tools:ignore="VectorDrawableCompat" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/tvNomeClienteEscolhido"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="32dp"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
             android:fontFamily="@font/andika"
             android:text="NOME CLIENTE"
             android:textAlignment="center"
@@ -44,32 +43,151 @@
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView7" />
+            app:layout_constraintTop_toBottomOf="@+id/circleImageCliente" />
 
         <View
             android:id="@+id/divisor_1"
             android:layout_width="370dp"
             android:layout_height="1dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/colorAccent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvNomeClienteEscolhido" />
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
+            android:fontFamily="@font/andika"
+            android:text="INFORMAÇÕES DO CLIENTE"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/divisor_1" />
+
+        <ImageView
+            android:id="@+id/imageView7"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/circleImageCliente"
+            app:layout_constraintEnd_toEndOf="@+id/circleImageCliente"
+            app:layout_constraintStart_toStartOf="@+id/circleImageCliente"
+            app:layout_constraintTop_toTopOf="@+id/circleImageCliente"
+            app:srcCompat="@drawable/ic_contato_azul" />
+
+        <ImageView
+            android:id="@+id/imageView11"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="4dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tvClienteCasado"
+            app:srcCompat="@drawable/ic_cliente_casado" />
+
+        <TextView
+            android:id="@+id/tvClienteCasado"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/andika"
+            android:text="@string/cliente_casado_string"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageView11"
+            app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+        <ImageView
+            android:id="@+id/imageView12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="4dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tvFilhosCliente"
+            app:srcCompat="@drawable/ic_cliente_filho_menor" />
+
+        <TextView
+            android:id="@+id/tvFilhosCliente"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/andika"
+            android:text="@string/cliente_tem_filhos_menor_de_idade"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageView12"
+            app:layout_constraintTop_toBottomOf="@+id/tvClienteCasado" />
+
+        <ImageView
+            android:id="@+id/imageView13"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="4dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tvCarteiraAssinadaCliente"
+            app:srcCompat="@drawable/ic_cliente_carteira_assinada" />
+
+        <TextView
+            android:id="@+id/tvCarteiraAssinadaCliente"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/andika"
+            android:text="@string/tres_anos_de_carteira_assinada"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageView13"
+            app:layout_constraintTop_toBottomOf="@+id/tvFilhosCliente" />
+
+        <View
+            android:id="@+id/divisor_2"
+            android:layout_width="370dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="8dp"
             android:background="@color/colorAccent"
-            app:layout_constraintTop_toBottomOf="@+id/tvNomeClienteEscolhido"
+            app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"/>
+            app:layout_constraintTop_toBottomOf="@id/tvCarteiraAssinadaCliente" />
+
+        <TextView
+            android:id="@+id/textView19"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/andika"
+            android:text="INFORMAÇÕES ADICIONAIS"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/divisor_2"
+            tools:layout_editor_absoluteY="339dp" />
 
         <ImageView
             android:id="@+id/imageView8"
-            android:layout_width="36dp"
-            android:layout_height="36dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="4dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/divisor_1"
+            app:layout_constraintTop_toTopOf="@+id/tvInteresseCliente"
             app:srcCompat="@drawable/ic_preferencias"
-            tools:ignore="VectorDrawableCompat"
-            tools:layout_editor_absoluteY="250dp"
-            android:layout_marginLeft="16dp" />
+            tools:ignore="VectorDrawableCompat" />
 
         <TextView
             android:id="@+id/tvInteresseCliente"
@@ -77,15 +195,14 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="8dp"
             android:fontFamily="@font/andika"
             android:text="Interesses"
             android:textAlignment="viewStart"
-            android:textSize="14sp"
+            android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.511"
             app:layout_constraintStart_toEndOf="@+id/imageView8"
-            app:layout_constraintTop_toTopOf="@id/imageView8" />
+            app:layout_constraintTop_toBottomOf="@+id/textView19" />
 
         <Button
             android:id="@+id/btnTelefoneCliente"
@@ -95,14 +212,16 @@
             android:layout_marginBottom="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="128dp"
+            android:layout_marginTop="48dp"
             android:drawableLeft="@drawable/ic_phone_call"
             android:drawablePadding="8dp"
-            android:text="Button"
+            android:text="Telefone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvInteresseCliente" />
+
+
     </android.support.constraint.ConstraintLayout>
 
 

@@ -12,6 +12,8 @@ import com.eurezzolve.eucorretor.config.ConfiguracaoFirebase;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.Exclude;
 
+import java.io.Serializable;
+
 
 public class Usuario {
     private String idUsuario;

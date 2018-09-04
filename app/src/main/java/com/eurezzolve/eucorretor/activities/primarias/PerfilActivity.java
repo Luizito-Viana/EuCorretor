@@ -18,6 +18,7 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
@@ -48,9 +49,11 @@ import com.google.firebase.storage.UploadTask;
 import java.io.ByteArrayOutputStream;
 
 import de.hdodenhof.circleimageview.CircleImageView;
+import dmax.dialog.SpotsDialog;
 
 public class PerfilActivity extends AppCompatActivity {
 
+    private android.app.AlertDialog dialog;
     private TextView alterarFoto;
 
     private CircleImageView imageViewPerfil;
@@ -104,7 +107,7 @@ public class PerfilActivity extends AppCompatActivity {
 
         if(url != null){
             Glide.with(PerfilActivity.this)
-                   .load(url)
+                    .load(url)
                     .into(imageViewPerfil);
         } else {
             imageViewPerfil.setImageResource(R.drawable.circulo_avatar);
@@ -143,9 +146,21 @@ public class PerfilActivity extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 DadosUsuario dadosUsuario = dataSnapshot.getValue(DadosUsuario.class);
-                telefone = dadosUsuario.getTelefone();
-                creci = dadosUsuario.getCreci();
-                empresa = dadosUsuario.getEmpresa();
+                if(dadosUsuario.getTelefone().isEmpty() || dadosUsuario.getTelefone().equals(""))
+                    telefone = "";
+                else
+                    telefone = dadosUsuario.getTelefone();
+
+                if(dadosUsuario.getEmpresa().isEmpty() || dadosUsuario.getEmpresa().equals(""))
+                    empresa = "";
+                else
+                    empresa = dadosUsuario.getEmpresa();
+
+                if(dadosUsuario.getCreci().isEmpty() || dadosUsuario.getCreci().equals(""))
+                    creci = "";
+                else
+                    creci = dadosUsuario.getCreci();
+
                 textTelefone.setText("Telefone: " + telefone);
                 textCreci.setText("Creci: " + creci);
                 textEmpresa.setText("Empresa: " + empresa);
@@ -222,6 +237,14 @@ public class PerfilActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+
+        dialog = new SpotsDialog.Builder()
+                .setContext( this )
+                .setMessage("Alterando Imagem!")
+                .setCancelable( false )
+                .build();
+        dialog.show();
+
         if(resultCode == RESULT_OK){
             Bitmap imagem = null;
             try{
@@ -234,7 +257,7 @@ public class PerfilActivity extends AppCompatActivity {
                 }
 
                 if (imagem != null){
-                    progressBarPerfil.setVisibility(View.VISIBLE);
+                    //progressBarPerfil.setVisibility(View.VISIBLE);
                     imageViewPerfil.setImageBitmap(imagem);
 
                     FirebaseAuth usuario = ConfiguracaoFirebase.getFirebaseAutenticacao();
@@ -265,7 +288,8 @@ public class PerfilActivity extends AppCompatActivity {
                             Toast.makeText(PerfilActivity.this,"Sucesso ao fazer o upload da imagem", Toast.LENGTH_SHORT).show();
                             Uri url = taskSnapshot.getDownloadUrl();
                             atualizaFotoUsuario(url);
-                            progressBarPerfil.setVisibility(View.GONE);
+                            dialog.dismiss();
+                            //progressBarPerfil.setVisibility(View.GONE);
                         }
                     });
                 }
@@ -283,6 +307,10 @@ public class PerfilActivity extends AppCompatActivity {
 
     //Atualiza o perfil
     public void atualizarPerfil(View view){
-        startActivity(new Intent(PerfilActivity.this, AtualizarLoginActivity.class));
+        Intent i = new Intent(PerfilActivity.this, AtualizarLoginActivity.class);
+        i.putExtra("telefone", telefone);
+        i.putExtra("empresa", empresa);
+        i.putExtra("creci", creci);
+        startActivity(i);
     }
 }
